@@ -1,0 +1,496 @@
+{
+  "status": "running",
+  "group": "D_full_clean",
+  "settings": {
+    "rounds": 100,
+    "local_ep": 2,
+    "clients": 20,
+    "corrupt": 4,
+    "poison_frac": 0.3,
+    "topk_ratio": 0.001,
+    "epsilon": 0.001,
+    "reference": "median",
+    "random_seed": 20261112,
+    "snapshot_rounds": [],
+    "train_limit": 0,
+    "test_limit": 0,
+    "native_arguments_except_device": [
+      "--data",
+      "cifar10",
+      "--model",
+      "resnet9",
+      "--attack",
+      "badnet",
+      "--aggr",
+      "avg",
+      "--num_agents",
+      "20",
+      "--num_corrupt",
+      "4",
+      "--agent_frac",
+      "1.0",
+      "--poison_frac",
+      "0.3",
+      "--non_iid",
+      "--beta",
+      "0.5",
+      "--rounds",
+      "100",
+      "--local_ep",
+      "2",
+      "--client_lr",
+      "0.1",
+      "--server_lr",
+      "1.0",
+      "--lr_decay",
+      "0.99",
+      "--bs",
+      "64",
+      "--momentum",
+      "0.0",
+      "--wd",
+      "0.0001",
+      "--target_class",
+      "7",
+      "--pattern_type",
+      "plus",
+      "--snap",
+      "1",
+      "--num_workers",
+      "0"
+    ]
+  },
+  "signature": "0478e6ff3a68b0c7ab937bcdc79736761a55e638c5a19df4fb213dce86a2fe2f",
+  "device": "cuda:1",
+  "started_at": "2026-11-12 12:18:27 +0800",
+  "seed": 0,
+  "source_sha256": {
+    "research_oracle.py": "6a5987ec6c381c1ab13f00732683cef8ddf9defb56562364968dfccbdbbd9167",
+    "run_ramp_oracle_gpu0.sh": "959eb970d74b14262bd87513009d7eecad1dc4c5a6c5e83216104704c2a8deb1",
+    "run_ramp_oracle_gpu1.sh": "a60f22eb730b0480c3c4acf7e781433be17d1592b0221cf96161767719b36315",
+    "RAMP_ORACLE_README.md": "42fc1b3c9306c72abce3f1a7c11d22e427c7e5cacdffa271df9dc0c303ecd652",
+    "research/oracle_core.py": "365ab3ee7bec848104d133fac2c9307dbf863ab17a95d08d311493c54448803b",
+    "research/oracle_report.py": "6725655e5fc60c941afb3bcdb4e865c11ed99c51f809e04e715d3c2d44689515",
+    "src/agent.py": "5ffbb42c5016a5d60bbae0132746957f545984e367a71301dd30922464046813",
+    "src/agent_sparse.py": "eedd70018778ea179c3ff3f7d99833562dfba86b2512b7e0b7edbc03a57bc190",
+    "src/aggregation.py": "633b0213f3b5875ebf7bf420747b3498d0c944dde68a763314d0061fee79c45a",
+    "src/altermin_attack.py": "625291fef99c8388f23dba93ede008f2be522a9411e8b3e33c5c05219112d0e3",
+    "src/dynamic_trigger_attack.py": "695d9b50cd935e36e00b5e51112b193b160c736630fee33c92f05d9d52c24d7d",
+    "src/federated.py": "361ca0e18b16949d35c22c722cd5982e361447012302ee0c99a5793d2b884149",
+    "src/model_replacement_attack.py": "6c26d38694641e76b58ef9f1af6b201d04c23cf83e4355281003c112859d65f6",
+    "src/models.py": "4b354ce8637d16e8a76529ca7124bb2fd141da0fec0fb28dae31ae8505b3919b",
+    "src/resnet.py": "b678a15a1d54df226286993904fa77bc2fd6056ceba217f9de2e73707b293d01",
+    "src/utils.py": "ef5adcc6cf8587ce8ee1a6f1b52f8d44a560ce544183c6f4d8b83bc79ca78274",
+    "src/vgg.py": "d7f845bad41972965e4b62fcaaf04eb3df7800c8be51ec0360c1c53eab5dd61a"
+  },
+  "native_argv": [
+    "--data",
+    "cifar10",
+    "--model",
+    "resnet9",
+    "--attack",
+    "badnet",
+    "--aggr",
+    "avg",
+    "--num_agents",
+    "20",
+    "--num_corrupt",
+    "4",
+    "--agent_frac",
+    "1.0",
+    "--poison_frac",
+    "0.3",
+    "--non_iid",
+    "--beta",
+    "0.5",
+    "--rounds",
+    "100",
+    "--local_ep",
+    "2",
+    "--client_lr",
+    "0.1",
+    "--server_lr",
+    "1.0",
+    "--lr_decay",
+    "0.99",
+    "--bs",
+    "64",
+    "--momentum",
+    "0.0",
+    "--wd",
+    "0.0001",
+    "--target_class",
+    "7",
+    "--pattern_type",
+    "plus",
+    "--snap",
+    "1",
+    "--num_workers",
+    "0",
+    "--device",
+    "cuda:1"
+  ],
+  "formula": "abs(delta)/(abs(reference)+epsilon)",
+  "aggregation": "native data-size weighted FedAvg; all participating clients; no filtering",
+  "oracle": "true malicious IDs select repair targets; paired clean updates provide replacement values",
+  "random_control": "one independent layer/size-matched draw per client per round, outside raw Top-K",
+  "clean_target_baseline": "separate non-target clean pass with ASR-matched ordering/batches; RNG preserved",
+  "poison_fraction_semantics": "fraction of non-target-class eligible local examples",
+  "snapshot_rounds": [
+    100
+  ],
+  "observed_rounds": 36,
+  "training": {
+    "data": "cifar10",
+    "num_agents": 20,
+    "agent_frac": 1.0,
+    "num_corrupt": 4,
+    "rounds": 100,
+    "local_ep": 2,
+    "bs": 64,
+    "client_lr": 0.1,
+    "server_lr": 1.0,
+    "target_class": 7,
+    "poison_frac": 0.3,
+    "pattern_type": "plus",
+    "theta": 8,
+    "theta_ld": 10,
+    "snap": 1,
+    "device": "cuda:1",
+    "num_workers": 0,
+    "dense_ratio": 0.25,
+    "anneal_factor": 0.0001,
+    "se_threshold": 0.0001,
+    "non_iid": true,
+    "debug": false,
+    "beta": 0.5,
+    "attack": "badnet",
+    "aggr": "avg",
+    "lr_decay": 0.99,
+    "momentum": 0.0,
+    "mask_init": "ERK",
+    "wd": 0.0001,
+    "same_mask": 1,
+    "cease_poison": 100000,
+    "exp_name_extra": "",
+    "super_power": false,
+    "clean": false,
+    "sparsity": 0.3,
+    "lambda_s": 1.0,
+    "lambda_c": 1.0,
+    "dis_check_gradient": false,
+    "trigger_size": 5,
+    "trigger_lr": 0.1,
+    "trigger_outter_epochs": 50,
+    "trigger_optim_interval": 5,
+    "dm_adv_epochs": 2,
+    "dm_adv_K": 10,
+    "dm_adv_model_count": 3,
+    "noise_loss_lambda": 0.1,
+    "altermin_attack_mode": "targeted",
+    "altermin_source_label": 3,
+    "altermin_target_label": null,
+    "altermin_poisoned_cnt": 100,
+    "altermin_boosting_factor": 1.5,
+    "altermin_rho": 0.0001,
+    "altermin_benign_epochs": null,
+    "altermin_malicious_epochs": 1,
+    "model_replacement_scaling_factor": 50,
+    "model_replacement_alpha": 0.5,
+    "model_replacement_target_label": null,
+    "model_replacement_constrain_weight": 0.02,
+    "ag_topk": 0.001,
+    "ag_l2_lower": 25,
+    "ag_l2_upper": 75,
+    "ag_gref_strategy": "median",
+    "model": "resnet9",
+    "num_target": 10
+  },
+  "torch_version": "2.6.0+cu124",
+  "numpy_version": "2.4.4",
+  "gpu_name": "NVIDIA GeForce RTX 3090",
+  "partition_sha256": "4b041ff0cc898b7fa141a57be75d9ca5077ca3fad39b34cd1f15431afbe84ce5",
+  "poison_plan_sha256": "d9114a7c51f80e81899852c27264562edfa498b3f146bd24826930545c8dd283",
+  "parameter_layout": [
+    {
+      "name": "conv1.0.weight",
+      "numel": 1728,
+      "start": 0,
+      "full_start": 0,
+      "shape": [
+        64,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "conv1.1.weight",
+      "numel": 64,
+      "start": 1728,
+      "full_start": 1728,
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "conv1.1.bias",
+      "numel": 64,
+      "start": 1792,
+      "full_start": 1792,
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "conv2.0.weight",
+      "numel": 73728,
+      "start": 1856,
+      "full_start": 1856,
+      "shape": [
+        128,
+        64,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "conv2.1.weight",
+      "numel": 128,
+      "start": 75584,
+      "full_start": 75584,
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "conv2.1.bias",
+      "numel": 128,
+      "start": 75712,
+      "full_start": 75712,
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "res1.0.0.weight",
+      "numel": 147456,
+      "start": 75840,
+      "full_start": 75840,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "res1.0.1.weight",
+      "numel": 128,
+      "start": 223296,
+      "full_start": 223296,
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "res1.0.1.bias",
+      "numel": 128,
+      "start": 223424,
+      "full_start": 223424,
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "res1.1.0.weight",
+      "numel": 147456,
+      "start": 223552,
+      "full_start": 223552,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "res1.1.1.weight",
+      "numel": 128,
+      "start": 371008,
+      "full_start": 371008,
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "res1.1.1.bias",
+      "numel": 128,
+      "start": 371136,
+      "full_start": 371136,
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "conv3.0.weight",
+      "numel": 294912,
+      "start": 371264,
+      "full_start": 371264,
+      "shape": [
+        256,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "conv3.1.weight",
+      "numel": 256,
+      "start": 666176,
+      "full_start": 666176,
+      "shape": [
+        256
+      ]
+    },
+    {
+      "name": "conv3.1.bias",
+      "numel": 256,
+      "start": 666432,
+      "full_start": 666432,
+      "shape": [
+        256
+      ]
+    },
+    {
+      "name": "conv4.0.weight",
+      "numel": 1179648,
+      "start": 666688,
+      "full_start": 666688,
+      "shape": [
+        512,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "conv4.1.weight",
+      "numel": 512,
+      "start": 1846336,
+      "full_start": 1846336,
+      "shape": [
+        512
+      ]
+    },
+    {
+      "name": "conv4.1.bias",
+      "numel": 512,
+      "start": 1846848,
+      "full_start": 1846848,
+      "shape": [
+        512
+      ]
+    },
+    {
+      "name": "res2.0.0.weight",
+      "numel": 2359296,
+      "start": 1847360,
+      "full_start": 1847360,
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "res2.0.1.weight",
+      "numel": 512,
+      "start": 4206656,
+      "full_start": 4206656,
+      "shape": [
+        512
+      ]
+    },
+    {
+      "name": "res2.0.1.bias",
+      "numel": 512,
+      "start": 4207168,
+      "full_start": 4207168,
+      "shape": [
+        512
+      ]
+    },
+    {
+      "name": "res2.1.0.weight",
+      "numel": 2359296,
+      "start": 4207680,
+      "full_start": 4207680,
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "res2.1.1.weight",
+      "numel": 512,
+      "start": 6566976,
+      "full_start": 6566976,
+      "shape": [
+        512
+      ]
+    },
+    {
+      "name": "res2.1.1.bias",
+      "numel": 512,
+      "start": 6567488,
+      "full_start": 6567488,
+      "shape": [
+        512
+      ]
+    },
+    {
+      "name": "classifier.2.weight",
+      "numel": 5120,
+      "start": 6568000,
+      "full_start": 6568000,
+      "shape": [
+        10,
+        512
+      ]
+    }
+  ],
+  "parameter_count": 6573120,
+  "initial_model_sha256": "d4c029effb10d03758c38cce4b9df63a12ff219cf67f7587a0f392d8f520b5bf",
+  "first_round_attack_sha256": {
+    "0": "333d28b81f20dcbbb2a7a34f3ae7b391506152ca6aa68d0e34be1e564b3aaca5",
+    "1": "864165a58e2602f7ea04ca892b263e1b9936ec176bac83e197f9a7fb9a9ccb71",
+    "2": "71efc883edd4ba523952793fcf25daaa8960078d1c57755b18554efefc136159",
+    "3": "f864d7ad5b8a0ab1835d318761ae88913db4bebffe92aa8a664bdef09909e956",
+    "4": "467a7dd649c10212381ccbb2c0ef4cb80a1b61778db2cd82214b9366271a6e74",
+    "5": "99f623fa2692f816c4d4fd84ba41523bb2698cb64c386b91f2f6884f692db125",
+    "6": "d09f20783e1f00b4aa89736bf67bf63fe346a1c1ee8142dbe4b34031410ece64",
+    "7": "f345cb70fad1f2fbdb72164d30d3292e4761357d50ceb45bde150af56ed7cf01",
+    "8": "a3d37103d125f3e4ee56a41198a6c86d7f72e3eb671e4403fdb9d76dcfc7de25",
+    "9": "e85a06cb6ffb2ab7f3741861f99d1902d91bc31e5a1d29051ce0cf2bb255c1d9",
+    "10": "1accb6e67528ef2161f1c18989b0a4fb6944ab9fdbdce43f0499e8fda8c6492b",
+    "11": "963a9f0a9921f65ae095cf0cc4381365e8f158fbbdfa767621bc436d862af494",
+    "12": "78bde366e082591e03b0461df4bf683731164062be2805f8584cb2725b92389d",
+    "13": "22b94af39d6bdaf5e570862a4dda832a9536b65be0d47790e031eda780263818",
+    "14": "677760823c093da12feab907f767abc97c76664346443ea25a5ff5b810f6eea1",
+    "15": "5f7dbcff2671ed6e0835fafb9191984d9582f0a5025f4882037c80bccaa21bc7",
+    "16": "1903ed9dce57c2e95e90e108efa8249744c0becdafa424cd085caf830e290943",
+    "17": "ee35b432e636167ac6631faba296088161b9e5dfce74dcb7099595a56ca82215",
+    "18": "820cd114ae4c9095541aa69c64bcd118614bba31ad7d5c2fec8fe05ed36f757f",
+    "19": "f78468ea813b021c6f7c853d407edff0988c3e6cff0b9b991ed619b2bea78032"
+  },
+  "first_round_clean_sha256": {
+    "0": "44788c1d93513451d1a87734fcf44e3c63004ad750a432203fe9a063fc2d6639",
+    "1": "0ff9dee74587c814af108199840e707166e01f5ebca0129dbd71492c4891fe0c",
+    "2": "26535ed3d494af06aa73afeedbce24c3fc05d7e838cc7187d87e607d48e9eb2a",
+    "3": "72db47aea2ee07f766e47382a15499b8d0ed36ed067a12d09fa12b0778bf7762"
+  }
+}

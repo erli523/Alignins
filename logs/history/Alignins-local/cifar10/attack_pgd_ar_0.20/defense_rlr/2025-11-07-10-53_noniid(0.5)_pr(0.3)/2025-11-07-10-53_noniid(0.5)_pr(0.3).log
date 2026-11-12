@@ -1,0 +1,924 @@
+2025-11-07 10:53:50,611 [MainThread  ] [INFO ]  Namespace(data='cifar10', num_agents=20, agent_frac=1.0, num_corrupt=4, rounds=200, local_ep=2, bs=64, client_lr=0.1, server_lr=1, target_class=7, poison_frac=0.3, pattern_type='plus', theta=8, theta_ld=10, snap=1, device='cuda:0', num_workers=0, dense_ratio=0.25, anneal_factor=0.0001, se_threshold=0.0001, non_iid=True, debug=False, beta=0.5, attack='pgd', aggr='rlr', lr_decay=0.99, momentum=0.0, mask_init='ERK', wd=0.0001, same_mask=1, cease_poison=100000, exp_name_extra='', super_power=False, clean=False, sparsity=0.3, lambda_s=1.0, lambda_c=1.0, dis_check_gradient=False, trigger_size=5, trigger_lr=0.1, trigger_outter_epochs=50, trigger_optim_interval=5, dm_adv_epochs=2, dm_adv_K=10, dm_adv_model_count=3, noise_loss_lambda=0.1, altermin_attack_mode='targeted', altermin_source_label=3, altermin_target_label=None, altermin_poisoned_cnt=100, altermin_boosting_factor=1.5, altermin_rho=0.0001, altermin_benign_epochs=None, altermin_malicious_epochs=1, model_replacement_scaling_factor=50, model_replacement_alpha=0.5, model_replacement_target_label=None, model_replacement_constrain_weight=0.02, num_target=10, exp_name='noniid(0.5)_pr(0.3)')
+2025-11-07 10:53:51,506 [MainThread  ] [INFO ]  (50000, 10)
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:0, distribution: [530, 489, 27, 69, 104, 75, 217, 22, 1204, 0]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:1, distribution: [9, 54, 19, 13, 126, 1202, 302, 1, 417, 688]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:2, distribution: [5, 1, 235, 55, 0, 573, 811, 1132, 0, 0]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:3, distribution: [220, 166, 68, 34, 19, 824, 35, 602, 0, 235]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:4, distribution: [281, 132, 55, 45, 146, 178, 48, 230, 440, 2209]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:5, distribution: [702, 349, 345, 255, 541, 27, 739, 0, 0, 0]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:6, distribution: [6, 125, 1096, 10, 47, 24, 10, 148, 20, 68]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:7, distribution: [401, 9, 51, 382, 376, 254, 115, 2, 739, 478]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:8, distribution: [628, 391, 19, 14, 970, 35, 443, 0, 0, 0]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:9, distribution: [1, 82, 38, 28, 1040, 220, 997, 31, 93, 0]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:10, distribution: [647, 839, 259, 278, 36, 275, 20, 192, 0, 0]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:11, distribution: [287, 822, 807, 41, 24, 182, 88, 27, 85, 30]
+2025-11-07 10:53:51,620 [MainThread  ] [INFO ]  client:12, distribution: [257, 337, 209, 0, 167, 0, 40, 1704, 0, 0]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:13, distribution: [274, 30, 43, 1144, 642, 169, 198, 0, 0, 0]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:14, distribution: [501, 50, 165, 204, 0, 7, 0, 168, 186, 802]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:15, distribution: [151, 224, 203, 1090, 85, 8, 150, 14, 684, 0]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:16, distribution: [30, 353, 320, 281, 160, 48, 71, 12, 217, 74]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:17, distribution: [2, 453, 696, 277, 17, 887, 692, 0, 0, 0]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:18, distribution: [33, 93, 179, 365, 444, 0, 21, 672, 201, 15]
+2025-11-07 10:53:51,621 [MainThread  ] [INFO ]  client:19, distribution: [35, 1, 166, 415, 56, 12, 3, 43, 714, 401]
+2025-11-07 10:53:52,794 [MainThread  ] [INFO ]  build client:0 mal:1 data_num:2737
+2025-11-07 10:53:52,897 [MainThread  ] [INFO ]  build client:1 mal:1 data_num:2831
+2025-11-07 10:53:52,987 [MainThread  ] [INFO ]  build client:2 mal:1 data_num:2812
+2025-11-07 10:53:53,079 [MainThread  ] [INFO ]  build client:3 mal:1 data_num:2203
+2025-11-07 10:53:53,088 [MainThread  ] [INFO ]  build client:4 mal:0 data_num:3764
+2025-11-07 10:53:53,095 [MainThread  ] [INFO ]  build client:5 mal:0 data_num:2958
+2025-11-07 10:53:53,098 [MainThread  ] [INFO ]  build client:6 mal:0 data_num:1554
+2025-11-07 10:53:53,105 [MainThread  ] [INFO ]  build client:7 mal:0 data_num:2807
+2025-11-07 10:53:53,110 [MainThread  ] [INFO ]  build client:8 mal:0 data_num:2500
+2025-11-07 10:53:53,116 [MainThread  ] [INFO ]  build client:9 mal:0 data_num:2530
+2025-11-07 10:53:53,122 [MainThread  ] [INFO ]  build client:10 mal:0 data_num:2546
+2025-11-07 10:53:53,127 [MainThread  ] [INFO ]  build client:11 mal:0 data_num:2393
+2025-11-07 10:53:53,133 [MainThread  ] [INFO ]  build client:12 mal:0 data_num:2714
+2025-11-07 10:53:53,139 [MainThread  ] [INFO ]  build client:13 mal:0 data_num:2500
+2025-11-07 10:53:53,144 [MainThread  ] [INFO ]  build client:14 mal:0 data_num:2083
+2025-11-07 10:53:53,150 [MainThread  ] [INFO ]  build client:15 mal:0 data_num:2609
+2025-11-07 10:53:53,153 [MainThread  ] [INFO ]  build client:16 mal:0 data_num:1566
+2025-11-07 10:53:53,160 [MainThread  ] [INFO ]  build client:17 mal:0 data_num:3024
+2025-11-07 10:53:53,164 [MainThread  ] [INFO ]  build client:18 mal:0 data_num:2023
+2025-11-07 10:53:53,168 [MainThread  ] [INFO ]  build client:19 mal:0 data_num:1846
+2025-11-07 10:53:53,168 [MainThread  ] [INFO ]  --------round 1 ------------
+2025-11-07 10:53:53,174 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 10:54:52,098 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 10:54:52,817 [MainThread  ] [INFO ]  ---------Test 1 ------------
+2025-11-07 10:55:13,016 [MainThread  ] [INFO ]  Clean ACC:              0.1000
+2025-11-07 10:55:13,016 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-07 10:55:13,016 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-07 10:55:13,016 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 10:55:13,017 [MainThread  ] [INFO ]  --------round 2 ------------
+2025-11-07 10:55:13,028 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 10:56:26,785 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 10:56:27,367 [MainThread  ] [INFO ]  ---------Test 2 ------------
+2025-11-07 10:56:42,386 [MainThread  ] [INFO ]  Clean ACC:              0.1262
+2025-11-07 10:56:42,386 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-07 10:56:42,386 [MainThread  ] [INFO ]  Backdoor ACC:           0.1388
+2025-11-07 10:56:42,386 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 10:56:42,386 [MainThread  ] [INFO ]  --------round 3 ------------
+2025-11-07 10:56:42,391 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 10:57:46,426 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 10:57:47,016 [MainThread  ] [INFO ]  ---------Test 3 ------------
+2025-11-07 10:58:02,163 [MainThread  ] [INFO ]  Clean ACC:              0.1561
+2025-11-07 10:58:02,163 [MainThread  ] [INFO ]  Attack Success Ratio:   0.1449
+2025-11-07 10:58:02,163 [MainThread  ] [INFO ]  Backdoor ACC:           0.1487
+2025-11-07 10:58:02,163 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 10:58:02,163 [MainThread  ] [INFO ]  --------round 4 ------------
+2025-11-07 10:58:02,169 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 10:59:21,244 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 10:59:22,143 [MainThread  ] [INFO ]  ---------Test 4 ------------
+2025-11-07 10:59:37,062 [MainThread  ] [INFO ]  Clean ACC:              0.2406
+2025-11-07 10:59:37,062 [MainThread  ] [INFO ]  Attack Success Ratio:   0.1886
+2025-11-07 10:59:37,062 [MainThread  ] [INFO ]  Backdoor ACC:           0.2152
+2025-11-07 10:59:37,063 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 10:59:37,063 [MainThread  ] [INFO ]  --------round 5 ------------
+2025-11-07 10:59:37,069 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:00:34,830 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:00:35,517 [MainThread  ] [INFO ]  ---------Test 5 ------------
+2025-11-07 11:00:51,836 [MainThread  ] [INFO ]  Clean ACC:              0.2826
+2025-11-07 11:00:51,836 [MainThread  ] [INFO ]  Attack Success Ratio:   0.2070
+2025-11-07 11:00:51,836 [MainThread  ] [INFO ]  Backdoor ACC:           0.2513
+2025-11-07 11:00:51,836 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:00:51,836 [MainThread  ] [INFO ]  --------round 6 ------------
+2025-11-07 11:00:51,843 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:01:49,796 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:01:50,492 [MainThread  ] [INFO ]  ---------Test 6 ------------
+2025-11-07 11:02:06,919 [MainThread  ] [INFO ]  Clean ACC:              0.2977
+2025-11-07 11:02:06,919 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0381
+2025-11-07 11:02:06,919 [MainThread  ] [INFO ]  Backdoor ACC:           0.3053
+2025-11-07 11:02:06,919 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:02:06,919 [MainThread  ] [INFO ]  --------round 7 ------------
+2025-11-07 11:02:06,925 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:03:13,643 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:03:15,276 [MainThread  ] [INFO ]  ---------Test 7 ------------
+2025-11-07 11:03:38,766 [MainThread  ] [INFO ]  Clean ACC:              0.2987
+2025-11-07 11:03:38,767 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0298
+2025-11-07 11:03:38,768 [MainThread  ] [INFO ]  Backdoor ACC:           0.3081
+2025-11-07 11:03:38,768 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:03:38,768 [MainThread  ] [INFO ]  --------round 8 ------------
+2025-11-07 11:03:38,790 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:04:58,372 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:04:59,082 [MainThread  ] [INFO ]  ---------Test 8 ------------
+2025-11-07 11:05:16,111 [MainThread  ] [INFO ]  Clean ACC:              0.3122
+2025-11-07 11:05:16,111 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0101
+2025-11-07 11:05:16,111 [MainThread  ] [INFO ]  Backdoor ACC:           0.3318
+2025-11-07 11:05:16,111 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:05:16,111 [MainThread  ] [INFO ]  --------round 9 ------------
+2025-11-07 11:05:16,118 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:06:09,759 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:06:10,420 [MainThread  ] [INFO ]  ---------Test 9 ------------
+2025-11-07 11:06:27,290 [MainThread  ] [INFO ]  Clean ACC:              0.3309
+2025-11-07 11:06:27,290 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0154
+2025-11-07 11:06:27,290 [MainThread  ] [INFO ]  Backdoor ACC:           0.3486
+2025-11-07 11:06:27,290 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:06:27,290 [MainThread  ] [INFO ]  --------round 10 ------------
+2025-11-07 11:06:27,296 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:07:32,029 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:07:33,415 [MainThread  ] [INFO ]  ---------Test 10 ------------
+2025-11-07 11:07:55,747 [MainThread  ] [INFO ]  Clean ACC:              0.3365
+2025-11-07 11:07:55,750 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0128
+2025-11-07 11:07:55,750 [MainThread  ] [INFO ]  Backdoor ACC:           0.3533
+2025-11-07 11:07:55,750 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:07:55,750 [MainThread  ] [INFO ]  --------round 11 ------------
+2025-11-07 11:07:55,772 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:09:32,034 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:09:32,911 [MainThread  ] [INFO ]  ---------Test 11 ------------
+2025-11-07 11:09:54,375 [MainThread  ] [INFO ]  Clean ACC:              0.3493
+2025-11-07 11:09:54,375 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0093
+2025-11-07 11:09:54,375 [MainThread  ] [INFO ]  Backdoor ACC:           0.3689
+2025-11-07 11:09:54,375 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:09:54,375 [MainThread  ] [INFO ]  --------round 12 ------------
+2025-11-07 11:09:54,381 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:11:35,197 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:11:36,040 [MainThread  ] [INFO ]  ---------Test 12 ------------
+2025-11-07 11:11:58,510 [MainThread  ] [INFO ]  Clean ACC:              0.3676
+2025-11-07 11:11:58,511 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0068
+2025-11-07 11:11:58,511 [MainThread  ] [INFO ]  Backdoor ACC:           0.3892
+2025-11-07 11:11:58,511 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:11:58,511 [MainThread  ] [INFO ]  --------round 13 ------------
+2025-11-07 11:11:58,516 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:13:33,787 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:13:34,626 [MainThread  ] [INFO ]  ---------Test 13 ------------
+2025-11-07 11:13:57,964 [MainThread  ] [INFO ]  Clean ACC:              0.3706
+2025-11-07 11:13:57,964 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0044
+2025-11-07 11:13:57,964 [MainThread  ] [INFO ]  Backdoor ACC:           0.3947
+2025-11-07 11:13:57,964 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:13:57,964 [MainThread  ] [INFO ]  --------round 14 ------------
+2025-11-07 11:13:57,970 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:15:32,300 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:15:33,460 [MainThread  ] [INFO ]  ---------Test 14 ------------
+2025-11-07 11:15:59,002 [MainThread  ] [INFO ]  Clean ACC:              0.3753
+2025-11-07 11:15:59,002 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0042
+2025-11-07 11:15:59,002 [MainThread  ] [INFO ]  Backdoor ACC:           0.3977
+2025-11-07 11:15:59,002 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:15:59,002 [MainThread  ] [INFO ]  --------round 15 ------------
+2025-11-07 11:15:59,010 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:17:31,397 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:17:32,290 [MainThread  ] [INFO ]  ---------Test 15 ------------
+2025-11-07 11:17:57,078 [MainThread  ] [INFO ]  Clean ACC:              0.3970
+2025-11-07 11:17:57,078 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0096
+2025-11-07 11:17:57,078 [MainThread  ] [INFO ]  Backdoor ACC:           0.4087
+2025-11-07 11:17:57,079 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:17:57,079 [MainThread  ] [INFO ]  --------round 16 ------------
+2025-11-07 11:17:57,085 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:19:36,720 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:19:37,614 [MainThread  ] [INFO ]  ---------Test 16 ------------
+2025-11-07 11:20:02,467 [MainThread  ] [INFO ]  Clean ACC:              0.4010
+2025-11-07 11:20:02,467 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0079
+2025-11-07 11:20:02,467 [MainThread  ] [INFO ]  Backdoor ACC:           0.4127
+2025-11-07 11:20:02,467 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:20:02,467 [MainThread  ] [INFO ]  --------round 17 ------------
+2025-11-07 11:20:02,482 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:21:33,851 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:21:35,509 [MainThread  ] [INFO ]  ---------Test 17 ------------
+2025-11-07 11:21:59,408 [MainThread  ] [INFO ]  Clean ACC:              0.4093
+2025-11-07 11:21:59,408 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0153
+2025-11-07 11:21:59,408 [MainThread  ] [INFO ]  Backdoor ACC:           0.4128
+2025-11-07 11:21:59,408 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:21:59,408 [MainThread  ] [INFO ]  --------round 18 ------------
+2025-11-07 11:21:59,414 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:23:30,802 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:23:31,673 [MainThread  ] [INFO ]  ---------Test 18 ------------
+2025-11-07 11:23:55,529 [MainThread  ] [INFO ]  Clean ACC:              0.4252
+2025-11-07 11:23:55,529 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0221
+2025-11-07 11:23:55,529 [MainThread  ] [INFO ]  Backdoor ACC:           0.4240
+2025-11-07 11:23:55,529 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:23:55,529 [MainThread  ] [INFO ]  --------round 19 ------------
+2025-11-07 11:23:55,535 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:25:24,286 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:25:25,167 [MainThread  ] [INFO ]  ---------Test 19 ------------
+2025-11-07 11:25:49,366 [MainThread  ] [INFO ]  Clean ACC:              0.4355
+2025-11-07 11:25:49,366 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0222
+2025-11-07 11:25:49,366 [MainThread  ] [INFO ]  Backdoor ACC:           0.4313
+2025-11-07 11:25:49,366 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:25:49,366 [MainThread  ] [INFO ]  --------round 20 ------------
+2025-11-07 11:25:49,372 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:27:23,385 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:27:24,232 [MainThread  ] [INFO ]  ---------Test 20 ------------
+2025-11-07 11:27:48,149 [MainThread  ] [INFO ]  Clean ACC:              0.4391
+2025-11-07 11:27:48,149 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0262
+2025-11-07 11:27:48,149 [MainThread  ] [INFO ]  Backdoor ACC:           0.4337
+2025-11-07 11:27:48,149 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:27:48,149 [MainThread  ] [INFO ]  --------round 21 ------------
+2025-11-07 11:27:48,156 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:29:16,738 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:29:17,543 [MainThread  ] [INFO ]  ---------Test 21 ------------
+2025-11-07 11:29:43,362 [MainThread  ] [INFO ]  Clean ACC:              0.4460
+2025-11-07 11:29:43,364 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0372
+2025-11-07 11:29:43,365 [MainThread  ] [INFO ]  Backdoor ACC:           0.4371
+2025-11-07 11:29:43,366 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:29:43,366 [MainThread  ] [INFO ]  --------round 22 ------------
+2025-11-07 11:29:43,385 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:31:15,035 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:31:15,860 [MainThread  ] [INFO ]  ---------Test 22 ------------
+2025-11-07 11:31:38,329 [MainThread  ] [INFO ]  Clean ACC:              0.4546
+2025-11-07 11:31:38,329 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0354
+2025-11-07 11:31:38,329 [MainThread  ] [INFO ]  Backdoor ACC:           0.4377
+2025-11-07 11:31:38,329 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:31:38,329 [MainThread  ] [INFO ]  --------round 23 ------------
+2025-11-07 11:31:38,335 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:33:14,532 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:33:16,047 [MainThread  ] [INFO ]  ---------Test 23 ------------
+2025-11-07 11:33:41,278 [MainThread  ] [INFO ]  Clean ACC:              0.4601
+2025-11-07 11:33:41,278 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0446
+2025-11-07 11:33:41,279 [MainThread  ] [INFO ]  Backdoor ACC:           0.4411
+2025-11-07 11:33:41,279 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:33:41,279 [MainThread  ] [INFO ]  --------round 24 ------------
+2025-11-07 11:33:41,289 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:35:17,878 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:35:18,716 [MainThread  ] [INFO ]  ---------Test 24 ------------
+2025-11-07 11:35:40,682 [MainThread  ] [INFO ]  Clean ACC:              0.4679
+2025-11-07 11:35:40,682 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0462
+2025-11-07 11:35:40,682 [MainThread  ] [INFO ]  Backdoor ACC:           0.4451
+2025-11-07 11:35:40,682 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:35:40,682 [MainThread  ] [INFO ]  --------round 25 ------------
+2025-11-07 11:35:40,688 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:37:16,944 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:37:17,780 [MainThread  ] [INFO ]  ---------Test 25 ------------
+2025-11-07 11:37:39,499 [MainThread  ] [INFO ]  Clean ACC:              0.4687
+2025-11-07 11:37:39,500 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0328
+2025-11-07 11:37:39,500 [MainThread  ] [INFO ]  Backdoor ACC:           0.4523
+2025-11-07 11:37:39,500 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:37:39,500 [MainThread  ] [INFO ]  --------round 26 ------------
+2025-11-07 11:37:39,506 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:39:18,252 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:39:19,518 [MainThread  ] [INFO ]  ---------Test 26 ------------
+2025-11-07 11:39:42,301 [MainThread  ] [INFO ]  Clean ACC:              0.4802
+2025-11-07 11:39:42,302 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0501
+2025-11-07 11:39:42,302 [MainThread  ] [INFO ]  Backdoor ACC:           0.4507
+2025-11-07 11:39:42,302 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:39:42,302 [MainThread  ] [INFO ]  --------round 27 ------------
+2025-11-07 11:39:42,307 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:41:16,698 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:41:17,542 [MainThread  ] [INFO ]  ---------Test 27 ------------
+2025-11-07 11:41:38,173 [MainThread  ] [INFO ]  Clean ACC:              0.4833
+2025-11-07 11:41:38,174 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0463
+2025-11-07 11:41:38,174 [MainThread  ] [INFO ]  Backdoor ACC:           0.4534
+2025-11-07 11:41:38,174 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:41:38,174 [MainThread  ] [INFO ]  --------round 28 ------------
+2025-11-07 11:41:38,180 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:43:15,560 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:43:16,480 [MainThread  ] [INFO ]  ---------Test 28 ------------
+2025-11-07 11:43:39,520 [MainThread  ] [INFO ]  Clean ACC:              0.4893
+2025-11-07 11:43:39,520 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0439
+2025-11-07 11:43:39,520 [MainThread  ] [INFO ]  Backdoor ACC:           0.4613
+2025-11-07 11:43:39,521 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:43:39,521 [MainThread  ] [INFO ]  --------round 29 ------------
+2025-11-07 11:43:39,527 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:45:12,783 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:45:13,877 [MainThread  ] [INFO ]  ---------Test 29 ------------
+2025-11-07 11:45:40,368 [MainThread  ] [INFO ]  Clean ACC:              0.4936
+2025-11-07 11:45:40,368 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0384
+2025-11-07 11:45:40,368 [MainThread  ] [INFO ]  Backdoor ACC:           0.4643
+2025-11-07 11:45:40,368 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:45:40,368 [MainThread  ] [INFO ]  --------round 30 ------------
+2025-11-07 11:45:40,374 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:47:10,874 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:47:11,789 [MainThread  ] [INFO ]  ---------Test 30 ------------
+2025-11-07 11:47:38,630 [MainThread  ] [INFO ]  Clean ACC:              0.5040
+2025-11-07 11:47:38,630 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0492
+2025-11-07 11:47:38,630 [MainThread  ] [INFO ]  Backdoor ACC:           0.4662
+2025-11-07 11:47:38,630 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:47:38,630 [MainThread  ] [INFO ]  --------round 31 ------------
+2025-11-07 11:47:38,636 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:49:15,332 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:49:16,245 [MainThread  ] [INFO ]  ---------Test 31 ------------
+2025-11-07 11:49:42,635 [MainThread  ] [INFO ]  Clean ACC:              0.5025
+2025-11-07 11:49:42,635 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0482
+2025-11-07 11:49:42,635 [MainThread  ] [INFO ]  Backdoor ACC:           0.4652
+2025-11-07 11:49:42,635 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:49:42,635 [MainThread  ] [INFO ]  --------round 32 ------------
+2025-11-07 11:49:42,641 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:51:12,735 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:51:13,640 [MainThread  ] [INFO ]  ---------Test 32 ------------
+2025-11-07 11:51:42,690 [MainThread  ] [INFO ]  Clean ACC:              0.5067
+2025-11-07 11:51:42,690 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0579
+2025-11-07 11:51:42,691 [MainThread  ] [INFO ]  Backdoor ACC:           0.4661
+2025-11-07 11:51:42,691 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:51:42,691 [MainThread  ] [INFO ]  --------round 33 ------------
+2025-11-07 11:51:42,697 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:53:11,396 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:53:12,296 [MainThread  ] [INFO ]  ---------Test 33 ------------
+2025-11-07 11:53:37,935 [MainThread  ] [INFO ]  Clean ACC:              0.5083
+2025-11-07 11:53:37,935 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0513
+2025-11-07 11:53:37,935 [MainThread  ] [INFO ]  Backdoor ACC:           0.4682
+2025-11-07 11:53:37,935 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:53:37,935 [MainThread  ] [INFO ]  --------round 34 ------------
+2025-11-07 11:53:37,941 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:55:12,310 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:55:13,196 [MainThread  ] [INFO ]  ---------Test 34 ------------
+2025-11-07 11:55:38,526 [MainThread  ] [INFO ]  Clean ACC:              0.5091
+2025-11-07 11:55:38,527 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0581
+2025-11-07 11:55:38,527 [MainThread  ] [INFO ]  Backdoor ACC:           0.4686
+2025-11-07 11:55:38,527 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:55:38,527 [MainThread  ] [INFO ]  --------round 35 ------------
+2025-11-07 11:55:38,534 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:57:10,173 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:57:11,573 [MainThread  ] [INFO ]  ---------Test 35 ------------
+2025-11-07 11:57:37,635 [MainThread  ] [INFO ]  Clean ACC:              0.5069
+2025-11-07 11:57:37,635 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0489
+2025-11-07 11:57:37,635 [MainThread  ] [INFO ]  Backdoor ACC:           0.4748
+2025-11-07 11:57:37,636 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:57:37,636 [MainThread  ] [INFO ]  --------round 36 ------------
+2025-11-07 11:57:37,649 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 11:59:06,190 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 11:59:07,060 [MainThread  ] [INFO ]  ---------Test 36 ------------
+2025-11-07 11:59:32,118 [MainThread  ] [INFO ]  Clean ACC:              0.5109
+2025-11-07 11:59:32,118 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0533
+2025-11-07 11:59:32,118 [MainThread  ] [INFO ]  Backdoor ACC:           0.4737
+2025-11-07 11:59:32,119 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 11:59:32,119 [MainThread  ] [INFO ]  --------round 37 ------------
+2025-11-07 11:59:32,124 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:01:05,469 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:01:06,530 [MainThread  ] [INFO ]  ---------Test 37 ------------
+2025-11-07 12:01:29,625 [MainThread  ] [INFO ]  Clean ACC:              0.5217
+2025-11-07 12:01:29,625 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0490
+2025-11-07 12:01:29,625 [MainThread  ] [INFO ]  Backdoor ACC:           0.4828
+2025-11-07 12:01:29,625 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:01:29,625 [MainThread  ] [INFO ]  --------round 38 ------------
+2025-11-07 12:01:29,631 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:03:02,327 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:03:03,157 [MainThread  ] [INFO ]  ---------Test 38 ------------
+2025-11-07 12:03:25,203 [MainThread  ] [INFO ]  Clean ACC:              0.5178
+2025-11-07 12:03:25,204 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0416
+2025-11-07 12:03:25,204 [MainThread  ] [INFO ]  Backdoor ACC:           0.4849
+2025-11-07 12:03:25,204 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:03:25,204 [MainThread  ] [INFO ]  --------round 39 ------------
+2025-11-07 12:03:25,210 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:04:59,987 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:05:00,796 [MainThread  ] [INFO ]  ---------Test 39 ------------
+2025-11-07 12:05:22,163 [MainThread  ] [INFO ]  Clean ACC:              0.5237
+2025-11-07 12:05:22,164 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0447
+2025-11-07 12:05:22,164 [MainThread  ] [INFO ]  Backdoor ACC:           0.4917
+2025-11-07 12:05:22,164 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:05:22,164 [MainThread  ] [INFO ]  --------round 40 ------------
+2025-11-07 12:05:22,170 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:07:00,585 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:07:01,421 [MainThread  ] [INFO ]  ---------Test 40 ------------
+2025-11-07 12:07:22,272 [MainThread  ] [INFO ]  Clean ACC:              0.5244
+2025-11-07 12:07:22,272 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0527
+2025-11-07 12:07:22,272 [MainThread  ] [INFO ]  Backdoor ACC:           0.4891
+2025-11-07 12:07:22,272 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:07:22,272 [MainThread  ] [INFO ]  --------round 41 ------------
+2025-11-07 12:07:22,278 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:08:58,207 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:08:59,009 [MainThread  ] [INFO ]  ---------Test 41 ------------
+2025-11-07 12:09:19,812 [MainThread  ] [INFO ]  Clean ACC:              0.5256
+2025-11-07 12:09:19,812 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0469
+2025-11-07 12:09:19,812 [MainThread  ] [INFO ]  Backdoor ACC:           0.4886
+2025-11-07 12:09:19,812 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:09:19,812 [MainThread  ] [INFO ]  --------round 42 ------------
+2025-11-07 12:09:19,818 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:10:56,804 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:10:58,212 [MainThread  ] [INFO ]  ---------Test 42 ------------
+2025-11-07 12:11:20,292 [MainThread  ] [INFO ]  Clean ACC:              0.5318
+2025-11-07 12:11:20,292 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0463
+2025-11-07 12:11:20,292 [MainThread  ] [INFO ]  Backdoor ACC:           0.4939
+2025-11-07 12:11:20,292 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:11:20,292 [MainThread  ] [INFO ]  --------round 43 ------------
+2025-11-07 12:11:20,298 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:12:52,192 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:12:53,119 [MainThread  ] [INFO ]  ---------Test 43 ------------
+2025-11-07 12:13:17,516 [MainThread  ] [INFO ]  Clean ACC:              0.5248
+2025-11-07 12:13:17,516 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0372
+2025-11-07 12:13:17,516 [MainThread  ] [INFO ]  Backdoor ACC:           0.4878
+2025-11-07 12:13:17,516 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:13:17,516 [MainThread  ] [INFO ]  --------round 44 ------------
+2025-11-07 12:13:17,522 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:14:48,792 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:14:49,714 [MainThread  ] [INFO ]  ---------Test 44 ------------
+2025-11-07 12:15:15,424 [MainThread  ] [INFO ]  Clean ACC:              0.5311
+2025-11-07 12:15:15,424 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0388
+2025-11-07 12:15:15,424 [MainThread  ] [INFO ]  Backdoor ACC:           0.4951
+2025-11-07 12:15:15,424 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:15:15,424 [MainThread  ] [INFO ]  --------round 45 ------------
+2025-11-07 12:15:15,430 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:16:44,740 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:16:45,646 [MainThread  ] [INFO ]  ---------Test 45 ------------
+2025-11-07 12:17:11,594 [MainThread  ] [INFO ]  Clean ACC:              0.5295
+2025-11-07 12:17:11,594 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0319
+2025-11-07 12:17:11,594 [MainThread  ] [INFO ]  Backdoor ACC:           0.4979
+2025-11-07 12:17:11,594 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:17:11,594 [MainThread  ] [INFO ]  --------round 46 ------------
+2025-11-07 12:17:11,600 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:18:35,930 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:18:36,817 [MainThread  ] [INFO ]  ---------Test 46 ------------
+2025-11-07 12:19:04,239 [MainThread  ] [INFO ]  Clean ACC:              0.5329
+2025-11-07 12:19:04,241 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0419
+2025-11-07 12:19:04,241 [MainThread  ] [INFO ]  Backdoor ACC:           0.4986
+2025-11-07 12:19:04,241 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:19:04,241 [MainThread  ] [INFO ]  --------round 47 ------------
+2025-11-07 12:19:04,264 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:20:31,444 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:20:32,320 [MainThread  ] [INFO ]  ---------Test 47 ------------
+2025-11-07 12:20:58,042 [MainThread  ] [INFO ]  Clean ACC:              0.5305
+2025-11-07 12:20:58,042 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0422
+2025-11-07 12:20:58,042 [MainThread  ] [INFO ]  Backdoor ACC:           0.4931
+2025-11-07 12:20:58,042 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:20:58,042 [MainThread  ] [INFO ]  --------round 48 ------------
+2025-11-07 12:20:58,048 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:22:24,966 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:22:25,859 [MainThread  ] [INFO ]  ---------Test 48 ------------
+2025-11-07 12:22:50,884 [MainThread  ] [INFO ]  Clean ACC:              0.5331
+2025-11-07 12:22:50,884 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0389
+2025-11-07 12:22:50,884 [MainThread  ] [INFO ]  Backdoor ACC:           0.4961
+2025-11-07 12:22:50,884 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:22:50,884 [MainThread  ] [INFO ]  --------round 49 ------------
+2025-11-07 12:22:50,889 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:24:20,933 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:24:21,879 [MainThread  ] [INFO ]  ---------Test 49 ------------
+2025-11-07 12:24:46,098 [MainThread  ] [INFO ]  Clean ACC:              0.5383
+2025-11-07 12:24:46,099 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0406
+2025-11-07 12:24:46,099 [MainThread  ] [INFO ]  Backdoor ACC:           0.5013
+2025-11-07 12:24:46,099 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:24:46,099 [MainThread  ] [INFO ]  --------round 50 ------------
+2025-11-07 12:24:46,119 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:26:16,386 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:26:17,328 [MainThread  ] [INFO ]  ---------Test 50 ------------
+2025-11-07 12:26:41,827 [MainThread  ] [INFO ]  Clean ACC:              0.5351
+2025-11-07 12:26:41,827 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0350
+2025-11-07 12:26:41,828 [MainThread  ] [INFO ]  Backdoor ACC:           0.5006
+2025-11-07 12:26:41,828 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:26:41,828 [MainThread  ] [INFO ]  --------round 51 ------------
+2025-11-07 12:26:41,833 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:28:15,048 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:28:15,852 [MainThread  ] [INFO ]  ---------Test 51 ------------
+2025-11-07 12:28:38,758 [MainThread  ] [INFO ]  Clean ACC:              0.5382
+2025-11-07 12:28:38,758 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0367
+2025-11-07 12:28:38,758 [MainThread  ] [INFO ]  Backdoor ACC:           0.5057
+2025-11-07 12:28:38,758 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:28:38,758 [MainThread  ] [INFO ]  --------round 52 ------------
+2025-11-07 12:28:38,763 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:30:15,966 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:30:17,167 [MainThread  ] [INFO ]  ---------Test 52 ------------
+2025-11-07 12:30:40,773 [MainThread  ] [INFO ]  Clean ACC:              0.5439
+2025-11-07 12:30:40,773 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0416
+2025-11-07 12:30:40,773 [MainThread  ] [INFO ]  Backdoor ACC:           0.5107
+2025-11-07 12:30:40,773 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:30:40,773 [MainThread  ] [INFO ]  --------round 53 ------------
+2025-11-07 12:30:40,778 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:32:14,410 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:32:15,304 [MainThread  ] [INFO ]  ---------Test 53 ------------
+2025-11-07 12:32:39,524 [MainThread  ] [INFO ]  Clean ACC:              0.5367
+2025-11-07 12:32:39,525 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0298
+2025-11-07 12:32:39,525 [MainThread  ] [INFO ]  Backdoor ACC:           0.5107
+2025-11-07 12:32:39,526 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:32:39,526 [MainThread  ] [INFO ]  --------round 54 ------------
+2025-11-07 12:32:39,543 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:34:11,358 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:34:12,207 [MainThread  ] [INFO ]  ---------Test 54 ------------
+2025-11-07 12:34:35,357 [MainThread  ] [INFO ]  Clean ACC:              0.5432
+2025-11-07 12:34:35,357 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0348
+2025-11-07 12:34:35,357 [MainThread  ] [INFO ]  Backdoor ACC:           0.5167
+2025-11-07 12:34:35,357 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:34:35,357 [MainThread  ] [INFO ]  --------round 55 ------------
+2025-11-07 12:34:35,364 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:36:05,492 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:36:06,314 [MainThread  ] [INFO ]  ---------Test 55 ------------
+2025-11-07 12:36:29,602 [MainThread  ] [INFO ]  Clean ACC:              0.5415
+2025-11-07 12:36:29,603 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0324
+2025-11-07 12:36:29,603 [MainThread  ] [INFO ]  Backdoor ACC:           0.5124
+2025-11-07 12:36:29,603 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:36:29,603 [MainThread  ] [INFO ]  --------round 56 ------------
+2025-11-07 12:36:29,609 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:38:02,165 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:38:03,029 [MainThread  ] [INFO ]  ---------Test 56 ------------
+2025-11-07 12:38:26,711 [MainThread  ] [INFO ]  Clean ACC:              0.5307
+2025-11-07 12:38:26,711 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0271
+2025-11-07 12:38:26,711 [MainThread  ] [INFO ]  Backdoor ACC:           0.5121
+2025-11-07 12:38:26,711 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:38:26,711 [MainThread  ] [INFO ]  --------round 57 ------------
+2025-11-07 12:38:26,717 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:39:58,210 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:39:59,080 [MainThread  ] [INFO ]  ---------Test 57 ------------
+2025-11-07 12:40:23,563 [MainThread  ] [INFO ]  Clean ACC:              0.5295
+2025-11-07 12:40:23,564 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0377
+2025-11-07 12:40:23,564 [MainThread  ] [INFO ]  Backdoor ACC:           0.4978
+2025-11-07 12:40:23,564 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:40:23,564 [MainThread  ] [INFO ]  --------round 58 ------------
+2025-11-07 12:40:23,570 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:41:52,668 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:41:53,848 [MainThread  ] [INFO ]  ---------Test 58 ------------
+2025-11-07 12:42:18,437 [MainThread  ] [INFO ]  Clean ACC:              0.5494
+2025-11-07 12:42:18,438 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0311
+2025-11-07 12:42:18,438 [MainThread  ] [INFO ]  Backdoor ACC:           0.5196
+2025-11-07 12:42:18,438 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:42:18,438 [MainThread  ] [INFO ]  --------round 59 ------------
+2025-11-07 12:42:18,445 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:43:51,009 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:43:51,863 [MainThread  ] [INFO ]  ---------Test 59 ------------
+2025-11-07 12:44:15,016 [MainThread  ] [INFO ]  Clean ACC:              0.5560
+2025-11-07 12:44:15,016 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0338
+2025-11-07 12:44:15,016 [MainThread  ] [INFO ]  Backdoor ACC:           0.5257
+2025-11-07 12:44:15,016 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:44:15,016 [MainThread  ] [INFO ]  --------round 60 ------------
+2025-11-07 12:44:15,033 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:45:46,361 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:45:47,178 [MainThread  ] [INFO ]  ---------Test 60 ------------
+2025-11-07 12:46:08,918 [MainThread  ] [INFO ]  Clean ACC:              0.5562
+2025-11-07 12:46:08,919 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0382
+2025-11-07 12:46:08,919 [MainThread  ] [INFO ]  Backdoor ACC:           0.5220
+2025-11-07 12:46:08,919 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:46:08,919 [MainThread  ] [INFO ]  --------round 61 ------------
+2025-11-07 12:46:08,925 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:47:40,822 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:47:41,648 [MainThread  ] [INFO ]  ---------Test 61 ------------
+2025-11-07 12:48:03,062 [MainThread  ] [INFO ]  Clean ACC:              0.5518
+2025-11-07 12:48:03,063 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0306
+2025-11-07 12:48:03,063 [MainThread  ] [INFO ]  Backdoor ACC:           0.5182
+2025-11-07 12:48:03,063 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:48:03,063 [MainThread  ] [INFO ]  --------round 62 ------------
+2025-11-07 12:48:03,072 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:49:35,072 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:49:35,898 [MainThread  ] [INFO ]  ---------Test 62 ------------
+2025-11-07 12:49:57,467 [MainThread  ] [INFO ]  Clean ACC:              0.5578
+2025-11-07 12:49:57,467 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0357
+2025-11-07 12:49:57,468 [MainThread  ] [INFO ]  Backdoor ACC:           0.5259
+2025-11-07 12:49:57,468 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:49:57,468 [MainThread  ] [INFO ]  --------round 63 ------------
+2025-11-07 12:49:57,479 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:51:32,550 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:51:33,421 [MainThread  ] [INFO ]  ---------Test 63 ------------
+2025-11-07 12:51:55,657 [MainThread  ] [INFO ]  Clean ACC:              0.5559
+2025-11-07 12:51:55,657 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0344
+2025-11-07 12:51:55,657 [MainThread  ] [INFO ]  Backdoor ACC:           0.5272
+2025-11-07 12:51:55,657 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:51:55,657 [MainThread  ] [INFO ]  --------round 64 ------------
+2025-11-07 12:51:55,663 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:53:29,488 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:53:30,401 [MainThread  ] [INFO ]  ---------Test 64 ------------
+2025-11-07 12:53:53,593 [MainThread  ] [INFO ]  Clean ACC:              0.5519
+2025-11-07 12:53:53,594 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0331
+2025-11-07 12:53:53,594 [MainThread  ] [INFO ]  Backdoor ACC:           0.5196
+2025-11-07 12:53:53,594 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:53:53,594 [MainThread  ] [INFO ]  --------round 65 ------------
+2025-11-07 12:53:53,600 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:55:26,489 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:55:28,104 [MainThread  ] [INFO ]  ---------Test 65 ------------
+2025-11-07 12:55:55,748 [MainThread  ] [INFO ]  Clean ACC:              0.5579
+2025-11-07 12:55:55,748 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0409
+2025-11-07 12:55:55,749 [MainThread  ] [INFO ]  Backdoor ACC:           0.5200
+2025-11-07 12:55:55,749 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:55:55,749 [MainThread  ] [INFO ]  --------round 66 ------------
+2025-11-07 12:55:55,760 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:57:23,749 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:57:24,660 [MainThread  ] [INFO ]  ---------Test 66 ------------
+2025-11-07 12:57:48,996 [MainThread  ] [INFO ]  Clean ACC:              0.5581
+2025-11-07 12:57:48,996 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0352
+2025-11-07 12:57:48,996 [MainThread  ] [INFO ]  Backdoor ACC:           0.5243
+2025-11-07 12:57:48,996 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:57:48,996 [MainThread  ] [INFO ]  --------round 67 ------------
+2025-11-07 12:57:49,002 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 12:59:15,105 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 12:59:15,997 [MainThread  ] [INFO ]  ---------Test 67 ------------
+2025-11-07 12:59:41,141 [MainThread  ] [INFO ]  Clean ACC:              0.5586
+2025-11-07 12:59:41,141 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0337
+2025-11-07 12:59:41,141 [MainThread  ] [INFO ]  Backdoor ACC:           0.5278
+2025-11-07 12:59:41,141 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 12:59:41,142 [MainThread  ] [INFO ]  --------round 68 ------------
+2025-11-07 12:59:41,149 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:01:08,594 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:01:09,486 [MainThread  ] [INFO ]  ---------Test 68 ------------
+2025-11-07 13:01:35,045 [MainThread  ] [INFO ]  Clean ACC:              0.5584
+2025-11-07 13:01:35,045 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0363
+2025-11-07 13:01:35,045 [MainThread  ] [INFO ]  Backdoor ACC:           0.5269
+2025-11-07 13:01:35,045 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:01:35,045 [MainThread  ] [INFO ]  --------round 69 ------------
+2025-11-07 13:01:35,051 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:03:02,902 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:03:03,815 [MainThread  ] [INFO ]  ---------Test 69 ------------
+2025-11-07 13:03:27,562 [MainThread  ] [INFO ]  Clean ACC:              0.5602
+2025-11-07 13:03:27,562 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0347
+2025-11-07 13:03:27,563 [MainThread  ] [INFO ]  Backdoor ACC:           0.5291
+2025-11-07 13:03:27,563 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:03:27,563 [MainThread  ] [INFO ]  --------round 70 ------------
+2025-11-07 13:03:27,569 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:04:57,130 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:04:58,018 [MainThread  ] [INFO ]  ---------Test 70 ------------
+2025-11-07 13:05:22,453 [MainThread  ] [INFO ]  Clean ACC:              0.5571
+2025-11-07 13:05:22,453 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0350
+2025-11-07 13:05:22,453 [MainThread  ] [INFO ]  Backdoor ACC:           0.5256
+2025-11-07 13:05:22,453 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:05:22,453 [MainThread  ] [INFO ]  --------round 71 ------------
+2025-11-07 13:05:22,459 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:06:48,786 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:06:49,692 [MainThread  ] [INFO ]  ---------Test 71 ------------
+2025-11-07 13:07:14,860 [MainThread  ] [INFO ]  Clean ACC:              0.5623
+2025-11-07 13:07:14,861 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0388
+2025-11-07 13:07:14,861 [MainThread  ] [INFO ]  Backdoor ACC:           0.5294
+2025-11-07 13:07:14,861 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:07:14,861 [MainThread  ] [INFO ]  --------round 72 ------------
+2025-11-07 13:07:14,867 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:08:40,154 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:08:41,043 [MainThread  ] [INFO ]  ---------Test 72 ------------
+2025-11-07 13:09:06,346 [MainThread  ] [INFO ]  Clean ACC:              0.5614
+2025-11-07 13:09:06,346 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0411
+2025-11-07 13:09:06,346 [MainThread  ] [INFO ]  Backdoor ACC:           0.5279
+2025-11-07 13:09:06,346 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:09:06,346 [MainThread  ] [INFO ]  --------round 73 ------------
+2025-11-07 13:09:06,352 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:10:32,255 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:10:33,155 [MainThread  ] [INFO ]  ---------Test 73 ------------
+2025-11-07 13:10:58,050 [MainThread  ] [INFO ]  Clean ACC:              0.5574
+2025-11-07 13:10:58,050 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0310
+2025-11-07 13:10:58,050 [MainThread  ] [INFO ]  Backdoor ACC:           0.5307
+2025-11-07 13:10:58,050 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:10:58,050 [MainThread  ] [INFO ]  --------round 74 ------------
+2025-11-07 13:10:58,056 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:12:25,311 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:12:26,182 [MainThread  ] [INFO ]  ---------Test 74 ------------
+2025-11-07 13:12:50,336 [MainThread  ] [INFO ]  Clean ACC:              0.5613
+2025-11-07 13:12:50,336 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0323
+2025-11-07 13:12:50,336 [MainThread  ] [INFO ]  Backdoor ACC:           0.5352
+2025-11-07 13:12:50,337 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:12:50,337 [MainThread  ] [INFO ]  --------round 75 ------------
+2025-11-07 13:12:50,343 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:14:15,087 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:14:15,987 [MainThread  ] [INFO ]  ---------Test 75 ------------
+2025-11-07 13:14:40,966 [MainThread  ] [INFO ]  Clean ACC:              0.5663
+2025-11-07 13:14:40,966 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0388
+2025-11-07 13:14:40,967 [MainThread  ] [INFO ]  Backdoor ACC:           0.5361
+2025-11-07 13:14:40,967 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:14:40,967 [MainThread  ] [INFO ]  --------round 76 ------------
+2025-11-07 13:14:40,982 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:16:07,420 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:16:08,266 [MainThread  ] [INFO ]  ---------Test 76 ------------
+2025-11-07 13:16:32,599 [MainThread  ] [INFO ]  Clean ACC:              0.5642
+2025-11-07 13:16:32,599 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0354
+2025-11-07 13:16:32,599 [MainThread  ] [INFO ]  Backdoor ACC:           0.5341
+2025-11-07 13:16:32,600 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:16:32,600 [MainThread  ] [INFO ]  --------round 77 ------------
+2025-11-07 13:16:32,605 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:18:00,773 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:18:01,611 [MainThread  ] [INFO ]  ---------Test 77 ------------
+2025-11-07 13:18:26,003 [MainThread  ] [INFO ]  Clean ACC:              0.5610
+2025-11-07 13:18:26,005 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0338
+2025-11-07 13:18:26,005 [MainThread  ] [INFO ]  Backdoor ACC:           0.5324
+2025-11-07 13:18:26,005 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:18:26,005 [MainThread  ] [INFO ]  --------round 78 ------------
+2025-11-07 13:18:26,011 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:19:55,821 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:19:57,118 [MainThread  ] [INFO ]  ---------Test 78 ------------
+2025-11-07 13:20:21,873 [MainThread  ] [INFO ]  Clean ACC:              0.5681
+2025-11-07 13:20:21,874 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0384
+2025-11-07 13:20:21,874 [MainThread  ] [INFO ]  Backdoor ACC:           0.5389
+2025-11-07 13:20:21,874 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:20:21,874 [MainThread  ] [INFO ]  --------round 79 ------------
+2025-11-07 13:20:21,880 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:21:52,452 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:21:53,249 [MainThread  ] [INFO ]  ---------Test 79 ------------
+2025-11-07 13:22:16,217 [MainThread  ] [INFO ]  Clean ACC:              0.5649
+2025-11-07 13:22:16,217 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0468
+2025-11-07 13:22:16,217 [MainThread  ] [INFO ]  Backdoor ACC:           0.5312
+2025-11-07 13:22:16,218 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:22:16,218 [MainThread  ] [INFO ]  --------round 80 ------------
+2025-11-07 13:22:16,223 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:23:49,056 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:23:49,873 [MainThread  ] [INFO ]  ---------Test 80 ------------
+2025-11-07 13:24:12,094 [MainThread  ] [INFO ]  Clean ACC:              0.5657
+2025-11-07 13:24:12,094 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0374
+2025-11-07 13:24:12,094 [MainThread  ] [INFO ]  Backdoor ACC:           0.5358
+2025-11-07 13:24:12,094 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:24:12,094 [MainThread  ] [INFO ]  --------round 81 ------------
+2025-11-07 13:24:12,102 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:25:45,643 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:25:46,750 [MainThread  ] [INFO ]  ---------Test 81 ------------
+2025-11-07 13:26:08,975 [MainThread  ] [INFO ]  Clean ACC:              0.5713
+2025-11-07 13:26:08,976 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0413
+2025-11-07 13:26:08,976 [MainThread  ] [INFO ]  Backdoor ACC:           0.5426
+2025-11-07 13:26:08,976 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:26:08,976 [MainThread  ] [INFO ]  --------round 82 ------------
+2025-11-07 13:26:08,983 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:27:40,993 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:27:41,880 [MainThread  ] [INFO ]  ---------Test 82 ------------
+2025-11-07 13:28:03,736 [MainThread  ] [INFO ]  Clean ACC:              0.5630
+2025-11-07 13:28:03,736 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0333
+2025-11-07 13:28:03,736 [MainThread  ] [INFO ]  Backdoor ACC:           0.5368
+2025-11-07 13:28:03,736 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:28:03,736 [MainThread  ] [INFO ]  --------round 83 ------------
+2025-11-07 13:28:03,743 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:29:43,205 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:29:44,076 [MainThread  ] [INFO ]  ---------Test 83 ------------
+2025-11-07 13:30:06,594 [MainThread  ] [INFO ]  Clean ACC:              0.5667
+2025-11-07 13:30:06,594 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0369
+2025-11-07 13:30:06,594 [MainThread  ] [INFO ]  Backdoor ACC:           0.5390
+2025-11-07 13:30:06,594 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:30:06,594 [MainThread  ] [INFO ]  --------round 84 ------------
+2025-11-07 13:30:06,600 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:31:37,221 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:31:38,112 [MainThread  ] [INFO ]  ---------Test 84 ------------
+2025-11-07 13:32:01,975 [MainThread  ] [INFO ]  Clean ACC:              0.5666
+2025-11-07 13:32:01,976 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0401
+2025-11-07 13:32:01,976 [MainThread  ] [INFO ]  Backdoor ACC:           0.5410
+2025-11-07 13:32:01,976 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:32:01,976 [MainThread  ] [INFO ]  --------round 85 ------------
+2025-11-07 13:32:01,982 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:33:31,484 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:33:32,385 [MainThread  ] [INFO ]  ---------Test 85 ------------
+2025-11-07 13:33:56,359 [MainThread  ] [INFO ]  Clean ACC:              0.5612
+2025-11-07 13:33:56,359 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0353
+2025-11-07 13:33:56,359 [MainThread  ] [INFO ]  Backdoor ACC:           0.5367
+2025-11-07 13:33:56,359 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:33:56,359 [MainThread  ] [INFO ]  --------round 86 ------------
+2025-11-07 13:33:56,365 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:35:26,162 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:35:27,013 [MainThread  ] [INFO ]  ---------Test 86 ------------
+2025-11-07 13:35:51,377 [MainThread  ] [INFO ]  Clean ACC:              0.5704
+2025-11-07 13:35:51,377 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0391
+2025-11-07 13:35:51,377 [MainThread  ] [INFO ]  Backdoor ACC:           0.5452
+2025-11-07 13:35:51,377 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:35:51,377 [MainThread  ] [INFO ]  --------round 87 ------------
+2025-11-07 13:35:51,383 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:37:19,250 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:37:20,311 [MainThread  ] [INFO ]  ---------Test 87 ------------
+2025-11-07 13:37:44,836 [MainThread  ] [INFO ]  Clean ACC:              0.5666
+2025-11-07 13:37:44,836 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0331
+2025-11-07 13:37:44,837 [MainThread  ] [INFO ]  Backdoor ACC:           0.5348
+2025-11-07 13:37:44,837 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:37:44,837 [MainThread  ] [INFO ]  --------round 88 ------------
+2025-11-07 13:37:44,842 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:39:13,642 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:39:14,524 [MainThread  ] [INFO ]  ---------Test 88 ------------
+2025-11-07 13:39:39,248 [MainThread  ] [INFO ]  Clean ACC:              0.5681
+2025-11-07 13:39:39,248 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0401
+2025-11-07 13:39:39,248 [MainThread  ] [INFO ]  Backdoor ACC:           0.5363
+2025-11-07 13:39:39,248 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:39:39,248 [MainThread  ] [INFO ]  --------round 89 ------------
+2025-11-07 13:39:39,253 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:41:07,751 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:41:08,592 [MainThread  ] [INFO ]  ---------Test 89 ------------
+2025-11-07 13:41:32,689 [MainThread  ] [INFO ]  Clean ACC:              0.5661
+2025-11-07 13:41:32,689 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0329
+2025-11-07 13:41:32,689 [MainThread  ] [INFO ]  Backdoor ACC:           0.5417
+2025-11-07 13:41:32,689 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:41:32,689 [MainThread  ] [INFO ]  --------round 90 ------------
+2025-11-07 13:41:32,695 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:43:00,606 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:43:01,488 [MainThread  ] [INFO ]  ---------Test 90 ------------
+2025-11-07 13:43:25,918 [MainThread  ] [INFO ]  Clean ACC:              0.5655
+2025-11-07 13:43:25,918 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0268
+2025-11-07 13:43:25,918 [MainThread  ] [INFO ]  Backdoor ACC:           0.5438
+2025-11-07 13:43:25,918 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:43:25,918 [MainThread  ] [INFO ]  --------round 91 ------------
+2025-11-07 13:43:25,924 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:44:55,183 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:44:56,075 [MainThread  ] [INFO ]  ---------Test 91 ------------
+2025-11-07 13:45:21,395 [MainThread  ] [INFO ]  Clean ACC:              0.5702
+2025-11-07 13:45:21,396 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0276
+2025-11-07 13:45:21,396 [MainThread  ] [INFO ]  Backdoor ACC:           0.5460
+2025-11-07 13:45:21,396 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:45:21,396 [MainThread  ] [INFO ]  --------round 92 ------------
+2025-11-07 13:45:21,402 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:46:48,370 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:46:49,260 [MainThread  ] [INFO ]  ---------Test 92 ------------
+2025-11-07 13:47:14,802 [MainThread  ] [INFO ]  Clean ACC:              0.5732
+2025-11-07 13:47:14,803 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0350
+2025-11-07 13:47:14,803 [MainThread  ] [INFO ]  Backdoor ACC:           0.5429
+2025-11-07 13:47:14,803 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:47:14,803 [MainThread  ] [INFO ]  --------round 93 ------------
+2025-11-07 13:47:14,809 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:48:42,359 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:48:43,231 [MainThread  ] [INFO ]  ---------Test 93 ------------
+2025-11-07 13:49:08,193 [MainThread  ] [INFO ]  Clean ACC:              0.5733
+2025-11-07 13:49:08,193 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0308
+2025-11-07 13:49:08,193 [MainThread  ] [INFO ]  Backdoor ACC:           0.5433
+2025-11-07 13:49:08,193 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:49:08,193 [MainThread  ] [INFO ]  --------round 94 ------------
+2025-11-07 13:49:08,198 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:50:37,765 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:50:38,581 [MainThread  ] [INFO ]  ---------Test 94 ------------
+2025-11-07 13:51:02,451 [MainThread  ] [INFO ]  Clean ACC:              0.5701
+2025-11-07 13:51:02,451 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0241
+2025-11-07 13:51:02,451 [MainThread  ] [INFO ]  Backdoor ACC:           0.5446
+2025-11-07 13:51:02,451 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:51:02,451 [MainThread  ] [INFO ]  --------round 95 ------------
+2025-11-07 13:51:02,457 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:52:31,194 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:52:32,043 [MainThread  ] [INFO ]  ---------Test 95 ------------
+2025-11-07 13:52:56,040 [MainThread  ] [INFO ]  Clean ACC:              0.5697
+2025-11-07 13:52:56,040 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0261
+2025-11-07 13:52:56,040 [MainThread  ] [INFO ]  Backdoor ACC:           0.5436
+2025-11-07 13:52:56,040 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:52:56,040 [MainThread  ] [INFO ]  --------round 96 ------------
+2025-11-07 13:52:56,054 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:54:24,343 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:54:25,198 [MainThread  ] [INFO ]  ---------Test 96 ------------
+2025-11-07 13:54:49,385 [MainThread  ] [INFO ]  Clean ACC:              0.5712
+2025-11-07 13:54:49,385 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0272
+2025-11-07 13:54:49,385 [MainThread  ] [INFO ]  Backdoor ACC:           0.5493
+2025-11-07 13:54:49,385 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:54:49,385 [MainThread  ] [INFO ]  --------round 97 ------------
+2025-11-07 13:54:49,391 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:56:18,659 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:56:19,483 [MainThread  ] [INFO ]  ---------Test 97 ------------
+2025-11-07 13:56:43,420 [MainThread  ] [INFO ]  Clean ACC:              0.5704
+2025-11-07 13:56:43,420 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0301
+2025-11-07 13:56:43,420 [MainThread  ] [INFO ]  Backdoor ACC:           0.5432
+2025-11-07 13:56:43,420 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:56:43,420 [MainThread  ] [INFO ]  --------round 98 ------------
+2025-11-07 13:56:43,426 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 13:58:12,040 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 13:58:12,872 [MainThread  ] [INFO ]  ---------Test 98 ------------
+2025-11-07 13:58:35,667 [MainThread  ] [INFO ]  Clean ACC:              0.5681
+2025-11-07 13:58:35,667 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0321
+2025-11-07 13:58:35,667 [MainThread  ] [INFO ]  Backdoor ACC:           0.5394
+2025-11-07 13:58:35,667 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 13:58:35,668 [MainThread  ] [INFO ]  --------round 99 ------------
+2025-11-07 13:58:35,678 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:00:08,722 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:00:09,537 [MainThread  ] [INFO ]  ---------Test 99 ------------
+2025-11-07 14:00:32,859 [MainThread  ] [INFO ]  Clean ACC:              0.5729
+2025-11-07 14:00:32,859 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0349
+2025-11-07 14:00:32,859 [MainThread  ] [INFO ]  Backdoor ACC:           0.5468
+2025-11-07 14:00:32,859 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:00:32,859 [MainThread  ] [INFO ]  --------round 100 ------------
+2025-11-07 14:00:32,864 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:02:03,536 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:02:04,444 [MainThread  ] [INFO ]  ---------Test 100 ------------
+2025-11-07 14:02:28,717 [MainThread  ] [INFO ]  Clean ACC:              0.5702
+2025-11-07 14:02:28,717 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0301
+2025-11-07 14:02:28,717 [MainThread  ] [INFO ]  Backdoor ACC:           0.5432
+2025-11-07 14:02:28,717 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:02:28,717 [MainThread  ] [INFO ]  --------round 101 ------------
+2025-11-07 14:02:28,723 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:03:59,501 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:04:00,302 [MainThread  ] [INFO ]  ---------Test 101 ------------
+2025-11-07 14:04:22,744 [MainThread  ] [INFO ]  Clean ACC:              0.5682
+2025-11-07 14:04:22,744 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0292
+2025-11-07 14:04:22,744 [MainThread  ] [INFO ]  Backdoor ACC:           0.5401
+2025-11-07 14:04:22,744 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:04:22,744 [MainThread  ] [INFO ]  --------round 102 ------------
+2025-11-07 14:04:22,751 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:05:55,658 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:05:56,464 [MainThread  ] [INFO ]  ---------Test 102 ------------
+2025-11-07 14:06:18,336 [MainThread  ] [INFO ]  Clean ACC:              0.5697
+2025-11-07 14:06:18,336 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0351
+2025-11-07 14:06:18,336 [MainThread  ] [INFO ]  Backdoor ACC:           0.5413
+2025-11-07 14:06:18,336 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:06:18,336 [MainThread  ] [INFO ]  --------round 103 ------------
+2025-11-07 14:06:18,344 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:07:49,492 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:07:50,632 [MainThread  ] [INFO ]  ---------Test 103 ------------
+2025-11-07 14:08:14,354 [MainThread  ] [INFO ]  Clean ACC:              0.5743
+2025-11-07 14:08:14,354 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0330
+2025-11-07 14:08:14,354 [MainThread  ] [INFO ]  Backdoor ACC:           0.5447
+2025-11-07 14:08:14,354 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:08:14,354 [MainThread  ] [INFO ]  --------round 104 ------------
+2025-11-07 14:08:14,360 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:09:45,601 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:09:46,388 [MainThread  ] [INFO ]  ---------Test 104 ------------
+2025-11-07 14:10:08,588 [MainThread  ] [INFO ]  Clean ACC:              0.5710
+2025-11-07 14:10:08,588 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0306
+2025-11-07 14:10:08,588 [MainThread  ] [INFO ]  Backdoor ACC:           0.5469
+2025-11-07 14:10:08,588 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:10:08,588 [MainThread  ] [INFO ]  --------round 105 ------------
+2025-11-07 14:10:08,594 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:11:41,172 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:11:42,290 [MainThread  ] [INFO ]  ---------Test 105 ------------
+2025-11-07 14:12:05,056 [MainThread  ] [INFO ]  Clean ACC:              0.5695
+2025-11-07 14:12:05,057 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0287
+2025-11-07 14:12:05,057 [MainThread  ] [INFO ]  Backdoor ACC:           0.5484
+2025-11-07 14:12:05,057 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:12:05,057 [MainThread  ] [INFO ]  --------round 106 ------------
+2025-11-07 14:12:05,071 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:13:36,455 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:13:37,850 [MainThread  ] [INFO ]  ---------Test 106 ------------
+2025-11-07 14:14:02,431 [MainThread  ] [INFO ]  Clean ACC:              0.5723
+2025-11-07 14:14:02,432 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0316
+2025-11-07 14:14:02,432 [MainThread  ] [INFO ]  Backdoor ACC:           0.5480
+2025-11-07 14:14:02,432 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:14:02,432 [MainThread  ] [INFO ]  --------round 107 ------------
+2025-11-07 14:14:02,438 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:15:33,358 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:15:34,177 [MainThread  ] [INFO ]  ---------Test 107 ------------
+2025-11-07 14:15:56,605 [MainThread  ] [INFO ]  Clean ACC:              0.5735
+2025-11-07 14:15:56,605 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0352
+2025-11-07 14:15:56,605 [MainThread  ] [INFO ]  Backdoor ACC:           0.5514
+2025-11-07 14:15:56,606 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:15:56,606 [MainThread  ] [INFO ]  --------round 108 ------------
+2025-11-07 14:15:56,611 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:17:32,533 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:17:33,766 [MainThread  ] [INFO ]  ---------Test 108 ------------
+2025-11-07 14:17:56,125 [MainThread  ] [INFO ]  Clean ACC:              0.5737
+2025-11-07 14:17:56,126 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0350
+2025-11-07 14:17:56,126 [MainThread  ] [INFO ]  Backdoor ACC:           0.5501
+2025-11-07 14:17:56,126 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:17:56,126 [MainThread  ] [INFO ]  --------round 109 ------------
+2025-11-07 14:17:56,131 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:19:29,461 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:19:30,427 [MainThread  ] [INFO ]  ---------Test 109 ------------
+2025-11-07 14:19:52,779 [MainThread  ] [INFO ]  Clean ACC:              0.5740
+2025-11-07 14:19:52,779 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0334
+2025-11-07 14:19:52,779 [MainThread  ] [INFO ]  Backdoor ACC:           0.5491
+2025-11-07 14:19:52,779 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:19:52,779 [MainThread  ] [INFO ]  --------round 110 ------------
+2025-11-07 14:19:52,785 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-07 14:21:24,614 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-07 14:21:25,444 [MainThread  ] [INFO ]  ---------Test 110 ------------
+2025-11-07 14:21:46,909 [MainThread  ] [INFO ]  Clean ACC:              0.5743
+2025-11-07 14:21:46,909 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0353
+2025-11-07 14:21:46,909 [MainThread  ] [INFO ]  Backdoor ACC:           0.5456
+2025-11-07 14:21:46,909 [MainThread  ] [INFO ]  ------------------------------
+2025-11-07 14:21:46,909 [MainThread  ] [INFO ]  --------round 111 ------------
+2025-11-07 14:21:46,915 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...

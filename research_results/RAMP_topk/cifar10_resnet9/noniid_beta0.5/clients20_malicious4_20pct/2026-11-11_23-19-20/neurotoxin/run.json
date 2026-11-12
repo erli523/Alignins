@@ -1,0 +1,419 @@
+{
+  "status": "completed",
+  "started_at": "2026-11-12 01:59:41 +0800",
+  "native_argv": [
+    "--data",
+    "cifar10",
+    "--model",
+    "resnet9",
+    "--attack",
+    "neurotoxin",
+    "--aggr",
+    "alphaguard",
+    "--num_agents",
+    "20",
+    "--num_corrupt",
+    "4",
+    "--agent_frac",
+    "1.0",
+    "--poison_frac",
+    "0.3",
+    "--non_iid",
+    "--beta",
+    "0.5",
+    "--rounds",
+    "100",
+    "--local_ep",
+    "2",
+    "--client_lr",
+    "0.1",
+    "--server_lr",
+    "1.0",
+    "--lr_decay",
+    "0.99",
+    "--bs",
+    "64",
+    "--ag_topk",
+    "0.001",
+    "--ag_l2_lower",
+    "25",
+    "--ag_l2_upper",
+    "75",
+    "--ag_gref_strategy",
+    "median",
+    "--snap",
+    "1",
+    "--num_workers",
+    "0",
+    "--device",
+    "cuda:0"
+  ],
+  "diagnostics": {
+    "output": "/home/risegpu/sunjiahao/Alignins/research_results/RAMP_topk/cifar10_resnet9/noniid_beta0.5/clients20_malicious4_20pct/2026-11-11_23-19-20/neurotoxin",
+    "topk_ratio": 0.001,
+    "epsilon": 0.001,
+    "reference": "median",
+    "l2_lower": 25,
+    "l2_upper": 75,
+    "min_reference": 8,
+    "save_indices": "selected",
+    "snapshot_every": 25,
+    "random_repeats": 30,
+    "random_seed": 20261111,
+    "report_only": null,
+    "compare": null
+  },
+  "native_seed": 0,
+  "formula": "abs(local_delta)/(abs(reference)+epsilon)",
+  "scope": "requires_grad model parameters; observe before native filtering",
+  "median_convention": "torch.median: lower middle value for even sample counts",
+  "ground_truth_usage": "role labels for evaluation only; no role-based reference selection",
+  "random_control": "Independent per-round layer/size-matched subsets outside raw Top-K; pointwise Monte Carlo envelopes, not confidence intervals",
+  "source_sha256": {
+    "research_topk.py": "1bd3dfc8b92a066f1e3885e7fd91ce66ad896265d3f0226165f928e5767d3fb0",
+    "run_ramp_topk.sh": "863cd174b5d20204d2ade858ed90b3095f4e857df7556aad7fdfcee60898fb73",
+    "research/topk_diagnostics.py": "5ff4db071df38933922482e2748ab291f5441610ba1d269ade291d48672ba470",
+    "research/topk_report.py": "784d9fbe12aa290e2377b00b51a00ee677a4ec4527619bc0645c93a9b81474af",
+    "research/matched_random.py": "7fa485f4d7b1a57851c52d36a0c596b9d15b8ef495748f91b9ab762b771b5e4c",
+    "src/agent.py": "5ffbb42c5016a5d60bbae0132746957f545984e367a71301dd30922464046813",
+    "src/agent_sparse.py": "eedd70018778ea179c3ff3f7d99833562dfba86b2512b7e0b7edbc03a57bc190",
+    "src/aggregation.py": "633b0213f3b5875ebf7bf420747b3498d0c944dde68a763314d0061fee79c45a",
+    "src/altermin_attack.py": "625291fef99c8388f23dba93ede008f2be522a9411e8b3e33c5c05219112d0e3",
+    "src/dynamic_trigger_attack.py": "695d9b50cd935e36e00b5e51112b193b160c736630fee33c92f05d9d52c24d7d",
+    "src/federated.py": "361ca0e18b16949d35c22c722cd5982e361447012302ee0c99a5793d2b884149",
+    "src/model_replacement_attack.py": "6c26d38694641e76b58ef9f1af6b201d04c23cf83e4355281003c112859d65f6",
+    "src/models.py": "4b354ce8637d16e8a76529ca7124bb2fd141da0fec0fb28dae31ae8505b3919b",
+    "src/resnet.py": "b678a15a1d54df226286993904fa77bc2fd6056ceba217f9de2e73707b293d01",
+    "src/utils.py": "ef5adcc6cf8587ce8ee1a6f1b52f8d44a560ce544183c6f4d8b83bc79ca78274",
+    "src/vgg.py": "d7f845bad41972965e4b62fcaaf04eb3df7800c8be51ec0360c1c53eab5dd61a"
+  },
+  "torch_version": "2.6.0+cu124",
+  "numpy_version": "2.4.4",
+  "cuda_runtime": "12.4",
+  "training": {
+    "data": "cifar10",
+    "num_agents": 20,
+    "agent_frac": 1.0,
+    "num_corrupt": 4,
+    "rounds": 100,
+    "local_ep": 2,
+    "bs": 64,
+    "client_lr": 0.1,
+    "server_lr": 1.0,
+    "target_class": 7,
+    "poison_frac": 0.3,
+    "pattern_type": "plus",
+    "theta": 8,
+    "theta_ld": 10,
+    "snap": 1,
+    "device": "cuda:0",
+    "num_workers": 0,
+    "dense_ratio": 0.25,
+    "anneal_factor": 0.0001,
+    "se_threshold": 0.0001,
+    "non_iid": true,
+    "debug": false,
+    "beta": 0.5,
+    "attack": "neurotoxin",
+    "aggr": "alphaguard",
+    "lr_decay": 0.99,
+    "momentum": 0.0,
+    "mask_init": "ERK",
+    "wd": 0.0001,
+    "same_mask": 1,
+    "cease_poison": 100000,
+    "exp_name_extra": "",
+    "super_power": false,
+    "clean": false,
+    "sparsity": 0.3,
+    "lambda_s": 1.0,
+    "lambda_c": 1.0,
+    "dis_check_gradient": false,
+    "trigger_size": 5,
+    "trigger_lr": 0.1,
+    "trigger_outter_epochs": 50,
+    "trigger_optim_interval": 5,
+    "dm_adv_epochs": 2,
+    "dm_adv_K": 10,
+    "dm_adv_model_count": 3,
+    "noise_loss_lambda": 0.1,
+    "altermin_attack_mode": "targeted",
+    "altermin_source_label": 3,
+    "altermin_target_label": null,
+    "altermin_poisoned_cnt": 100,
+    "altermin_boosting_factor": 1.5,
+    "altermin_rho": 0.0001,
+    "altermin_benign_epochs": null,
+    "altermin_malicious_epochs": 1,
+    "model_replacement_scaling_factor": 50,
+    "model_replacement_alpha": 0.5,
+    "model_replacement_target_label": null,
+    "model_replacement_constrain_weight": 0.02,
+    "ag_topk": 0.001,
+    "ag_l2_lower": 25.0,
+    "ag_l2_upper": 75.0,
+    "ag_gref_strategy": "median",
+    "model": "resnet9",
+    "num_target": 10,
+    "exp_name": "RAMP_topk_diagnostic"
+  },
+  "gpu_name": "NVIDIA GeForce RTX 3090",
+  "parameter_layout": [
+    {
+      "name": "conv1.0.weight",
+      "shape": [
+        64,
+        3,
+        3,
+        3
+      ],
+      "numel": 1728,
+      "full_start": 0,
+      "analysis_start": 0
+    },
+    {
+      "name": "conv1.1.weight",
+      "shape": [
+        64
+      ],
+      "numel": 64,
+      "full_start": 1728,
+      "analysis_start": 1728
+    },
+    {
+      "name": "conv1.1.bias",
+      "shape": [
+        64
+      ],
+      "numel": 64,
+      "full_start": 1792,
+      "analysis_start": 1792
+    },
+    {
+      "name": "conv2.0.weight",
+      "shape": [
+        128,
+        64,
+        3,
+        3
+      ],
+      "numel": 73728,
+      "full_start": 1856,
+      "analysis_start": 1856
+    },
+    {
+      "name": "conv2.1.weight",
+      "shape": [
+        128
+      ],
+      "numel": 128,
+      "full_start": 75584,
+      "analysis_start": 75584
+    },
+    {
+      "name": "conv2.1.bias",
+      "shape": [
+        128
+      ],
+      "numel": 128,
+      "full_start": 75712,
+      "analysis_start": 75712
+    },
+    {
+      "name": "res1.0.0.weight",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "numel": 147456,
+      "full_start": 75840,
+      "analysis_start": 75840
+    },
+    {
+      "name": "res1.0.1.weight",
+      "shape": [
+        128
+      ],
+      "numel": 128,
+      "full_start": 223296,
+      "analysis_start": 223296
+    },
+    {
+      "name": "res1.0.1.bias",
+      "shape": [
+        128
+      ],
+      "numel": 128,
+      "full_start": 223424,
+      "analysis_start": 223424
+    },
+    {
+      "name": "res1.1.0.weight",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "numel": 147456,
+      "full_start": 223552,
+      "analysis_start": 223552
+    },
+    {
+      "name": "res1.1.1.weight",
+      "shape": [
+        128
+      ],
+      "numel": 128,
+      "full_start": 371008,
+      "analysis_start": 371008
+    },
+    {
+      "name": "res1.1.1.bias",
+      "shape": [
+        128
+      ],
+      "numel": 128,
+      "full_start": 371136,
+      "analysis_start": 371136
+    },
+    {
+      "name": "conv3.0.weight",
+      "shape": [
+        256,
+        128,
+        3,
+        3
+      ],
+      "numel": 294912,
+      "full_start": 371264,
+      "analysis_start": 371264
+    },
+    {
+      "name": "conv3.1.weight",
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "full_start": 666176,
+      "analysis_start": 666176
+    },
+    {
+      "name": "conv3.1.bias",
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "full_start": 666432,
+      "analysis_start": 666432
+    },
+    {
+      "name": "conv4.0.weight",
+      "shape": [
+        512,
+        256,
+        3,
+        3
+      ],
+      "numel": 1179648,
+      "full_start": 666688,
+      "analysis_start": 666688
+    },
+    {
+      "name": "conv4.1.weight",
+      "shape": [
+        512
+      ],
+      "numel": 512,
+      "full_start": 1846336,
+      "analysis_start": 1846336
+    },
+    {
+      "name": "conv4.1.bias",
+      "shape": [
+        512
+      ],
+      "numel": 512,
+      "full_start": 1846848,
+      "analysis_start": 1846848
+    },
+    {
+      "name": "res2.0.0.weight",
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "numel": 2359296,
+      "full_start": 1847360,
+      "analysis_start": 1847360
+    },
+    {
+      "name": "res2.0.1.weight",
+      "shape": [
+        512
+      ],
+      "numel": 512,
+      "full_start": 4206656,
+      "analysis_start": 4206656
+    },
+    {
+      "name": "res2.0.1.bias",
+      "shape": [
+        512
+      ],
+      "numel": 512,
+      "full_start": 4207168,
+      "analysis_start": 4207168
+    },
+    {
+      "name": "res2.1.0.weight",
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "numel": 2359296,
+      "full_start": 4207680,
+      "analysis_start": 4207680
+    },
+    {
+      "name": "res2.1.1.weight",
+      "shape": [
+        512
+      ],
+      "numel": 512,
+      "full_start": 6566976,
+      "analysis_start": 6566976
+    },
+    {
+      "name": "res2.1.1.bias",
+      "shape": [
+        512
+      ],
+      "numel": 512,
+      "full_start": 6567488,
+      "analysis_start": 6567488
+    },
+    {
+      "name": "classifier.2.weight",
+      "shape": [
+        10,
+        512
+      ],
+      "numel": 5120,
+      "full_start": 6568000,
+      "analysis_start": 6568000
+    }
+  ],
+  "analysis_parameter_count": 6573120,
+  "uploaded_state_count": 6573120,
+  "finished_at": "2026-11-12 03:26:06 +0800",
+  "elapsed_seconds": 5185.286904294044,
+  "observed_rounds": 100,
+  "report_status": "generated"
+}

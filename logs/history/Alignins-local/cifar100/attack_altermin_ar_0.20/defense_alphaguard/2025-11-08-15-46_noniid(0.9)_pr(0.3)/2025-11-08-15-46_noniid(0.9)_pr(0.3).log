@@ -1,0 +1,2122 @@
+2025-11-08 15:46:27,305 [MainThread  ] [INFO ]  Namespace(data='cifar100', num_agents=20, agent_frac=1.0, num_corrupt=4, rounds=200, local_ep=2, bs=64, client_lr=0.1, server_lr=1, target_class=7, poison_frac=0.3, pattern_type='plus', theta=8, theta_ld=10, snap=1, device='cuda:0', num_workers=0, dense_ratio=0.25, anneal_factor=0.0001, se_threshold=0.0001, non_iid=True, debug=False, beta=0.9, attack='altermin', aggr='alphaguard', lr_decay=0.99, momentum=0.0, mask_init='ERK', wd=0.0001, same_mask=1, cease_poison=100000, exp_name_extra='', super_power=False, clean=False, sparsity=0.3, lambda_s=1.0, lambda_c=1.0, dis_check_gradient=False, trigger_size=5, trigger_lr=0.1, trigger_outter_epochs=50, trigger_optim_interval=5, dm_adv_epochs=2, dm_adv_K=10, dm_adv_model_count=3, noise_loss_lambda=0.1, altermin_attack_mode='targeted', altermin_source_label=3, altermin_target_label=None, altermin_poisoned_cnt=100, altermin_boosting_factor=1.5, altermin_rho=0.0001, altermin_benign_epochs=None, altermin_malicious_epochs=1, model_replacement_scaling_factor=50, model_replacement_alpha=0.5, model_replacement_target_label=None, model_replacement_constrain_weight=0.02, num_target=100, exp_name='noniid(0.9)_pr(0.3)')
+2025-11-08 15:46:28,962 [MainThread  ] [INFO ]  (50000, 100)
+2025-11-08 15:46:29,431 [MainThread  ] [INFO ]  client:0, distribution: [13, 8, 12, 25, 51, 57, 57, 6, 12, 142, 20, 7, 45, 2, 55, 1, 3, 37, 1, 0, 0, 18, 22, 15, 11, 18, 21, 88, 51, 38, 1, 10, 12, 5, 52, 5, 0, 52, 3, 42, 4, 10, 76, 20, 9, 26, 28, 74, 78, 4, 6, 55, 18, 0, 43, 15, 96, 21, 13, 49, 71, 16, 29, 19, 2, 4, 76, 12, 1, 6, 2, 98, 7, 7, 0, 85, 17, 25, 17, 99, 3, 6, 25, 33, 17, 21, 54, 20, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,431 [MainThread  ] [INFO ]  client:1, distribution: [40, 14, 51, 4, 27, 7, 31, 31, 11, 24, 10, 2, 9, 23, 14, 54, 13, 12, 24, 28, 15, 10, 110, 79, 15, 1, 44, 21, 24, 45, 40, 3, 5, 13, 43, 49, 73, 3, 10, 36, 32, 21, 9, 9, 12, 12, 3, 21, 29, 28, 12, 19, 4, 9, 18, 0, 1, 18, 67, 16, 20, 1, 31, 4, 24, 1, 103, 29, 28, 8, 3, 32, 51, 24, 23, 2, 20, 26, 31, 97, 14, 10, 64, 37, 67, 37, 1, 44, 0, 5, 39, 3, 3, 72, 3, 56, 2, 94, 0, 0]
+2025-11-08 15:46:29,431 [MainThread  ] [INFO ]  client:2, distribution: [16, 4, 9, 0, 22, 13, 15, 35, 2, 31, 77, 14, 24, 4, 11, 25, 5, 9, 24, 60, 5, 37, 11, 44, 73, 29, 46, 6, 19, 68, 64, 33, 34, 54, 28, 17, 23, 84, 32, 59, 14, 0, 15, 74, 16, 50, 49, 92, 81, 19, 28, 7, 37, 38, 44, 6, 40, 23, 46, 25, 34, 10, 8, 5, 99, 54, 9, 2, 22, 7, 99, 1, 28, 34, 27, 17, 16, 3, 58, 21, 12, 28, 7, 5, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,431 [MainThread  ] [INFO ]  client:3, distribution: [20, 2, 27, 38, 31, 43, 26, 21, 4, 24, 23, 74, 13, 14, 46, 42, 114, 21, 7, 37, 14, 16, 52, 3, 22, 36, 14, 16, 7, 30, 49, 22, 27, 10, 20, 31, 19, 17, 41, 11, 1, 54, 14, 112, 60, 3, 13, 0, 28, 4, 41, 55, 8, 4, 29, 23, 23, 21, 1, 11, 8, 4, 23, 16, 0, 2, 44, 9, 9, 16, 2, 22, 3, 34, 19, 13, 24, 39, 33, 27, 7, 32, 16, 45, 26, 1, 44, 101, 4, 4, 25, 66, 35, 71, 12, 1, 2, 42, 73, 0]
+2025-11-08 15:46:29,431 [MainThread  ] [INFO ]  client:4, distribution: [25, 30, 91, 76, 19, 15, 9, 11, 17, 12, 0, 163, 66, 18, 13, 21, 24, 26, 17, 5, 29, 56, 12, 6, 2, 75, 16, 47, 10, 10, 5, 20, 31, 13, 5, 4, 43, 31, 13, 60, 2, 48, 39, 11, 68, 23, 94, 1, 1, 2, 34, 5, 34, 29, 43, 20, 14, 9, 19, 20, 8, 22, 63, 66, 16, 85, 19, 16, 52, 24, 57, 9, 0, 25, 38, 96, 53, 2, 27, 17, 37, 57, 1, 30, 11, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:5, distribution: [12, 75, 5, 18, 41, 40, 12, 3, 17, 30, 18, 92, 20, 69, 43, 37, 9, 63, 61, 10, 8, 13, 13, 1, 49, 24, 18, 17, 3, 27, 36, 90, 55, 23, 3, 10, 6, 18, 50, 74, 25, 23, 2, 34, 10, 44, 6, 0, 99, 24, 9, 8, 1, 6, 3, 5, 21, 74, 2, 3, 40, 28, 15, 16, 29, 1, 20, 10, 35, 42, 25, 2, 17, 7, 82, 13, 37, 44, 7, 29, 47, 23, 27, 3, 18, 16, 102, 3, 98, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:6, distribution: [18, 15, 101, 0, 31, 7, 4, 45, 40, 5, 33, 0, 5, 43, 10, 11, 16, 30, 8, 10, 40, 12, 4, 12, 20, 25, 103, 46, 35, 11, 3, 1, 3, 40, 0, 4, 62, 51, 0, 18, 62, 3, 2, 12, 12, 6, 17, 7, 9, 115, 26, 1, 43, 118, 59, 10, 26, 11, 28, 16, 34, 115, 9, 18, 7, 25, 3, 52, 80, 17, 69, 86, 30, 78, 13, 19, 19, 22, 21, 2, 27, 20, 68, 101, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:7, distribution: [6, 7, 5, 6, 35, 20, 47, 36, 30, 17, 10, 7, 27, 1, 12, 4, 22, 7, 2, 1, 16, 22, 25, 86, 8, 27, 29, 0, 14, 7, 8, 19, 3, 30, 21, 53, 2, 16, 6, 15, 26, 25, 4, 5, 31, 70, 20, 0, 23, 18, 14, 4, 78, 36, 1, 57, 27, 49, 3, 45, 9, 59, 47, 1, 18, 17, 4, 8, 8, 9, 33, 61, 19, 14, 8, 20, 1, 15, 4, 8, 38, 35, 19, 8, 6, 17, 29, 12, 25, 24, 51, 63, 23, 15, 52, 46, 83, 98, 93, 3]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:8, distribution: [11, 3, 2, 3, 14, 1, 13, 37, 30, 26, 6, 3, 0, 35, 3, 66, 23, 1, 101, 36, 52, 5, 77, 1, 27, 95, 16, 14, 18, 11, 8, 31, 8, 14, 10, 15, 26, 13, 14, 2, 24, 11, 14, 32, 34, 16, 23, 5, 10, 35, 20, 11, 21, 26, 5, 1, 7, 18, 42, 6, 48, 16, 34, 4, 9, 8, 15, 41, 23, 8, 27, 35, 26, 11, 3, 16, 71, 16, 63, 2, 3, 19, 68, 31, 25, 114, 60, 26, 48, 7, 17, 29, 88, 30, 4, 38, 109, 10, 12, 118]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:9, distribution: [5, 19, 38, 26, 30, 18, 31, 33, 60, 11, 105, 0, 36, 25, 10, 7, 55, 13, 24, 9, 28, 38, 2, 24, 15, 17, 23, 18, 4, 3, 0, 0, 21, 87, 20, 49, 13, 6, 0, 14, 22, 22, 12, 17, 0, 1, 22, 41, 17, 26, 11, 40, 8, 33, 3, 19, 11, 1, 4, 17, 5, 92, 33, 25, 21, 7, 3, 8, 11, 45, 4, 14, 10, 2, 42, 14, 8, 18, 4, 20, 13, 41, 11, 17, 5, 57, 2, 7, 87, 7, 6, 13, 15, 12, 133, 31, 42, 30, 101, 55]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:10, distribution: [17, 55, 9, 2, 23, 9, 16, 2, 63, 0, 3, 2, 46, 9, 21, 1, 4, 29, 11, 19, 5, 3, 14, 9, 69, 24, 16, 90, 8, 4, 8, 31, 41, 39, 26, 15, 6, 10, 46, 3, 7, 24, 10, 6, 3, 9, 41, 47, 10, 48, 59, 29, 29, 18, 15, 44, 9, 11, 2, 56, 1, 4, 59, 42, 87, 4, 1, 31, 35, 3, 12, 8, 45, 11, 0, 10, 56, 4, 7, 12, 23, 1, 16, 44, 10, 16, 38, 53, 9, 88, 127, 48, 21, 11, 38, 25, 155, 5, 81, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:11, distribution: [55, 6, 25, 2, 29, 15, 10, 13, 75, 13, 9, 15, 26, 8, 50, 40, 69, 26, 6, 5, 1, 19, 75, 59, 0, 2, 38, 2, 10, 6, 3, 3, 8, 56, 9, 35, 31, 4, 4, 11, 14, 118, 5, 7, 106, 43, 17, 6, 22, 4, 9, 22, 6, 24, 2, 6, 40, 29, 7, 18, 16, 20, 11, 65, 2, 73, 4, 19, 15, 31, 20, 16, 47, 38, 10, 46, 8, 21, 2, 8, 4, 0, 66, 1, 10, 32, 18, 14, 28, 3, 33, 54, 185, 38, 135, 87, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:12, distribution: [31, 39, 3, 58, 17, 12, 73, 55, 66, 7, 21, 12, 6, 34, 6, 1, 9, 21, 21, 25, 44, 53, 1, 10, 11, 10, 39, 1, 6, 134, 97, 43, 10, 9, 71, 46, 37, 39, 148, 12, 59, 5, 31, 22, 29, 18, 5, 55, 0, 32, 42, 23, 28, 13, 3, 7, 14, 6, 85, 0, 58, 14, 2, 5, 28, 41, 41, 35, 2, 82, 9, 15, 61, 60, 86, 53, 4, 19, 33, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:13, distribution: [60, 23, 18, 32, 7, 43, 23, 1, 0, 6, 3, 5, 28, 35, 32, 5, 25, 72, 2, 141, 20, 8, 4, 25, 24, 17, 7, 1, 133, 47, 90, 0, 18, 5, 11, 13, 13, 22, 10, 10, 6, 31, 15, 0, 24, 16, 16, 9, 13, 17, 16, 62, 66, 26, 28, 33, 27, 9, 18, 18, 29, 0, 11, 16, 53, 26, 12, 19, 43, 52, 7, 35, 7, 40, 20, 18, 16, 50, 90, 27, 37, 9, 12, 43, 7, 39, 48, 14, 5, 29, 12, 45, 22, 59, 1, 18, 15, 1, 7, 139]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:14, distribution: [29, 31, 4, 10, 8, 27, 16, 12, 46, 5, 37, 1, 23, 39, 62, 40, 10, 12, 55, 29, 6, 8, 18, 36, 35, 36, 11, 60, 12, 0, 12, 19, 81, 2, 9, 5, 4, 4, 8, 89, 42, 6, 111, 21, 15, 114, 7, 20, 24, 18, 62, 17, 6, 29, 111, 34, 0, 110, 4, 28, 40, 1, 1, 87, 1, 46, 31, 7, 3, 15, 26, 0, 13, 2, 23, 22, 38, 39, 1, 3, 51, 44, 1, 0, 50, 11, 12, 2, 3, 25, 50, 6, 36, 14, 2, 19, 6, 173, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:15, distribution: [34, 25, 10, 62, 28, 27, 11, 39, 1, 19, 6, 44, 21, 5, 30, 12, 35, 42, 96, 13, 97, 6, 2, 2, 55, 30, 11, 39, 19, 53, 4, 44, 10, 26, 43, 5, 42, 21, 18, 1, 38, 15, 27, 7, 9, 1, 14, 16, 19, 17, 14, 58, 14, 1, 13, 74, 110, 8, 36, 12, 13, 18, 44, 4, 5, 31, 12, 4, 67, 64, 37, 18, 70, 9, 40, 6, 5, 8, 45, 7, 11, 33, 33, 40, 6, 10, 19, 127, 4, 32, 27, 50, 14, 0, 0, 0, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:16, distribution: [6, 46, 67, 32, 21, 2, 5, 45, 12, 25, 45, 30, 3, 28, 30, 4, 38, 16, 7, 15, 13, 46, 5, 44, 16, 13, 30, 10, 26, 0, 3, 15, 2, 1, 53, 36, 60, 78, 13, 26, 77, 28, 97, 77, 15, 5, 12, 3, 2, 63, 18, 20, 13, 3, 2, 91, 10, 39, 8, 94, 2, 30, 10, 15, 28, 5, 10, 53, 0, 17, 37, 15, 20, 5, 7, 5, 27, 3, 12, 3, 15, 13, 25, 43, 52, 71, 30, 17, 1, 97, 5, 33, 8, 80, 58, 23, 0, 0, 0, 0]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:17, distribution: [39, 14, 14, 38, 0, 59, 6, 8, 7, 21, 26, 1, 74, 22, 12, 3, 0, 51, 19, 19, 60, 12, 24, 13, 33, 5, 4, 12, 77, 4, 16, 13, 47, 9, 14, 12, 17, 6, 39, 5, 19, 35, 5, 13, 17, 26, 12, 33, 1, 1, 10, 13, 47, 66, 30, 6, 4, 3, 22, 20, 13, 36, 1, 74, 25, 24, 21, 18, 48, 15, 0, 5, 6, 58, 40, 33, 2, 84, 8, 21, 13, 3, 15, 7, 70, 2, 2, 15, 82, 24, 31, 23, 5, 20, 41, 37, 11, 38, 116, 54]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:18, distribution: [13, 83, 3, 63, 18, 62, 66, 1, 4, 64, 4, 10, 7, 23, 30, 121, 25, 11, 1, 34, 8, 100, 4, 4, 0, 7, 9, 5, 1, 1, 35, 90, 55, 35, 22, 89, 18, 3, 23, 8, 15, 11, 9, 15, 4, 1, 13, 52, 20, 20, 34, 19, 34, 2, 20, 5, 11, 13, 77, 18, 36, 7, 42, 16, 5, 23, 42, 31, 4, 30, 8, 27, 36, 10, 18, 1, 12, 41, 31, 2, 138, 89, 17, 1, 13, 11, 12, 12, 7, 63, 9, 37, 13, 9, 4, 33, 37, 0, 6, 45]
+2025-11-08 15:46:29,432 [MainThread  ] [INFO ]  client:19, distribution: [50, 1, 6, 5, 48, 23, 29, 66, 3, 18, 44, 18, 21, 63, 10, 5, 1, 1, 13, 4, 39, 18, 25, 27, 15, 9, 5, 7, 23, 1, 18, 13, 29, 29, 40, 7, 5, 22, 22, 4, 11, 10, 3, 6, 26, 16, 88, 18, 14, 5, 35, 32, 5, 19, 28, 44, 9, 27, 16, 28, 15, 7, 27, 2, 41, 23, 30, 96, 14, 9, 23, 1, 4, 31, 1, 11, 66, 21, 6, 53, 7, 37, 9, 11, 1, 9, 29, 33, 18, 16, 68, 30, 32, 69, 17, 86, 38, 9, 11, 86]
+2025-11-08 15:46:30,012 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 0
+2025-11-08 15:46:30,012 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 15:46:30,012 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 15:46:30,012 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 15:46:30,012 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 15:46:30,022 [MainThread  ] [INFO ]  build client:0 mal:1 data_num:2516
+2025-11-08 15:46:30,083 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 1
+2025-11-08 15:46:30,083 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 15:46:30,083 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 15:46:30,083 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 15:46:30,083 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 15:46:30,092 [MainThread  ] [INFO ]  build client:1 mal:1 data_num:2517
+2025-11-08 15:46:30,158 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 2
+2025-11-08 15:46:30,158 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 15:46:30,158 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 15:46:30,158 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 15:46:30,158 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 15:46:30,167 [MainThread  ] [INFO ]  build client:2 mal:1 data_num:2516
+2025-11-08 15:46:30,229 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 3
+2025-11-08 15:46:30,229 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 15:46:30,229 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 15:46:30,229 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 15:46:30,229 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 15:46:30,238 [MainThread  ] [INFO ]  build client:3 mal:1 data_num:2543
+2025-11-08 15:46:30,246 [MainThread  ] [INFO ]  build client:4 mal:0 data_num:2529
+2025-11-08 15:46:30,251 [MainThread  ] [INFO ]  build client:5 mal:0 data_num:2524
+2025-11-08 15:46:30,257 [MainThread  ] [INFO ]  build client:6 mal:0 data_num:2506
+2025-11-08 15:46:30,262 [MainThread  ] [INFO ]  build client:7 mal:0 data_num:2348
+2025-11-08 15:46:30,268 [MainThread  ] [INFO ]  build client:8 mal:0 data_num:2564
+2025-11-08 15:46:30,273 [MainThread  ] [INFO ]  build client:9 mal:0 data_num:2335
+2025-11-08 15:46:30,278 [MainThread  ] [INFO ]  build client:10 mal:0 data_num:2526
+2025-11-08 15:46:30,284 [MainThread  ] [INFO ]  build client:11 mal:0 data_num:2558
+2025-11-08 15:46:30,289 [MainThread  ] [INFO ]  build client:12 mal:0 data_num:2505
+2025-11-08 15:46:30,295 [MainThread  ] [INFO ]  build client:13 mal:0 data_num:2622
+2025-11-08 15:46:30,301 [MainThread  ] [INFO ]  build client:14 mal:0 data_num:2634
+2025-11-08 15:46:30,306 [MainThread  ] [INFO ]  build client:15 mal:0 data_num:2504
+2025-11-08 15:46:30,312 [MainThread  ] [INFO ]  build client:16 mal:0 data_num:2519
+2025-11-08 15:46:30,317 [MainThread  ] [INFO ]  build client:17 mal:0 data_num:2379
+2025-11-08 15:46:30,323 [MainThread  ] [INFO ]  build client:18 mal:0 data_num:2531
+2025-11-08 15:46:30,328 [MainThread  ] [INFO ]  build client:19 mal:0 data_num:2324
+2025-11-08 15:46:32,492 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 15:46:34,649 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 15:46:36,851 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 15:46:39,054 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 15:46:39,054 [MainThread  ] [INFO ]  --------round 1 ------------
+2025-11-08 15:46:39,069 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:46:39,084 [MainThread  ] [INFO ]  [Round 1] Client 0 starting AlterMin training...
+2025-11-08 15:46:42,447 [MainThread  ] [INFO ]    Benign training completed, loss: 5.0715
+2025-11-08 15:46:42,485 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.5162
+2025-11-08 15:46:42,528 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.9105
+2025-11-08 15:46:42,531 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:46:42,547 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0190
+2025-11-08 15:46:42,572 [MainThread  ] [INFO ]  [Round 1] Client 1 starting AlterMin training...
+2025-11-08 15:46:45,290 [MainThread  ] [INFO ]    Benign training completed, loss: 4.5649
+2025-11-08 15:46:45,297 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.9065
+2025-11-08 15:46:45,318 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4836
+2025-11-08 15:46:45,320 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:46:45,328 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:46:45,349 [MainThread  ] [INFO ]  [Round 1] Client 2 starting AlterMin training...
+2025-11-08 15:46:48,027 [MainThread  ] [INFO ]    Benign training completed, loss: 4.9717
+2025-11-08 15:46:48,038 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.5520
+2025-11-08 15:46:48,058 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3327
+2025-11-08 15:46:48,059 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:46:48,071 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0003
+2025-11-08 15:46:48,091 [MainThread  ] [INFO ]  [Round 1] Client 3 starting AlterMin training...
+2025-11-08 15:46:50,787 [MainThread  ] [INFO ]    Benign training completed, loss: 4.8096
+2025-11-08 15:46:50,793 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.9298
+2025-11-08 15:46:50,814 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5576
+2025-11-08 15:46:50,816 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:46:50,825 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0038
+2025-11-08 15:47:28,548 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:47:29,251 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:47:29,251 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:47:29,251 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:47:29,251 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:47:29,251 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:47:29,251 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:47:29,252 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:47:29,252 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:47:29,261 [MainThread  ] [INFO ]    Min:  208.6934
+2025-11-08 15:47:29,272 [MainThread  ] [INFO ]    Max:  246.1318
+2025-11-08 15:47:29,281 [MainThread  ] [INFO ]    Mean: 227.7117
+2025-11-08 15:47:29,281 [MainThread  ] [INFO ]    Std:  10.2392
+2025-11-08 15:47:29,380 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:47:29,381 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:47:29,416 [MainThread  ] [INFO ]    L2 threshold: [224.4262, 233.5940]
+2025-11-08 15:47:29,416 [MainThread  ] [INFO ]    Reference norm: 224.6716
+2025-11-08 15:47:29,417 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:47:29,449 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:47:29,449 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]    Norm min:   3704.6965
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]    Norm max:   5381.4565
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]    Norm mean:  4231.3877
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]    Norm std:   402.6080
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:47:29,452 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:47:29,519 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:47:29,520 [MainThread  ] [INFO ]    Min:  9.3326
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Max:  16.8960
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Mean: 11.8394
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Std:  1.7003
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 0 (MAL): 16.8960
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 1 (MAL): 11.1761
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 2 (MAL): 14.4698
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 3 (MAL): 12.7199
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 4: 11.4389
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 5: 12.2067
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 6: 11.2157
+2025-11-08 15:47:29,521 [MainThread  ] [INFO ]    Client 7: 10.9697
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 8: 10.5909
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 9: 9.3326
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 10: 10.3458
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 11: 11.1026
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 12: 12.2823
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 13: 13.1070
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 14: 13.5017
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 15: 11.4603
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 16: 11.9629
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 17: 11.0941
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 18: 10.6406
+2025-11-08 15:47:29,522 [MainThread  ] [INFO ]    Client 19: 10.2746
+2025-11-08 15:47:29,524 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:47:29,524 [MainThread  ] [INFO ]    Reference: 11.5691
+2025-11-08 15:47:29,524 [MainThread  ] [INFO ]    Lower bound: 10.4122
+2025-11-08 15:47:29,524 [MainThread  ] [INFO ]    Upper bound: 12.7260
+2025-11-08 15:47:29,526 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:47:29,526 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Max:  0.3277
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Mean: 0.0339
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Clients below lower: 3
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Clients above upper: 4
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Min weight:  0.5193
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Mean weight: 0.9440
+2025-11-08 15:47:29,527 [MainThread  ] [INFO ]    Weight std:  0.1210
+2025-11-08 15:47:29,528 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:47:29,528 [MainThread  ] [INFO ]    Median Top-K: 11.2157
+2025-11-08 15:47:29,528 [MainThread  ] [INFO ]    MAD: 0.7472
+2025-11-08 15:47:29,528 [MainThread  ] [INFO ]    Q25: 10.8874, Q75: 12.3917
+2025-11-08 15:47:29,528 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:47:29,529 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=16.8960, Deviation=5.6803 (HIGH), Z-score=5.1279
+2025-11-08 15:47:29,529 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=11.1761, Deviation=0.0396 (LOW), Z-score=0.0358
+2025-11-08 15:47:29,529 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=14.4698, Deviation=3.2541 (HIGH), Z-score=2.9377
+2025-11-08 15:47:29,529 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=12.7199, Deviation=1.5041 (HIGH), Z-score=1.3579
+2025-11-08 15:47:29,529 [MainThread  ] [INFO ]    Client 4: Top-K=11.4389, Deviation=0.2231 (HIGH), Z-score=0.2014
+2025-11-08 15:47:29,529 [MainThread  ] [INFO ]    Client 5: Top-K=12.2067, Deviation=0.9910 (HIGH), Z-score=0.8947
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 6: Top-K=11.2157, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 7: Top-K=10.9697, Deviation=0.2460 (LOW), Z-score=0.2221
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 8: Top-K=10.5909, Deviation=0.6248 (LOW), Z-score=0.5640
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 9: Top-K=9.3326, Deviation=1.8832 (LOW), Z-score=1.7000
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 10: Top-K=10.3458, Deviation=0.8700 (LOW), Z-score=0.7854
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 11: Top-K=11.1026, Deviation=0.1131 (LOW), Z-score=0.1021
+2025-11-08 15:47:29,530 [MainThread  ] [INFO ]    Client 12: Top-K=12.2823, Deviation=1.0665 (HIGH), Z-score=0.9628
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 13: Top-K=13.1070, Deviation=1.8913 (HIGH), Z-score=1.7074
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 14: Top-K=13.5017, Deviation=2.2860 (HIGH), Z-score=2.0637
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 15: Top-K=11.4603, Deviation=0.2445 (HIGH), Z-score=0.2208
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 16: Top-K=11.9629, Deviation=0.7472 (HIGH), Z-score=0.6745
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 17: Top-K=11.0941, Deviation=0.1216 (LOW), Z-score=0.1098
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 18: Top-K=10.6406, Deviation=0.5751 (LOW), Z-score=0.5192
+2025-11-08 15:47:29,531 [MainThread  ] [INFO ]    Client 19: Top-K=10.2746, Deviation=0.9412 (LOW), Z-score=0.8496
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]    Removed indices: [3, 9, 13, 14, 2, 0]
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]    Removed Top-K means: [12.7199, 9.3326, 13.107, 13.5017, 14.4698, 16.896]
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]    Removed Z-scores: [1.3579, 1.7, 1.7074, 2.0637, 2.9377, 5.1279]
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]    Above median: 5, Below median: 1
+2025-11-08 15:47:29,532 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]    Malicious detected: 3/4
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]    Benign removed: 3/16
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]    Detection rate: 75.00%
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]    False positive: 18.75%
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]    Reference value: 11.5691
+2025-11-08 15:47:29,539 [MainThread  ] [INFO ]    Normal range: [10.4122, 12.7260]
+2025-11-08 15:47:29,540 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:47:29,540 [MainThread  ] [INFO ]    Weight range: [0.9739, 1.0000]
+2025-11-08 15:47:29,540 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:47:29,540 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:47:29,543 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:47:29,598 [MainThread  ] [INFO ]  ---------Test 1 ------------
+2025-11-08 15:47:34,976 [MainThread  ] [INFO ]  Clean ACC:              0.0100
+2025-11-08 15:47:34,976 [MainThread  ] [INFO ]  Attack Success Ratio:   1.0000
+2025-11-08 15:47:34,976 [MainThread  ] [INFO ]  Backdoor ACC:           0.0000
+2025-11-08 15:47:34,976 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:47:34,976 [MainThread  ] [INFO ]  --------round 2 ------------
+2025-11-08 15:47:34,989 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:47:34,998 [MainThread  ] [INFO ]  [Round 2] Client 0 starting AlterMin training...
+2025-11-08 15:47:37,742 [MainThread  ] [INFO ]    Benign training completed, loss: 3.7803
+2025-11-08 15:47:37,757 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.3088
+2025-11-08 15:47:37,776 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1519
+2025-11-08 15:47:37,777 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:47:37,790 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:47:37,809 [MainThread  ] [INFO ]  [Round 2] Client 1 starting AlterMin training...
+2025-11-08 15:47:40,561 [MainThread  ] [INFO ]    Benign training completed, loss: 3.9685
+2025-11-08 15:47:40,569 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.2950
+2025-11-08 15:47:40,590 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7576
+2025-11-08 15:47:40,591 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:47:40,597 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:47:40,617 [MainThread  ] [INFO ]  [Round 2] Client 2 starting AlterMin training...
+2025-11-08 15:47:43,377 [MainThread  ] [INFO ]    Benign training completed, loss: 3.8991
+2025-11-08 15:47:43,389 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.4710
+2025-11-08 15:47:43,406 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2670
+2025-11-08 15:47:43,407 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:47:43,413 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:47:43,433 [MainThread  ] [INFO ]  [Round 2] Client 3 starting AlterMin training...
+2025-11-08 15:47:46,191 [MainThread  ] [INFO ]    Benign training completed, loss: 4.0754
+2025-11-08 15:47:46,197 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.4363
+2025-11-08 15:47:46,219 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7752
+2025-11-08 15:47:46,220 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:47:46,225 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:48:24,262 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:48:24,955 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:48:24,955 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:48:24,955 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:48:24,955 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:48:24,955 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:48:24,956 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:48:24,956 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:48:24,956 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:48:24,961 [MainThread  ] [INFO ]    Min:  207.4511
+2025-11-08 15:48:24,961 [MainThread  ] [INFO ]    Max:  235.3866
+2025-11-08 15:48:24,961 [MainThread  ] [INFO ]    Mean: 223.6248
+2025-11-08 15:48:24,962 [MainThread  ] [INFO ]    Std:  8.1560
+2025-11-08 15:48:24,962 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:48:24,963 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:48:25,002 [MainThread  ] [INFO ]    L2 threshold: [224.3044, 229.9608]
+2025-11-08 15:48:25,005 [MainThread  ] [INFO ]    Reference norm: 224.4615
+2025-11-08 15:48:25,005 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:48:25,006 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:48:25,006 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]    Norm min:   2598.3147
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]    Norm max:   3186.4514
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]    Norm mean:  2860.8433
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]    Norm std:   142.5057
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:48:25,013 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:48:25,014 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:48:25,038 [MainThread  ] [INFO ]    Min:  7.7416
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Max:  9.2819
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Mean: 8.2411
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Std:  0.4177
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 0 (MAL): 9.1730
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 1 (MAL): 8.1666
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 2 (MAL): 9.2819
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 3 (MAL): 8.2438
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 4: 8.7782
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 5: 8.1497
+2025-11-08 15:48:25,040 [MainThread  ] [INFO ]    Client 6: 8.1727
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 7: 8.1647
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 8: 7.9209
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 9: 8.0528
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 10: 8.3097
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 11: 7.8784
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 12: 8.3326
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 13: 8.0017
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 14: 8.5579
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 15: 7.9551
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 16: 8.0005
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 17: 7.7416
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 18: 8.1616
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]    Client 19: 7.7779
+2025-11-08 15:48:25,041 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Reference: 8.1565
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Lower bound: 7.3408
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Upper bound: 8.9721
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Max:  0.0345
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Mean: 0.0028
+2025-11-08 15:48:25,042 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    Clients above upper: 2
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    Min weight:  0.9333
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    Mean weight: 0.9945
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    Weight std:  0.0174
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    Median Top-K: 8.1616
+2025-11-08 15:48:25,043 [MainThread  ] [INFO ]    MAD: 0.1611
+2025-11-08 15:48:25,044 [MainThread  ] [INFO ]    Q25: 7.9892, Q75: 8.3155
+2025-11-08 15:48:25,044 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:48:25,046 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=9.1730, Deviation=1.0114 (HIGH), Z-score=4.2353
+2025-11-08 15:48:25,047 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=8.1666, Deviation=0.0050 (HIGH), Z-score=0.0209
+2025-11-08 15:48:25,047 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=9.2819, Deviation=1.1203 (HIGH), Z-score=4.6912
+2025-11-08 15:48:25,049 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.2438, Deviation=0.0822 (HIGH), Z-score=0.3442
+2025-11-08 15:48:25,051 [MainThread  ] [INFO ]    Client 4: Top-K=8.7782, Deviation=0.6166 (HIGH), Z-score=2.5818
+2025-11-08 15:48:25,051 [MainThread  ] [INFO ]    Client 5: Top-K=8.1497, Deviation=0.0118 (LOW), Z-score=0.0496
+2025-11-08 15:48:25,051 [MainThread  ] [INFO ]    Client 6: Top-K=8.1727, Deviation=0.0111 (HIGH), Z-score=0.0465
+2025-11-08 15:48:25,051 [MainThread  ] [INFO ]    Client 7: Top-K=8.1647, Deviation=0.0031 (HIGH), Z-score=0.0130
+2025-11-08 15:48:25,052 [MainThread  ] [INFO ]    Client 8: Top-K=7.9209, Deviation=0.2407 (LOW), Z-score=1.0080
+2025-11-08 15:48:25,052 [MainThread  ] [INFO ]    Client 9: Top-K=8.0528, Deviation=0.1088 (LOW), Z-score=0.4557
+2025-11-08 15:48:25,052 [MainThread  ] [INFO ]    Client 10: Top-K=8.3097, Deviation=0.1481 (HIGH), Z-score=0.6204
+2025-11-08 15:48:25,052 [MainThread  ] [INFO ]    Client 11: Top-K=7.8784, Deviation=0.2831 (LOW), Z-score=1.1857
+2025-11-08 15:48:25,052 [MainThread  ] [INFO ]    Client 12: Top-K=8.3326, Deviation=0.1710 (HIGH), Z-score=0.7161
+2025-11-08 15:48:25,052 [MainThread  ] [INFO ]    Client 13: Top-K=8.0017, Deviation=0.1599 (LOW), Z-score=0.6694
+2025-11-08 15:48:25,053 [MainThread  ] [INFO ]    Client 14: Top-K=8.5579, Deviation=0.3963 (HIGH), Z-score=1.6594
+2025-11-08 15:48:25,053 [MainThread  ] [INFO ]    Client 15: Top-K=7.9551, Deviation=0.2065 (LOW), Z-score=0.8646
+2025-11-08 15:48:25,053 [MainThread  ] [INFO ]    Client 16: Top-K=8.0005, Deviation=0.1611 (LOW), Z-score=0.6745
+2025-11-08 15:48:25,053 [MainThread  ] [INFO ]    Client 17: Top-K=7.7416, Deviation=0.4200 (LOW), Z-score=1.7587
+2025-11-08 15:48:25,053 [MainThread  ] [INFO ]    Client 18: Top-K=8.1616, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:48:25,053 [MainThread  ] [INFO ]    Client 19: Top-K=7.7779, Deviation=0.3837 (LOW), Z-score=1.6068
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Removed indices: [19, 14, 17, 4, 0, 2]
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Removed Top-K means: [7.7779, 8.5579, 7.7416, 8.7782, 9.173, 9.2819]
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Removed Z-scores: [1.6068, 1.6594, 1.7587, 2.5818, 4.2353, 4.6912]
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Malicious detected: 2/4
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Benign removed: 4/16
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Detection rate: 50.00%
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    False positive: 25.00%
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:48:25,054 [MainThread  ] [INFO ]    Reference value: 8.1565
+2025-11-08 15:48:25,055 [MainThread  ] [INFO ]    Normal range: [7.3408, 8.9721]
+2025-11-08 15:48:25,055 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:48:25,055 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:48:25,055 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:48:25,055 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:48:25,058 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:48:25,115 [MainThread  ] [INFO ]  ---------Test 2 ------------
+2025-11-08 15:48:30,615 [MainThread  ] [INFO ]  Clean ACC:              0.0114
+2025-11-08 15:48:30,615 [MainThread  ] [INFO ]  Attack Success Ratio:   1.0000
+2025-11-08 15:48:30,615 [MainThread  ] [INFO ]  Backdoor ACC:           0.0014
+2025-11-08 15:48:30,615 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:48:30,616 [MainThread  ] [INFO ]  --------round 3 ------------
+2025-11-08 15:48:30,628 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:48:30,637 [MainThread  ] [INFO ]  [Round 3] Client 0 starting AlterMin training...
+2025-11-08 15:48:33,416 [MainThread  ] [INFO ]    Benign training completed, loss: 3.5075
+2025-11-08 15:48:33,424 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.6359
+2025-11-08 15:48:33,446 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.5376
+2025-11-08 15:48:33,447 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:48:33,457 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:48:33,479 [MainThread  ] [INFO ]  [Round 3] Client 1 starting AlterMin training...
+2025-11-08 15:48:36,247 [MainThread  ] [INFO ]    Benign training completed, loss: 3.7244
+2025-11-08 15:48:36,258 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 4.0112
+2025-11-08 15:48:36,278 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2152
+2025-11-08 15:48:36,279 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:48:36,290 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:48:36,310 [MainThread  ] [INFO ]  [Round 3] Client 2 starting AlterMin training...
+2025-11-08 15:48:39,081 [MainThread  ] [INFO ]    Benign training completed, loss: 3.6353
+2025-11-08 15:48:39,091 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.6287
+2025-11-08 15:48:39,110 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5594
+2025-11-08 15:48:39,111 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:48:39,117 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:48:39,139 [MainThread  ] [INFO ]  [Round 3] Client 3 starting AlterMin training...
+2025-11-08 15:48:41,903 [MainThread  ] [INFO ]    Benign training completed, loss: 3.8406
+2025-11-08 15:48:41,911 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.6580
+2025-11-08 15:48:41,933 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2976
+2025-11-08 15:48:41,934 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:48:41,940 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:49:19,835 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:49:20,538 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:49:20,541 [MainThread  ] [INFO ]    Min:  203.9116
+2025-11-08 15:49:20,541 [MainThread  ] [INFO ]    Max:  232.1615
+2025-11-08 15:49:20,541 [MainThread  ] [INFO ]    Mean: 220.0276
+2025-11-08 15:49:20,541 [MainThread  ] [INFO ]    Std:  8.2586
+2025-11-08 15:49:20,542 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:49:20,542 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:49:20,600 [MainThread  ] [INFO ]    L2 threshold: [220.8624, 226.5234]
+2025-11-08 15:49:20,601 [MainThread  ] [INFO ]    Reference norm: 220.7529
+2025-11-08 15:49:20,601 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:49:20,601 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:49:20,601 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]    Norm min:   2569.2024
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]    Norm max:   3086.0903
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]    Norm mean:  2734.9314
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]    Norm std:   117.4257
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:49:20,608 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:49:20,609 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:49:20,640 [MainThread  ] [INFO ]    Min:  7.2227
+2025-11-08 15:49:20,645 [MainThread  ] [INFO ]    Max:  8.7592
+2025-11-08 15:49:20,649 [MainThread  ] [INFO ]    Mean: 7.9442
+2025-11-08 15:49:20,650 [MainThread  ] [INFO ]    Std:  0.3695
+2025-11-08 15:49:20,650 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:49:20,650 [MainThread  ] [INFO ]    Client 0 (MAL): 8.7592
+2025-11-08 15:49:20,650 [MainThread  ] [INFO ]    Client 1 (MAL): 7.2227
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 2 (MAL): 8.0299
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 3 (MAL): 7.8515
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 4: 8.4616
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 5: 7.8593
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 6: 7.9355
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 7: 7.5804
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 8: 7.5336
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 9: 7.8806
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 10: 7.6904
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 11: 7.9951
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 12: 8.2897
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 13: 8.2394
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 14: 8.5252
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 15: 7.5876
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 16: 8.0079
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 17: 7.8698
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 18: 7.8621
+2025-11-08 15:49:20,651 [MainThread  ] [INFO ]    Client 19: 7.7022
+2025-11-08 15:49:20,652 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:49:20,652 [MainThread  ] [INFO ]    Reference: 7.9144
+2025-11-08 15:49:20,652 [MainThread  ] [INFO ]    Lower bound: 7.1229
+2025-11-08 15:49:20,652 [MainThread  ] [INFO ]    Upper bound: 8.7058
+2025-11-08 15:49:20,652 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Max:  0.0061
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Mean: 0.0003
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Clients above upper: 1
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Min weight:  0.9878
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Mean weight: 0.9994
+2025-11-08 15:49:20,653 [MainThread  ] [INFO ]    Weight std:  0.0027
+2025-11-08 15:49:20,654 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:49:20,654 [MainThread  ] [INFO ]    Median Top-K: 7.8698
+2025-11-08 15:49:20,654 [MainThread  ] [INFO ]    MAD: 0.1676
+2025-11-08 15:49:20,654 [MainThread  ] [INFO ]    Q25: 7.6992, Q75: 8.0823
+2025-11-08 15:49:20,654 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:49:20,654 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.7592, Deviation=0.8894 (HIGH), Z-score=3.5795
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=7.2227, Deviation=0.6471 (LOW), Z-score=2.6042
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.0299, Deviation=0.1601 (HIGH), Z-score=0.6444
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=7.8515, Deviation=0.0183 (LOW), Z-score=0.0735
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 4: Top-K=8.4616, Deviation=0.5918 (HIGH), Z-score=2.3818
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 5: Top-K=7.8593, Deviation=0.0105 (LOW), Z-score=0.0421
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 6: Top-K=7.9355, Deviation=0.0657 (HIGH), Z-score=0.2644
+2025-11-08 15:49:20,655 [MainThread  ] [INFO ]    Client 7: Top-K=7.5804, Deviation=0.2894 (LOW), Z-score=1.1646
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 8: Top-K=7.5336, Deviation=0.3361 (LOW), Z-score=1.3528
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 9: Top-K=7.8806, Deviation=0.0108 (HIGH), Z-score=0.0434
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 10: Top-K=7.6904, Deviation=0.1794 (LOW), Z-score=0.7220
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 11: Top-K=7.9951, Deviation=0.1253 (HIGH), Z-score=0.5042
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 12: Top-K=8.2897, Deviation=0.4199 (HIGH), Z-score=1.6899
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 13: Top-K=8.2394, Deviation=0.3696 (HIGH), Z-score=1.4876
+2025-11-08 15:49:20,656 [MainThread  ] [INFO ]    Client 14: Top-K=8.5252, Deviation=0.6554 (HIGH), Z-score=2.6378
+2025-11-08 15:49:20,657 [MainThread  ] [INFO ]    Client 15: Top-K=7.5876, Deviation=0.2822 (LOW), Z-score=1.1356
+2025-11-08 15:49:20,657 [MainThread  ] [INFO ]    Client 16: Top-K=8.0079, Deviation=0.1381 (HIGH), Z-score=0.5558
+2025-11-08 15:49:20,657 [MainThread  ] [INFO ]    Client 17: Top-K=7.8698, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:49:20,657 [MainThread  ] [INFO ]    Client 18: Top-K=7.8621, Deviation=0.0076 (LOW), Z-score=0.0307
+2025-11-08 15:49:20,657 [MainThread  ] [INFO ]    Client 19: Top-K=7.7022, Deviation=0.1676 (LOW), Z-score=0.6745
+2025-11-08 15:49:20,657 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Removed indices: [13, 12, 4, 1, 14, 0]
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Removed Top-K means: [8.2394, 8.2897, 8.4616, 7.2227, 8.5252, 8.7592]
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Removed Z-scores: [1.4876, 1.6899, 2.3818, 2.6042, 2.6378, 3.5795]
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Above median: 5, Below median: 1
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Malicious detected: 2/4
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Benign removed: 4/16
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Detection rate: 50.00%
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    False positive: 25.00%
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Reference value: 7.9144
+2025-11-08 15:49:20,658 [MainThread  ] [INFO ]    Normal range: [7.1229, 8.7058]
+2025-11-08 15:49:20,659 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:49:20,659 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:49:20,659 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:49:20,659 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:49:20,662 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:49:20,743 [MainThread  ] [INFO ]  ---------Test 3 ------------
+2025-11-08 15:49:26,765 [MainThread  ] [INFO ]  Clean ACC:              0.0577
+2025-11-08 15:49:26,765 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9700
+2025-11-08 15:49:26,765 [MainThread  ] [INFO ]  Backdoor ACC:           0.0490
+2025-11-08 15:49:26,765 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:49:26,765 [MainThread  ] [INFO ]  --------round 4 ------------
+2025-11-08 15:49:26,778 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:49:26,787 [MainThread  ] [INFO ]  [Round 4] Client 0 starting AlterMin training...
+2025-11-08 15:49:29,703 [MainThread  ] [INFO ]    Benign training completed, loss: 3.3274
+2025-11-08 15:49:29,711 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.7999
+2025-11-08 15:49:29,742 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2329
+2025-11-08 15:49:29,743 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:49:29,763 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:49:29,782 [MainThread  ] [INFO ]  [Round 4] Client 1 starting AlterMin training...
+2025-11-08 15:49:32,635 [MainThread  ] [INFO ]    Benign training completed, loss: 3.5332
+2025-11-08 15:49:32,651 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 3.9275
+2025-11-08 15:49:32,673 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4213
+2025-11-08 15:49:32,674 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:49:32,694 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:49:32,714 [MainThread  ] [INFO ]  [Round 4] Client 2 starting AlterMin training...
+2025-11-08 15:49:35,571 [MainThread  ] [INFO ]    Benign training completed, loss: 3.4362
+2025-11-08 15:49:35,580 [MainThread  ] [INFO ]    Current ASR: 0.1400, ASR Loss: 3.1925
+2025-11-08 15:49:35,596 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1426
+2025-11-08 15:49:35,597 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:49:35,615 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:49:35,635 [MainThread  ] [INFO ]  [Round 4] Client 3 starting AlterMin training...
+2025-11-08 15:49:38,494 [MainThread  ] [INFO ]    Benign training completed, loss: 3.6705
+2025-11-08 15:49:38,510 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.4153
+2025-11-08 15:49:38,533 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7068
+2025-11-08 15:49:38,534 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:49:38,548 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:50:16,615 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:50:17,306 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:50:17,309 [MainThread  ] [INFO ]    Min:  203.8046
+2025-11-08 15:50:17,309 [MainThread  ] [INFO ]    Max:  232.1054
+2025-11-08 15:50:17,309 [MainThread  ] [INFO ]    Mean: 219.9385
+2025-11-08 15:50:17,309 [MainThread  ] [INFO ]    Std:  8.2661
+2025-11-08 15:50:17,310 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:50:17,310 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:50:17,358 [MainThread  ] [INFO ]    L2 threshold: [220.7773, 226.4425]
+2025-11-08 15:50:17,360 [MainThread  ] [INFO ]    Reference norm: 220.6758
+2025-11-08 15:50:17,360 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:50:17,360 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:50:17,360 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:50:17,365 [MainThread  ] [INFO ]    Norm min:   2373.5635
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]    Norm max:   2998.5344
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]    Norm mean:  2619.2595
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]    Norm std:   135.7266
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:50:17,366 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:50:17,392 [MainThread  ] [INFO ]    Min:  7.1898
+2025-11-08 15:50:17,392 [MainThread  ] [INFO ]    Max:  8.8833
+2025-11-08 15:50:17,392 [MainThread  ] [INFO ]    Mean: 7.9424
+2025-11-08 15:50:17,392 [MainThread  ] [INFO ]    Std:  0.4718
+2025-11-08 15:50:17,392 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:50:17,392 [MainThread  ] [INFO ]    Client 0 (MAL): 8.7064
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 1 (MAL): 7.8364
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 2 (MAL): 7.9704
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 3 (MAL): 8.0013
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 4: 8.4748
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 5: 8.1159
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 6: 8.2798
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 7: 7.6216
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 8: 7.1898
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 9: 7.6758
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 10: 7.5985
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 11: 7.6421
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 12: 8.6706
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 13: 7.6296
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 14: 8.8833
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 15: 7.7186
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 16: 8.0286
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 17: 8.0112
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 18: 7.6010
+2025-11-08 15:50:17,393 [MainThread  ] [INFO ]    Client 19: 7.1928
+2025-11-08 15:50:17,394 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:50:17,394 [MainThread  ] [INFO ]    Reference: 7.9005
+2025-11-08 15:50:17,394 [MainThread  ] [INFO ]    Lower bound: 7.1105
+2025-11-08 15:50:17,394 [MainThread  ] [INFO ]    Upper bound: 8.6906
+2025-11-08 15:50:17,394 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Max:  0.0222
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Mean: 0.0012
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Clients above upper: 2
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Min weight:  0.9566
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Mean weight: 0.9976
+2025-11-08 15:50:17,395 [MainThread  ] [INFO ]    Weight std:  0.0097
+2025-11-08 15:50:17,396 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:50:17,396 [MainThread  ] [INFO ]    Median Top-K: 7.8364
+2025-11-08 15:50:17,396 [MainThread  ] [INFO ]    MAD: 0.2147
+2025-11-08 15:50:17,396 [MainThread  ] [INFO ]    Q25: 7.6276, Q75: 8.1569
+2025-11-08 15:50:17,396 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:50:17,396 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.7064, Deviation=0.8701 (HIGH), Z-score=2.7330
+2025-11-08 15:50:17,397 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=7.8364, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:50:17,397 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=7.9704, Deviation=0.1341 (HIGH), Z-score=0.4211
+2025-11-08 15:50:17,397 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.0013, Deviation=0.1650 (HIGH), Z-score=0.5181
+2025-11-08 15:50:17,397 [MainThread  ] [INFO ]    Client 4: Top-K=8.4748, Deviation=0.6385 (HIGH), Z-score=2.0055
+2025-11-08 15:50:17,397 [MainThread  ] [INFO ]    Client 5: Top-K=8.1159, Deviation=0.2795 (HIGH), Z-score=0.8781
+2025-11-08 15:50:17,397 [MainThread  ] [INFO ]    Client 6: Top-K=8.2798, Deviation=0.4434 (HIGH), Z-score=1.3928
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 7: Top-K=7.6216, Deviation=0.2147 (LOW), Z-score=0.6745
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 8: Top-K=7.1898, Deviation=0.6466 (LOW), Z-score=2.0309
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 9: Top-K=7.6758, Deviation=0.1605 (LOW), Z-score=0.5043
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 10: Top-K=7.5985, Deviation=0.2378 (LOW), Z-score=0.7470
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 11: Top-K=7.6421, Deviation=0.1942 (LOW), Z-score=0.6100
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 12: Top-K=8.6706, Deviation=0.8342 (HIGH), Z-score=2.6204
+2025-11-08 15:50:17,398 [MainThread  ] [INFO ]    Client 13: Top-K=7.6296, Deviation=0.2067 (LOW), Z-score=0.6493
+2025-11-08 15:50:17,399 [MainThread  ] [INFO ]    Client 14: Top-K=8.8833, Deviation=1.0470 (HIGH), Z-score=3.2887
+2025-11-08 15:50:17,399 [MainThread  ] [INFO ]    Client 15: Top-K=7.7186, Deviation=0.1177 (LOW), Z-score=0.3698
+2025-11-08 15:50:17,399 [MainThread  ] [INFO ]    Client 16: Top-K=8.0286, Deviation=0.1923 (HIGH), Z-score=0.6039
+2025-11-08 15:50:17,399 [MainThread  ] [INFO ]    Client 17: Top-K=8.0112, Deviation=0.1749 (HIGH), Z-score=0.5493
+2025-11-08 15:50:17,399 [MainThread  ] [INFO ]    Client 18: Top-K=7.6010, Deviation=0.2354 (LOW), Z-score=0.7393
+2025-11-08 15:50:17,399 [MainThread  ] [INFO ]    Client 19: Top-K=7.1928, Deviation=0.6436 (LOW), Z-score=2.0216
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Removed indices: [4, 19, 8, 12, 0, 14]
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Removed Top-K means: [8.4748, 7.1928, 7.1898, 8.6706, 8.7064, 8.8833]
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Removed Z-scores: [2.0055, 2.0216, 2.0309, 2.6204, 2.733, 3.2887]
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:50:17,400 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]    Reference value: 7.9005
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]    Normal range: [7.1105, 8.6906]
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:50:17,401 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:50:17,406 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:50:17,469 [MainThread  ] [INFO ]  ---------Test 4 ------------
+2025-11-08 15:50:22,881 [MainThread  ] [INFO ]  Clean ACC:              0.0559
+2025-11-08 15:50:22,881 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9900
+2025-11-08 15:50:22,881 [MainThread  ] [INFO ]  Backdoor ACC:           0.0467
+2025-11-08 15:50:22,881 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:50:22,881 [MainThread  ] [INFO ]  --------round 5 ------------
+2025-11-08 15:50:22,894 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:50:22,903 [MainThread  ] [INFO ]  [Round 5] Client 0 starting AlterMin training...
+2025-11-08 15:50:25,663 [MainThread  ] [INFO ]    Benign training completed, loss: 3.1827
+2025-11-08 15:50:25,673 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.2069
+2025-11-08 15:50:25,692 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4102
+2025-11-08 15:50:25,693 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:50:25,702 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:50:25,723 [MainThread  ] [INFO ]  [Round 5] Client 1 starting AlterMin training...
+2025-11-08 15:50:28,476 [MainThread  ] [INFO ]    Benign training completed, loss: 3.3973
+2025-11-08 15:50:28,490 [MainThread  ] [INFO ]    Current ASR: 0.1900, ASR Loss: 3.0449
+2025-11-08 15:50:28,510 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1738
+2025-11-08 15:50:28,511 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:50:28,520 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:50:28,541 [MainThread  ] [INFO ]  [Round 5] Client 2 starting AlterMin training...
+2025-11-08 15:50:31,329 [MainThread  ] [INFO ]    Benign training completed, loss: 3.2854
+2025-11-08 15:50:31,336 [MainThread  ] [INFO ]    Current ASR: 0.2400, ASR Loss: 2.9031
+2025-11-08 15:50:31,357 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9783
+2025-11-08 15:50:31,358 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:50:31,367 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:50:31,388 [MainThread  ] [INFO ]  [Round 5] Client 3 starting AlterMin training...
+2025-11-08 15:50:34,125 [MainThread  ] [INFO ]    Benign training completed, loss: 3.5239
+2025-11-08 15:50:34,131 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.5137
+2025-11-08 15:50:34,152 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6018
+2025-11-08 15:50:34,153 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:50:34,159 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:51:11,926 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:51:12,621 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:51:12,621 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:51:12,621 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:51:12,621 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:51:12,621 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:51:12,621 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:51:12,622 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:51:12,622 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:51:12,628 [MainThread  ] [INFO ]    Min:  203.7941
+2025-11-08 15:51:12,632 [MainThread  ] [INFO ]    Max:  232.0954
+2025-11-08 15:51:12,635 [MainThread  ] [INFO ]    Mean: 219.9280
+2025-11-08 15:51:12,636 [MainThread  ] [INFO ]    Std:  8.2658
+2025-11-08 15:51:12,637 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:51:12,637 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:51:12,674 [MainThread  ] [INFO ]    L2 threshold: [220.7687, 226.4257]
+2025-11-08 15:51:12,674 [MainThread  ] [INFO ]    Reference norm: 220.6708
+2025-11-08 15:51:12,674 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:51:12,674 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:51:12,674 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]    Norm min:   2481.3501
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]    Norm max:   3013.5564
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]    Norm mean:  2682.0681
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]    Norm std:   130.3544
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:51:12,680 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:51:12,681 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:51:12,706 [MainThread  ] [INFO ]    Min:  7.2848
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Max:  9.0275
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Mean: 8.0541
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Std:  0.4379
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 0 (MAL): 8.8069
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 1 (MAL): 7.2848
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 2 (MAL): 8.0159
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 3 (MAL): 8.1989
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 4: 8.5186
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 5: 8.1133
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 6: 8.0493
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 7: 7.7209
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 8: 7.4586
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 9: 7.8378
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 10: 7.6216
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 11: 8.1642
+2025-11-08 15:51:12,707 [MainThread  ] [INFO ]    Client 12: 8.6937
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 13: 8.0738
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 14: 9.0275
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 15: 7.8832
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 16: 7.8880
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 17: 7.9690
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 18: 8.0330
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Client 19: 7.7228
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Reference: 8.0135
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Lower bound: 7.2121
+2025-11-08 15:51:12,708 [MainThread  ] [INFO ]    Upper bound: 8.8148
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Max:  0.0241
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Mean: 0.0012
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Clients above upper: 1
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Min weight:  0.9529
+2025-11-08 15:51:12,709 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:51:12,710 [MainThread  ] [INFO ]    Mean weight: 0.9976
+2025-11-08 15:51:12,710 [MainThread  ] [INFO ]    Weight std:  0.0105
+2025-11-08 15:51:12,710 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:51:12,710 [MainThread  ] [INFO ]    Median Top-K: 8.0159
+2025-11-08 15:51:12,710 [MainThread  ] [INFO ]    MAD: 0.1781
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]    Q25: 7.8091, Q75: 8.1729
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.8069, Deviation=0.7910 (HIGH), Z-score=2.9959
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=7.2848, Deviation=0.7311 (LOW), Z-score=2.7690
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.0159, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.1989, Deviation=0.1830 (HIGH), Z-score=0.6930
+2025-11-08 15:51:12,711 [MainThread  ] [INFO ]    Client 4: Top-K=8.5186, Deviation=0.5027 (HIGH), Z-score=1.9040
+2025-11-08 15:51:12,712 [MainThread  ] [INFO ]    Client 5: Top-K=8.1133, Deviation=0.0974 (HIGH), Z-score=0.3689
+2025-11-08 15:51:12,712 [MainThread  ] [INFO ]    Client 6: Top-K=8.0493, Deviation=0.0334 (HIGH), Z-score=0.1264
+2025-11-08 15:51:12,712 [MainThread  ] [INFO ]    Client 7: Top-K=7.7209, Deviation=0.2950 (LOW), Z-score=1.1173
+2025-11-08 15:51:12,712 [MainThread  ] [INFO ]    Client 8: Top-K=7.4586, Deviation=0.5573 (LOW), Z-score=2.1108
+2025-11-08 15:51:12,712 [MainThread  ] [INFO ]    Client 9: Top-K=7.8378, Deviation=0.1781 (LOW), Z-score=0.6745
+2025-11-08 15:51:12,712 [MainThread  ] [INFO ]    Client 10: Top-K=7.6216, Deviation=0.3943 (LOW), Z-score=1.4933
+2025-11-08 15:51:12,713 [MainThread  ] [INFO ]    Client 11: Top-K=8.1642, Deviation=0.1483 (HIGH), Z-score=0.5617
+2025-11-08 15:51:12,713 [MainThread  ] [INFO ]    Client 12: Top-K=8.6937, Deviation=0.6778 (HIGH), Z-score=2.5669
+2025-11-08 15:51:12,713 [MainThread  ] [INFO ]    Client 13: Top-K=8.0738, Deviation=0.0579 (HIGH), Z-score=0.2194
+2025-11-08 15:51:12,713 [MainThread  ] [INFO ]    Client 14: Top-K=9.0275, Deviation=1.0116 (HIGH), Z-score=3.8312
+2025-11-08 15:51:12,713 [MainThread  ] [INFO ]    Client 15: Top-K=7.8832, Deviation=0.1327 (LOW), Z-score=0.5027
+2025-11-08 15:51:12,713 [MainThread  ] [INFO ]    Client 16: Top-K=7.8880, Deviation=0.1279 (LOW), Z-score=0.4844
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Client 17: Top-K=7.9690, Deviation=0.0470 (LOW), Z-score=0.1778
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Client 18: Top-K=8.0330, Deviation=0.0171 (HIGH), Z-score=0.0646
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Client 19: Top-K=7.7228, Deviation=0.2931 (LOW), Z-score=1.1103
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Removed indices: [4, 8, 12, 1, 0, 14]
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Removed Top-K means: [8.5186, 7.4586, 8.6937, 7.2848, 8.8069, 9.0275]
+2025-11-08 15:51:12,714 [MainThread  ] [INFO ]    Removed Z-scores: [1.904, 2.1108, 2.5669, 2.769, 2.9959, 3.8312]
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Malicious detected: 2/4
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Benign removed: 4/16
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Detection rate: 50.00%
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    False positive: 25.00%
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Reference value: 8.0135
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Normal range: [7.2121, 8.8148]
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:51:12,715 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:51:12,716 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:51:12,716 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:51:12,725 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:51:12,782 [MainThread  ] [INFO ]  ---------Test 5 ------------
+2025-11-08 15:51:18,063 [MainThread  ] [INFO ]  Clean ACC:              0.0997
+2025-11-08 15:51:18,063 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9900
+2025-11-08 15:51:18,063 [MainThread  ] [INFO ]  Backdoor ACC:           0.0913
+2025-11-08 15:51:18,063 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:51:18,063 [MainThread  ] [INFO ]  --------round 6 ------------
+2025-11-08 15:51:18,075 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:51:18,084 [MainThread  ] [INFO ]  [Round 6] Client 0 starting AlterMin training...
+2025-11-08 15:51:20,850 [MainThread  ] [INFO ]    Benign training completed, loss: 3.0447
+2025-11-08 15:51:20,856 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.8256
+2025-11-08 15:51:20,878 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4559
+2025-11-08 15:51:20,879 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:51:20,887 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:51:20,907 [MainThread  ] [INFO ]  [Round 6] Client 1 starting AlterMin training...
+2025-11-08 15:51:23,652 [MainThread  ] [INFO ]    Benign training completed, loss: 3.2673
+2025-11-08 15:51:23,658 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 3.4533
+2025-11-08 15:51:23,681 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4403
+2025-11-08 15:51:23,682 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:51:23,688 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:51:23,710 [MainThread  ] [INFO ]  [Round 6] Client 2 starting AlterMin training...
+2025-11-08 15:51:26,448 [MainThread  ] [INFO ]    Benign training completed, loss: 3.1466
+2025-11-08 15:51:26,454 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 3.3354
+2025-11-08 15:51:26,475 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4079
+2025-11-08 15:51:26,476 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:51:26,486 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:51:26,506 [MainThread  ] [INFO ]  [Round 6] Client 3 starting AlterMin training...
+2025-11-08 15:51:29,246 [MainThread  ] [INFO ]    Benign training completed, loss: 3.3666
+2025-11-08 15:51:29,251 [MainThread  ] [INFO ]    Current ASR: 0.1100, ASR Loss: 3.9345
+2025-11-08 15:51:29,270 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7661
+2025-11-08 15:51:29,272 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:51:29,278 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:52:07,151 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:52:07,837 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:52:07,837 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:52:07,837 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:52:07,837 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:52:07,838 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:52:07,838 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:52:07,838 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:52:07,838 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:52:07,840 [MainThread  ] [INFO ]    Min:  203.7887
+2025-11-08 15:52:07,840 [MainThread  ] [INFO ]    Max:  232.0855
+2025-11-08 15:52:07,840 [MainThread  ] [INFO ]    Mean: 219.9274
+2025-11-08 15:52:07,841 [MainThread  ] [INFO ]    Std:  8.2647
+2025-11-08 15:52:07,841 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:52:07,842 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:52:07,890 [MainThread  ] [INFO ]    L2 threshold: [220.7632, 226.4281]
+2025-11-08 15:52:07,891 [MainThread  ] [INFO ]    Reference norm: 220.6735
+2025-11-08 15:52:07,891 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:52:07,892 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:52:07,892 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:52:07,897 [MainThread  ] [INFO ]    Norm min:   2555.5327
+2025-11-08 15:52:07,897 [MainThread  ] [INFO ]    Norm max:   3077.2234
+2025-11-08 15:52:07,897 [MainThread  ] [INFO ]    Norm mean:  2776.7031
+2025-11-08 15:52:07,897 [MainThread  ] [INFO ]    Norm std:   124.5533
+2025-11-08 15:52:07,898 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:52:07,898 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:52:07,898 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:52:07,898 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:52:07,898 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:52:07,924 [MainThread  ] [INFO ]    Min:  7.2481
+2025-11-08 15:52:07,924 [MainThread  ] [INFO ]    Max:  8.8901
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Mean: 8.0000
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Std:  0.4330
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 0 (MAL): 8.5598
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 1 (MAL): 7.4921
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 2 (MAL): 8.0479
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 3 (MAL): 8.2102
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 4: 8.3942
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 5: 7.9497
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 6: 8.2875
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 7: 7.2481
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 8: 7.5942
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 9: 7.7629
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 10: 7.7395
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 11: 7.7184
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 12: 8.8173
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 13: 8.0765
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 14: 8.8901
+2025-11-08 15:52:07,925 [MainThread  ] [INFO ]    Client 15: 7.8017
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Client 16: 7.9986
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Client 17: 8.0025
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Client 18: 7.9158
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Client 19: 7.4928
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Reference: 7.9643
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Lower bound: 7.1678
+2025-11-08 15:52:07,926 [MainThread  ] [INFO ]    Upper bound: 8.7607
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Max:  0.0148
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Mean: 0.0011
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Clients above upper: 2
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Min weight:  0.9709
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Mean weight: 0.9979
+2025-11-08 15:52:07,927 [MainThread  ] [INFO ]    Weight std:  0.0070
+2025-11-08 15:52:07,928 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:52:07,928 [MainThread  ] [INFO ]    Median Top-K: 7.9497
+2025-11-08 15:52:07,928 [MainThread  ] [INFO ]    MAD: 0.2313
+2025-11-08 15:52:07,930 [MainThread  ] [INFO ]    Q25: 7.7342, Q75: 8.2295
+2025-11-08 15:52:07,930 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:52:07,931 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.5598, Deviation=0.6101 (HIGH), Z-score=1.7791
+2025-11-08 15:52:07,931 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=7.4921, Deviation=0.4576 (LOW), Z-score=1.3343
+2025-11-08 15:52:07,933 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.0479, Deviation=0.0982 (HIGH), Z-score=0.2864
+2025-11-08 15:52:07,935 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.2102, Deviation=0.2605 (HIGH), Z-score=0.7596
+2025-11-08 15:52:07,936 [MainThread  ] [INFO ]    Client 4: Top-K=8.3942, Deviation=0.4445 (HIGH), Z-score=1.2961
+2025-11-08 15:52:07,936 [MainThread  ] [INFO ]    Client 5: Top-K=7.9497, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:52:07,936 [MainThread  ] [INFO ]    Client 6: Top-K=8.2875, Deviation=0.3378 (HIGH), Z-score=0.9850
+2025-11-08 15:52:07,936 [MainThread  ] [INFO ]    Client 7: Top-K=7.2481, Deviation=0.7016 (LOW), Z-score=2.0459
+2025-11-08 15:52:07,938 [MainThread  ] [INFO ]    Client 8: Top-K=7.5942, Deviation=0.3555 (LOW), Z-score=1.0367
+2025-11-08 15:52:07,939 [MainThread  ] [INFO ]    Client 9: Top-K=7.7629, Deviation=0.1868 (LOW), Z-score=0.5447
+2025-11-08 15:52:07,940 [MainThread  ] [INFO ]    Client 10: Top-K=7.7395, Deviation=0.2102 (LOW), Z-score=0.6129
+2025-11-08 15:52:07,941 [MainThread  ] [INFO ]    Client 11: Top-K=7.7184, Deviation=0.2313 (LOW), Z-score=0.6745
+2025-11-08 15:52:07,943 [MainThread  ] [INFO ]    Client 12: Top-K=8.8173, Deviation=0.8676 (HIGH), Z-score=2.5299
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 13: Top-K=8.0765, Deviation=0.1268 (HIGH), Z-score=0.3697
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 14: Top-K=8.8901, Deviation=0.9404 (HIGH), Z-score=2.7421
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 15: Top-K=7.8017, Deviation=0.1480 (LOW), Z-score=0.4315
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 16: Top-K=7.9986, Deviation=0.0489 (HIGH), Z-score=0.1425
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 17: Top-K=8.0025, Deviation=0.0528 (HIGH), Z-score=0.1541
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 18: Top-K=7.9158, Deviation=0.0339 (LOW), Z-score=0.0988
+2025-11-08 15:52:07,944 [MainThread  ] [INFO ]    Client 19: Top-K=7.4928, Deviation=0.4569 (LOW), Z-score=1.3323
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Removed indices: [19, 1, 0, 7, 12, 14]
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Removed Top-K means: [7.4928, 7.4921, 8.5598, 7.2481, 8.8173, 8.8901]
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Removed Z-scores: [1.3323, 1.3343, 1.7791, 2.0459, 2.5299, 2.7421]
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Above median: 3, Below median: 3
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Malicious detected: 2/4
+2025-11-08 15:52:07,945 [MainThread  ] [INFO ]    Benign removed: 4/16
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    Detection rate: 50.00%
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    False positive: 25.00%
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    Reference value: 7.9643
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    Normal range: [7.1678, 8.7607]
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:52:07,946 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:52:07,949 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:52:07,996 [MainThread  ] [INFO ]  ---------Test 6 ------------
+2025-11-08 15:52:13,440 [MainThread  ] [INFO ]  Clean ACC:              0.1085
+2025-11-08 15:52:13,440 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9800
+2025-11-08 15:52:13,441 [MainThread  ] [INFO ]  Backdoor ACC:           0.1005
+2025-11-08 15:52:13,441 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:52:13,441 [MainThread  ] [INFO ]  --------round 7 ------------
+2025-11-08 15:52:13,453 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:52:13,462 [MainThread  ] [INFO ]  [Round 7] Client 0 starting AlterMin training...
+2025-11-08 15:52:16,221 [MainThread  ] [INFO ]    Benign training completed, loss: 2.9339
+2025-11-08 15:52:16,227 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.4437
+2025-11-08 15:52:16,250 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3393
+2025-11-08 15:52:16,251 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:52:16,261 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:52:16,284 [MainThread  ] [INFO ]  [Round 7] Client 1 starting AlterMin training...
+2025-11-08 15:52:19,042 [MainThread  ] [INFO ]    Benign training completed, loss: 3.1305
+2025-11-08 15:52:19,048 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 3.6299
+2025-11-08 15:52:19,073 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5487
+2025-11-08 15:52:19,074 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:52:19,080 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:52:19,100 [MainThread  ] [INFO ]  [Round 7] Client 2 starting AlterMin training...
+2025-11-08 15:52:21,835 [MainThread  ] [INFO ]    Benign training completed, loss: 3.0185
+2025-11-08 15:52:21,846 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.0956
+2025-11-08 15:52:21,863 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0028
+2025-11-08 15:52:21,864 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:52:21,874 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:52:21,894 [MainThread  ] [INFO ]  [Round 7] Client 3 starting AlterMin training...
+2025-11-08 15:52:24,654 [MainThread  ] [INFO ]    Benign training completed, loss: 3.2267
+2025-11-08 15:52:24,669 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 4.2040
+2025-11-08 15:52:24,684 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7040
+2025-11-08 15:52:24,685 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:52:24,693 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:53:02,563 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:53:03,267 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:53:03,267 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:53:03,267 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:53:03,267 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:53:03,267 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:53:03,267 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:53:03,268 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:53:03,268 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:53:03,272 [MainThread  ] [INFO ]    Min:  203.8019
+2025-11-08 15:53:03,274 [MainThread  ] [INFO ]    Max:  232.1015
+2025-11-08 15:53:03,274 [MainThread  ] [INFO ]    Mean: 219.9285
+2025-11-08 15:53:03,275 [MainThread  ] [INFO ]    Std:  8.2645
+2025-11-08 15:53:03,275 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:53:03,275 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:53:03,314 [MainThread  ] [INFO ]    L2 threshold: [220.7640, 226.4374]
+2025-11-08 15:53:03,315 [MainThread  ] [INFO ]    Reference norm: 220.6643
+2025-11-08 15:53:03,315 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:53:03,315 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:53:03,315 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:53:03,325 [MainThread  ] [INFO ]    Norm min:   2713.5566
+2025-11-08 15:53:03,325 [MainThread  ] [INFO ]    Norm max:   3086.7957
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]    Norm mean:  2878.9990
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]    Norm std:   100.1276
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:53:03,326 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:53:03,351 [MainThread  ] [INFO ]    Min:  7.8441
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Max:  9.1977
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Mean: 8.3243
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Std:  0.3550
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 0 (MAL): 8.7112
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 1 (MAL): 8.3389
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 2 (MAL): 8.4752
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 3 (MAL): 7.8441
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 4: 8.4661
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 5: 8.3139
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 6: 8.7067
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 7: 8.0036
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 8: 7.8782
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 9: 8.2019
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 10: 8.0345
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 11: 8.3113
+2025-11-08 15:53:03,353 [MainThread  ] [INFO ]    Client 12: 8.9431
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 13: 8.3534
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 14: 9.1977
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 15: 8.0724
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 16: 8.1165
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 17: 8.4164
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 18: 7.9737
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Client 19: 8.1273
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Reference: 8.2813
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Lower bound: 7.4532
+2025-11-08 15:53:03,354 [MainThread  ] [INFO ]    Upper bound: 9.1094
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]    Max:  0.0097
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]    Mean: 0.0005
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]    Clients above upper: 1
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:53:03,355 [MainThread  ] [INFO ]    Min weight:  0.9808
+2025-11-08 15:53:03,356 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:53:03,356 [MainThread  ] [INFO ]    Mean weight: 0.9990
+2025-11-08 15:53:03,356 [MainThread  ] [INFO ]    Weight std:  0.0043
+2025-11-08 15:53:03,356 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:53:03,356 [MainThread  ] [INFO ]    Median Top-K: 8.3113
+2025-11-08 15:53:03,356 [MainThread  ] [INFO ]    MAD: 0.1947
+2025-11-08 15:53:03,357 [MainThread  ] [INFO ]    Q25: 8.0629, Q75: 8.4684
+2025-11-08 15:53:03,357 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:53:03,357 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.7112, Deviation=0.3999 (HIGH), Z-score=1.3851
+2025-11-08 15:53:03,357 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=8.3389, Deviation=0.0276 (HIGH), Z-score=0.0956
+2025-11-08 15:53:03,357 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.4752, Deviation=0.1639 (HIGH), Z-score=0.5677
+2025-11-08 15:53:03,357 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=7.8441, Deviation=0.4671 (LOW), Z-score=1.6178
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 4: Top-K=8.4661, Deviation=0.1549 (HIGH), Z-score=0.5364
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 5: Top-K=8.3139, Deviation=0.0026 (HIGH), Z-score=0.0091
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 6: Top-K=8.7067, Deviation=0.3954 (HIGH), Z-score=1.3696
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 7: Top-K=8.0036, Deviation=0.3076 (LOW), Z-score=1.0655
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 8: Top-K=7.8782, Deviation=0.4331 (LOW), Z-score=1.4999
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 9: Top-K=8.2019, Deviation=0.1094 (LOW), Z-score=0.3788
+2025-11-08 15:53:03,358 [MainThread  ] [INFO ]    Client 10: Top-K=8.0345, Deviation=0.2767 (LOW), Z-score=0.9584
+2025-11-08 15:53:03,359 [MainThread  ] [INFO ]    Client 11: Top-K=8.3113, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:53:03,361 [MainThread  ] [INFO ]    Client 12: Top-K=8.9431, Deviation=0.6318 (HIGH), Z-score=2.1882
+2025-11-08 15:53:03,361 [MainThread  ] [INFO ]    Client 13: Top-K=8.3534, Deviation=0.0421 (HIGH), Z-score=0.1460
+2025-11-08 15:53:03,362 [MainThread  ] [INFO ]    Client 14: Top-K=9.1977, Deviation=0.8865 (HIGH), Z-score=3.0703
+2025-11-08 15:53:03,363 [MainThread  ] [INFO ]    Client 15: Top-K=8.0724, Deviation=0.2389 (LOW), Z-score=0.8274
+2025-11-08 15:53:03,366 [MainThread  ] [INFO ]    Client 16: Top-K=8.1165, Deviation=0.1947 (LOW), Z-score=0.6745
+2025-11-08 15:53:03,366 [MainThread  ] [INFO ]    Client 17: Top-K=8.4164, Deviation=0.1052 (HIGH), Z-score=0.3643
+2025-11-08 15:53:03,366 [MainThread  ] [INFO ]    Client 18: Top-K=7.9737, Deviation=0.3375 (LOW), Z-score=1.1690
+2025-11-08 15:53:03,366 [MainThread  ] [INFO ]    Client 19: Top-K=8.1273, Deviation=0.1840 (LOW), Z-score=0.6373
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]    Removed indices: [6, 0, 8, 3, 12, 14]
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]    Removed Top-K means: [8.7067, 8.7112, 7.8782, 7.8441, 8.9431, 9.1977]
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]    Removed Z-scores: [1.3696, 1.3851, 1.4999, 1.6178, 2.1882, 3.0703]
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:53:03,367 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Malicious detected: 2/4
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Benign removed: 4/16
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Detection rate: 50.00%
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    False positive: 25.00%
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Reference value: 8.2813
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Normal range: [7.4532, 9.1094]
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:53:03,368 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:53:03,371 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:53:03,422 [MainThread  ] [INFO ]  ---------Test 7 ------------
+2025-11-08 15:53:09,025 [MainThread  ] [INFO ]  Clean ACC:              0.1301
+2025-11-08 15:53:09,025 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9700
+2025-11-08 15:53:09,025 [MainThread  ] [INFO ]  Backdoor ACC:           0.1219
+2025-11-08 15:53:09,025 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:53:09,025 [MainThread  ] [INFO ]  --------round 8 ------------
+2025-11-08 15:53:09,038 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:53:09,047 [MainThread  ] [INFO ]  [Round 8] Client 0 starting AlterMin training...
+2025-11-08 15:53:11,978 [MainThread  ] [INFO ]    Benign training completed, loss: 2.7873
+2025-11-08 15:53:11,993 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.4184
+2025-11-08 15:53:12,015 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2603
+2025-11-08 15:53:12,016 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:53:12,022 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:53:12,042 [MainThread  ] [INFO ]  [Round 8] Client 1 starting AlterMin training...
+2025-11-08 15:53:14,822 [MainThread  ] [INFO ]    Benign training completed, loss: 2.9833
+2025-11-08 15:53:14,828 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 3.6203
+2025-11-08 15:53:14,856 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7045
+2025-11-08 15:53:14,857 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:53:14,867 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:53:14,887 [MainThread  ] [INFO ]  [Round 8] Client 2 starting AlterMin training...
+2025-11-08 15:53:17,742 [MainThread  ] [INFO ]    Benign training completed, loss: 2.8776
+2025-11-08 15:53:17,753 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.0750
+2025-11-08 15:53:17,772 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9584
+2025-11-08 15:53:17,773 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:53:17,796 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:53:17,815 [MainThread  ] [INFO ]  [Round 8] Client 3 starting AlterMin training...
+2025-11-08 15:53:20,649 [MainThread  ] [INFO ]    Benign training completed, loss: 3.1214
+2025-11-08 15:53:20,661 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 4.2880
+2025-11-08 15:53:20,683 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6376
+2025-11-08 15:53:20,684 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:53:20,698 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:53:58,344 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:53:59,043 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:53:59,044 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:53:59,053 [MainThread  ] [INFO ]    Min:  203.7891
+2025-11-08 15:53:59,054 [MainThread  ] [INFO ]    Max:  232.0952
+2025-11-08 15:53:59,054 [MainThread  ] [INFO ]    Mean: 219.9246
+2025-11-08 15:53:59,054 [MainThread  ] [INFO ]    Std:  8.2669
+2025-11-08 15:53:59,055 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:53:59,055 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:53:59,108 [MainThread  ] [INFO ]    L2 threshold: [220.7627, 226.4257]
+2025-11-08 15:53:59,110 [MainThread  ] [INFO ]    Reference norm: 220.6652
+2025-11-08 15:53:59,111 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:53:59,111 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:53:59,111 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:53:59,123 [MainThread  ] [INFO ]    Norm min:   2685.0354
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]    Norm max:   3122.2651
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]    Norm mean:  2895.8235
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]    Norm std:   115.4705
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:53:59,125 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:53:59,126 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:53:59,159 [MainThread  ] [INFO ]    Min:  7.6649
+2025-11-08 15:53:59,163 [MainThread  ] [INFO ]    Max:  8.8994
+2025-11-08 15:53:59,167 [MainThread  ] [INFO ]    Mean: 8.1771
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Std:  0.3714
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 0 (MAL): 8.4847
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 1 (MAL): 7.9896
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 2 (MAL): 8.4012
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 3 (MAL): 7.9686
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 4: 8.3042
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 5: 8.4590
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 6: 8.8994
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 7: 7.8105
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 8: 7.8314
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 9: 7.7586
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 10: 8.0491
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 11: 8.0266
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 12: 8.8333
+2025-11-08 15:53:59,169 [MainThread  ] [INFO ]    Client 13: 7.8416
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Client 14: 8.8277
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Client 15: 8.0708
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Client 16: 8.0737
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Client 17: 8.2907
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Client 18: 7.9560
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Client 19: 7.6649
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Reference: 8.1248
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Lower bound: 7.3123
+2025-11-08 15:53:59,170 [MainThread  ] [INFO ]    Upper bound: 8.9373
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Max:  0.0000
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Mean: 0.0000
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Clients above upper: 0
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Min weight:  1.0000
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Mean weight: 1.0000
+2025-11-08 15:53:59,171 [MainThread  ] [INFO ]    Weight std:  0.0000
+2025-11-08 15:53:59,172 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:53:59,172 [MainThread  ] [INFO ]    Median Top-K: 8.0491
+2025-11-08 15:53:59,172 [MainThread  ] [INFO ]    MAD: 0.2387
+2025-11-08 15:53:59,172 [MainThread  ] [INFO ]    Q25: 7.9274, Q75: 8.4156
+2025-11-08 15:53:59,172 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.4847, Deviation=0.4356 (HIGH), Z-score=1.2311
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=7.9896, Deviation=0.0595 (LOW), Z-score=0.1682
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.4012, Deviation=0.3520 (HIGH), Z-score=0.9949
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=7.9686, Deviation=0.0805 (LOW), Z-score=0.2276
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 4: Top-K=8.3042, Deviation=0.2550 (HIGH), Z-score=0.7208
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 5: Top-K=8.4590, Deviation=0.4099 (HIGH), Z-score=1.1584
+2025-11-08 15:53:59,173 [MainThread  ] [INFO ]    Client 6: Top-K=8.8994, Deviation=0.8503 (HIGH), Z-score=2.4030
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 7: Top-K=7.8105, Deviation=0.2387 (LOW), Z-score=0.6745
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 8: Top-K=7.8314, Deviation=0.2177 (LOW), Z-score=0.6154
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 9: Top-K=7.7586, Deviation=0.2905 (LOW), Z-score=0.8210
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 10: Top-K=8.0491, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 11: Top-K=8.0266, Deviation=0.0225 (LOW), Z-score=0.0637
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 12: Top-K=8.8333, Deviation=0.7842 (HIGH), Z-score=2.2162
+2025-11-08 15:53:59,174 [MainThread  ] [INFO ]    Client 13: Top-K=7.8416, Deviation=0.2075 (LOW), Z-score=0.5865
+2025-11-08 15:53:59,175 [MainThread  ] [INFO ]    Client 14: Top-K=8.8277, Deviation=0.7785 (HIGH), Z-score=2.2003
+2025-11-08 15:53:59,175 [MainThread  ] [INFO ]    Client 15: Top-K=8.0708, Deviation=0.0216 (HIGH), Z-score=0.0611
+2025-11-08 15:53:59,177 [MainThread  ] [INFO ]    Client 16: Top-K=8.0737, Deviation=0.0245 (HIGH), Z-score=0.0694
+2025-11-08 15:53:59,177 [MainThread  ] [INFO ]    Client 17: Top-K=8.2907, Deviation=0.2416 (HIGH), Z-score=0.6827
+2025-11-08 15:53:59,178 [MainThread  ] [INFO ]    Client 18: Top-K=7.9560, Deviation=0.0931 (LOW), Z-score=0.2632
+2025-11-08 15:53:59,179 [MainThread  ] [INFO ]    Client 19: Top-K=7.6649, Deviation=0.3843 (LOW), Z-score=1.0860
+2025-11-08 15:53:59,181 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:53:59,181 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:53:59,181 [MainThread  ] [INFO ]    Removed indices: [19, 5, 0, 14, 12, 6]
+2025-11-08 15:53:59,181 [MainThread  ] [INFO ]    Removed Top-K means: [7.6649, 8.459, 8.4847, 8.8277, 8.8333, 8.8994]
+2025-11-08 15:53:59,182 [MainThread  ] [INFO ]    Removed Z-scores: [1.086, 1.1584, 1.2311, 2.2003, 2.2162, 2.403]
+2025-11-08 15:53:59,182 [MainThread  ] [INFO ]    Above median: 5, Below median: 1
+2025-11-08 15:53:59,182 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Reference value: 8.1248
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Normal range: [7.3123, 8.9373]
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:53:59,186 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:53:59,187 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:53:59,187 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:53:59,195 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:53:59,255 [MainThread  ] [INFO ]  ---------Test 8 ------------
+2025-11-08 15:54:05,146 [MainThread  ] [INFO ]  Clean ACC:              0.0983
+2025-11-08 15:54:05,146 [MainThread  ] [INFO ]  Attack Success Ratio:   1.0000
+2025-11-08 15:54:05,146 [MainThread  ] [INFO ]  Backdoor ACC:           0.0894
+2025-11-08 15:54:05,146 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:54:05,146 [MainThread  ] [INFO ]  --------round 9 ------------
+2025-11-08 15:54:05,159 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:54:05,168 [MainThread  ] [INFO ]  [Round 9] Client 0 starting AlterMin training...
+2025-11-08 15:54:07,984 [MainThread  ] [INFO ]    Benign training completed, loss: 2.6919
+2025-11-08 15:54:07,991 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.4613
+2025-11-08 15:54:08,013 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.5370
+2025-11-08 15:54:08,014 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:54:08,020 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:54:08,040 [MainThread  ] [INFO ]  [Round 9] Client 1 starting AlterMin training...
+2025-11-08 15:54:10,739 [MainThread  ] [INFO ]    Benign training completed, loss: 2.8972
+2025-11-08 15:54:10,744 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.3118
+2025-11-08 15:54:10,771 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7882
+2025-11-08 15:54:10,772 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:54:10,777 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:54:10,798 [MainThread  ] [INFO ]  [Round 9] Client 2 starting AlterMin training...
+2025-11-08 15:54:13,510 [MainThread  ] [INFO ]    Benign training completed, loss: 2.7604
+2025-11-08 15:54:13,522 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.1138
+2025-11-08 15:54:13,539 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9068
+2025-11-08 15:54:13,540 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:54:13,552 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:54:13,572 [MainThread  ] [INFO ]  [Round 9] Client 3 starting AlterMin training...
+2025-11-08 15:54:16,260 [MainThread  ] [INFO ]    Benign training completed, loss: 3.0181
+2025-11-08 15:54:16,274 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.7952
+2025-11-08 15:54:16,290 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7585
+2025-11-08 15:54:16,291 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:54:16,303 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:54:49,498 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:54:50,190 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:54:50,194 [MainThread  ] [INFO ]    Min:  203.7881
+2025-11-08 15:54:50,194 [MainThread  ] [INFO ]    Max:  232.0933
+2025-11-08 15:54:50,194 [MainThread  ] [INFO ]    Mean: 219.9187
+2025-11-08 15:54:50,194 [MainThread  ] [INFO ]    Std:  8.2666
+2025-11-08 15:54:50,195 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:54:50,195 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:54:50,231 [MainThread  ] [INFO ]    L2 threshold: [220.7567, 226.4259]
+2025-11-08 15:54:50,235 [MainThread  ] [INFO ]    Reference norm: 220.6560
+2025-11-08 15:54:50,235 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:54:50,235 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:54:50,235 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]    Norm min:   2754.5767
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]    Norm max:   3222.3137
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]    Norm mean:  2980.1082
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]    Norm std:   127.1389
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:54:50,245 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:54:50,267 [MainThread  ] [INFO ]    Min:  7.8207
+2025-11-08 15:54:50,269 [MainThread  ] [INFO ]    Max:  9.4258
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Mean: 8.4506
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Std:  0.4203
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 0 (MAL): 8.9304
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 1 (MAL): 7.9036
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 2 (MAL): 8.3445
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 3 (MAL): 8.4489
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 4: 8.6888
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 5: 8.4051
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 6: 8.7984
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 7: 7.8207
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 8: 7.8848
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 9: 8.3252
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 10: 8.5876
+2025-11-08 15:54:50,271 [MainThread  ] [INFO ]    Client 11: 8.2646
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 12: 9.1542
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 13: 8.7678
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 14: 9.4258
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 15: 8.3502
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 16: 8.1735
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 17: 8.4531
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 18: 8.2581
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Client 19: 8.0262
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Reference: 8.4209
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Lower bound: 7.5788
+2025-11-08 15:54:50,272 [MainThread  ] [INFO ]    Upper bound: 9.2629
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Max:  0.0176
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Mean: 0.0009
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Clients above upper: 1
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Min weight:  0.9655
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Mean weight: 0.9983
+2025-11-08 15:54:50,273 [MainThread  ] [INFO ]    Weight std:  0.0077
+2025-11-08 15:54:50,274 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:54:50,274 [MainThread  ] [INFO ]    Median Top-K: 8.3502
+2025-11-08 15:54:50,274 [MainThread  ] [INFO ]    MAD: 0.2375
+2025-11-08 15:54:50,274 [MainThread  ] [INFO ]    Q25: 8.2369, Q75: 8.7085
+2025-11-08 15:54:50,274 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.9304, Deviation=0.5803 (HIGH), Z-score=1.6481
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=7.9036, Deviation=0.4465 (LOW), Z-score=1.2683
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.3445, Deviation=0.0057 (LOW), Z-score=0.0161
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.4489, Deviation=0.0987 (HIGH), Z-score=0.2804
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 4: Top-K=8.6888, Deviation=0.3386 (HIGH), Z-score=0.9618
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 5: Top-K=8.4051, Deviation=0.0549 (HIGH), Z-score=0.1559
+2025-11-08 15:54:50,275 [MainThread  ] [INFO ]    Client 6: Top-K=8.7984, Deviation=0.4482 (HIGH), Z-score=1.2731
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 7: Top-K=7.8207, Deviation=0.5295 (LOW), Z-score=1.5038
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 8: Top-K=7.8848, Deviation=0.4653 (LOW), Z-score=1.3217
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 9: Top-K=8.3252, Deviation=0.0249 (LOW), Z-score=0.0708
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 10: Top-K=8.5876, Deviation=0.2375 (HIGH), Z-score=0.6745
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 11: Top-K=8.2646, Deviation=0.0855 (LOW), Z-score=0.2430
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 12: Top-K=9.1542, Deviation=0.8040 (HIGH), Z-score=2.2837
+2025-11-08 15:54:50,276 [MainThread  ] [INFO ]    Client 13: Top-K=8.7678, Deviation=0.4177 (HIGH), Z-score=1.1863
+2025-11-08 15:54:50,277 [MainThread  ] [INFO ]    Client 14: Top-K=9.4258, Deviation=1.0756 (HIGH), Z-score=3.0551
+2025-11-08 15:54:50,277 [MainThread  ] [INFO ]    Client 15: Top-K=8.3502, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:54:50,277 [MainThread  ] [INFO ]    Client 16: Top-K=8.1735, Deviation=0.1766 (LOW), Z-score=0.5017
+2025-11-08 15:54:50,277 [MainThread  ] [INFO ]    Client 17: Top-K=8.4531, Deviation=0.1029 (HIGH), Z-score=0.2924
+2025-11-08 15:54:50,277 [MainThread  ] [INFO ]    Client 18: Top-K=8.2581, Deviation=0.0921 (LOW), Z-score=0.2616
+2025-11-08 15:54:50,277 [MainThread  ] [INFO ]    Client 19: Top-K=8.0262, Deviation=0.3240 (LOW), Z-score=0.9202
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Removed indices: [6, 8, 7, 0, 12, 14]
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Removed Top-K means: [8.7984, 7.8848, 7.8207, 8.9304, 9.1542, 9.4258]
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Removed Z-scores: [1.2731, 1.3217, 1.5038, 1.6481, 2.2837, 3.0551]
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:54:50,278 [MainThread  ] [INFO ]    Reference value: 8.4209
+2025-11-08 15:54:50,279 [MainThread  ] [INFO ]    Normal range: [7.5788, 9.2629]
+2025-11-08 15:54:50,279 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:54:50,279 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:54:50,279 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:54:50,279 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:54:50,282 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:54:50,331 [MainThread  ] [INFO ]  ---------Test 9 ------------
+2025-11-08 15:54:55,511 [MainThread  ] [INFO ]  Clean ACC:              0.1183
+2025-11-08 15:54:55,512 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9900
+2025-11-08 15:54:55,512 [MainThread  ] [INFO ]  Backdoor ACC:           0.1097
+2025-11-08 15:54:55,512 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:54:55,512 [MainThread  ] [INFO ]  --------round 10 ------------
+2025-11-08 15:54:55,524 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:54:55,533 [MainThread  ] [INFO ]  [Round 10] Client 0 starting AlterMin training...
+2025-11-08 15:54:58,245 [MainThread  ] [INFO ]    Benign training completed, loss: 2.6006
+2025-11-08 15:54:58,255 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.1581
+2025-11-08 15:54:58,275 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3456
+2025-11-08 15:54:58,276 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:54:58,282 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:54:58,303 [MainThread  ] [INFO ]  [Round 10] Client 1 starting AlterMin training...
+2025-11-08 15:55:00,953 [MainThread  ] [INFO ]    Benign training completed, loss: 2.7764
+2025-11-08 15:55:00,958 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 3.7425
+2025-11-08 15:55:00,985 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4850
+2025-11-08 15:55:00,986 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:55:00,991 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:55:01,014 [MainThread  ] [INFO ]  [Round 10] Client 2 starting AlterMin training...
+2025-11-08 15:55:03,679 [MainThread  ] [INFO ]    Benign training completed, loss: 2.6563
+2025-11-08 15:55:03,687 [MainThread  ] [INFO ]    Current ASR: 0.1400, ASR Loss: 3.3601
+2025-11-08 15:55:03,705 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5929
+2025-11-08 15:55:03,707 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:55:03,718 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:55:03,737 [MainThread  ] [INFO ]  [Round 10] Client 3 starting AlterMin training...
+2025-11-08 15:55:06,422 [MainThread  ] [INFO ]    Benign training completed, loss: 2.8769
+2025-11-08 15:55:06,428 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.7207
+2025-11-08 15:55:06,452 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8777
+2025-11-08 15:55:06,453 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:55:06,459 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:55:43,726 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:55:44,415 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:55:44,416 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:55:44,418 [MainThread  ] [INFO ]    Min:  203.7922
+2025-11-08 15:55:44,419 [MainThread  ] [INFO ]    Max:  232.0960
+2025-11-08 15:55:44,419 [MainThread  ] [INFO ]    Mean: 219.9228
+2025-11-08 15:55:44,419 [MainThread  ] [INFO ]    Std:  8.2662
+2025-11-08 15:55:44,423 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:55:44,423 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:55:44,466 [MainThread  ] [INFO ]    L2 threshold: [220.7575, 226.4245]
+2025-11-08 15:55:44,468 [MainThread  ] [INFO ]    Reference norm: 220.6577
+2025-11-08 15:55:44,468 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:55:44,468 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:55:44,468 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]    Norm min:   2854.9939
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]    Norm max:   3210.9722
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]    Norm mean:  3026.6509
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]    Norm std:   105.6765
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:55:44,474 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:55:44,496 [MainThread  ] [INFO ]    Min:  7.8801
+2025-11-08 15:55:44,499 [MainThread  ] [INFO ]    Max:  9.1907
+2025-11-08 15:55:44,500 [MainThread  ] [INFO ]    Mean: 8.4135
+2025-11-08 15:55:44,500 [MainThread  ] [INFO ]    Std:  0.3402
+2025-11-08 15:55:44,500 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:55:44,500 [MainThread  ] [INFO ]    Client 0 (MAL): 8.9423
+2025-11-08 15:55:44,500 [MainThread  ] [INFO ]    Client 1 (MAL): 8.3276
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 2 (MAL): 8.4769
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 3 (MAL): 8.3253
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 4: 8.5224
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 5: 8.3953
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 6: 8.6632
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 7: 8.2184
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 8: 8.3376
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 9: 8.2214
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 10: 8.4139
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 11: 8.0643
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 12: 9.1450
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 13: 8.1447
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 14: 9.1907
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 15: 8.3032
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 16: 8.1775
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 17: 8.1806
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 18: 8.3404
+2025-11-08 15:55:44,501 [MainThread  ] [INFO ]    Client 19: 7.8801
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]    Reference: 8.3503
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]    Lower bound: 7.5152
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]    Upper bound: 9.1853
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:55:44,502 [MainThread  ] [INFO ]    Max:  0.0006
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Mean: 0.0000
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Clients above upper: 1
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Min weight:  0.9988
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Mean weight: 0.9999
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Weight std:  0.0003
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:55:44,503 [MainThread  ] [INFO ]    Median Top-K: 8.3276
+2025-11-08 15:55:44,504 [MainThread  ] [INFO ]    MAD: 0.1470
+2025-11-08 15:55:44,504 [MainThread  ] [INFO ]    Q25: 8.2089, Q75: 8.4883
+2025-11-08 15:55:44,504 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:55:44,504 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=8.9423, Deviation=0.6147 (HIGH), Z-score=2.8215
+2025-11-08 15:55:44,504 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=8.3276, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.4769, Deviation=0.1494 (HIGH), Z-score=0.6855
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.3253, Deviation=0.0023 (LOW), Z-score=0.0104
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 4: Top-K=8.5224, Deviation=0.1949 (HIGH), Z-score=0.8945
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 5: Top-K=8.3953, Deviation=0.0678 (HIGH), Z-score=0.3110
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 6: Top-K=8.6632, Deviation=0.3357 (HIGH), Z-score=1.5406
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 7: Top-K=8.2184, Deviation=0.1092 (LOW), Z-score=0.5011
+2025-11-08 15:55:44,505 [MainThread  ] [INFO ]    Client 8: Top-K=8.3376, Deviation=0.0100 (HIGH), Z-score=0.0461
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 9: Top-K=8.2214, Deviation=0.1061 (LOW), Z-score=0.4871
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 10: Top-K=8.4139, Deviation=0.0864 (HIGH), Z-score=0.3965
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 11: Top-K=8.0643, Deviation=0.2633 (LOW), Z-score=1.2083
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 12: Top-K=9.1450, Deviation=0.8175 (HIGH), Z-score=3.7520
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 13: Top-K=8.1447, Deviation=0.1829 (LOW), Z-score=0.8394
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 14: Top-K=9.1907, Deviation=0.8632 (HIGH), Z-score=3.9617
+2025-11-08 15:55:44,506 [MainThread  ] [INFO ]    Client 15: Top-K=8.3032, Deviation=0.0243 (LOW), Z-score=0.1117
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Client 16: Top-K=8.1775, Deviation=0.1500 (LOW), Z-score=0.6887
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Client 17: Top-K=8.1806, Deviation=0.1470 (LOW), Z-score=0.6745
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Client 18: Top-K=8.3404, Deviation=0.0128 (HIGH), Z-score=0.0588
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Client 19: Top-K=7.8801, Deviation=0.4474 (LOW), Z-score=2.0537
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Removed indices: [11, 6, 19, 0, 12, 14]
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Removed Top-K means: [8.0643, 8.6632, 7.8801, 8.9423, 9.145, 9.1907]
+2025-11-08 15:55:44,507 [MainThread  ] [INFO ]    Removed Z-scores: [1.2083, 1.5406, 2.0537, 2.8215, 3.752, 3.9617]
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Reference value: 8.3503
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Normal range: [7.5152, 9.1853]
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:55:44,508 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:55:44,509 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:55:44,509 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:55:44,514 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:55:44,558 [MainThread  ] [INFO ]  ---------Test 10 ------------
+2025-11-08 15:55:49,812 [MainThread  ] [INFO ]  Clean ACC:              0.1258
+2025-11-08 15:55:49,812 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9900
+2025-11-08 15:55:49,812 [MainThread  ] [INFO ]  Backdoor ACC:           0.1171
+2025-11-08 15:55:49,812 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:55:49,812 [MainThread  ] [INFO ]  --------round 11 ------------
+2025-11-08 15:55:49,825 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:55:49,834 [MainThread  ] [INFO ]  [Round 11] Client 0 starting AlterMin training...
+2025-11-08 15:55:52,545 [MainThread  ] [INFO ]    Benign training completed, loss: 2.5101
+2025-11-08 15:55:52,551 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.7831
+2025-11-08 15:55:52,578 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3970
+2025-11-08 15:55:52,579 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:55:52,584 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:55:52,605 [MainThread  ] [INFO ]  [Round 11] Client 1 starting AlterMin training...
+2025-11-08 15:55:55,108 [MainThread  ] [INFO ]    Benign training completed, loss: 2.6707
+2025-11-08 15:55:55,114 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 4.1263
+2025-11-08 15:55:55,137 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9019
+2025-11-08 15:55:55,137 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:55:55,143 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:55:55,163 [MainThread  ] [INFO ]  [Round 11] Client 2 starting AlterMin training...
+2025-11-08 15:55:57,542 [MainThread  ] [INFO ]    Benign training completed, loss: 2.5458
+2025-11-08 15:55:57,547 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 4.1138
+2025-11-08 15:55:57,571 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4789
+2025-11-08 15:55:57,572 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:55:57,577 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:55:57,600 [MainThread  ] [INFO ]  [Round 11] Client 3 starting AlterMin training...
+2025-11-08 15:56:00,095 [MainThread  ] [INFO ]    Benign training completed, loss: 2.7934
+2025-11-08 15:56:00,109 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.9054
+2025-11-08 15:56:00,127 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1192
+2025-11-08 15:56:00,128 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:56:00,143 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:56:35,042 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:56:35,731 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:56:35,731 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:56:35,731 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:56:35,731 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:56:35,731 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:56:35,732 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:56:35,732 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:56:35,732 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:56:35,734 [MainThread  ] [INFO ]    Min:  203.7867
+2025-11-08 15:56:35,734 [MainThread  ] [INFO ]    Max:  232.0928
+2025-11-08 15:56:35,734 [MainThread  ] [INFO ]    Mean: 219.9187
+2025-11-08 15:56:35,734 [MainThread  ] [INFO ]    Std:  8.2670
+2025-11-08 15:56:35,735 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:56:35,735 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:56:35,778 [MainThread  ] [INFO ]    L2 threshold: [220.7567, 226.4194]
+2025-11-08 15:56:35,779 [MainThread  ] [INFO ]    Reference norm: 220.6507
+2025-11-08 15:56:35,779 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:56:35,779 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:56:35,779 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:56:35,789 [MainThread  ] [INFO ]    Norm min:   2939.0671
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]    Norm max:   3357.8118
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]    Norm mean:  3112.7324
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]    Norm std:   132.3596
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:56:35,791 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:56:35,792 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:56:35,814 [MainThread  ] [INFO ]    Min:  8.2226
+2025-11-08 15:56:35,816 [MainThread  ] [INFO ]    Max:  9.7695
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Mean: 8.8915
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Std:  0.4303
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 0 (MAL): 9.5024
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 1 (MAL): 9.1062
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 2 (MAL): 9.2226
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 3 (MAL): 8.7019
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 4: 9.0876
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 5: 8.9058
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 6: 9.2567
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 7: 8.6893
+2025-11-08 15:56:35,818 [MainThread  ] [INFO ]    Client 8: 8.2245
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 9: 8.7117
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 10: 8.2226
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 11: 8.6177
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 12: 9.6018
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 13: 8.5970
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 14: 9.7695
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 15: 8.8170
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 16: 8.5017
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 17: 8.9597
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 18: 8.9069
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Client 19: 8.4274
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Reference: 8.8630
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Lower bound: 7.9767
+2025-11-08 15:56:35,819 [MainThread  ] [INFO ]    Upper bound: 9.7493
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]    Max:  0.0021
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]    Mean: 0.0001
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]    Clients above upper: 1
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:56:35,820 [MainThread  ] [INFO ]    Min weight:  0.9959
+2025-11-08 15:56:35,821 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:56:35,821 [MainThread  ] [INFO ]    Mean weight: 0.9998
+2025-11-08 15:56:35,821 [MainThread  ] [INFO ]    Weight std:  0.0009
+2025-11-08 15:56:35,821 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:56:35,821 [MainThread  ] [INFO ]    Median Top-K: 8.8170
+2025-11-08 15:56:35,821 [MainThread  ] [INFO ]    MAD: 0.2705
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]    Q25: 8.6125, Q75: 9.1353
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=9.5024, Deviation=0.6854 (HIGH), Z-score=1.7089
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=9.1062, Deviation=0.2892 (HIGH), Z-score=0.7210
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=9.2226, Deviation=0.4056 (HIGH), Z-score=1.0112
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.7019, Deviation=0.1152 (LOW), Z-score=0.2871
+2025-11-08 15:56:35,822 [MainThread  ] [INFO ]    Client 4: Top-K=9.0876, Deviation=0.2705 (HIGH), Z-score=0.6745
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 5: Top-K=8.9058, Deviation=0.0888 (HIGH), Z-score=0.2213
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 6: Top-K=9.2567, Deviation=0.4396 (HIGH), Z-score=1.0961
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 7: Top-K=8.6893, Deviation=0.1278 (LOW), Z-score=0.3185
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 8: Top-K=8.2245, Deviation=0.5926 (LOW), Z-score=1.4773
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 9: Top-K=8.7117, Deviation=0.1053 (LOW), Z-score=0.2625
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 10: Top-K=8.2226, Deviation=0.5944 (LOW), Z-score=1.4820
+2025-11-08 15:56:35,823 [MainThread  ] [INFO ]    Client 11: Top-K=8.6177, Deviation=0.1993 (LOW), Z-score=0.4969
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 12: Top-K=9.6018, Deviation=0.7848 (HIGH), Z-score=1.9566
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 13: Top-K=8.5970, Deviation=0.2200 (LOW), Z-score=0.5486
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 14: Top-K=9.7695, Deviation=0.9525 (HIGH), Z-score=2.3747
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 15: Top-K=8.8170, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 16: Top-K=8.5017, Deviation=0.3153 (LOW), Z-score=0.7861
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 17: Top-K=8.9597, Deviation=0.1427 (HIGH), Z-score=0.3557
+2025-11-08 15:56:35,824 [MainThread  ] [INFO ]    Client 18: Top-K=8.9069, Deviation=0.0899 (HIGH), Z-score=0.2242
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Client 19: Top-K=8.4274, Deviation=0.3896 (LOW), Z-score=0.9713
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Removed indices: [6, 8, 10, 0, 12, 14]
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Removed Top-K means: [9.2567, 8.2245, 8.2226, 9.5024, 9.6018, 9.7695]
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Removed Z-scores: [1.0961, 1.4773, 1.482, 1.7089, 1.9566, 2.3747]
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:56:35,825 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Reference value: 8.8630
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Normal range: [7.9767, 9.7493]
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:56:35,826 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:56:35,829 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:56:35,874 [MainThread  ] [INFO ]  ---------Test 11 ------------
+2025-11-08 15:56:41,206 [MainThread  ] [INFO ]  Clean ACC:              0.1174
+2025-11-08 15:56:41,206 [MainThread  ] [INFO ]  Attack Success Ratio:   1.0000
+2025-11-08 15:56:41,206 [MainThread  ] [INFO ]  Backdoor ACC:           0.1085
+2025-11-08 15:56:41,206 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:56:41,206 [MainThread  ] [INFO ]  --------round 12 ------------
+2025-11-08 15:56:41,219 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:56:41,228 [MainThread  ] [INFO ]  [Round 12] Client 0 starting AlterMin training...
+2025-11-08 15:56:44,066 [MainThread  ] [INFO ]    Benign training completed, loss: 2.4272
+2025-11-08 15:56:44,102 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.8826
+2025-11-08 15:56:44,129 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.5269
+2025-11-08 15:56:44,130 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:56:44,136 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:56:44,157 [MainThread  ] [INFO ]  [Round 12] Client 1 starting AlterMin training...
+2025-11-08 15:56:47,142 [MainThread  ] [INFO ]    Benign training completed, loss: 2.6190
+2025-11-08 15:56:47,165 [MainThread  ] [INFO ]    Current ASR: 0.0800, ASR Loss: 3.7614
+2025-11-08 15:56:47,186 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7668
+2025-11-08 15:56:47,187 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:56:47,198 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:56:47,219 [MainThread  ] [INFO ]  [Round 12] Client 2 starting AlterMin training...
+2025-11-08 15:56:50,294 [MainThread  ] [INFO ]    Benign training completed, loss: 2.4728
+2025-11-08 15:56:50,313 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 4.1895
+2025-11-08 15:56:50,329 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5586
+2025-11-08 15:56:50,330 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:56:50,340 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:56:50,360 [MainThread  ] [INFO ]  [Round 12] Client 3 starting AlterMin training...
+2025-11-08 15:56:53,411 [MainThread  ] [INFO ]    Benign training completed, loss: 2.7042
+2025-11-08 15:56:53,421 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.1356
+2025-11-08 15:56:53,444 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2893
+2025-11-08 15:56:53,445 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:56:53,467 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:57:31,465 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:57:32,163 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:57:32,164 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:57:32,172 [MainThread  ] [INFO ]    Min:  203.7884
+2025-11-08 15:57:32,173 [MainThread  ] [INFO ]    Max:  232.0858
+2025-11-08 15:57:32,174 [MainThread  ] [INFO ]    Mean: 219.9189
+2025-11-08 15:57:32,174 [MainThread  ] [INFO ]    Std:  8.2651
+2025-11-08 15:57:32,176 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:57:32,176 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:57:32,246 [MainThread  ] [INFO ]    L2 threshold: [220.7570, 226.4225]
+2025-11-08 15:57:32,249 [MainThread  ] [INFO ]    Reference norm: 220.6505
+2025-11-08 15:57:32,249 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:57:32,250 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:57:32,250 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:57:32,270 [MainThread  ] [INFO ]    Norm min:   2963.0718
+2025-11-08 15:57:32,275 [MainThread  ] [INFO ]    Norm max:   3272.8684
+2025-11-08 15:57:32,279 [MainThread  ] [INFO ]    Norm mean:  3141.9822
+2025-11-08 15:57:32,283 [MainThread  ] [INFO ]    Norm std:   95.2508
+2025-11-08 15:57:32,283 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:57:32,283 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:57:32,283 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:57:32,283 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:57:32,283 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:57:32,326 [MainThread  ] [INFO ]    Min:  8.2867
+2025-11-08 15:57:32,330 [MainThread  ] [INFO ]    Max:  9.8138
+2025-11-08 15:57:32,335 [MainThread  ] [INFO ]    Mean: 8.8356
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Std:  0.4280
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Client 0 (MAL): 9.0369
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Client 1 (MAL): 8.6007
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Client 2 (MAL): 8.7666
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Client 3 (MAL): 8.4105
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Client 4: 8.9224
+2025-11-08 15:57:32,339 [MainThread  ] [INFO ]    Client 5: 8.9292
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 6: 9.3806
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 7: 8.4100
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 8: 9.1446
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 9: 8.5180
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 10: 8.8815
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 11: 8.3444
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 12: 9.8138
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 13: 8.8193
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 14: 9.7512
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 15: 8.5103
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 16: 8.6294
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 17: 8.8589
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 18: 8.6967
+2025-11-08 15:57:32,340 [MainThread  ] [INFO ]    Client 19: 8.2867
+2025-11-08 15:57:32,347 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:57:32,347 [MainThread  ] [INFO ]    Reference: 8.7661
+2025-11-08 15:57:32,347 [MainThread  ] [INFO ]    Lower bound: 7.8895
+2025-11-08 15:57:32,347 [MainThread  ] [INFO ]    Upper bound: 9.6427
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Max:  0.0177
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Mean: 0.0015
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Clients above upper: 2
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Min weight:  0.9651
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Mean weight: 0.9971
+2025-11-08 15:57:32,348 [MainThread  ] [INFO ]    Weight std:  0.0090
+2025-11-08 15:57:32,349 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:57:32,349 [MainThread  ] [INFO ]    Median Top-K: 8.7666
+2025-11-08 15:57:32,349 [MainThread  ] [INFO ]    MAD: 0.2486
+2025-11-08 15:57:32,349 [MainThread  ] [INFO ]    Q25: 8.5161, Q75: 8.9562
+2025-11-08 15:57:32,349 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:57:32,350 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=9.0369, Deviation=0.2704 (HIGH), Z-score=0.7336
+2025-11-08 15:57:32,350 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=8.6007, Deviation=0.1659 (LOW), Z-score=0.4501
+2025-11-08 15:57:32,350 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.7666, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:57:32,350 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.4105, Deviation=0.3561 (LOW), Z-score=0.9662
+2025-11-08 15:57:32,350 [MainThread  ] [INFO ]    Client 4: Top-K=8.9224, Deviation=0.1558 (HIGH), Z-score=0.4229
+2025-11-08 15:57:32,350 [MainThread  ] [INFO ]    Client 5: Top-K=8.9292, Deviation=0.1627 (HIGH), Z-score=0.4414
+2025-11-08 15:57:32,351 [MainThread  ] [INFO ]    Client 6: Top-K=9.3806, Deviation=0.6141 (HIGH), Z-score=1.6663
+2025-11-08 15:57:32,351 [MainThread  ] [INFO ]    Client 7: Top-K=8.4100, Deviation=0.3566 (LOW), Z-score=0.9676
+2025-11-08 15:57:32,351 [MainThread  ] [INFO ]    Client 8: Top-K=9.1446, Deviation=0.3780 (HIGH), Z-score=1.0258
+2025-11-08 15:57:32,351 [MainThread  ] [INFO ]    Client 9: Top-K=8.5180, Deviation=0.2486 (LOW), Z-score=0.6745
+2025-11-08 15:57:32,351 [MainThread  ] [INFO ]    Client 10: Top-K=8.8815, Deviation=0.1149 (HIGH), Z-score=0.3119
+2025-11-08 15:57:32,351 [MainThread  ] [INFO ]    Client 11: Top-K=8.3444, Deviation=0.4221 (LOW), Z-score=1.1455
+2025-11-08 15:57:32,352 [MainThread  ] [INFO ]    Client 12: Top-K=9.8138, Deviation=1.0472 (HIGH), Z-score=2.8418
+2025-11-08 15:57:32,358 [MainThread  ] [INFO ]    Client 13: Top-K=8.8193, Deviation=0.0528 (HIGH), Z-score=0.1431
+2025-11-08 15:57:32,367 [MainThread  ] [INFO ]    Client 14: Top-K=9.7512, Deviation=0.9847 (HIGH), Z-score=2.6720
+2025-11-08 15:57:32,373 [MainThread  ] [INFO ]    Client 15: Top-K=8.5103, Deviation=0.2563 (LOW), Z-score=0.6954
+2025-11-08 15:57:32,374 [MainThread  ] [INFO ]    Client 16: Top-K=8.6294, Deviation=0.1371 (LOW), Z-score=0.3721
+2025-11-08 15:57:32,374 [MainThread  ] [INFO ]    Client 17: Top-K=8.8589, Deviation=0.0924 (HIGH), Z-score=0.2507
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Client 18: Top-K=8.6967, Deviation=0.0698 (LOW), Z-score=0.1895
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Client 19: Top-K=8.2867, Deviation=0.4798 (LOW), Z-score=1.3021
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Removed indices: [8, 11, 19, 6, 14, 12]
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Removed Top-K means: [9.1446, 8.3444, 8.2867, 9.3806, 9.7512, 9.8138]
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Removed Z-scores: [1.0258, 1.1455, 1.3021, 1.6663, 2.672, 2.8418]
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:57:32,375 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Malicious detected: 0/4
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Benign removed: 6/16
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Detection rate: 0.00%
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    False positive: 37.50%
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Reference value: 8.7661
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Normal range: [7.8895, 9.6427]
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:57:32,376 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:57:32,379 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:57:32,457 [MainThread  ] [INFO ]  ---------Test 12 ------------
+2025-11-08 15:57:39,254 [MainThread  ] [INFO ]  Clean ACC:              0.0855
+2025-11-08 15:57:39,254 [MainThread  ] [INFO ]  Attack Success Ratio:   1.0000
+2025-11-08 15:57:39,254 [MainThread  ] [INFO ]  Backdoor ACC:           0.0763
+2025-11-08 15:57:39,254 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:57:39,254 [MainThread  ] [INFO ]  --------round 13 ------------
+2025-11-08 15:57:39,267 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:57:39,276 [MainThread  ] [INFO ]  [Round 13] Client 0 starting AlterMin training...
+2025-11-08 15:57:42,265 [MainThread  ] [INFO ]    Benign training completed, loss: 2.3403
+2025-11-08 15:57:42,288 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 7.4729
+2025-11-08 15:57:42,317 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.5587
+2025-11-08 15:57:42,319 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:57:42,330 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:57:42,351 [MainThread  ] [INFO ]  [Round 13] Client 1 starting AlterMin training...
+2025-11-08 15:57:45,249 [MainThread  ] [INFO ]    Benign training completed, loss: 2.5229
+2025-11-08 15:57:45,259 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 4.4757
+2025-11-08 15:57:45,286 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7210
+2025-11-08 15:57:45,286 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:57:45,295 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:57:45,316 [MainThread  ] [INFO ]  [Round 13] Client 2 starting AlterMin training...
+2025-11-08 15:57:48,193 [MainThread  ] [INFO ]    Benign training completed, loss: 2.3825
+2025-11-08 15:57:48,205 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.1941
+2025-11-08 15:57:48,230 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5203
+2025-11-08 15:57:48,231 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:57:48,242 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:57:48,262 [MainThread  ] [INFO ]  [Round 13] Client 3 starting AlterMin training...
+2025-11-08 15:57:51,163 [MainThread  ] [INFO ]    Benign training completed, loss: 2.6180
+2025-11-08 15:57:51,177 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.9458
+2025-11-08 15:57:51,199 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1711
+2025-11-08 15:57:51,200 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:57:51,211 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:58:29,163 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:58:29,864 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:58:29,865 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:58:29,870 [MainThread  ] [INFO ]    Min:  203.7820
+2025-11-08 15:58:29,872 [MainThread  ] [INFO ]    Max:  232.0824
+2025-11-08 15:58:29,872 [MainThread  ] [INFO ]    Mean: 219.9173
+2025-11-08 15:58:29,872 [MainThread  ] [INFO ]    Std:  8.2670
+2025-11-08 15:58:29,873 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:58:29,873 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:58:29,944 [MainThread  ] [INFO ]    L2 threshold: [220.7520, 226.4202]
+2025-11-08 15:58:29,948 [MainThread  ] [INFO ]    Reference norm: 220.6498
+2025-11-08 15:58:29,948 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:58:29,948 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:58:29,949 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:58:29,967 [MainThread  ] [INFO ]    Norm min:   2977.6965
+2025-11-08 15:58:29,973 [MainThread  ] [INFO ]    Norm max:   3395.4612
+2025-11-08 15:58:29,977 [MainThread  ] [INFO ]    Norm mean:  3159.9353
+2025-11-08 15:58:29,979 [MainThread  ] [INFO ]    Norm std:   118.9958
+2025-11-08 15:58:29,979 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:58:29,979 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:58:29,979 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:58:29,979 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:58:29,979 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:58:30,021 [MainThread  ] [INFO ]    Min:  8.3936
+2025-11-08 15:58:30,026 [MainThread  ] [INFO ]    Max:  10.0563
+2025-11-08 15:58:30,029 [MainThread  ] [INFO ]    Mean: 8.9345
+2025-11-08 15:58:30,033 [MainThread  ] [INFO ]    Std:  0.4587
+2025-11-08 15:58:30,033 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 0 (MAL): 9.7721
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 1 (MAL): 8.7268
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 2 (MAL): 8.9910
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 3 (MAL): 8.7389
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 4: 8.9059
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 5: 8.9071
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 6: 9.2495
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 7: 8.5848
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 8: 8.8708
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 9: 8.7992
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 10: 8.3936
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 11: 8.8383
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 12: 10.0563
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 13: 8.6282
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 14: 9.8593
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 15: 8.8378
+2025-11-08 15:58:30,034 [MainThread  ] [INFO ]    Client 16: 8.6906
+2025-11-08 15:58:30,035 [MainThread  ] [INFO ]    Client 17: 8.8075
+2025-11-08 15:58:30,035 [MainThread  ] [INFO ]    Client 18: 8.6201
+2025-11-08 15:58:30,035 [MainThread  ] [INFO ]    Client 19: 8.4115
+2025-11-08 15:58:30,039 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:58:30,039 [MainThread  ] [INFO ]    Reference: 8.8294
+2025-11-08 15:58:30,039 [MainThread  ] [INFO ]    Lower bound: 7.9465
+2025-11-08 15:58:30,039 [MainThread  ] [INFO ]    Upper bound: 9.7123
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]    Max:  0.0354
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]    Mean: 0.0028
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]    Clients above upper: 3
+2025-11-08 15:58:30,040 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]    Min weight:  0.9316
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]    Mean weight: 0.9945
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]    Weight std:  0.0164
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]    Median Top-K: 8.8075
+2025-11-08 15:58:30,041 [MainThread  ] [INFO ]    MAD: 0.1169
+2025-11-08 15:58:30,042 [MainThread  ] [INFO ]    Q25: 8.6750, Q75: 8.9281
+2025-11-08 15:58:30,042 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:58:30,042 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=9.7721, Deviation=0.9647 (HIGH), Z-score=5.5654
+2025-11-08 15:58:30,042 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=8.7268, Deviation=0.0807 (LOW), Z-score=0.4656
+2025-11-08 15:58:30,042 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.9910, Deviation=0.1835 (HIGH), Z-score=1.0587
+2025-11-08 15:58:30,042 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.7389, Deviation=0.0686 (LOW), Z-score=0.3959
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 4: Top-K=8.9059, Deviation=0.0984 (HIGH), Z-score=0.5678
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 5: Top-K=8.9071, Deviation=0.0996 (HIGH), Z-score=0.5748
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 6: Top-K=9.2495, Deviation=0.4420 (HIGH), Z-score=2.5501
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 7: Top-K=8.5848, Deviation=0.2227 (LOW), Z-score=1.2848
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 8: Top-K=8.8708, Deviation=0.0633 (HIGH), Z-score=0.3651
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 9: Top-K=8.7992, Deviation=0.0083 (LOW), Z-score=0.0478
+2025-11-08 15:58:30,043 [MainThread  ] [INFO ]    Client 10: Top-K=8.3936, Deviation=0.4139 (LOW), Z-score=2.3876
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 11: Top-K=8.8383, Deviation=0.0308 (HIGH), Z-score=0.1776
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 12: Top-K=10.0563, Deviation=1.2488 (HIGH), Z-score=7.2045
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 13: Top-K=8.6282, Deviation=0.1793 (LOW), Z-score=1.0345
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 14: Top-K=9.8593, Deviation=1.0518 (HIGH), Z-score=6.0680
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 15: Top-K=8.8378, Deviation=0.0303 (HIGH), Z-score=0.1746
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 16: Top-K=8.6906, Deviation=0.1169 (LOW), Z-score=0.6745
+2025-11-08 15:58:30,044 [MainThread  ] [INFO ]    Client 17: Top-K=8.8075, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:58:30,045 [MainThread  ] [INFO ]    Client 18: Top-K=8.6201, Deviation=0.1874 (LOW), Z-score=1.0810
+2025-11-08 15:58:30,045 [MainThread  ] [INFO ]    Client 19: Top-K=8.4115, Deviation=0.3960 (LOW), Z-score=2.2845
+2025-11-08 15:58:30,050 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:58:30,050 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:58:30,050 [MainThread  ] [INFO ]    Removed indices: [19, 10, 6, 0, 14, 12]
+2025-11-08 15:58:30,050 [MainThread  ] [INFO ]    Removed Top-K means: [8.4115, 8.3936, 9.2495, 9.7721, 9.8593, 10.0563]
+2025-11-08 15:58:30,054 [MainThread  ] [INFO ]    Removed Z-scores: [2.2845, 2.3876, 2.5501, 5.5654, 6.068, 7.2045]
+2025-11-08 15:58:30,054 [MainThread  ] [INFO ]    Above median: 4, Below median: 2
+2025-11-08 15:58:30,054 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:58:30,064 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:58:30,064 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:58:30,064 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    Reference value: 8.8294
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    Normal range: [7.9465, 9.7123]
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:58:30,065 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:58:30,071 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:58:30,147 [MainThread  ] [INFO ]  ---------Test 13 ------------
+2025-11-08 15:58:37,349 [MainThread  ] [INFO ]  Clean ACC:              0.2039
+2025-11-08 15:58:37,349 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9800
+2025-11-08 15:58:37,349 [MainThread  ] [INFO ]  Backdoor ACC:           0.1962
+2025-11-08 15:58:37,349 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:58:37,349 [MainThread  ] [INFO ]  --------round 14 ------------
+2025-11-08 15:58:37,362 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:58:37,371 [MainThread  ] [INFO ]  [Round 14] Client 0 starting AlterMin training...
+2025-11-08 15:58:40,547 [MainThread  ] [INFO ]    Benign training completed, loss: 2.2707
+2025-11-08 15:58:40,566 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.4078
+2025-11-08 15:58:40,599 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2825
+2025-11-08 15:58:40,600 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:58:40,623 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:58:40,642 [MainThread  ] [INFO ]  [Round 14] Client 1 starting AlterMin training...
+2025-11-08 15:58:43,872 [MainThread  ] [INFO ]    Benign training completed, loss: 2.3985
+2025-11-08 15:58:43,898 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.3263
+2025-11-08 15:58:43,933 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7935
+2025-11-08 15:58:43,934 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:58:43,948 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:58:43,968 [MainThread  ] [INFO ]  [Round 14] Client 2 starting AlterMin training...
+2025-11-08 15:58:47,129 [MainThread  ] [INFO ]    Benign training completed, loss: 2.2780
+2025-11-08 15:58:47,148 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 3.9264
+2025-11-08 15:58:47,179 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7109
+2025-11-08 15:58:47,179 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:58:47,195 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:58:47,215 [MainThread  ] [INFO ]  [Round 14] Client 3 starting AlterMin training...
+2025-11-08 15:58:50,487 [MainThread  ] [INFO ]    Benign training completed, loss: 2.5252
+2025-11-08 15:58:50,512 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.8553
+2025-11-08 15:58:50,542 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0583
+2025-11-08 15:58:50,544 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:58:50,560 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:59:28,674 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]  ------------ AlphaGuard Defense ------------
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]  Configuration:
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]    Total clients: 20
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]    Malicious clients: 4
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]    Poison fraction: 0.30
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]  ------------ Stage 1: L2 Robust Reference Selection ------------
+2025-11-08 15:59:29,375 [MainThread  ] [INFO ]  Processing 20 client updates
+2025-11-08 15:59:29,376 [MainThread  ] [INFO ]  L2 norms statistics:
+2025-11-08 15:59:29,384 [MainThread  ] [INFO ]    Min:  203.7852
+2025-11-08 15:59:29,387 [MainThread  ] [INFO ]    Max:  232.0888
+2025-11-08 15:59:29,389 [MainThread  ] [INFO ]    Mean: 219.9166
+2025-11-08 15:59:29,389 [MainThread  ] [INFO ]    Std:  8.2661
+2025-11-08 15:59:29,390 [MainThread  ] [INFO ]  Stage 1 Results:
+2025-11-08 15:59:29,390 [MainThread  ] [INFO ]    Trusted clients: 10/20
+2025-11-08 15:59:29,465 [MainThread  ] [INFO ]    L2 threshold: [220.7534, 226.4167]
+2025-11-08 15:59:29,470 [MainThread  ] [INFO ]    Reference norm: 220.6488
+2025-11-08 15:59:29,470 [MainThread  ] [INFO ]  ------------ Stage 2: Alpha Vector Computation ------------
+2025-11-08 15:59:29,470 [MainThread  ] [INFO ]  Alpha vectors statistics:
+2025-11-08 15:59:29,471 [MainThread  ] [INFO ]    Shape:      torch.Size([20, 9282796])
+2025-11-08 15:59:29,487 [MainThread  ] [INFO ]    Norm min:   3037.4229
+2025-11-08 15:59:29,494 [MainThread  ] [INFO ]    Norm max:   3538.2080
+2025-11-08 15:59:29,499 [MainThread  ] [INFO ]    Norm mean:  3232.8123
+2025-11-08 15:59:29,503 [MainThread  ] [INFO ]    Norm std:   129.7019
+2025-11-08 15:59:29,503 [MainThread  ] [INFO ]    Epsilon:    0.001000
+2025-11-08 15:59:29,503 [MainThread  ] [INFO ]  ------------ Stage 3: Robust Detection and Penalty ------------
+2025-11-08 15:59:29,503 [MainThread  ] [INFO ]  Processing 20 clients with model dimension 9282796
+2025-11-08 15:59:29,503 [MainThread  ] [INFO ]  Top-K percentage: 0.1%
+2025-11-08 15:59:29,504 [MainThread  ] [INFO ]  Top-K mean statistics:
+2025-11-08 15:59:29,548 [MainThread  ] [INFO ]    Min:  8.3747
+2025-11-08 15:59:29,554 [MainThread  ] [INFO ]    Max:  9.9022
+2025-11-08 15:59:29,560 [MainThread  ] [INFO ]    Mean: 8.9134
+2025-11-08 15:59:29,563 [MainThread  ] [INFO ]    Std:  0.4194
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]  Top-K values by client:
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 0 (MAL): 9.4852
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 1 (MAL): 8.9147
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 2 (MAL): 8.9694
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 3 (MAL): 8.8597
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 4: 8.6650
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 5: 9.0577
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 6: 9.3415
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 7: 8.6204
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 8: 8.4809
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 9: 8.6848
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 10: 8.7152
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 11: 8.5938
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 12: 9.9022
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 13: 8.6582
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 14: 9.8108
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 15: 8.3747
+2025-11-08 15:59:29,564 [MainThread  ] [INFO ]    Client 16: 8.8794
+2025-11-08 15:59:29,565 [MainThread  ] [INFO ]    Client 17: 8.9483
+2025-11-08 15:59:29,565 [MainThread  ] [INFO ]    Client 18: 8.6450
+2025-11-08 15:59:29,565 [MainThread  ] [INFO ]    Client 19: 8.6607
+2025-11-08 15:59:29,571 [MainThread  ] [INFO ]  Robust reference analysis:
+2025-11-08 15:59:29,574 [MainThread  ] [INFO ]    Reference: 8.8300
+2025-11-08 15:59:29,575 [MainThread  ] [INFO ]    Lower bound: 7.9470
+2025-11-08 15:59:29,575 [MainThread  ] [INFO ]    Upper bound: 9.7130
+2025-11-08 15:59:29,595 [MainThread  ] [INFO ]  Deviation scores:
+2025-11-08 15:59:29,595 [MainThread  ] [INFO ]    Min:  0.0000
+2025-11-08 15:59:29,595 [MainThread  ] [INFO ]    Max:  0.0195
+2025-11-08 15:59:29,595 [MainThread  ] [INFO ]    Mean: 0.0015
+2025-11-08 15:59:29,595 [MainThread  ] [INFO ]    Clients below lower: 0
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    Clients above upper: 2
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]  Weight Distribution:
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    Min weight:  0.9618
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    Max weight:  1.0000
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    Mean weight: 0.9971
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    Weight std:  0.0094
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]  Bidirectional Anomaly Detection (Top-K based):
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    Median Top-K: 8.7152
+2025-11-08 15:59:29,596 [MainThread  ] [INFO ]    MAD: 0.1642
+2025-11-08 15:59:29,597 [MainThread  ] [INFO ]    Q25: 8.6549, Q75: 8.9915
+2025-11-08 15:59:29,597 [MainThread  ] [INFO ]  Modified Z-scores by client:
+2025-11-08 15:59:29,597 [MainThread  ] [INFO ]    Client 0 (MAL): Top-K=9.4852, Deviation=0.7699 (HIGH), Z-score=3.1632
+2025-11-08 15:59:29,597 [MainThread  ] [INFO ]    Client 1 (MAL): Top-K=8.9147, Deviation=0.1995 (HIGH), Z-score=0.8196
+2025-11-08 15:59:29,597 [MainThread  ] [INFO ]    Client 2 (MAL): Top-K=8.9694, Deviation=0.2541 (HIGH), Z-score=1.0440
+2025-11-08 15:59:29,598 [MainThread  ] [INFO ]    Client 3 (MAL): Top-K=8.8597, Deviation=0.1444 (HIGH), Z-score=0.5934
+2025-11-08 15:59:29,598 [MainThread  ] [INFO ]    Client 4: Top-K=8.6650, Deviation=0.0503 (LOW), Z-score=0.2065
+2025-11-08 15:59:29,598 [MainThread  ] [INFO ]    Client 5: Top-K=9.0577, Deviation=0.3425 (HIGH), Z-score=1.4071
+2025-11-08 15:59:29,598 [MainThread  ] [INFO ]    Client 6: Top-K=9.3415, Deviation=0.6262 (HIGH), Z-score=2.5728
+2025-11-08 15:59:29,598 [MainThread  ] [INFO ]    Client 7: Top-K=8.6204, Deviation=0.0949 (LOW), Z-score=0.3897
+2025-11-08 15:59:29,598 [MainThread  ] [INFO ]    Client 8: Top-K=8.4809, Deviation=0.2344 (LOW), Z-score=0.9630
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 9: Top-K=8.6848, Deviation=0.0305 (LOW), Z-score=0.1253
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 10: Top-K=8.7152, Deviation=0.0000 (LOW), Z-score=0.0000
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 11: Top-K=8.5938, Deviation=0.1215 (LOW), Z-score=0.4991
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 12: Top-K=9.9022, Deviation=1.1869 (HIGH), Z-score=4.8765
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 13: Top-K=8.6582, Deviation=0.0570 (LOW), Z-score=0.2344
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 14: Top-K=9.8108, Deviation=1.0955 (HIGH), Z-score=4.5010
+2025-11-08 15:59:29,599 [MainThread  ] [INFO ]    Client 15: Top-K=8.3747, Deviation=0.3406 (LOW), Z-score=1.3992
+2025-11-08 15:59:29,600 [MainThread  ] [INFO ]    Client 16: Top-K=8.8794, Deviation=0.1642 (HIGH), Z-score=0.6745
+2025-11-08 15:59:29,600 [MainThread  ] [INFO ]    Client 17: Top-K=8.9483, Deviation=0.2331 (HIGH), Z-score=0.9575
+2025-11-08 15:59:29,611 [MainThread  ] [INFO ]    Client 18: Top-K=8.6450, Deviation=0.0702 (LOW), Z-score=0.2884
+2025-11-08 15:59:29,620 [MainThread  ] [INFO ]    Client 19: Top-K=8.6607, Deviation=0.0546 (LOW), Z-score=0.2243
+2025-11-08 15:59:29,622 [MainThread  ] [INFO ]  Client Selection (MAD-based Outlier Removal):
+2025-11-08 15:59:29,622 [MainThread  ] [INFO ]    Total removed: 6
+2025-11-08 15:59:29,622 [MainThread  ] [INFO ]    Removed indices: [15, 5, 6, 0, 14, 12]
+2025-11-08 15:59:29,622 [MainThread  ] [INFO ]    Removed Top-K means: [8.3747, 9.0577, 9.3415, 9.4852, 9.8108, 9.9022]
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Removed Z-scores: [1.3992, 1.4071, 2.5728, 3.1632, 4.501, 4.8765]
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Above median: 5, Below median: 1
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Remaining clients: 14/20
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]  Detection Analysis:
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Malicious detected: 1/4
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Benign removed: 5/16
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Detection rate: 25.00%
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    False positive: 31.25%
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]  Final Statistics:
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Reference value: 8.8300
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Normal range: [7.9470, 9.7130]
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:59:29,623 [MainThread  ] [INFO ]    Weight range: [1.0000, 1.0000]
+2025-11-08 15:59:29,624 [MainThread  ] [INFO ]  Final aggregation:
+2025-11-08 15:59:29,624 [MainThread  ] [INFO ]    Selected clients: 14/20
+2025-11-08 15:59:29,627 [MainThread  ] [INFO ]    Weight sum: 1.0000
+2025-11-08 15:59:29,722 [MainThread  ] [INFO ]  ---------Test 14 ------------
+2025-11-08 15:59:37,141 [MainThread  ] [INFO ]  Clean ACC:              0.1741
+2025-11-08 15:59:37,141 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9800
+2025-11-08 15:59:37,141 [MainThread  ] [INFO ]  Backdoor ACC:           0.1660
+2025-11-08 15:59:37,141 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 15:59:37,141 [MainThread  ] [INFO ]  --------round 15 ------------
+2025-11-08 15:59:37,154 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 15:59:37,163 [MainThread  ] [INFO ]  [Round 15] Client 0 starting AlterMin training...
+2025-11-08 15:59:40,322 [MainThread  ] [INFO ]    Benign training completed, loss: 2.1921
+2025-11-08 15:59:40,348 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.3965
+2025-11-08 15:59:40,384 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2035
+2025-11-08 15:59:40,385 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:59:40,409 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:59:40,428 [MainThread  ] [INFO ]  [Round 15] Client 1 starting AlterMin training...
+2025-11-08 15:59:43,815 [MainThread  ] [INFO ]    Benign training completed, loss: 2.3186
+2025-11-08 15:59:43,832 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 4.9289
+2025-11-08 15:59:43,864 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3892
+2025-11-08 15:59:43,864 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:59:43,882 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:59:43,902 [MainThread  ] [INFO ]  [Round 15] Client 2 starting AlterMin training...
+2025-11-08 15:59:47,060 [MainThread  ] [INFO ]    Benign training completed, loss: 2.2111
+2025-11-08 15:59:47,081 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.2865
+2025-11-08 15:59:47,115 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6114
+2025-11-08 15:59:47,116 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:59:47,140 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 15:59:47,159 [MainThread  ] [INFO ]  [Round 15] Client 3 starting AlterMin training...
+2025-11-08 15:59:50,322 [MainThread  ] [INFO ]    Benign training completed, loss: 2.4285
+2025-11-08 15:59:50,345 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 6.1725
+2025-11-08 15:59:50,372 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7243
+2025-11-08 15:59:50,373 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 15:59:50,392 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000

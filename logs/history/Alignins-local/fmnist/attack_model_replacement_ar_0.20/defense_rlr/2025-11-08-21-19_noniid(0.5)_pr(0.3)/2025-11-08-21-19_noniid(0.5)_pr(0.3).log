@@ -1,0 +1,1267 @@
+2025-11-08 21:19:52,496 [MainThread  ] [INFO ]  Namespace(data='fmnist', num_agents=20, agent_frac=1.0, num_corrupt=4, rounds=50, local_ep=2, bs=64, client_lr=0.1, server_lr=1, target_class=7, poison_frac=0.3, pattern_type='plus', theta=8, theta_ld=10, snap=1, device='cuda:0', num_workers=0, dense_ratio=0.25, anneal_factor=0.0001, se_threshold=0.0001, non_iid=True, debug=False, beta=0.5, attack='model_replacement', aggr='rlr', lr_decay=0.99, momentum=0.0, mask_init='ERK', wd=0.0001, same_mask=1, cease_poison=100000, exp_name_extra='', super_power=False, clean=False, sparsity=0.3, lambda_s=1.0, lambda_c=1.0, dis_check_gradient=False, trigger_size=5, trigger_lr=0.1, trigger_outter_epochs=50, trigger_optim_interval=5, dm_adv_epochs=2, dm_adv_K=10, dm_adv_model_count=3, noise_loss_lambda=0.1, altermin_attack_mode='targeted', altermin_source_label=3, altermin_target_label=None, altermin_poisoned_cnt=100, altermin_boosting_factor=1.5, altermin_rho=0.0001, altermin_benign_epochs=None, altermin_malicious_epochs=1, model_replacement_scaling_factor=50, model_replacement_alpha=0.5, model_replacement_target_label=None, model_replacement_constrain_weight=0.02, num_target=10, exp_name='noniid(0.5)_pr(0.3)')
+2025-11-08 21:19:52,597 [MainThread  ] [INFO ]  (60000, 10)
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:0, distribution: [914, 251, 139, 115, 86, 191, 42, 602, 716, 0]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:1, distribution: [38, 5, 939, 5, 133, 379, 645, 94, 250, 456]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:2, distribution: [13, 4, 21, 60, 322, 119, 240, 410, 745, 1461]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:3, distribution: [91, 548, 107, 5, 168, 15, 467, 70, 96, 1098]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:4, distribution: [1325, 284, 5, 9, 7, 5, 904, 248, 47, 408]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:5, distribution: [166, 277, 27, 389, 61, 58, 994, 378, 1600, 0]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:6, distribution: [7, 57, 1356, 30, 460, 633, 31, 694, 0, 0]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:7, distribution: [49, 2, 216, 213, 537, 195, 17, 42, 543, 450]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:8, distribution: [1495, 456, 498, 1709, 0, 0, 0, 0, 0, 0]
+2025-11-08 21:19:52,770 [MainThread  ] [INFO ]  client:9, distribution: [152, 131, 305, 23, 12, 22, 1666, 1102, 0, 0]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:10, distribution: [103, 1156, 100, 48, 91, 1083, 233, 0, 192, 0]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:11, distribution: [1, 1218, 92, 132, 348, 158, 53, 102, 50, 1135]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:12, distribution: [10, 611, 97, 866, 862, 44, 196, 26, 9, 354]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:13, distribution: [232, 389, 354, 3, 176, 938, 1, 266, 553, 4]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:14, distribution: [182, 137, 896, 298, 291, 10, 430, 792, 0, 0]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:15, distribution: [106, 48, 352, 0, 32, 377, 0, 59, 209, 40]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:16, distribution: [18, 66, 455, 583, 39, 638, 34, 452, 365, 559]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:17, distribution: [359, 259, 21, 157, 2336, 0, 0, 0, 0, 0]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:18, distribution: [602, 17, 19, 1026, 38, 1108, 10, 5, 188, 0]
+2025-11-08 21:19:52,771 [MainThread  ] [INFO ]  client:19, distribution: [137, 84, 1, 329, 1, 27, 37, 658, 437, 35]
+2025-11-08 21:19:54,018 [MainThread  ] [INFO ]  ModelReplacementAttacker initialized for client 0
+2025-11-08 21:19:54,019 [MainThread  ] [INFO ]    Scaling factor (γ): 50
+2025-11-08 21:19:54,019 [MainThread  ] [INFO ]    Alpha (classification weight): 0.5
+2025-11-08 21:19:54,019 [MainThread  ] [INFO ]    Target label: 7
+2025-11-08 21:19:54,019 [MainThread  ] [INFO ]    Constrain weight: 0.02
+2025-11-08 21:19:54,066 [MainThread  ] [INFO ]  build client:0 mal:1 data_num:3056
+2025-11-08 21:19:54,072 [MainThread  ] [INFO ]  ModelReplacementAttacker initialized for client 1
+2025-11-08 21:19:54,072 [MainThread  ] [INFO ]    Scaling factor (γ): 50
+2025-11-08 21:19:54,072 [MainThread  ] [INFO ]    Alpha (classification weight): 0.5
+2025-11-08 21:19:54,072 [MainThread  ] [INFO ]    Target label: 7
+2025-11-08 21:19:54,072 [MainThread  ] [INFO ]    Constrain weight: 0.02
+2025-11-08 21:19:54,119 [MainThread  ] [INFO ]  build client:1 mal:1 data_num:2944
+2025-11-08 21:19:54,127 [MainThread  ] [INFO ]  ModelReplacementAttacker initialized for client 2
+2025-11-08 21:19:54,127 [MainThread  ] [INFO ]    Scaling factor (γ): 50
+2025-11-08 21:19:54,127 [MainThread  ] [INFO ]    Alpha (classification weight): 0.5
+2025-11-08 21:19:54,127 [MainThread  ] [INFO ]    Target label: 7
+2025-11-08 21:19:54,127 [MainThread  ] [INFO ]    Constrain weight: 0.02
+2025-11-08 21:19:54,176 [MainThread  ] [INFO ]  build client:2 mal:1 data_num:3395
+2025-11-08 21:19:54,183 [MainThread  ] [INFO ]  ModelReplacementAttacker initialized for client 3
+2025-11-08 21:19:54,183 [MainThread  ] [INFO ]    Scaling factor (γ): 50
+2025-11-08 21:19:54,183 [MainThread  ] [INFO ]    Alpha (classification weight): 0.5
+2025-11-08 21:19:54,183 [MainThread  ] [INFO ]    Target label: 7
+2025-11-08 21:19:54,183 [MainThread  ] [INFO ]    Constrain weight: 0.02
+2025-11-08 21:19:54,226 [MainThread  ] [INFO ]  build client:3 mal:1 data_num:2665
+2025-11-08 21:19:54,236 [MainThread  ] [INFO ]  build client:4 mal:0 data_num:3242
+2025-11-08 21:19:54,248 [MainThread  ] [INFO ]  build client:5 mal:0 data_num:3950
+2025-11-08 21:19:54,257 [MainThread  ] [INFO ]  build client:6 mal:0 data_num:3268
+2025-11-08 21:19:54,264 [MainThread  ] [INFO ]  build client:7 mal:0 data_num:2264
+2025-11-08 21:19:54,276 [MainThread  ] [INFO ]  build client:8 mal:0 data_num:4158
+2025-11-08 21:19:54,286 [MainThread  ] [INFO ]  build client:9 mal:0 data_num:3413
+2025-11-08 21:19:54,295 [MainThread  ] [INFO ]  build client:10 mal:0 data_num:3006
+2025-11-08 21:19:54,305 [MainThread  ] [INFO ]  build client:11 mal:0 data_num:3289
+2025-11-08 21:19:54,314 [MainThread  ] [INFO ]  build client:12 mal:0 data_num:3075
+2025-11-08 21:19:54,323 [MainThread  ] [INFO ]  build client:13 mal:0 data_num:2916
+2025-11-08 21:19:54,331 [MainThread  ] [INFO ]  build client:14 mal:0 data_num:3036
+2025-11-08 21:19:54,336 [MainThread  ] [INFO ]  build client:15 mal:0 data_num:1223
+2025-11-08 21:19:54,345 [MainThread  ] [INFO ]  build client:16 mal:0 data_num:3209
+2025-11-08 21:19:54,355 [MainThread  ] [INFO ]  build client:17 mal:0 data_num:3132
+2025-11-08 21:19:54,364 [MainThread  ] [INFO ]  build client:18 mal:0 data_num:3013
+2025-11-08 21:19:54,369 [MainThread  ] [INFO ]  build client:19 mal:0 data_num:1746
+2025-11-08 21:19:54,369 [MainThread  ] [INFO ]  --------round 1 ------------
+2025-11-08 21:19:54,371 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:19:54,373 [MainThread  ] [INFO ]  [Round 1] Client 0 starting Model Replacement training...
+2025-11-08 21:19:56,614 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.4549
+2025-11-08 21:19:56,615 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:19:56,616 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:19:56,618 [MainThread  ] [INFO ]  [Round 1] Client 1 starting Model Replacement training...
+2025-11-08 21:19:58,179 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.4431
+2025-11-08 21:19:58,180 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:19:58,182 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:19:58,184 [MainThread  ] [INFO ]  [Round 1] Client 2 starting Model Replacement training...
+2025-11-08 21:20:00,151 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.3549
+2025-11-08 21:20:00,152 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:20:00,153 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:20:00,155 [MainThread  ] [INFO ]  [Round 1] Client 3 starting Model Replacement training...
+2025-11-08 21:20:01,663 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.3530
+2025-11-08 21:20:01,664 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:20:01,665 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:20:24,758 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:20:24,993 [MainThread  ] [INFO ]  ---------Test 1 ------------
+2025-11-08 21:20:32,054 [MainThread  ] [INFO ]  Clean ACC:              0.1000
+2025-11-08 21:20:32,054 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:20:32,054 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 21:20:32,054 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:20:32,054 [MainThread  ] [INFO ]  --------round 2 ------------
+2025-11-08 21:20:32,056 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:20:32,058 [MainThread  ] [INFO ]  [Round 2] Client 0 starting Model Replacement training...
+2025-11-08 21:20:33,578 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9438
+2025-11-08 21:20:33,578 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:20:33,580 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:20:33,582 [MainThread  ] [INFO ]  [Round 2] Client 1 starting Model Replacement training...
+2025-11-08 21:20:35,176 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0598
+2025-11-08 21:20:35,177 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:20:35,178 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:20:35,180 [MainThread  ] [INFO ]  [Round 2] Client 2 starting Model Replacement training...
+2025-11-08 21:20:37,110 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0065
+2025-11-08 21:20:37,111 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:20:37,113 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:20:37,115 [MainThread  ] [INFO ]  [Round 2] Client 3 starting Model Replacement training...
+2025-11-08 21:20:38,562 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9639
+2025-11-08 21:20:38,562 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:20:38,564 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:01,470 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:21:01,526 [MainThread  ] [INFO ]  ---------Test 2 ------------
+2025-11-08 21:21:08,442 [MainThread  ] [INFO ]  Clean ACC:              0.1000
+2025-11-08 21:21:08,442 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:21:08,442 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 21:21:08,442 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:21:08,442 [MainThread  ] [INFO ]  --------round 3 ------------
+2025-11-08 21:21:08,444 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:21:08,445 [MainThread  ] [INFO ]  [Round 3] Client 0 starting Model Replacement training...
+2025-11-08 21:21:10,114 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9642
+2025-11-08 21:21:10,115 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:10,118 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:10,120 [MainThread  ] [INFO ]  [Round 3] Client 1 starting Model Replacement training...
+2025-11-08 21:21:11,733 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0672
+2025-11-08 21:21:11,734 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:11,736 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:11,738 [MainThread  ] [INFO ]  [Round 3] Client 2 starting Model Replacement training...
+2025-11-08 21:21:13,588 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0119
+2025-11-08 21:21:13,588 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:13,590 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:13,592 [MainThread  ] [INFO ]  [Round 3] Client 3 starting Model Replacement training...
+2025-11-08 21:21:15,046 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9657
+2025-11-08 21:21:15,047 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:15,047 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:38,356 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:21:38,404 [MainThread  ] [INFO ]  ---------Test 3 ------------
+2025-11-08 21:21:45,362 [MainThread  ] [INFO ]  Clean ACC:              0.1000
+2025-11-08 21:21:45,363 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:21:45,363 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 21:21:45,363 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:21:45,363 [MainThread  ] [INFO ]  --------round 4 ------------
+2025-11-08 21:21:45,364 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:21:45,366 [MainThread  ] [INFO ]  [Round 4] Client 0 starting Model Replacement training...
+2025-11-08 21:21:47,077 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0546
+2025-11-08 21:21:47,078 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:47,080 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:47,082 [MainThread  ] [INFO ]  [Round 4] Client 1 starting Model Replacement training...
+2025-11-08 21:21:48,695 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0943
+2025-11-08 21:21:48,696 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:48,698 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:48,699 [MainThread  ] [INFO ]  [Round 4] Client 2 starting Model Replacement training...
+2025-11-08 21:21:50,567 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0331
+2025-11-08 21:21:50,568 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:50,568 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:21:50,570 [MainThread  ] [INFO ]  [Round 4] Client 3 starting Model Replacement training...
+2025-11-08 21:21:52,010 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0354
+2025-11-08 21:21:52,011 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:21:52,012 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:22:16,940 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:22:16,994 [MainThread  ] [INFO ]  ---------Test 4 ------------
+2025-11-08 21:22:24,978 [MainThread  ] [INFO ]  Clean ACC:              0.1000
+2025-11-08 21:22:24,978 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:22:24,978 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 21:22:24,978 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:22:24,978 [MainThread  ] [INFO ]  --------round 5 ------------
+2025-11-08 21:22:24,980 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:22:24,982 [MainThread  ] [INFO ]  [Round 5] Client 0 starting Model Replacement training...
+2025-11-08 21:22:26,718 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0812
+2025-11-08 21:22:26,719 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:22:26,719 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:22:26,721 [MainThread  ] [INFO ]  [Round 5] Client 1 starting Model Replacement training...
+2025-11-08 21:22:28,324 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1209
+2025-11-08 21:22:28,325 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:22:28,326 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:22:28,328 [MainThread  ] [INFO ]  [Round 5] Client 2 starting Model Replacement training...
+2025-11-08 21:22:30,202 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0762
+2025-11-08 21:22:30,203 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:22:30,205 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:22:30,207 [MainThread  ] [INFO ]  [Round 5] Client 3 starting Model Replacement training...
+2025-11-08 21:22:31,664 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0628
+2025-11-08 21:22:31,665 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:22:31,666 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:22:54,394 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:22:54,446 [MainThread  ] [INFO ]  ---------Test 5 ------------
+2025-11-08 21:23:01,467 [MainThread  ] [INFO ]  Clean ACC:              0.1145
+2025-11-08 21:23:01,467 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:23:01,467 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 21:23:01,467 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:23:01,467 [MainThread  ] [INFO ]  --------round 6 ------------
+2025-11-08 21:23:01,469 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:23:01,470 [MainThread  ] [INFO ]  [Round 6] Client 0 starting Model Replacement training...
+2025-11-08 21:23:03,107 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1651
+2025-11-08 21:23:03,108 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:03,109 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:03,111 [MainThread  ] [INFO ]  [Round 6] Client 1 starting Model Replacement training...
+2025-11-08 21:23:04,738 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1776
+2025-11-08 21:23:04,739 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:04,741 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:04,743 [MainThread  ] [INFO ]  [Round 6] Client 2 starting Model Replacement training...
+2025-11-08 21:23:06,610 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1643
+2025-11-08 21:23:06,610 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:06,614 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:06,615 [MainThread  ] [INFO ]  [Round 6] Client 3 starting Model Replacement training...
+2025-11-08 21:23:08,058 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1380
+2025-11-08 21:23:08,059 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:08,060 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:31,188 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:23:31,235 [MainThread  ] [INFO ]  ---------Test 6 ------------
+2025-11-08 21:23:38,322 [MainThread  ] [INFO ]  Clean ACC:              0.1950
+2025-11-08 21:23:38,322 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:23:38,322 [MainThread  ] [INFO ]  Backdoor ACC:           0.1976
+2025-11-08 21:23:38,322 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:23:38,323 [MainThread  ] [INFO ]  --------round 7 ------------
+2025-11-08 21:23:38,324 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:23:38,325 [MainThread  ] [INFO ]  [Round 7] Client 0 starting Model Replacement training...
+2025-11-08 21:23:39,998 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0468
+2025-11-08 21:23:39,998 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:39,999 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:40,001 [MainThread  ] [INFO ]  [Round 7] Client 1 starting Model Replacement training...
+2025-11-08 21:23:41,624 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0844
+2025-11-08 21:23:41,625 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:41,625 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:41,627 [MainThread  ] [INFO ]  [Round 7] Client 2 starting Model Replacement training...
+2025-11-08 21:23:43,561 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0378
+2025-11-08 21:23:43,562 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:43,563 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:23:43,565 [MainThread  ] [INFO ]  [Round 7] Client 3 starting Model Replacement training...
+2025-11-08 21:23:45,049 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0116
+2025-11-08 21:23:45,050 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:23:45,051 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:07,383 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:24:07,435 [MainThread  ] [INFO ]  ---------Test 7 ------------
+2025-11-08 21:24:14,371 [MainThread  ] [INFO ]  Clean ACC:              0.1949
+2025-11-08 21:24:14,371 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:24:14,371 [MainThread  ] [INFO ]  Backdoor ACC:           0.1867
+2025-11-08 21:24:14,371 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:24:14,371 [MainThread  ] [INFO ]  --------round 8 ------------
+2025-11-08 21:24:14,373 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:24:14,374 [MainThread  ] [INFO ]  [Round 8] Client 0 starting Model Replacement training...
+2025-11-08 21:24:16,107 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0882
+2025-11-08 21:24:16,108 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:16,109 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:16,113 [MainThread  ] [INFO ]  [Round 8] Client 1 starting Model Replacement training...
+2025-11-08 21:24:17,771 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1267
+2025-11-08 21:24:17,772 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:17,775 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:17,777 [MainThread  ] [INFO ]  [Round 8] Client 2 starting Model Replacement training...
+2025-11-08 21:24:19,743 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1052
+2025-11-08 21:24:19,744 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:19,745 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:19,747 [MainThread  ] [INFO ]  [Round 8] Client 3 starting Model Replacement training...
+2025-11-08 21:24:21,232 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0865
+2025-11-08 21:24:21,232 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:21,234 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:44,456 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:24:44,508 [MainThread  ] [INFO ]  ---------Test 8 ------------
+2025-11-08 21:24:51,518 [MainThread  ] [INFO ]  Clean ACC:              0.1940
+2025-11-08 21:24:51,518 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:24:51,518 [MainThread  ] [INFO ]  Backdoor ACC:           0.1819
+2025-11-08 21:24:51,518 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:24:51,518 [MainThread  ] [INFO ]  --------round 9 ------------
+2025-11-08 21:24:51,519 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:24:51,521 [MainThread  ] [INFO ]  [Round 9] Client 0 starting Model Replacement training...
+2025-11-08 21:24:53,150 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9700
+2025-11-08 21:24:53,151 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:53,152 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:53,153 [MainThread  ] [INFO ]  [Round 9] Client 1 starting Model Replacement training...
+2025-11-08 21:24:54,822 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0707
+2025-11-08 21:24:54,823 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:54,823 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:54,825 [MainThread  ] [INFO ]  [Round 9] Client 2 starting Model Replacement training...
+2025-11-08 21:24:56,693 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0036
+2025-11-08 21:24:56,694 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:56,695 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:24:56,697 [MainThread  ] [INFO ]  [Round 9] Client 3 starting Model Replacement training...
+2025-11-08 21:24:58,211 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0031
+2025-11-08 21:24:58,212 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:24:58,213 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:25:21,566 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:25:21,616 [MainThread  ] [INFO ]  ---------Test 9 ------------
+2025-11-08 21:25:28,603 [MainThread  ] [INFO ]  Clean ACC:              0.1970
+2025-11-08 21:25:28,604 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:25:28,604 [MainThread  ] [INFO ]  Backdoor ACC:           0.2131
+2025-11-08 21:25:28,604 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:25:28,604 [MainThread  ] [INFO ]  --------round 10 ------------
+2025-11-08 21:25:28,605 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:25:28,607 [MainThread  ] [INFO ]  [Round 10] Client 0 starting Model Replacement training...
+2025-11-08 21:25:30,312 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0284
+2025-11-08 21:25:30,313 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:25:30,315 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:25:30,317 [MainThread  ] [INFO ]  [Round 10] Client 1 starting Model Replacement training...
+2025-11-08 21:25:31,944 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0868
+2025-11-08 21:25:31,945 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:25:31,948 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:25:31,950 [MainThread  ] [INFO ]  [Round 10] Client 2 starting Model Replacement training...
+2025-11-08 21:25:33,792 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0626
+2025-11-08 21:25:33,792 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:25:33,793 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:25:33,795 [MainThread  ] [INFO ]  [Round 10] Client 3 starting Model Replacement training...
+2025-11-08 21:25:35,243 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0353
+2025-11-08 21:25:35,243 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:25:35,245 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:25:58,285 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:25:58,333 [MainThread  ] [INFO ]  ---------Test 10 ------------
+2025-11-08 21:26:05,207 [MainThread  ] [INFO ]  Clean ACC:              0.1966
+2025-11-08 21:26:05,207 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:26:05,207 [MainThread  ] [INFO ]  Backdoor ACC:           0.2023
+2025-11-08 21:26:05,207 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:26:05,207 [MainThread  ] [INFO ]  --------round 11 ------------
+2025-11-08 21:26:05,209 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:26:05,211 [MainThread  ] [INFO ]  [Round 11] Client 0 starting Model Replacement training...
+2025-11-08 21:26:07,049 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1026
+2025-11-08 21:26:07,050 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:07,052 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:07,054 [MainThread  ] [INFO ]  [Round 11] Client 1 starting Model Replacement training...
+2025-11-08 21:26:08,986 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1479
+2025-11-08 21:26:08,987 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:08,990 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:08,992 [MainThread  ] [INFO ]  [Round 11] Client 2 starting Model Replacement training...
+2025-11-08 21:26:10,901 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0833
+2025-11-08 21:26:10,902 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:10,904 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:10,906 [MainThread  ] [INFO ]  [Round 11] Client 3 starting Model Replacement training...
+2025-11-08 21:26:12,429 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0838
+2025-11-08 21:26:12,429 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:12,431 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:36,049 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:26:36,099 [MainThread  ] [INFO ]  ---------Test 11 ------------
+2025-11-08 21:26:43,068 [MainThread  ] [INFO ]  Clean ACC:              0.1935
+2025-11-08 21:26:43,068 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:26:43,068 [MainThread  ] [INFO ]  Backdoor ACC:           0.1202
+2025-11-08 21:26:43,068 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:26:43,068 [MainThread  ] [INFO ]  --------round 12 ------------
+2025-11-08 21:26:43,070 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:26:43,071 [MainThread  ] [INFO ]  [Round 12] Client 0 starting Model Replacement training...
+2025-11-08 21:26:44,745 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8321
+2025-11-08 21:26:44,746 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:44,748 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:44,749 [MainThread  ] [INFO ]  [Round 12] Client 1 starting Model Replacement training...
+2025-11-08 21:26:46,431 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9380
+2025-11-08 21:26:46,432 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:46,432 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:46,434 [MainThread  ] [INFO ]  [Round 12] Client 2 starting Model Replacement training...
+2025-11-08 21:26:48,344 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8722
+2025-11-08 21:26:48,345 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:48,348 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:26:48,350 [MainThread  ] [INFO ]  [Round 12] Client 3 starting Model Replacement training...
+2025-11-08 21:26:49,866 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8414
+2025-11-08 21:26:49,867 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:26:49,868 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:27:13,453 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:27:13,528 [MainThread  ] [INFO ]  ---------Test 12 ------------
+2025-11-08 21:27:20,649 [MainThread  ] [INFO ]  Clean ACC:              0.1979
+2025-11-08 21:27:20,649 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:27:20,649 [MainThread  ] [INFO ]  Backdoor ACC:           0.2066
+2025-11-08 21:27:20,649 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:27:20,649 [MainThread  ] [INFO ]  --------round 13 ------------
+2025-11-08 21:27:20,651 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:27:20,653 [MainThread  ] [INFO ]  [Round 13] Client 0 starting Model Replacement training...
+2025-11-08 21:27:22,321 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9440
+2025-11-08 21:27:22,322 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:27:22,323 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:27:22,325 [MainThread  ] [INFO ]  [Round 13] Client 1 starting Model Replacement training...
+2025-11-08 21:27:23,986 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9989
+2025-11-08 21:27:23,987 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:27:23,988 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:27:23,990 [MainThread  ] [INFO ]  [Round 13] Client 2 starting Model Replacement training...
+2025-11-08 21:27:25,863 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9122
+2025-11-08 21:27:25,864 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:27:25,865 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:27:25,867 [MainThread  ] [INFO ]  [Round 13] Client 3 starting Model Replacement training...
+2025-11-08 21:27:27,389 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9290
+2025-11-08 21:27:27,389 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:27:27,390 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:27:51,903 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:27:51,951 [MainThread  ] [INFO ]  ---------Test 13 ------------
+2025-11-08 21:27:59,040 [MainThread  ] [INFO ]  Clean ACC:              0.1270
+2025-11-08 21:27:59,040 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:27:59,040 [MainThread  ] [INFO ]  Backdoor ACC:           0.1124
+2025-11-08 21:27:59,040 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:27:59,040 [MainThread  ] [INFO ]  --------round 14 ------------
+2025-11-08 21:27:59,042 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:27:59,043 [MainThread  ] [INFO ]  [Round 14] Client 0 starting Model Replacement training...
+2025-11-08 21:28:00,729 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0648
+2025-11-08 21:28:00,730 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:00,731 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:00,733 [MainThread  ] [INFO ]  [Round 14] Client 1 starting Model Replacement training...
+2025-11-08 21:28:02,404 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1277
+2025-11-08 21:28:02,405 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:02,406 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:02,408 [MainThread  ] [INFO ]  [Round 14] Client 2 starting Model Replacement training...
+2025-11-08 21:28:04,291 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1150
+2025-11-08 21:28:04,292 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:04,295 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:04,297 [MainThread  ] [INFO ]  [Round 14] Client 3 starting Model Replacement training...
+2025-11-08 21:28:05,741 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0807
+2025-11-08 21:28:05,742 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:05,743 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:30,028 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:28:30,118 [MainThread  ] [INFO ]  ---------Test 14 ------------
+2025-11-08 21:28:37,234 [MainThread  ] [INFO ]  Clean ACC:              0.1980
+2025-11-08 21:28:37,235 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:28:37,235 [MainThread  ] [INFO ]  Backdoor ACC:           0.2170
+2025-11-08 21:28:37,235 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:28:37,235 [MainThread  ] [INFO ]  --------round 15 ------------
+2025-11-08 21:28:37,236 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:28:37,238 [MainThread  ] [INFO ]  [Round 15] Client 0 starting Model Replacement training...
+2025-11-08 21:28:38,894 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9277
+2025-11-08 21:28:38,895 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:38,896 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:38,898 [MainThread  ] [INFO ]  [Round 15] Client 1 starting Model Replacement training...
+2025-11-08 21:28:40,542 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1910
+2025-11-08 21:28:40,542 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:40,544 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:40,546 [MainThread  ] [INFO ]  [Round 15] Client 2 starting Model Replacement training...
+2025-11-08 21:28:42,511 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9796
+2025-11-08 21:28:42,512 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:42,513 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:28:42,514 [MainThread  ] [INFO ]  [Round 15] Client 3 starting Model Replacement training...
+2025-11-08 21:28:44,018 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1345
+2025-11-08 21:28:44,019 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:28:44,021 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:07,541 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:29:07,596 [MainThread  ] [INFO ]  ---------Test 15 ------------
+2025-11-08 21:29:14,634 [MainThread  ] [INFO ]  Clean ACC:              0.1967
+2025-11-08 21:29:14,634 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:29:14,634 [MainThread  ] [INFO ]  Backdoor ACC:           0.1967
+2025-11-08 21:29:14,634 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:29:14,634 [MainThread  ] [INFO ]  --------round 16 ------------
+2025-11-08 21:29:14,636 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:29:14,637 [MainThread  ] [INFO ]  [Round 16] Client 0 starting Model Replacement training...
+2025-11-08 21:29:16,248 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0435
+2025-11-08 21:29:16,248 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:16,250 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:16,252 [MainThread  ] [INFO ]  [Round 16] Client 1 starting Model Replacement training...
+2025-11-08 21:29:17,832 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0401
+2025-11-08 21:29:17,833 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:17,834 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:17,836 [MainThread  ] [INFO ]  [Round 16] Client 2 starting Model Replacement training...
+2025-11-08 21:29:19,757 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0665
+2025-11-08 21:29:19,757 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:19,759 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:19,760 [MainThread  ] [INFO ]  [Round 16] Client 3 starting Model Replacement training...
+2025-11-08 21:29:21,307 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0384
+2025-11-08 21:29:21,308 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:21,310 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:44,663 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:29:44,717 [MainThread  ] [INFO ]  ---------Test 16 ------------
+2025-11-08 21:29:51,841 [MainThread  ] [INFO ]  Clean ACC:              0.1981
+2025-11-08 21:29:51,841 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:29:51,841 [MainThread  ] [INFO ]  Backdoor ACC:           0.2148
+2025-11-08 21:29:51,841 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:29:51,841 [MainThread  ] [INFO ]  --------round 17 ------------
+2025-11-08 21:29:51,843 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:29:51,845 [MainThread  ] [INFO ]  [Round 17] Client 0 starting Model Replacement training...
+2025-11-08 21:29:53,493 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1001
+2025-11-08 21:29:53,494 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:53,495 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:53,497 [MainThread  ] [INFO ]  [Round 17] Client 1 starting Model Replacement training...
+2025-11-08 21:29:55,108 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1037
+2025-11-08 21:29:55,109 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:55,110 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:55,112 [MainThread  ] [INFO ]  [Round 17] Client 2 starting Model Replacement training...
+2025-11-08 21:29:56,998 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0982
+2025-11-08 21:29:56,999 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:57,001 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:29:57,004 [MainThread  ] [INFO ]  [Round 17] Client 3 starting Model Replacement training...
+2025-11-08 21:29:58,444 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0827
+2025-11-08 21:29:58,445 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:29:58,446 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:30:21,908 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:30:21,962 [MainThread  ] [INFO ]  ---------Test 17 ------------
+2025-11-08 21:30:29,938 [MainThread  ] [INFO ]  Clean ACC:              0.2181
+2025-11-08 21:30:29,938 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:30:29,938 [MainThread  ] [INFO ]  Backdoor ACC:           0.1926
+2025-11-08 21:30:29,938 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:30:29,938 [MainThread  ] [INFO ]  --------round 18 ------------
+2025-11-08 21:30:29,940 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:30:29,942 [MainThread  ] [INFO ]  [Round 18] Client 0 starting Model Replacement training...
+2025-11-08 21:30:31,878 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0058
+2025-11-08 21:30:31,879 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:30:31,880 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:30:31,882 [MainThread  ] [INFO ]  [Round 18] Client 1 starting Model Replacement training...
+2025-11-08 21:30:33,725 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0061
+2025-11-08 21:30:33,726 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:30:33,728 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:30:33,730 [MainThread  ] [INFO ]  [Round 18] Client 2 starting Model Replacement training...
+2025-11-08 21:30:35,674 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0096
+2025-11-08 21:30:35,675 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:30:35,676 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:30:35,678 [MainThread  ] [INFO ]  [Round 18] Client 3 starting Model Replacement training...
+2025-11-08 21:30:37,207 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0022
+2025-11-08 21:30:37,208 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:30:37,208 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:00,128 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:31:00,184 [MainThread  ] [INFO ]  ---------Test 18 ------------
+2025-11-08 21:31:07,264 [MainThread  ] [INFO ]  Clean ACC:              0.1436
+2025-11-08 21:31:07,264 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:31:07,264 [MainThread  ] [INFO ]  Backdoor ACC:           0.1137
+2025-11-08 21:31:07,264 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:31:07,265 [MainThread  ] [INFO ]  --------round 19 ------------
+2025-11-08 21:31:07,266 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:31:07,267 [MainThread  ] [INFO ]  [Round 19] Client 0 starting Model Replacement training...
+2025-11-08 21:31:08,981 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0508
+2025-11-08 21:31:08,982 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:08,983 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:08,985 [MainThread  ] [INFO ]  [Round 19] Client 1 starting Model Replacement training...
+2025-11-08 21:31:10,596 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0975
+2025-11-08 21:31:10,597 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:10,600 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:10,602 [MainThread  ] [INFO ]  [Round 19] Client 2 starting Model Replacement training...
+2025-11-08 21:31:12,529 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0297
+2025-11-08 21:31:12,529 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:12,531 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:12,532 [MainThread  ] [INFO ]  [Round 19] Client 3 starting Model Replacement training...
+2025-11-08 21:31:14,040 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0374
+2025-11-08 21:31:14,041 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:14,043 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:37,245 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:31:37,306 [MainThread  ] [INFO ]  ---------Test 19 ------------
+2025-11-08 21:31:44,297 [MainThread  ] [INFO ]  Clean ACC:              0.1911
+2025-11-08 21:31:44,297 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:31:44,297 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 21:31:44,297 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:31:44,297 [MainThread  ] [INFO ]  --------round 20 ------------
+2025-11-08 21:31:44,299 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:31:44,300 [MainThread  ] [INFO ]  [Round 20] Client 0 starting Model Replacement training...
+2025-11-08 21:31:45,891 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1363
+2025-11-08 21:31:45,892 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:45,894 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:45,896 [MainThread  ] [INFO ]  [Round 20] Client 1 starting Model Replacement training...
+2025-11-08 21:31:47,512 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0924
+2025-11-08 21:31:47,512 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:47,514 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:47,516 [MainThread  ] [INFO ]  [Round 20] Client 2 starting Model Replacement training...
+2025-11-08 21:31:49,420 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1234
+2025-11-08 21:31:49,421 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:49,422 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:31:49,424 [MainThread  ] [INFO ]  [Round 20] Client 3 starting Model Replacement training...
+2025-11-08 21:31:50,960 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1109
+2025-11-08 21:31:50,962 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:31:50,964 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:32:13,832 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:32:13,886 [MainThread  ] [INFO ]  ---------Test 20 ------------
+2025-11-08 21:32:20,939 [MainThread  ] [INFO ]  Clean ACC:              0.1505
+2025-11-08 21:32:20,939 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:32:20,939 [MainThread  ] [INFO ]  Backdoor ACC:           0.1127
+2025-11-08 21:32:20,939 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:32:20,939 [MainThread  ] [INFO ]  --------round 21 ------------
+2025-11-08 21:32:20,940 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:32:20,942 [MainThread  ] [INFO ]  [Round 21] Client 0 starting Model Replacement training...
+2025-11-08 21:32:22,621 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0132
+2025-11-08 21:32:22,622 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:32:22,623 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:32:22,625 [MainThread  ] [INFO ]  [Round 21] Client 1 starting Model Replacement training...
+2025-11-08 21:32:24,224 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0247
+2025-11-08 21:32:24,225 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:32:24,227 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:32:24,229 [MainThread  ] [INFO ]  [Round 21] Client 2 starting Model Replacement training...
+2025-11-08 21:32:26,149 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0236
+2025-11-08 21:32:26,150 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:32:26,151 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:32:26,153 [MainThread  ] [INFO ]  [Round 21] Client 3 starting Model Replacement training...
+2025-11-08 21:32:27,703 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0423
+2025-11-08 21:32:27,703 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:32:27,705 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:32:51,048 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:32:51,100 [MainThread  ] [INFO ]  ---------Test 21 ------------
+2025-11-08 21:32:58,152 [MainThread  ] [INFO ]  Clean ACC:              0.1485
+2025-11-08 21:32:58,152 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:32:58,153 [MainThread  ] [INFO ]  Backdoor ACC:           0.1120
+2025-11-08 21:32:58,153 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:32:58,153 [MainThread  ] [INFO ]  --------round 22 ------------
+2025-11-08 21:32:58,154 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:32:58,155 [MainThread  ] [INFO ]  [Round 22] Client 0 starting Model Replacement training...
+2025-11-08 21:32:59,868 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0867
+2025-11-08 21:32:59,869 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:32:59,870 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:32:59,872 [MainThread  ] [INFO ]  [Round 22] Client 1 starting Model Replacement training...
+2025-11-08 21:33:01,453 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0493
+2025-11-08 21:33:01,453 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:01,456 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:33:01,458 [MainThread  ] [INFO ]  [Round 22] Client 2 starting Model Replacement training...
+2025-11-08 21:33:03,125 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0579
+2025-11-08 21:33:03,126 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:03,127 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:33:03,129 [MainThread  ] [INFO ]  [Round 22] Client 3 starting Model Replacement training...
+2025-11-08 21:33:04,539 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0451
+2025-11-08 21:33:04,539 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:04,541 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:33:27,871 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:33:27,924 [MainThread  ] [INFO ]  ---------Test 22 ------------
+2025-11-08 21:33:35,022 [MainThread  ] [INFO ]  Clean ACC:              0.2663
+2025-11-08 21:33:35,022 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:33:35,023 [MainThread  ] [INFO ]  Backdoor ACC:           0.1181
+2025-11-08 21:33:35,023 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:33:35,023 [MainThread  ] [INFO ]  --------round 23 ------------
+2025-11-08 21:33:35,024 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:33:35,025 [MainThread  ] [INFO ]  [Round 23] Client 0 starting Model Replacement training...
+2025-11-08 21:33:36,692 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9813
+2025-11-08 21:33:36,693 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:36,696 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:33:36,698 [MainThread  ] [INFO ]  [Round 23] Client 1 starting Model Replacement training...
+2025-11-08 21:33:38,354 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9912
+2025-11-08 21:33:38,355 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:38,356 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:33:38,358 [MainThread  ] [INFO ]  [Round 23] Client 2 starting Model Replacement training...
+2025-11-08 21:33:40,212 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0063
+2025-11-08 21:33:40,213 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:40,215 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:33:40,217 [MainThread  ] [INFO ]  [Round 23] Client 3 starting Model Replacement training...
+2025-11-08 21:33:41,671 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0214
+2025-11-08 21:33:41,672 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:33:41,674 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:04,103 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:34:04,149 [MainThread  ] [INFO ]  ---------Test 23 ------------
+2025-11-08 21:34:11,190 [MainThread  ] [INFO ]  Clean ACC:              0.1899
+2025-11-08 21:34:11,190 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:34:11,190 [MainThread  ] [INFO ]  Backdoor ACC:           0.1179
+2025-11-08 21:34:11,190 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:34:11,191 [MainThread  ] [INFO ]  --------round 24 ------------
+2025-11-08 21:34:11,192 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:34:11,194 [MainThread  ] [INFO ]  [Round 24] Client 0 starting Model Replacement training...
+2025-11-08 21:34:12,889 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0408
+2025-11-08 21:34:12,890 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:12,893 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:12,895 [MainThread  ] [INFO ]  [Round 24] Client 1 starting Model Replacement training...
+2025-11-08 21:34:14,617 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0119
+2025-11-08 21:34:14,618 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:14,619 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:14,620 [MainThread  ] [INFO ]  [Round 24] Client 2 starting Model Replacement training...
+2025-11-08 21:34:16,568 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0237
+2025-11-08 21:34:16,568 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:16,569 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:16,571 [MainThread  ] [INFO ]  [Round 24] Client 3 starting Model Replacement training...
+2025-11-08 21:34:18,127 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0108
+2025-11-08 21:34:18,128 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:18,129 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:41,680 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:34:41,731 [MainThread  ] [INFO ]  ---------Test 24 ------------
+2025-11-08 21:34:48,742 [MainThread  ] [INFO ]  Clean ACC:              0.1823
+2025-11-08 21:34:48,742 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:34:48,742 [MainThread  ] [INFO ]  Backdoor ACC:           0.1287
+2025-11-08 21:34:48,742 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:34:48,742 [MainThread  ] [INFO ]  --------round 25 ------------
+2025-11-08 21:34:48,744 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:34:48,745 [MainThread  ] [INFO ]  [Round 25] Client 0 starting Model Replacement training...
+2025-11-08 21:34:50,427 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0951
+2025-11-08 21:34:50,428 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:50,429 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:50,431 [MainThread  ] [INFO ]  [Round 25] Client 1 starting Model Replacement training...
+2025-11-08 21:34:52,040 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0760
+2025-11-08 21:34:52,041 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:52,043 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:52,045 [MainThread  ] [INFO ]  [Round 25] Client 2 starting Model Replacement training...
+2025-11-08 21:34:53,931 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0891
+2025-11-08 21:34:53,931 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:53,933 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:34:53,934 [MainThread  ] [INFO ]  [Round 25] Client 3 starting Model Replacement training...
+2025-11-08 21:34:55,443 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0908
+2025-11-08 21:34:55,443 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:34:55,444 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:35:19,389 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:35:19,445 [MainThread  ] [INFO ]  ---------Test 25 ------------
+2025-11-08 21:35:26,389 [MainThread  ] [INFO ]  Clean ACC:              0.1969
+2025-11-08 21:35:26,390 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:35:26,390 [MainThread  ] [INFO ]  Backdoor ACC:           0.1644
+2025-11-08 21:35:26,390 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:35:26,390 [MainThread  ] [INFO ]  --------round 26 ------------
+2025-11-08 21:35:26,391 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:35:26,393 [MainThread  ] [INFO ]  [Round 26] Client 0 starting Model Replacement training...
+2025-11-08 21:35:28,116 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0169
+2025-11-08 21:35:28,117 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:35:28,118 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:35:28,120 [MainThread  ] [INFO ]  [Round 26] Client 1 starting Model Replacement training...
+2025-11-08 21:35:29,733 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9834
+2025-11-08 21:35:29,734 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:35:29,735 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:35:29,737 [MainThread  ] [INFO ]  [Round 26] Client 2 starting Model Replacement training...
+2025-11-08 21:35:31,661 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9904
+2025-11-08 21:35:31,661 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:35:31,662 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:35:31,664 [MainThread  ] [INFO ]  [Round 26] Client 3 starting Model Replacement training...
+2025-11-08 21:35:33,194 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9863
+2025-11-08 21:35:33,195 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:35:33,196 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:35:56,532 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:35:56,580 [MainThread  ] [INFO ]  ---------Test 26 ------------
+2025-11-08 21:36:03,470 [MainThread  ] [INFO ]  Clean ACC:              0.1673
+2025-11-08 21:36:03,470 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:36:03,470 [MainThread  ] [INFO ]  Backdoor ACC:           0.1388
+2025-11-08 21:36:03,470 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:36:03,470 [MainThread  ] [INFO ]  --------round 27 ------------
+2025-11-08 21:36:03,472 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:36:03,473 [MainThread  ] [INFO ]  [Round 27] Client 0 starting Model Replacement training...
+2025-11-08 21:36:05,165 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0799
+2025-11-08 21:36:05,166 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:05,167 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:05,169 [MainThread  ] [INFO ]  [Round 27] Client 1 starting Model Replacement training...
+2025-11-08 21:36:06,743 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0355
+2025-11-08 21:36:06,744 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:06,746 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:06,748 [MainThread  ] [INFO ]  [Round 27] Client 2 starting Model Replacement training...
+2025-11-08 21:36:08,448 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0230
+2025-11-08 21:36:08,449 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:08,451 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:08,452 [MainThread  ] [INFO ]  [Round 27] Client 3 starting Model Replacement training...
+2025-11-08 21:36:09,820 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0140
+2025-11-08 21:36:09,820 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:09,821 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:33,509 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:36:33,557 [MainThread  ] [INFO ]  ---------Test 27 ------------
+2025-11-08 21:36:40,542 [MainThread  ] [INFO ]  Clean ACC:              0.1482
+2025-11-08 21:36:40,542 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:36:40,542 [MainThread  ] [INFO ]  Backdoor ACC:           0.1319
+2025-11-08 21:36:40,542 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:36:40,542 [MainThread  ] [INFO ]  --------round 28 ------------
+2025-11-08 21:36:40,544 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:36:40,545 [MainThread  ] [INFO ]  [Round 28] Client 0 starting Model Replacement training...
+2025-11-08 21:36:42,169 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9799
+2025-11-08 21:36:42,170 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:42,171 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:42,173 [MainThread  ] [INFO ]  [Round 28] Client 1 starting Model Replacement training...
+2025-11-08 21:36:43,899 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9920
+2025-11-08 21:36:43,900 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:43,902 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:43,904 [MainThread  ] [INFO ]  [Round 28] Client 2 starting Model Replacement training...
+2025-11-08 21:36:45,832 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9872
+2025-11-08 21:36:45,833 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:45,834 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:36:45,836 [MainThread  ] [INFO ]  [Round 28] Client 3 starting Model Replacement training...
+2025-11-08 21:36:47,414 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0012
+2025-11-08 21:36:47,414 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:36:47,417 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:10,915 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:37:10,961 [MainThread  ] [INFO ]  ---------Test 28 ------------
+2025-11-08 21:37:17,984 [MainThread  ] [INFO ]  Clean ACC:              0.1964
+2025-11-08 21:37:17,984 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:37:17,984 [MainThread  ] [INFO ]  Backdoor ACC:           0.1451
+2025-11-08 21:37:17,984 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:37:17,984 [MainThread  ] [INFO ]  --------round 29 ------------
+2025-11-08 21:37:17,986 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:37:17,987 [MainThread  ] [INFO ]  [Round 29] Client 0 starting Model Replacement training...
+2025-11-08 21:37:19,649 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0303
+2025-11-08 21:37:19,650 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:19,651 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:19,653 [MainThread  ] [INFO ]  [Round 29] Client 1 starting Model Replacement training...
+2025-11-08 21:37:21,260 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0030
+2025-11-08 21:37:21,261 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:21,262 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:21,264 [MainThread  ] [INFO ]  [Round 29] Client 2 starting Model Replacement training...
+2025-11-08 21:37:23,040 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9966
+2025-11-08 21:37:23,041 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:23,042 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:23,044 [MainThread  ] [INFO ]  [Round 29] Client 3 starting Model Replacement training...
+2025-11-08 21:37:24,537 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9971
+2025-11-08 21:37:24,538 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:24,539 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:45,972 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:37:46,022 [MainThread  ] [INFO ]  ---------Test 29 ------------
+2025-11-08 21:37:52,943 [MainThread  ] [INFO ]  Clean ACC:              0.1953
+2025-11-08 21:37:52,943 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:37:52,944 [MainThread  ] [INFO ]  Backdoor ACC:           0.1650
+2025-11-08 21:37:52,944 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:37:52,944 [MainThread  ] [INFO ]  --------round 30 ------------
+2025-11-08 21:37:52,945 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:37:52,947 [MainThread  ] [INFO ]  [Round 30] Client 0 starting Model Replacement training...
+2025-11-08 21:37:54,593 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0833
+2025-11-08 21:37:54,594 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:54,595 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:54,597 [MainThread  ] [INFO ]  [Round 30] Client 1 starting Model Replacement training...
+2025-11-08 21:37:56,282 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0674
+2025-11-08 21:37:56,283 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:56,287 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:56,289 [MainThread  ] [INFO ]  [Round 30] Client 2 starting Model Replacement training...
+2025-11-08 21:37:58,150 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0721
+2025-11-08 21:37:58,151 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:58,153 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:37:58,155 [MainThread  ] [INFO ]  [Round 30] Client 3 starting Model Replacement training...
+2025-11-08 21:37:59,612 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0764
+2025-11-08 21:37:59,612 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:37:59,613 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:38:23,013 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:38:23,062 [MainThread  ] [INFO ]  ---------Test 30 ------------
+2025-11-08 21:38:30,188 [MainThread  ] [INFO ]  Clean ACC:              0.1961
+2025-11-08 21:38:30,189 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:38:30,189 [MainThread  ] [INFO ]  Backdoor ACC:           0.1497
+2025-11-08 21:38:30,189 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:38:30,189 [MainThread  ] [INFO ]  --------round 31 ------------
+2025-11-08 21:38:30,190 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:38:30,192 [MainThread  ] [INFO ]  [Round 31] Client 0 starting Model Replacement training...
+2025-11-08 21:38:32,145 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9954
+2025-11-08 21:38:32,146 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:38:32,148 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:38:32,151 [MainThread  ] [INFO ]  [Round 31] Client 1 starting Model Replacement training...
+2025-11-08 21:38:34,208 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9769
+2025-11-08 21:38:34,210 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:38:34,212 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:38:34,216 [MainThread  ] [INFO ]  [Round 31] Client 2 starting Model Replacement training...
+2025-11-08 21:38:36,551 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0048
+2025-11-08 21:38:36,552 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:38:36,555 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:38:36,557 [MainThread  ] [INFO ]  [Round 31] Client 3 starting Model Replacement training...
+2025-11-08 21:38:38,146 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9952
+2025-11-08 21:38:38,147 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:38:38,148 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:01,951 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:39:02,006 [MainThread  ] [INFO ]  ---------Test 31 ------------
+2025-11-08 21:39:09,016 [MainThread  ] [INFO ]  Clean ACC:              0.1961
+2025-11-08 21:39:09,017 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:39:09,017 [MainThread  ] [INFO ]  Backdoor ACC:           0.1441
+2025-11-08 21:39:09,017 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:39:09,017 [MainThread  ] [INFO ]  --------round 32 ------------
+2025-11-08 21:39:09,018 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:39:09,020 [MainThread  ] [INFO ]  [Round 32] Client 0 starting Model Replacement training...
+2025-11-08 21:39:10,714 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0415
+2025-11-08 21:39:10,714 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:10,716 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:10,718 [MainThread  ] [INFO ]  [Round 32] Client 1 starting Model Replacement training...
+2025-11-08 21:39:12,394 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8731
+2025-11-08 21:39:12,395 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:12,396 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:12,398 [MainThread  ] [INFO ]  [Round 32] Client 2 starting Model Replacement training...
+2025-11-08 21:39:14,376 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9275
+2025-11-08 21:39:14,377 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:14,379 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:14,382 [MainThread  ] [INFO ]  [Round 32] Client 3 starting Model Replacement training...
+2025-11-08 21:39:16,030 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8733
+2025-11-08 21:39:16,031 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:16,032 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:39,825 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:39:39,880 [MainThread  ] [INFO ]  ---------Test 32 ------------
+2025-11-08 21:39:46,801 [MainThread  ] [INFO ]  Clean ACC:              0.1982
+2025-11-08 21:39:46,801 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:39:46,801 [MainThread  ] [INFO ]  Backdoor ACC:           0.1488
+2025-11-08 21:39:46,801 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:39:46,801 [MainThread  ] [INFO ]  --------round 33 ------------
+2025-11-08 21:39:46,803 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:39:46,804 [MainThread  ] [INFO ]  [Round 33] Client 0 starting Model Replacement training...
+2025-11-08 21:39:48,465 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8617
+2025-11-08 21:39:48,466 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:48,467 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:48,469 [MainThread  ] [INFO ]  [Round 33] Client 1 starting Model Replacement training...
+2025-11-08 21:39:50,076 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8260
+2025-11-08 21:39:50,077 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:50,079 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:50,081 [MainThread  ] [INFO ]  [Round 33] Client 2 starting Model Replacement training...
+2025-11-08 21:39:51,977 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8395
+2025-11-08 21:39:51,978 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:51,979 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:39:51,981 [MainThread  ] [INFO ]  [Round 33] Client 3 starting Model Replacement training...
+2025-11-08 21:39:53,394 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8239
+2025-11-08 21:39:53,394 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:39:53,396 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:40:15,863 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:40:15,915 [MainThread  ] [INFO ]  ---------Test 33 ------------
+2025-11-08 21:40:23,005 [MainThread  ] [INFO ]  Clean ACC:              0.2492
+2025-11-08 21:40:23,006 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:40:23,006 [MainThread  ] [INFO ]  Backdoor ACC:           0.1744
+2025-11-08 21:40:23,006 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:40:23,006 [MainThread  ] [INFO ]  --------round 34 ------------
+2025-11-08 21:40:23,008 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:40:23,009 [MainThread  ] [INFO ]  [Round 34] Client 0 starting Model Replacement training...
+2025-11-08 21:40:24,718 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0298
+2025-11-08 21:40:24,719 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:40:24,720 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:40:24,722 [MainThread  ] [INFO ]  [Round 34] Client 1 starting Model Replacement training...
+2025-11-08 21:40:26,346 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9970
+2025-11-08 21:40:26,347 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:40:26,349 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:40:26,351 [MainThread  ] [INFO ]  [Round 34] Client 2 starting Model Replacement training...
+2025-11-08 21:40:28,284 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9901
+2025-11-08 21:40:28,285 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:40:28,286 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:40:28,288 [MainThread  ] [INFO ]  [Round 34] Client 3 starting Model Replacement training...
+2025-11-08 21:40:29,608 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9886
+2025-11-08 21:40:29,609 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:40:29,610 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:40:53,187 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:40:53,244 [MainThread  ] [INFO ]  ---------Test 34 ------------
+2025-11-08 21:41:00,382 [MainThread  ] [INFO ]  Clean ACC:              0.1960
+2025-11-08 21:41:00,382 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:41:00,382 [MainThread  ] [INFO ]  Backdoor ACC:           0.1840
+2025-11-08 21:41:00,382 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:41:00,382 [MainThread  ] [INFO ]  --------round 35 ------------
+2025-11-08 21:41:00,384 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:41:00,385 [MainThread  ] [INFO ]  [Round 35] Client 0 starting Model Replacement training...
+2025-11-08 21:41:02,015 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0856
+2025-11-08 21:41:02,016 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:02,017 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:02,018 [MainThread  ] [INFO ]  [Round 35] Client 1 starting Model Replacement training...
+2025-11-08 21:41:03,641 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9047
+2025-11-08 21:41:03,641 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:03,643 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:03,645 [MainThread  ] [INFO ]  [Round 35] Client 2 starting Model Replacement training...
+2025-11-08 21:41:05,426 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9080
+2025-11-08 21:41:05,427 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:05,428 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:05,430 [MainThread  ] [INFO ]  [Round 35] Client 3 starting Model Replacement training...
+2025-11-08 21:41:06,824 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.8943
+2025-11-08 21:41:06,825 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:06,826 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:30,168 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:41:30,249 [MainThread  ] [INFO ]  ---------Test 35 ------------
+2025-11-08 21:41:37,390 [MainThread  ] [INFO ]  Clean ACC:              0.2109
+2025-11-08 21:41:37,390 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:41:37,390 [MainThread  ] [INFO ]  Backdoor ACC:           0.1509
+2025-11-08 21:41:37,390 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:41:37,390 [MainThread  ] [INFO ]  --------round 36 ------------
+2025-11-08 21:41:37,391 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:41:37,393 [MainThread  ] [INFO ]  [Round 36] Client 0 starting Model Replacement training...
+2025-11-08 21:41:39,248 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9980
+2025-11-08 21:41:39,249 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:39,251 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:39,253 [MainThread  ] [INFO ]  [Round 36] Client 1 starting Model Replacement training...
+2025-11-08 21:41:40,913 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0016
+2025-11-08 21:41:40,914 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:40,915 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:40,917 [MainThread  ] [INFO ]  [Round 36] Client 2 starting Model Replacement training...
+2025-11-08 21:41:42,768 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9151
+2025-11-08 21:41:42,769 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:42,770 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:41:42,772 [MainThread  ] [INFO ]  [Round 36] Client 3 starting Model Replacement training...
+2025-11-08 21:41:44,263 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0253
+2025-11-08 21:41:44,264 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:41:44,265 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:07,948 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:42:08,002 [MainThread  ] [INFO ]  ---------Test 36 ------------
+2025-11-08 21:42:15,089 [MainThread  ] [INFO ]  Clean ACC:              0.1968
+2025-11-08 21:42:15,089 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:42:15,089 [MainThread  ] [INFO ]  Backdoor ACC:           0.1477
+2025-11-08 21:42:15,089 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:42:15,089 [MainThread  ] [INFO ]  --------round 37 ------------
+2025-11-08 21:42:15,091 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:42:15,092 [MainThread  ] [INFO ]  [Round 37] Client 0 starting Model Replacement training...
+2025-11-08 21:42:16,797 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0631
+2025-11-08 21:42:16,798 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:16,799 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:16,801 [MainThread  ] [INFO ]  [Round 37] Client 1 starting Model Replacement training...
+2025-11-08 21:42:18,450 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0299
+2025-11-08 21:42:18,451 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:18,452 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:18,454 [MainThread  ] [INFO ]  [Round 37] Client 2 starting Model Replacement training...
+2025-11-08 21:42:20,344 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0393
+2025-11-08 21:42:20,344 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:20,346 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:20,348 [MainThread  ] [INFO ]  [Round 37] Client 3 starting Model Replacement training...
+2025-11-08 21:42:21,802 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0404
+2025-11-08 21:42:21,802 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:21,803 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:45,142 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:42:45,193 [MainThread  ] [INFO ]  ---------Test 37 ------------
+2025-11-08 21:42:52,284 [MainThread  ] [INFO ]  Clean ACC:              0.2012
+2025-11-08 21:42:52,284 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:42:52,284 [MainThread  ] [INFO ]  Backdoor ACC:           0.1658
+2025-11-08 21:42:52,284 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:42:52,284 [MainThread  ] [INFO ]  --------round 38 ------------
+2025-11-08 21:42:52,286 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:42:52,287 [MainThread  ] [INFO ]  [Round 38] Client 0 starting Model Replacement training...
+2025-11-08 21:42:54,061 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1427
+2025-11-08 21:42:54,061 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:54,062 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:54,064 [MainThread  ] [INFO ]  [Round 38] Client 1 starting Model Replacement training...
+2025-11-08 21:42:55,725 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0758
+2025-11-08 21:42:55,725 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:55,726 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:55,728 [MainThread  ] [INFO ]  [Round 38] Client 2 starting Model Replacement training...
+2025-11-08 21:42:57,643 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1030
+2025-11-08 21:42:57,644 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:57,645 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:42:57,647 [MainThread  ] [INFO ]  [Round 38] Client 3 starting Model Replacement training...
+2025-11-08 21:42:59,100 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0801
+2025-11-08 21:42:59,101 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:42:59,103 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:43:22,307 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:43:22,358 [MainThread  ] [INFO ]  ---------Test 38 ------------
+2025-11-08 21:43:29,389 [MainThread  ] [INFO ]  Clean ACC:              0.2111
+2025-11-08 21:43:29,389 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:43:29,389 [MainThread  ] [INFO ]  Backdoor ACC:           0.1431
+2025-11-08 21:43:29,389 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:43:29,389 [MainThread  ] [INFO ]  --------round 39 ------------
+2025-11-08 21:43:29,391 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:43:29,392 [MainThread  ] [INFO ]  [Round 39] Client 0 starting Model Replacement training...
+2025-11-08 21:43:31,154 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0504
+2025-11-08 21:43:31,155 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:43:31,156 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:43:31,158 [MainThread  ] [INFO ]  [Round 39] Client 1 starting Model Replacement training...
+2025-11-08 21:43:32,784 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0170
+2025-11-08 21:43:32,785 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:43:32,788 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:43:32,790 [MainThread  ] [INFO ]  [Round 39] Client 2 starting Model Replacement training...
+2025-11-08 21:43:34,711 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0013
+2025-11-08 21:43:34,712 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:43:34,713 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:43:34,715 [MainThread  ] [INFO ]  [Round 39] Client 3 starting Model Replacement training...
+2025-11-08 21:43:36,158 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9994
+2025-11-08 21:43:36,159 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:43:36,160 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:43:58,883 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:43:58,945 [MainThread  ] [INFO ]  ---------Test 39 ------------
+2025-11-08 21:44:06,104 [MainThread  ] [INFO ]  Clean ACC:              0.1942
+2025-11-08 21:44:06,104 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:44:06,104 [MainThread  ] [INFO ]  Backdoor ACC:           0.1722
+2025-11-08 21:44:06,104 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:44:06,104 [MainThread  ] [INFO ]  --------round 40 ------------
+2025-11-08 21:44:06,106 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:44:06,108 [MainThread  ] [INFO ]  [Round 40] Client 0 starting Model Replacement training...
+2025-11-08 21:44:07,835 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1131
+2025-11-08 21:44:07,836 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:07,837 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:07,839 [MainThread  ] [INFO ]  [Round 40] Client 1 starting Model Replacement training...
+2025-11-08 21:44:09,402 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0507
+2025-11-08 21:44:09,403 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:09,404 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:09,405 [MainThread  ] [INFO ]  [Round 40] Client 2 starting Model Replacement training...
+2025-11-08 21:44:11,290 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0712
+2025-11-08 21:44:11,291 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:11,294 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:11,296 [MainThread  ] [INFO ]  [Round 40] Client 3 starting Model Replacement training...
+2025-11-08 21:44:12,750 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0568
+2025-11-08 21:44:12,751 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:12,753 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:36,389 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:44:36,444 [MainThread  ] [INFO ]  ---------Test 40 ------------
+2025-11-08 21:44:43,585 [MainThread  ] [INFO ]  Clean ACC:              0.2020
+2025-11-08 21:44:43,585 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:44:43,585 [MainThread  ] [INFO ]  Backdoor ACC:           0.1409
+2025-11-08 21:44:43,585 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:44:43,585 [MainThread  ] [INFO ]  --------round 41 ------------
+2025-11-08 21:44:43,587 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:44:43,588 [MainThread  ] [INFO ]  [Round 41] Client 0 starting Model Replacement training...
+2025-11-08 21:44:45,342 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0278
+2025-11-08 21:44:45,343 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:45,345 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:45,347 [MainThread  ] [INFO ]  [Round 41] Client 1 starting Model Replacement training...
+2025-11-08 21:44:46,969 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9927
+2025-11-08 21:44:46,970 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:46,972 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:46,974 [MainThread  ] [INFO ]  [Round 41] Client 2 starting Model Replacement training...
+2025-11-08 21:44:48,739 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9859
+2025-11-08 21:44:48,740 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:48,741 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:44:48,743 [MainThread  ] [INFO ]  [Round 41] Client 3 starting Model Replacement training...
+2025-11-08 21:44:50,200 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9871
+2025-11-08 21:44:50,201 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:44:50,202 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:12,465 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:45:12,511 [MainThread  ] [INFO ]  ---------Test 41 ------------
+2025-11-08 21:45:19,447 [MainThread  ] [INFO ]  Clean ACC:              0.1833
+2025-11-08 21:45:19,448 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:45:19,448 [MainThread  ] [INFO ]  Backdoor ACC:           0.1583
+2025-11-08 21:45:19,448 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:45:19,448 [MainThread  ] [INFO ]  --------round 42 ------------
+2025-11-08 21:45:19,449 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:45:19,451 [MainThread  ] [INFO ]  [Round 42] Client 0 starting Model Replacement training...
+2025-11-08 21:45:20,963 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0729
+2025-11-08 21:45:20,964 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:45:20,966 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:20,968 [MainThread  ] [INFO ]  [Round 42] Client 1 starting Model Replacement training...
+2025-11-08 21:45:22,449 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0337
+2025-11-08 21:45:22,450 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:45:22,451 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:22,453 [MainThread  ] [INFO ]  [Round 42] Client 2 starting Model Replacement training...
+2025-11-08 21:45:24,134 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0536
+2025-11-08 21:45:24,135 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:45:24,137 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:24,139 [MainThread  ] [INFO ]  [Round 42] Client 3 starting Model Replacement training...
+2025-11-08 21:45:25,410 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0423
+2025-11-08 21:45:25,410 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:45:25,412 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:48,080 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:45:48,126 [MainThread  ] [INFO ]  ---------Test 42 ------------
+2025-11-08 21:45:55,215 [MainThread  ] [INFO ]  Clean ACC:              0.2029
+2025-11-08 21:45:55,216 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:45:55,216 [MainThread  ] [INFO ]  Backdoor ACC:           0.1491
+2025-11-08 21:45:55,216 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:45:55,216 [MainThread  ] [INFO ]  --------round 43 ------------
+2025-11-08 21:45:55,217 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:45:55,219 [MainThread  ] [INFO ]  [Round 43] Client 0 starting Model Replacement training...
+2025-11-08 21:45:56,879 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1623
+2025-11-08 21:45:56,880 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:45:56,882 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:56,883 [MainThread  ] [INFO ]  [Round 43] Client 1 starting Model Replacement training...
+2025-11-08 21:45:58,566 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0813
+2025-11-08 21:45:58,566 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:45:58,568 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:45:58,569 [MainThread  ] [INFO ]  [Round 43] Client 2 starting Model Replacement training...
+2025-11-08 21:46:00,487 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0923
+2025-11-08 21:46:00,488 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:46:00,489 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:46:00,491 [MainThread  ] [INFO ]  [Round 43] Client 3 starting Model Replacement training...
+2025-11-08 21:46:01,990 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0810
+2025-11-08 21:46:01,991 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:46:01,992 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:46:26,334 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:46:26,387 [MainThread  ] [INFO ]  ---------Test 43 ------------
+2025-11-08 21:46:34,343 [MainThread  ] [INFO ]  Clean ACC:              0.1964
+2025-11-08 21:46:34,344 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:46:34,344 [MainThread  ] [INFO ]  Backdoor ACC:           0.1453
+2025-11-08 21:46:34,344 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:46:34,344 [MainThread  ] [INFO ]  --------round 44 ------------
+2025-11-08 21:46:34,346 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:46:34,347 [MainThread  ] [INFO ]  [Round 44] Client 0 starting Model Replacement training...
+2025-11-08 21:46:36,192 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0474
+2025-11-08 21:46:36,192 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:46:36,194 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:46:36,196 [MainThread  ] [INFO ]  [Round 44] Client 1 starting Model Replacement training...
+2025-11-08 21:46:37,784 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0124
+2025-11-08 21:46:37,784 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:46:37,787 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:46:37,789 [MainThread  ] [INFO ]  [Round 44] Client 2 starting Model Replacement training...
+2025-11-08 21:46:39,526 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0219
+2025-11-08 21:46:39,527 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:46:39,528 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:46:39,530 [MainThread  ] [INFO ]  [Round 44] Client 3 starting Model Replacement training...
+2025-11-08 21:46:40,876 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0182
+2025-11-08 21:46:40,877 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:46:40,878 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:03,819 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:47:03,868 [MainThread  ] [INFO ]  ---------Test 44 ------------
+2025-11-08 21:47:10,667 [MainThread  ] [INFO ]  Clean ACC:              0.1966
+2025-11-08 21:47:10,667 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:47:10,667 [MainThread  ] [INFO ]  Backdoor ACC:           0.1193
+2025-11-08 21:47:10,667 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:47:10,667 [MainThread  ] [INFO ]  --------round 45 ------------
+2025-11-08 21:47:10,669 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:47:10,670 [MainThread  ] [INFO ]  [Round 45] Client 0 starting Model Replacement training...
+2025-11-08 21:47:12,369 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0979
+2025-11-08 21:47:12,370 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:12,374 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:12,375 [MainThread  ] [INFO ]  [Round 45] Client 1 starting Model Replacement training...
+2025-11-08 21:47:13,935 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0610
+2025-11-08 21:47:13,935 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:13,936 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:13,938 [MainThread  ] [INFO ]  [Round 45] Client 2 starting Model Replacement training...
+2025-11-08 21:47:15,805 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0715
+2025-11-08 21:47:15,805 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:15,806 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:15,808 [MainThread  ] [INFO ]  [Round 45] Client 3 starting Model Replacement training...
+2025-11-08 21:47:17,318 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0710
+2025-11-08 21:47:17,319 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:17,319 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:39,312 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:47:39,356 [MainThread  ] [INFO ]  ---------Test 45 ------------
+2025-11-08 21:47:45,784 [MainThread  ] [INFO ]  Clean ACC:              0.1961
+2025-11-08 21:47:45,785 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:47:45,785 [MainThread  ] [INFO ]  Backdoor ACC:           0.1572
+2025-11-08 21:47:45,785 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:47:45,785 [MainThread  ] [INFO ]  --------round 46 ------------
+2025-11-08 21:47:45,786 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:47:45,787 [MainThread  ] [INFO ]  [Round 46] Client 0 starting Model Replacement training...
+2025-11-08 21:47:47,340 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0227
+2025-11-08 21:47:47,340 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:47,341 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:47,343 [MainThread  ] [INFO ]  [Round 46] Client 1 starting Model Replacement training...
+2025-11-08 21:47:48,885 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9868
+2025-11-08 21:47:48,885 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:48,887 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:48,888 [MainThread  ] [INFO ]  [Round 46] Client 2 starting Model Replacement training...
+2025-11-08 21:47:50,659 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0009
+2025-11-08 21:47:50,659 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:50,660 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:47:50,662 [MainThread  ] [INFO ]  [Round 46] Client 3 starting Model Replacement training...
+2025-11-08 21:47:51,961 [MainThread  ] [INFO ]    Constrain training completed, loss: 0.9921
+2025-11-08 21:47:51,962 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:47:51,963 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:15,316 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:48:15,363 [MainThread  ] [INFO ]  ---------Test 46 ------------
+2025-11-08 21:48:21,775 [MainThread  ] [INFO ]  Clean ACC:              0.2117
+2025-11-08 21:48:21,776 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:48:21,776 [MainThread  ] [INFO ]  Backdoor ACC:           0.1426
+2025-11-08 21:48:21,776 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:48:21,776 [MainThread  ] [INFO ]  --------round 47 ------------
+2025-11-08 21:48:21,777 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:48:21,779 [MainThread  ] [INFO ]  [Round 47] Client 0 starting Model Replacement training...
+2025-11-08 21:48:23,328 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0857
+2025-11-08 21:48:23,329 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:48:23,330 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:23,332 [MainThread  ] [INFO ]  [Round 47] Client 1 starting Model Replacement training...
+2025-11-08 21:48:24,834 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0380
+2025-11-08 21:48:24,835 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:48:24,837 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:24,839 [MainThread  ] [INFO ]  [Round 47] Client 2 starting Model Replacement training...
+2025-11-08 21:48:26,602 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0282
+2025-11-08 21:48:26,603 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:48:26,604 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:26,606 [MainThread  ] [INFO ]  [Round 47] Client 3 starting Model Replacement training...
+2025-11-08 21:48:27,941 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0232
+2025-11-08 21:48:27,941 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:48:27,942 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:49,946 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:48:49,988 [MainThread  ] [INFO ]  ---------Test 47 ------------
+2025-11-08 21:48:55,954 [MainThread  ] [INFO ]  Clean ACC:              0.1728
+2025-11-08 21:48:55,954 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:48:55,954 [MainThread  ] [INFO ]  Backdoor ACC:           0.1319
+2025-11-08 21:48:55,954 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:48:55,954 [MainThread  ] [INFO ]  --------round 48 ------------
+2025-11-08 21:48:55,955 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:48:55,956 [MainThread  ] [INFO ]  [Round 48] Client 0 starting Model Replacement training...
+2025-11-08 21:48:57,433 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1488
+2025-11-08 21:48:57,434 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:48:57,435 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:57,437 [MainThread  ] [INFO ]  [Round 48] Client 1 starting Model Replacement training...
+2025-11-08 21:48:58,891 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0873
+2025-11-08 21:48:58,892 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:48:58,893 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:48:58,894 [MainThread  ] [INFO ]  [Round 48] Client 2 starting Model Replacement training...
+2025-11-08 21:49:00,596 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.1049
+2025-11-08 21:49:00,597 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:49:00,598 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:49:00,600 [MainThread  ] [INFO ]  [Round 48] Client 3 starting Model Replacement training...
+2025-11-08 21:49:01,804 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0929
+2025-11-08 21:49:01,805 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:49:01,807 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:49:23,405 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:49:23,444 [MainThread  ] [INFO ]  ---------Test 48 ------------
+2025-11-08 21:49:29,290 [MainThread  ] [INFO ]  Clean ACC:              0.1973
+2025-11-08 21:49:29,290 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:49:29,290 [MainThread  ] [INFO ]  Backdoor ACC:           0.1423
+2025-11-08 21:49:29,290 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:49:29,290 [MainThread  ] [INFO ]  --------round 49 ------------
+2025-11-08 21:49:29,292 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:49:29,293 [MainThread  ] [INFO ]  [Round 49] Client 0 starting Model Replacement training...
+2025-11-08 21:49:30,740 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0402
+2025-11-08 21:49:30,741 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:49:30,742 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:49:30,744 [MainThread  ] [INFO ]  [Round 49] Client 1 starting Model Replacement training...
+2025-11-08 21:49:32,161 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0116
+2025-11-08 21:49:32,162 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:49:32,162 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:49:32,164 [MainThread  ] [INFO ]  [Round 49] Client 2 starting Model Replacement training...
+2025-11-08 21:49:33,852 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0249
+2025-11-08 21:49:33,853 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:49:33,854 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:49:33,855 [MainThread  ] [INFO ]  [Round 49] Client 3 starting Model Replacement training...
+2025-11-08 21:49:35,152 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0317
+2025-11-08 21:49:35,153 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:49:35,153 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:49:56,506 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:49:56,543 [MainThread  ] [INFO ]  ---------Test 49 ------------
+2025-11-08 21:50:01,718 [MainThread  ] [INFO ]  Clean ACC:              0.1966
+2025-11-08 21:50:01,719 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:50:01,719 [MainThread  ] [INFO ]  Backdoor ACC:           0.1414
+2025-11-08 21:50:01,719 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:50:01,719 [MainThread  ] [INFO ]  --------round 50 ------------
+2025-11-08 21:50:01,720 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 21:50:01,721 [MainThread  ] [INFO ]  [Round 50] Client 0 starting Model Replacement training...
+2025-11-08 21:50:03,104 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0999
+2025-11-08 21:50:03,105 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:50:03,106 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:50:03,107 [MainThread  ] [INFO ]  [Round 50] Client 1 starting Model Replacement training...
+2025-11-08 21:50:04,460 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0486
+2025-11-08 21:50:04,461 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:50:04,462 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:50:04,463 [MainThread  ] [INFO ]  [Round 50] Client 2 starting Model Replacement training...
+2025-11-08 21:50:06,006 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0858
+2025-11-08 21:50:06,007 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:50:06,008 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:50:06,009 [MainThread  ] [INFO ]  [Round 50] Client 3 starting Model Replacement training...
+2025-11-08 21:50:07,259 [MainThread  ] [INFO ]    Constrain training completed, loss: 1.0800
+2025-11-08 21:50:07,260 [MainThread  ] [INFO ]    Effective scaling factor: 1.00 (constrain_weight × scaling_factor)
+2025-11-08 21:50:07,261 [MainThread  ] [INFO ]    Update scaled by factor: 1.00
+2025-11-08 21:50:28,106 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 21:50:28,144 [MainThread  ] [INFO ]  ---------Test 50 ------------
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  Clean ACC:              0.2000
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  Backdoor ACC:           0.1499
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  Best results:
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  Clean ACC:              0.2663
+2025-11-08 21:50:33,179 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 21:50:33,180 [MainThread  ] [INFO ]  Backdoor ACC:           0.1181
+2025-11-08 21:50:33,180 [MainThread  ] [INFO ]  Training has finished!

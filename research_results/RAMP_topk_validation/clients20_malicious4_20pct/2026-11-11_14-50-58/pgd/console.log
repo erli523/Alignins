@@ -1,0 +1,475 @@
+程序开始运行...
+初始化参数解析器...
+参数解析完成！
+使用的参数: data=cifar10, aggr=alphaguard, attack=pgd
+设置日志系统...
+2026-11-11 14:53:03,343 [INFO] Independent RAMP Top-K experiment: /home/risegpu/sunjiahao/Alignins/research_results/RAMP_topk_validation/clients20_malicious4_20pct/2026-11-11_14-50-58/pgd
+2026-11-11 14:53:03,343 [INFO] Diagnostic formula: abs(local_delta)/(abs(reference)+epsilon); native aggregation is unchanged
+2026-11-11 14:53:03,344 [INFO] Training arguments: Namespace(data='cifar10', num_agents=20, agent_frac=1.0, num_corrupt=4, rounds=2, local_ep=2, bs=64, client_lr=0.1, server_lr=1.0, target_class=7, poison_frac=0.3, pattern_type='plus', theta=8, theta_ld=10, snap=1, device='cuda:1', num_workers=0, dense_ratio=0.25, anneal_factor=0.0001, se_threshold=0.0001, non_iid=True, debug=False, beta=0.5, attack='pgd', aggr='alphaguard', lr_decay=0.99, momentum=0.0, mask_init='ERK', wd=0.0001, same_mask=1, cease_poison=100000, exp_name_extra='', super_power=False, clean=False, sparsity=0.3, lambda_s=1.0, lambda_c=1.0, dis_check_gradient=False, trigger_size=5, trigger_lr=0.1, trigger_outter_epochs=50, trigger_optim_interval=5, dm_adv_epochs=2, dm_adv_K=10, dm_adv_model_count=3, noise_loss_lambda=0.1, altermin_attack_mode='targeted', altermin_source_label=3, altermin_target_label=None, altermin_poisoned_cnt=100, altermin_boosting_factor=1.5, altermin_rho=0.0001, altermin_benign_epochs=None, altermin_malicious_epochs=1, model_replacement_scaling_factor=50, model_replacement_alpha=0.5, model_replacement_target_label=None, model_replacement_constrain_weight=0.02, ag_topk=0.001, ag_l2_lower=25.0, ag_l2_upper=75.0, ag_gref_strategy='median', model='resnet9', num_target=10, exp_name='RAMP_topk_diagnostic')
+加载 cifar10 数据集...
+数据集加载完成！
+2026-11-11 14:53:04,288 [INFO] (50000, 10)
+2026-11-11 14:53:04,678 [INFO] client:0, distribution: [530, 489, 27, 69, 104, 75, 217, 22, 1204, 0]
+2026-11-11 14:53:04,679 [INFO] client:1, distribution: [9, 54, 19, 13, 126, 1202, 302, 1, 417, 688]
+2026-11-11 14:53:04,679 [INFO] client:2, distribution: [5, 1, 235, 55, 0, 573, 811, 1132, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:3, distribution: [220, 166, 68, 34, 19, 824, 35, 602, 0, 235]
+2026-11-11 14:53:04,679 [INFO] client:4, distribution: [281, 132, 55, 45, 146, 178, 48, 230, 440, 2209]
+2026-11-11 14:53:04,679 [INFO] client:5, distribution: [702, 349, 345, 255, 541, 27, 739, 0, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:6, distribution: [6, 125, 1096, 10, 47, 24, 10, 148, 20, 68]
+2026-11-11 14:53:04,679 [INFO] client:7, distribution: [401, 9, 51, 382, 376, 254, 115, 2, 739, 478]
+2026-11-11 14:53:04,679 [INFO] client:8, distribution: [628, 391, 19, 14, 970, 35, 443, 0, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:9, distribution: [1, 82, 38, 28, 1040, 220, 997, 31, 93, 0]
+2026-11-11 14:53:04,679 [INFO] client:10, distribution: [647, 839, 259, 278, 36, 275, 20, 192, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:11, distribution: [287, 822, 807, 41, 24, 182, 88, 27, 85, 30]
+2026-11-11 14:53:04,679 [INFO] client:12, distribution: [257, 337, 209, 0, 167, 0, 40, 1704, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:13, distribution: [274, 30, 43, 1144, 642, 169, 198, 0, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:14, distribution: [501, 50, 165, 204, 0, 7, 0, 168, 186, 802]
+2026-11-11 14:53:04,679 [INFO] client:15, distribution: [151, 224, 203, 1090, 85, 8, 150, 14, 684, 0]
+2026-11-11 14:53:04,679 [INFO] client:16, distribution: [30, 353, 320, 281, 160, 48, 71, 12, 217, 74]
+2026-11-11 14:53:04,679 [INFO] client:17, distribution: [2, 453, 696, 277, 17, 887, 692, 0, 0, 0]
+2026-11-11 14:53:04,679 [INFO] client:18, distribution: [33, 93, 179, 365, 444, 0, 21, 672, 201, 15]
+2026-11-11 14:53:04,679 [INFO] client:19, distribution: [35, 1, 166, 415, 56, 12, 3, 43, 714, 401]
+初始化全局模型...
+模型初始化完成！
+创建 20 个客户端代理...
+2026-11-11 14:53:05,859 [INFO] build client:0 mal:1 data_num:2737
+2026-11-11 14:53:06,007 [INFO] build client:1 mal:1 data_num:2831
+2026-11-11 14:53:06,126 [INFO] build client:2 mal:1 data_num:2812
+2026-11-11 14:53:06,223 [INFO] build client:3 mal:1 data_num:2203
+2026-11-11 14:53:06,231 [INFO] build client:4 mal:0 data_num:3764
+2026-11-11 14:53:06,237 [INFO] build client:5 mal:0 data_num:2958
+2026-11-11 14:53:06,241 [INFO] build client:6 mal:0 data_num:1554
+2026-11-11 14:53:06,247 [INFO] build client:7 mal:0 data_num:2807
+2026-11-11 14:53:06,252 [INFO] build client:8 mal:0 data_num:2500
+2026-11-11 14:53:06,257 [INFO] build client:9 mal:0 data_num:2530
+2026-11-11 14:53:06,263 [INFO] build client:10 mal:0 data_num:2546
+2026-11-11 14:53:06,268 [INFO] build client:11 mal:0 data_num:2393
+2026-11-11 14:53:06,273 [INFO] build client:12 mal:0 data_num:2714
+2026-11-11 14:53:06,278 [INFO] build client:13 mal:0 data_num:2500
+2026-11-11 14:53:06,283 [INFO] build client:14 mal:0 data_num:2083
+2026-11-11 14:53:06,288 [INFO] build client:15 mal:0 data_num:2609
+2026-11-11 14:53:06,291 [INFO] build client:16 mal:0 data_num:1566
+2026-11-11 14:53:06,298 [INFO] build client:17 mal:0 data_num:3024
+2026-11-11 14:53:06,302 [INFO] build client:18 mal:0 data_num:2023
+2026-11-11 14:53:06,305 [INFO] build client:19 mal:0 data_num:1846
+2026-11-11 14:53:06,306 [INFO] --------round 1 ------------
+2026-11-11 14:53:06,311 [INFO] Selected 20 clients: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]...
+clip before:  tensor(16.7952, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 0 	 client: 0 	 mal: 1 	 loss: 6.66626167 	 time: 1.81
+clip before:  tensor(8.8289, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 1 	 client: 0 	 mal: 1 	 loss: 8.33559608 	 time: 1.30
+clip before:  tensor(18.9693, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 0 	 client: 1 	 mal: 1 	 loss: 8.65121555 	 time: 1.29
+clip before:  tensor(11.0132, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 1 	 client: 1 	 mal: 1 	 loss: 6.78704643 	 time: 1.28
+clip before:  tensor(17.0431, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 0 	 client: 2 	 mal: 1 	 loss: 3.22590947 	 time: 1.26
+clip before:  tensor(9.3744, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 1 	 client: 2 	 mal: 1 	 loss: 5.28250551 	 time: 1.28
+clip before:  tensor(17.0009, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 0 	 client: 3 	 mal: 1 	 loss: 5.69313574 	 time: 1.04
+clip before:  tensor(9.0658, device='cuda:1')
+clip after:  tensor(5.4687, device='cuda:1')
+local epoch 1 	 client: 3 	 mal: 1 	 loss: 10.23571396 	 time: 1.03
+local epoch 0 	 client: 4 	 mal: 0 	 loss: 2.54390383 	 time: 1.70
+local epoch 1 	 client: 4 	 mal: 0 	 loss: 2.05449438 	 time: 1.70
+local epoch 0 	 client: 5 	 mal: 0 	 loss: 2.06381917 	 time: 1.36
+local epoch 1 	 client: 5 	 mal: 0 	 loss: 1.57785034 	 time: 1.26
+local epoch 0 	 client: 6 	 mal: 0 	 loss: 3.88479829 	 time: 0.70
+local epoch 1 	 client: 6 	 mal: 0 	 loss: 11.52359962 	 time: 0.71
+local epoch 0 	 client: 7 	 mal: 0 	 loss: 3.35768080 	 time: 1.29
+local epoch 1 	 client: 7 	 mal: 0 	 loss: 3.37503934 	 time: 1.30
+local epoch 0 	 client: 8 	 mal: 0 	 loss: 1.85287321 	 time: 1.18
+local epoch 1 	 client: 8 	 mal: 0 	 loss: 2.54892969 	 time: 1.16
+local epoch 0 	 client: 9 	 mal: 0 	 loss: 7.48000336 	 time: 1.14
+local epoch 1 	 client: 9 	 mal: 0 	 loss: 1.59348750 	 time: 1.16
+local epoch 0 	 client: 10 	 mal: 0 	 loss: 8.78595734 	 time: 1.29
+local epoch 1 	 client: 10 	 mal: 0 	 loss: 5.82029057 	 time: 1.36
+local epoch 0 	 client: 11 	 mal: 0 	 loss: 1.77853012 	 time: 1.22
+local epoch 1 	 client: 11 	 mal: 0 	 loss: 3.42929339 	 time: 1.09
+local epoch 0 	 client: 12 	 mal: 0 	 loss: 8.73737144 	 time: 1.27
+local epoch 1 	 client: 12 	 mal: 0 	 loss: 7.50922775 	 time: 1.27
+local epoch 0 	 client: 13 	 mal: 0 	 loss: 4.88146114 	 time: 1.14
+local epoch 1 	 client: 13 	 mal: 0 	 loss: 5.48509979 	 time: 1.14
+local epoch 0 	 client: 14 	 mal: 0 	 loss: 4.62429667 	 time: 0.94
+local epoch 1 	 client: 14 	 mal: 0 	 loss: 1.51128602 	 time: 0.96
+local epoch 0 	 client: 15 	 mal: 0 	 loss: 7.14980793 	 time: 1.21
+local epoch 1 	 client: 15 	 mal: 0 	 loss: 3.91217422 	 time: 1.17
+local epoch 0 	 client: 16 	 mal: 0 	 loss: 3.83979845 	 time: 0.70
+local epoch 1 	 client: 16 	 mal: 0 	 loss: 3.96320295 	 time: 0.70
+local epoch 0 	 client: 17 	 mal: 0 	 loss: 5.29795504 	 time: 1.38
+local epoch 1 	 client: 17 	 mal: 0 	 loss: 3.55598140 	 time: 1.40
+local epoch 0 	 client: 18 	 mal: 0 	 loss: 5.28297806 	 time: 0.89
+local epoch 1 	 client: 18 	 mal: 0 	 loss: 4.98893309 	 time: 0.81
+local epoch 0 	 client: 19 	 mal: 0 	 loss: 4.64349127 	 time: 0.73
+local epoch 1 	 client: 19 	 mal: 0 	 loss: 1.47043419 	 time: 0.73
+2026-11-11 14:53:52,916 [INFO] Aggregating updates from 20 clients...
+2026-11-11 14:53:53,159 [INFO] RAMP Top-K | Global 1 | clients=[np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9), np.int64(10), np.int64(11), np.int64(12), np.int64(13), np.int64(14), np.int64(15), np.int64(16), np.int64(17), np.int64(18), np.int64(19)] | K=6573 | overlap=18.93% | promoted=81.07% | reference=[np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9), np.int64(10), np.int64(15), np.int64(16), np.int64(17), np.int64(19)] | abs(ref)<eps=50.44% | 0.24s
+2026-11-11 14:53:53,510 [INFO] ------------ AlphaGuard Defense ------------
+2026-11-11 14:53:53,510 [INFO] Configuration:
+2026-11-11 14:53:53,510 [INFO]   Total clients: 20
+2026-11-11 14:53:53,510 [INFO]   Malicious clients: 4
+2026-11-11 14:53:53,510 [INFO]   Poison fraction: 0.30
+2026-11-11 14:53:53,510 [INFO] Client ID mapping (array_index -> client_id):
+2026-11-11 14:53:53,510 [INFO]   Index 0 -> Client 0 (MAL)
+2026-11-11 14:53:53,510 [INFO]   Index 1 -> Client 1 (MAL)
+2026-11-11 14:53:53,510 [INFO]   Index 2 -> Client 2 (MAL)
+2026-11-11 14:53:53,510 [INFO]   Index 3 -> Client 3 (MAL)
+2026-11-11 14:53:53,510 [INFO]   Index 4 -> Client 4
+2026-11-11 14:53:53,510 [INFO]   Index 5 -> Client 5
+2026-11-11 14:53:53,510 [INFO]   Index 6 -> Client 6
+2026-11-11 14:53:53,510 [INFO]   Index 7 -> Client 7
+2026-11-11 14:53:53,510 [INFO]   Index 8 -> Client 8
+2026-11-11 14:53:53,510 [INFO]   Index 9 -> Client 9
+2026-11-11 14:53:53,511 [INFO]   Index 10 -> Client 10
+2026-11-11 14:53:53,511 [INFO]   Index 11 -> Client 11
+2026-11-11 14:53:53,511 [INFO]   Index 12 -> Client 12
+2026-11-11 14:53:53,511 [INFO]   Index 13 -> Client 13
+2026-11-11 14:53:53,511 [INFO]   Index 14 -> Client 14
+2026-11-11 14:53:53,511 [INFO]   Index 15 -> Client 15
+2026-11-11 14:53:53,511 [INFO]   Index 16 -> Client 16
+2026-11-11 14:53:53,511 [INFO]   Index 17 -> Client 17
+2026-11-11 14:53:53,511 [INFO]   Index 18 -> Client 18
+2026-11-11 14:53:53,511 [INFO]   Index 19 -> Client 19
+2026-11-11 14:53:53,511 [INFO] ------------ Stage 1: L2 Robust Reference Selection ------------
+2026-11-11 14:53:53,511 [INFO] Processing 20 client updates
+2026-11-11 14:53:53,511 [INFO] L2 norms statistics:
+2026-11-11 14:53:53,512 [INFO]   Min:  5.4687
+2026-11-11 14:53:53,512 [INFO]   Max:  22.8058
+2026-11-11 14:53:53,512 [INFO]   Mean: 14.5648
+2026-11-11 14:53:53,513 [INFO]   Std:  5.3338
+2026-11-11 14:53:53,513 [INFO] Stage 1 Results:
+2026-11-11 14:53:53,513 [INFO]   Trusted clients: 10/20
+2026-11-11 14:53:53,531 [INFO]   L2 threshold: [13.0890, 18.0043]
+2026-11-11 14:53:53,531 [INFO]   g_ref strategy: median
+2026-11-11 14:53:53,531 [INFO]   Reference norm: 8.3494
+2026-11-11 14:53:53,531 [INFO] ------------ Stage 2: Alpha Vector Computation ------------
+2026-11-11 14:53:53,547 [INFO] Alpha vectors statistics:
+2026-11-11 14:53:53,547 [INFO]   Shape:      torch.Size([20, 6573120])
+2026-11-11 14:53:53,549 [INFO]   Norm min:   2778.2380
+2026-11-11 14:53:53,549 [INFO]   Norm max:   14045.5264
+2026-11-11 14:53:53,549 [INFO]   Norm mean:  7726.1445
+2026-11-11 14:53:53,549 [INFO]   Norm std:   3157.3752
+2026-11-11 14:53:53,549 [INFO]   Epsilon:    0.001000
+2026-11-11 14:53:53,549 [INFO] ------------ Stage 3: Robust Detection and Penalty ------------
+2026-11-11 14:53:53,549 [INFO] Processing 20 clients with model dimension 6573120
+2026-11-11 14:53:53,549 [INFO] Top-K percentage: 0.1%
+2026-11-11 14:53:53,586 [INFO] Top-K mean statistics:
+2026-11-11 14:53:53,586 [INFO]   Min:  12.8905
+2026-11-11 14:53:53,586 [INFO]   Max:  55.1618
+2026-11-11 14:53:53,586 [INFO]   Mean: 34.3294
+2026-11-11 14:53:53,586 [INFO]   Std:  14.2146
+2026-11-11 14:53:53,586 [INFO] Top-K values by client:
+2026-11-11 14:53:53,586 [INFO]   Client 0 (MAL): 12.8905
+2026-11-11 14:53:53,586 [INFO]   Client 1 (MAL): 13.9854
+2026-11-11 14:53:53,586 [INFO]   Client 2 (MAL): 13.8262
+2026-11-11 14:53:53,586 [INFO]   Client 3 (MAL): 13.0323
+2026-11-11 14:53:53,587 [INFO]   Client 4: 50.4111
+2026-11-11 14:53:53,587 [INFO]   Client 5: 37.9226
+2026-11-11 14:53:53,587 [INFO]   Client 6: 28.5743
+2026-11-11 14:53:53,587 [INFO]   Client 7: 34.9289
+2026-11-11 14:53:53,587 [INFO]   Client 8: 34.5844
+2026-11-11 14:53:53,587 [INFO]   Client 9: 31.0126
+2026-11-11 14:53:53,587 [INFO]   Client 10: 31.7388
+2026-11-11 14:53:53,587 [INFO]   Client 11: 55.1618
+2026-11-11 14:53:53,587 [INFO]   Client 12: 54.5327
+2026-11-11 14:53:53,587 [INFO]   Client 13: 53.2202
+2026-11-11 14:53:53,587 [INFO]   Client 14: 52.1950
+2026-11-11 14:53:53,587 [INFO]   Client 15: 46.8108
+2026-11-11 14:53:53,587 [INFO]   Client 16: 32.8036
+2026-11-11 14:53:53,587 [INFO]   Client 17: 32.9005
+2026-11-11 14:53:53,587 [INFO]   Client 18: 25.6824
+2026-11-11 14:53:53,587 [INFO]   Client 19: 30.3734
+2026-11-11 14:53:53,588 [INFO] Robust reference analysis:
+2026-11-11 14:53:53,588 [INFO]   Reference: 34.5660
+2026-11-11 14:53:53,588 [INFO]   Lower bound: 31.1094
+2026-11-11 14:53:53,588 [INFO]   Upper bound: 38.0226
+2026-11-11 14:53:53,588 [INFO] Deviation scores:
+2026-11-11 14:53:53,588 [INFO]   Min:  0.0000
+2026-11-11 14:53:53,589 [INFO]   Max:  0.5856
+2026-11-11 14:53:53,589 [INFO]   Mean: 0.2385
+2026-11-11 14:53:53,589 [INFO]   Clients below lower: 8
+2026-11-11 14:53:53,589 [INFO]   Clients above upper: 6
+2026-11-11 14:53:53,589 [INFO] Weight Distribution:
+2026-11-11 14:53:53,589 [INFO]   Min weight:  0.3100
+2026-11-11 14:53:53,589 [INFO]   Max weight:  1.0000
+2026-11-11 14:53:53,589 [INFO]   Mean weight: 0.6844
+2026-11-11 14:53:53,589 [INFO]   Weight std:  0.2900
+2026-11-11 14:53:53,589 [INFO] Removal strategy (based on actual malicious participants):
+2026-11-11 14:53:53,589 [INFO]   Clients selected this round: 20
+2026-11-11 14:53:53,589 [INFO]   Malicious clients selected: 4
+2026-11-11 14:53:53,589 [INFO]   Num to remove: 5 (malicious + 1, will keep at least 15)
+2026-11-11 14:53:53,590 [INFO] Bidirectional Anomaly Detection (Top-K based):
+2026-11-11 14:53:53,590 [INFO]   Median Top-K: 32.8036
+2026-11-11 14:53:53,590 [INFO]   MAD: 7.1212
+2026-11-11 14:53:53,590 [INFO]   Q25: 27.8513, Q75: 47.7109
+2026-11-11 14:53:53,590 [INFO] Modified Z-scores by client:
+2026-11-11 14:53:53,590 [INFO]   Client 0 (MAL): Top-K=12.8905, Deviation=19.9131 (LOW), Z-score=1.8861
+2026-11-11 14:53:53,591 [INFO]   Client 1 (MAL): Top-K=13.9854, Deviation=18.8181 (LOW), Z-score=1.7824
+2026-11-11 14:53:53,591 [INFO]   Client 2 (MAL): Top-K=13.8262, Deviation=18.9774 (LOW), Z-score=1.7975
+2026-11-11 14:53:53,591 [INFO]   Client 3 (MAL): Top-K=13.0323, Deviation=19.7713 (LOW), Z-score=1.8727
+2026-11-11 14:53:53,591 [INFO]   Client 4: Top-K=50.4111, Deviation=17.6075 (HIGH), Z-score=1.6677
+2026-11-11 14:53:53,591 [INFO]   Client 5: Top-K=37.9226, Deviation=5.1191 (HIGH), Z-score=0.4849
+2026-11-11 14:53:53,591 [INFO]   Client 6: Top-K=28.5743, Deviation=4.2293 (LOW), Z-score=0.4006
+2026-11-11 14:53:53,591 [INFO]   Client 7: Top-K=34.9289, Deviation=2.1253 (HIGH), Z-score=0.2013
+2026-11-11 14:53:53,592 [INFO]   Client 8: Top-K=34.5844, Deviation=1.7808 (HIGH), Z-score=0.1687
+2026-11-11 14:53:53,592 [INFO]   Client 9: Top-K=31.0126, Deviation=1.7910 (LOW), Z-score=0.1696
+2026-11-11 14:53:53,592 [INFO]   Client 10: Top-K=31.7388, Deviation=1.0648 (LOW), Z-score=0.1009
+2026-11-11 14:53:53,592 [INFO]   Client 11: Top-K=55.1618, Deviation=22.3582 (HIGH), Z-score=2.1177
+2026-11-11 14:53:53,592 [INFO]   Client 12: Top-K=54.5327, Deviation=21.7291 (HIGH), Z-score=2.0581
+2026-11-11 14:53:53,592 [INFO]   Client 13: Top-K=53.2202, Deviation=20.4166 (HIGH), Z-score=1.9338
+2026-11-11 14:53:53,592 [INFO]   Client 14: Top-K=52.1950, Deviation=19.3914 (HIGH), Z-score=1.8367
+2026-11-11 14:53:53,592 [INFO]   Client 15: Top-K=46.8108, Deviation=14.0072 (HIGH), Z-score=1.3267
+2026-11-11 14:53:53,593 [INFO]   Client 16: Top-K=32.8036, Deviation=0.0000 (LOW), Z-score=0.0000
+2026-11-11 14:53:53,593 [INFO]   Client 17: Top-K=32.9005, Deviation=0.0969 (HIGH), Z-score=0.0092
+2026-11-11 14:53:53,593 [INFO]   Client 18: Top-K=25.6824, Deviation=7.1212 (LOW), Z-score=0.6745
+2026-11-11 14:53:53,593 [INFO]   Client 19: Top-K=30.3734, Deviation=2.4301 (LOW), Z-score=0.2302
+2026-11-11 14:53:53,593 [INFO] Client Selection (MAD-based Outlier Removal):
+2026-11-11 14:53:53,593 [INFO]   Total removed: 5
+2026-11-11 14:53:53,593 [INFO]   Removed indices: [3, 0, 13, 12, 11]
+2026-11-11 14:53:53,593 [INFO]   Removed client IDs: [3(MAL), 0(MAL), 13, 12, 11]
+2026-11-11 14:53:53,594 [INFO]   Removed Top-K means: [13.0323, 12.8905, 53.2202, 54.5327, 55.1618]
+2026-11-11 14:53:53,594 [INFO]   Removed Z-scores: [1.8727, 1.8861, 1.9338, 2.0581, 2.1177]
+2026-11-11 14:53:53,594 [INFO]   Above median: 3, Below median: 2
+2026-11-11 14:53:53,594 [INFO]   Remaining clients: 15/20
+2026-11-11 14:53:53,594 [INFO] Detection Analysis:
+2026-11-11 14:53:53,594 [INFO]   Malicious selected: 4/20 (this round)
+2026-11-11 14:53:53,594 [INFO]   Benign selected: 16/20 (this round)
+2026-11-11 14:53:53,594 [INFO]   Malicious detected: 2/4
+2026-11-11 14:53:53,594 [INFO]   Benign removed: 3/16
+2026-11-11 14:53:53,594 [INFO]   Detection rate: 50.00%
+2026-11-11 14:53:53,594 [INFO]   False positive: 18.75%
+2026-11-11 14:53:53,594 [INFO] Final Statistics:
+2026-11-11 14:53:53,594 [INFO]   Reference value: 34.5660
+2026-11-11 14:53:53,594 [INFO]   Normal range: [31.1094, 38.0226]
+2026-11-11 14:53:53,594 [INFO]   Selected clients: 15/20
+2026-11-11 14:53:53,594 [INFO]   Weight range: [0.3292, 1.0000]
+2026-11-11 14:53:53,597 [INFO] Final aggregation:
+2026-11-11 14:53:53,597 [INFO]   Remaining array indices: [16, 17, 10, 8, 9, 7, 19, 6, 5, 18, 15, 4, 1, 2, 14]
+2026-11-11 14:53:53,597 [INFO]   Remaining client IDs: [16, 17, 10, 8, 9, 7, 19, 6, 5, 18, 15, 4, 1(MAL), 2(MAL), 14]
+2026-11-11 14:53:53,597 [INFO]   Selected clients: 15/20
+2026-11-11 14:53:53,597 [INFO]   Weight sum: 1.0000
+2026-11-11 14:53:53,628 [INFO] ---------Test 1 ------------
+2026-11-11 14:54:00,241 [INFO] Clean ACC:              0.1012
+2026-11-11 14:54:00,241 [INFO] Attack Success Ratio:   0.0000
+2026-11-11 14:54:00,241 [INFO] Backdoor ACC:           0.1127
+2026-11-11 14:54:00,241 [INFO] ------------------------------
+2026-11-11 14:54:00,241 [INFO] --------round 2 ------------
+2026-11-11 14:54:00,245 [INFO] Selected 20 clients: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)]...
+clip before:  tensor(5.1464, device='cuda:1')
+local epoch 0 	 client: 0 	 mal: 1 	 loss: 4.21054506 	 time: 1.10
+clip before:  tensor(5.7973, device='cuda:1')
+clip after:  tensor(5.3735, device='cuda:1')
+local epoch 1 	 client: 0 	 mal: 1 	 loss: 2.18611646 	 time: 1.11
+clip before:  tensor(5.1332, device='cuda:1')
+local epoch 0 	 client: 1 	 mal: 1 	 loss: 1.88809943 	 time: 1.15
+clip before:  tensor(5.6921, device='cuda:1')
+clip after:  tensor(5.3735, device='cuda:1')
+local epoch 1 	 client: 1 	 mal: 1 	 loss: 1.76325727 	 time: 1.17
+clip before:  tensor(4.1063, device='cuda:1')
+local epoch 0 	 client: 2 	 mal: 1 	 loss: 2.04969072 	 time: 1.14
+clip before:  tensor(4.9558, device='cuda:1')
+local epoch 1 	 client: 2 	 mal: 1 	 loss: 1.52553010 	 time: 1.13
+clip before:  tensor(5.7297, device='cuda:1')
+clip after:  tensor(5.3735, device='cuda:1')
+local epoch 0 	 client: 3 	 mal: 1 	 loss: 2.31868982 	 time: 0.91
+clip before:  tensor(6.4725, device='cuda:1')
+clip after:  tensor(5.3735, device='cuda:1')
+local epoch 1 	 client: 3 	 mal: 1 	 loss: 1.99688864 	 time: 0.90
+local epoch 0 	 client: 4 	 mal: 0 	 loss: 3.85264611 	 time: 1.51
+local epoch 1 	 client: 4 	 mal: 0 	 loss: 1.21545410 	 time: 1.51
+local epoch 0 	 client: 5 	 mal: 0 	 loss: 3.62989879 	 time: 1.20
+local epoch 1 	 client: 5 	 mal: 0 	 loss: 2.54646397 	 time: 1.20
+local epoch 0 	 client: 6 	 mal: 0 	 loss: 2.29595399 	 time: 0.63
+local epoch 1 	 client: 6 	 mal: 0 	 loss: 1.25418496 	 time: 0.63
+local epoch 0 	 client: 7 	 mal: 0 	 loss: 4.80297804 	 time: 1.12
+local epoch 1 	 client: 7 	 mal: 0 	 loss: 2.61537266 	 time: 1.13
+local epoch 0 	 client: 8 	 mal: 0 	 loss: 1.81161559 	 time: 1.02
+local epoch 1 	 client: 8 	 mal: 0 	 loss: 1.30285835 	 time: 1.02
+local epoch 0 	 client: 9 	 mal: 0 	 loss: 2.13500381 	 time: 1.01
+local epoch 1 	 client: 9 	 mal: 0 	 loss: 2.40841246 	 time: 1.02
+local epoch 0 	 client: 10 	 mal: 0 	 loss: 1.80949306 	 time: 1.02
+local epoch 1 	 client: 10 	 mal: 0 	 loss: 1.35931265 	 time: 1.12
+local epoch 0 	 client: 11 	 mal: 0 	 loss: 1.53204823 	 time: 0.97
+local epoch 1 	 client: 11 	 mal: 0 	 loss: 1.20861399 	 time: 0.97
+local epoch 0 	 client: 12 	 mal: 0 	 loss: 1.61321652 	 time: 1.12
+local epoch 1 	 client: 12 	 mal: 0 	 loss: 1.01610672 	 time: 1.10
+local epoch 0 	 client: 13 	 mal: 0 	 loss: 4.77545977 	 time: 1.02
+local epoch 1 	 client: 13 	 mal: 0 	 loss: 1.81702542 	 time: 1.03
+local epoch 0 	 client: 14 	 mal: 0 	 loss: 1.90395153 	 time: 0.84
+local epoch 1 	 client: 14 	 mal: 0 	 loss: 1.83809161 	 time: 0.84
+local epoch 0 	 client: 15 	 mal: 0 	 loss: 7.23133326 	 time: 1.07
+local epoch 1 	 client: 15 	 mal: 0 	 loss: 2.27612209 	 time: 1.05
+local epoch 0 	 client: 16 	 mal: 0 	 loss: 5.39008856 	 time: 0.64
+local epoch 1 	 client: 16 	 mal: 0 	 loss: 2.41996002 	 time: 0.85
+local epoch 0 	 client: 17 	 mal: 0 	 loss: 1.63360429 	 time: 1.70
+local epoch 1 	 client: 17 	 mal: 0 	 loss: 1.40323591 	 time: 1.80
+local epoch 0 	 client: 18 	 mal: 0 	 loss: 4.87487030 	 time: 1.14
+local epoch 1 	 client: 18 	 mal: 0 	 loss: 3.77638006 	 time: 0.91
+local epoch 0 	 client: 19 	 mal: 0 	 loss: 3.78677464 	 time: 0.83
+local epoch 1 	 client: 19 	 mal: 0 	 loss: 3.13787746 	 time: 0.81
+2026-11-11 14:54:42,900 [INFO] Aggregating updates from 20 clients...
+2026-11-11 14:54:43,043 [INFO] RAMP Top-K | Global 2 | clients=[np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9), np.int64(10), np.int64(11), np.int64(12), np.int64(13), np.int64(14), np.int64(15), np.int64(16), np.int64(17), np.int64(18), np.int64(19)] | K=6573 | overlap=17.81% | promoted=82.19% | reference=[np.int64(0), np.int64(1), np.int64(3), np.int64(4), np.int64(7), np.int64(8), np.int64(9), np.int64(14), np.int64(15), np.int64(18)] | abs(ref)<eps=85.37% | 0.14s
+2026-11-11 14:54:43,446 [INFO] ------------ AlphaGuard Defense ------------
+2026-11-11 14:54:43,446 [INFO] Configuration:
+2026-11-11 14:54:43,446 [INFO]   Total clients: 20
+2026-11-11 14:54:43,446 [INFO]   Malicious clients: 4
+2026-11-11 14:54:43,446 [INFO]   Poison fraction: 0.30
+2026-11-11 14:54:43,447 [INFO] Client ID mapping (array_index -> client_id):
+2026-11-11 14:54:43,447 [INFO]   Index 0 -> Client 0 (MAL)
+2026-11-11 14:54:43,447 [INFO]   Index 1 -> Client 1 (MAL)
+2026-11-11 14:54:43,447 [INFO]   Index 2 -> Client 2 (MAL)
+2026-11-11 14:54:43,447 [INFO]   Index 3 -> Client 3 (MAL)
+2026-11-11 14:54:43,447 [INFO]   Index 4 -> Client 4
+2026-11-11 14:54:43,447 [INFO]   Index 5 -> Client 5
+2026-11-11 14:54:43,447 [INFO]   Index 6 -> Client 6
+2026-11-11 14:54:43,447 [INFO]   Index 7 -> Client 7
+2026-11-11 14:54:43,447 [INFO]   Index 8 -> Client 8
+2026-11-11 14:54:43,447 [INFO]   Index 9 -> Client 9
+2026-11-11 14:54:43,447 [INFO]   Index 10 -> Client 10
+2026-11-11 14:54:43,447 [INFO]   Index 11 -> Client 11
+2026-11-11 14:54:43,447 [INFO]   Index 12 -> Client 12
+2026-11-11 14:54:43,447 [INFO]   Index 13 -> Client 13
+2026-11-11 14:54:43,447 [INFO]   Index 14 -> Client 14
+2026-11-11 14:54:43,447 [INFO]   Index 15 -> Client 15
+2026-11-11 14:54:43,447 [INFO]   Index 16 -> Client 16
+2026-11-11 14:54:43,447 [INFO]   Index 17 -> Client 17
+2026-11-11 14:54:43,447 [INFO]   Index 18 -> Client 18
+2026-11-11 14:54:43,447 [INFO]   Index 19 -> Client 19
+2026-11-11 14:54:43,447 [INFO] ------------ Stage 1: L2 Robust Reference Selection ------------
+2026-11-11 14:54:43,447 [INFO] Processing 20 client updates
+2026-11-11 14:54:43,447 [INFO] L2 norms statistics:
+2026-11-11 14:54:43,448 [INFO]   Min:  3.1578
+2026-11-11 14:54:43,448 [INFO]   Max:  8.0840
+2026-11-11 14:54:43,449 [INFO]   Mean: 5.5796
+2026-11-11 14:54:43,449 [INFO]   Std:  1.0712
+2026-11-11 14:54:43,450 [INFO] Stage 1 Results:
+2026-11-11 14:54:43,450 [INFO]   Trusted clients: 10/20
+2026-11-11 14:54:43,467 [INFO]   L2 threshold: [5.0636, 5.9689]
+2026-11-11 14:54:43,468 [INFO]   g_ref strategy: median
+2026-11-11 14:54:43,468 [INFO]   Reference norm: 4.3584
+2026-11-11 14:54:43,468 [INFO] ------------ Stage 2: Alpha Vector Computation ------------
+2026-11-11 14:54:43,468 [INFO] Alpha vectors statistics:
+2026-11-11 14:54:43,468 [INFO]   Shape:      torch.Size([20, 6573120])
+2026-11-11 14:54:43,472 [INFO]   Norm min:   1714.1716
+2026-11-11 14:54:43,472 [INFO]   Norm max:   3284.5525
+2026-11-11 14:54:43,472 [INFO]   Norm mean:  2460.3796
+2026-11-11 14:54:43,472 [INFO]   Norm std:   363.8823
+2026-11-11 14:54:43,472 [INFO]   Epsilon:    0.001000
+2026-11-11 14:54:43,472 [INFO] ------------ Stage 3: Robust Detection and Penalty ------------
+2026-11-11 14:54:43,472 [INFO] Processing 20 clients with model dimension 6573120
+2026-11-11 14:54:43,472 [INFO] Top-K percentage: 0.1%
+2026-11-11 14:54:43,472 [INFO] Top-K mean statistics:
+2026-11-11 14:54:43,477 [INFO]   Min:  9.1904
+2026-11-11 14:54:43,477 [INFO]   Max:  18.8120
+2026-11-11 14:54:43,477 [INFO]   Mean: 12.3841
+2026-11-11 14:54:43,477 [INFO]   Std:  2.6022
+2026-11-11 14:54:43,477 [INFO] Top-K values by client:
+2026-11-11 14:54:43,477 [INFO]   Client 0 (MAL): 11.2962
+2026-11-11 14:54:43,477 [INFO]   Client 1 (MAL): 13.6569
+2026-11-11 14:54:43,477 [INFO]   Client 2 (MAL): 10.7431
+2026-11-11 14:54:43,477 [INFO]   Client 3 (MAL): 12.5052
+2026-11-11 14:54:43,477 [INFO]   Client 4: 9.9348
+2026-11-11 14:54:43,477 [INFO]   Client 5: 11.5453
+2026-11-11 14:54:43,477 [INFO]   Client 6: 9.1904
+2026-11-11 14:54:43,478 [INFO]   Client 7: 10.1087
+2026-11-11 14:54:43,478 [INFO]   Client 8: 10.0126
+2026-11-11 14:54:43,478 [INFO]   Client 9: 12.7970
+2026-11-11 14:54:43,478 [INFO]   Client 10: 14.1391
+2026-11-11 14:54:43,478 [INFO]   Client 11: 18.8120
+2026-11-11 14:54:43,478 [INFO]   Client 12: 16.0384
+2026-11-11 14:54:43,478 [INFO]   Client 13: 14.5194
+2026-11-11 14:54:43,478 [INFO]   Client 14: 12.7314
+2026-11-11 14:54:43,478 [INFO]   Client 15: 9.6362
+2026-11-11 14:54:43,478 [INFO]   Client 16: 11.7222
+2026-11-11 14:54:43,478 [INFO]   Client 17: 9.6266
+2026-11-11 14:54:43,478 [INFO]   Client 18: 16.5294
+2026-11-11 14:54:43,478 [INFO]   Client 19: 12.1364
+2026-11-11 14:54:43,478 [INFO] Robust reference analysis:
+2026-11-11 14:54:43,479 [INFO]   Reference: 11.9892
+2026-11-11 14:54:43,479 [INFO]   Lower bound: 10.7903
+2026-11-11 14:54:43,479 [INFO]   Upper bound: 13.1881
+2026-11-11 14:54:43,479 [INFO] Deviation scores:
+2026-11-11 14:54:43,479 [INFO]   Min:  0.0000
+2026-11-11 14:54:43,479 [INFO]   Max:  0.4264
+2026-11-11 14:54:43,479 [INFO]   Mean: 0.0843
+2026-11-11 14:54:43,480 [INFO]   Clients below lower: 7
+2026-11-11 14:54:43,480 [INFO]   Clients above upper: 6
+2026-11-11 14:54:43,480 [INFO] Weight Distribution:
+2026-11-11 14:54:43,480 [INFO]   Min weight:  0.4262
+2026-11-11 14:54:43,480 [INFO]   Max weight:  1.0000
+2026-11-11 14:54:43,480 [INFO]   Mean weight: 0.8620
+2026-11-11 14:54:43,480 [INFO]   Weight std:  0.1590
+2026-11-11 14:54:43,480 [INFO] Removal strategy (based on actual malicious participants):
+2026-11-11 14:54:43,480 [INFO]   Clients selected this round: 20
+2026-11-11 14:54:43,480 [INFO]   Malicious clients selected: 4
+2026-11-11 14:54:43,480 [INFO]   Num to remove: 5 (malicious + 1, will keep at least 15)
+2026-11-11 14:54:43,480 [INFO] Bidirectional Anomaly Detection (Top-K based):
+2026-11-11 14:54:43,481 [INFO]   Median Top-K: 11.7222
+2026-11-11 14:54:43,481 [INFO]   MAD: 1.7097
+2026-11-11 14:54:43,481 [INFO]   Q25: 10.0847, Q75: 13.7775
+2026-11-11 14:54:43,481 [INFO] Modified Z-scores by client:
+2026-11-11 14:54:43,481 [INFO]   Client 0 (MAL): Top-K=11.2962, Deviation=0.4260 (LOW), Z-score=0.1681
+2026-11-11 14:54:43,481 [INFO]   Client 1 (MAL): Top-K=13.6569, Deviation=1.9347 (HIGH), Z-score=0.7633
+2026-11-11 14:54:43,482 [INFO]   Client 2 (MAL): Top-K=10.7431, Deviation=0.9791 (LOW), Z-score=0.3863
+2026-11-11 14:54:43,482 [INFO]   Client 3 (MAL): Top-K=12.5052, Deviation=0.7829 (HIGH), Z-score=0.3089
+2026-11-11 14:54:43,482 [INFO]   Client 4: Top-K=9.9348, Deviation=1.7874 (LOW), Z-score=0.7052
+2026-11-11 14:54:43,482 [INFO]   Client 5: Top-K=11.5453, Deviation=0.1769 (LOW), Z-score=0.0698
+2026-11-11 14:54:43,482 [INFO]   Client 6: Top-K=9.1904, Deviation=2.5318 (LOW), Z-score=0.9989
+2026-11-11 14:54:43,482 [INFO]   Client 7: Top-K=10.1087, Deviation=1.6135 (LOW), Z-score=0.6366
+2026-11-11 14:54:43,482 [INFO]   Client 8: Top-K=10.0126, Deviation=1.7097 (LOW), Z-score=0.6745
+2026-11-11 14:54:43,482 [INFO]   Client 9: Top-K=12.7970, Deviation=1.0748 (HIGH), Z-score=0.4240
+2026-11-11 14:54:43,483 [INFO]   Client 10: Top-K=14.1391, Deviation=2.4168 (HIGH), Z-score=0.9535
+2026-11-11 14:54:43,483 [INFO]   Client 11: Top-K=18.8120, Deviation=7.0898 (HIGH), Z-score=2.7970
+2026-11-11 14:54:43,483 [INFO]   Client 12: Top-K=16.0384, Deviation=4.3161 (HIGH), Z-score=1.7028
+2026-11-11 14:54:43,483 [INFO]   Client 13: Top-K=14.5194, Deviation=2.7971 (HIGH), Z-score=1.1035
+2026-11-11 14:54:43,483 [INFO]   Client 14: Top-K=12.7314, Deviation=1.0092 (HIGH), Z-score=0.3981
+2026-11-11 14:54:43,483 [INFO]   Client 15: Top-K=9.6362, Deviation=2.0860 (LOW), Z-score=0.8230
+2026-11-11 14:54:43,483 [INFO]   Client 16: Top-K=11.7222, Deviation=0.0000 (LOW), Z-score=0.0000
+2026-11-11 14:54:43,484 [INFO]   Client 17: Top-K=9.6266, Deviation=2.0956 (LOW), Z-score=0.8268
+2026-11-11 14:54:43,484 [INFO]   Client 18: Top-K=16.5294, Deviation=4.8072 (HIGH), Z-score=1.8965
+2026-11-11 14:54:43,484 [INFO]   Client 19: Top-K=12.1364, Deviation=0.4141 (HIGH), Z-score=0.1634
+2026-11-11 14:54:43,484 [INFO] Client Selection (MAD-based Outlier Removal):
+2026-11-11 14:54:43,484 [INFO]   Total removed: 5
+2026-11-11 14:54:43,484 [INFO]   Removed indices: [6, 13, 12, 18, 11]
+2026-11-11 14:54:43,484 [INFO]   Removed client IDs: [6, 13, 12, 18, 11]
+2026-11-11 14:54:43,484 [INFO]   Removed Top-K means: [9.1904, 14.5194, 16.0384, 16.5294, 18.812]
+2026-11-11 14:54:43,485 [INFO]   Removed Z-scores: [0.9989, 1.1035, 1.7028, 1.8965, 2.797]
+2026-11-11 14:54:43,485 [INFO]   Above median: 4, Below median: 1
+2026-11-11 14:54:43,485 [INFO]   Remaining clients: 15/20
+2026-11-11 14:54:43,485 [INFO] Detection Analysis:
+2026-11-11 14:54:43,485 [INFO]   Malicious selected: 4/20 (this round)
+2026-11-11 14:54:43,485 [INFO]   Benign selected: 16/20 (this round)
+2026-11-11 14:54:43,485 [INFO]   Malicious detected: 0/4
+2026-11-11 14:54:43,485 [INFO]   Benign removed: 5/16
+2026-11-11 14:54:43,485 [INFO]   Detection rate: 0.00%
+2026-11-11 14:54:43,485 [INFO]   False positive: 31.25%
+2026-11-11 14:54:43,485 [INFO] Final Statistics:
+2026-11-11 14:54:43,485 [INFO]   Reference value: 11.9892
+2026-11-11 14:54:43,485 [INFO]   Normal range: [10.7903, 13.1881]
+2026-11-11 14:54:43,485 [INFO]   Selected clients: 15/20
+2026-11-11 14:54:43,485 [INFO]   Weight range: [0.8060, 1.0000]
+2026-11-11 14:54:43,488 [INFO] Final aggregation:
+2026-11-11 14:54:43,488 [INFO]   Remaining array indices: [16, 5, 19, 0, 3, 2, 14, 9, 7, 8, 4, 1, 15, 17, 10]
+2026-11-11 14:54:43,488 [INFO]   Remaining client IDs: [16, 5, 19, 0(MAL), 3(MAL), 2(MAL), 14, 9, 7, 8, 4, 1(MAL), 15, 17, 10]
+2026-11-11 14:54:43,488 [INFO]   Selected clients: 15/20
+2026-11-11 14:54:43,488 [INFO]   Weight sum: 1.0000
+2026-11-11 14:54:43,512 [INFO] ---------Test 2 ------------
+2026-11-11 14:54:51,028 [INFO] Clean ACC:              0.1758
+2026-11-11 14:54:51,028 [INFO] Attack Success Ratio:   0.0006
+2026-11-11 14:54:51,028 [INFO] Backdoor ACC:           0.1912
+2026-11-11 14:54:51,028 [INFO] ------------------------------
+2026-11-11 14:54:51,028 [INFO] Best results:
+2026-11-11 14:54:51,029 [INFO] Clean ACC:              0.1758
+2026-11-11 14:54:51,029 [INFO] Attack Success Ratio:   0.0006
+2026-11-11 14:54:51,029 [INFO] Backdoor ACC:           0.1912
+2026-11-11 14:54:51,029 [INFO] Training has finished!
+Report generated: /home/risegpu/sunjiahao/Alignins/research_results/RAMP_topk_validation/clients20_malicious4_20pct/2026-11-11_14-50-58/pgd/report.md
+Experiment status: completed; results: /home/risegpu/sunjiahao/Alignins/research_results/RAMP_topk_validation/clients20_malicious4_20pct/2026-11-11_14-50-58/pgd

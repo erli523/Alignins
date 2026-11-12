@@ -1,11 +1,21 @@
-# GitHub 私有代码备份
+# GitHub 代码与日志备份
 
 仓库：https://github.com/erli523/Alignins
 
-范围：当前正在使用的 Alignins 代码、攻击/防御实现、实验命令脚本、配置、来源校验记录和说明。
+可见性：公开；按用户当前设置保留。
 
-不上传：数据集、当前或历史日志、运行时 backup_file、checkpoint、虚拟环境、缓存、编辑器历史、密码或密钥。
+备份时间：2026-11-12T12:55:15+08:00（Asia/Shanghai）。
 
-本机历史日志已在服务器 `/home/risegpu/sunjiahao/records/history/Alignins-local` 归档，详细位置见 [SERVER_LAYOUT.md](SERVER_LAYOUT.md)。服务器当前项目保留在 `/home/risegpu/sunjiahao/Alignins`。
+本次包含当前 Alignins 全部源码、攻击/防御、独立 src/ramp_b.py、实验脚本/配置/说明，以及当前和历史日志、逐轮指标、报告、图片、坐标索引和源码快照。
 
-此仓库为私有仓库。发布提交与日志导入记录在服务器 inventory 目录中单独记录，不混入正式训练日志。
+## 日志位置
+
+- logs/history/Alignins-local/：此前从本机导入的历史日志及对应 backup_file 源码。服务器原始归档仍在 /home/risegpu/sunjiahao/records/history/Alignins-local。
+- src/logs/：现有框架训练日志。
+- research_results/RAMP_topk/：已完成的 Top-K 诊断、随机对照和中文分析。
+- research_results/RAMP_oracle/：四组 Oracle 实验的现有记录。
+- research_results 内原有 validation 子目录：现存校验记录，沿用原名，与正式实验分开。
+
+运行中的 B/D 实验不会被中断；本次日志是采集时刻的快照，后续新增轮次需要再次同步。采集状态见 [GITHUB_BACKUP_MANIFEST.json](GITHUB_BACKUP_MANIFEST.json)。不修改原始日志或伪造 completed 状态。
+
+数据集、虚拟环境/缓存、模型权重和完整配对更新快照不进入 Git。统计坐标索引 .npz 可复核且不包含原始训练图片，随实验记录上传。原服务器上述文件均保留。

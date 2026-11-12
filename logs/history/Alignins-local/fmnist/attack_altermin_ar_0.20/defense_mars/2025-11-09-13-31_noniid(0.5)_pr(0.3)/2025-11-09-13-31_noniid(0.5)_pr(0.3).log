@@ -1,0 +1,2035 @@
+2025-11-09 13:31:13,724 [MainThread  ] [INFO ]  Namespace(data='fmnist', num_agents=20, agent_frac=1.0, num_corrupt=4, rounds=50, local_ep=2, bs=64, client_lr=0.1, server_lr=1, target_class=7, poison_frac=0.3, pattern_type='plus', theta=8, theta_ld=10, snap=1, device='cuda:0', num_workers=0, dense_ratio=0.25, anneal_factor=0.0001, se_threshold=0.0001, non_iid=True, debug=False, beta=0.5, attack='altermin', aggr='mars', lr_decay=0.99, momentum=0.0, mask_init='ERK', wd=0.0001, same_mask=1, cease_poison=100000, exp_name_extra='', super_power=False, clean=False, sparsity=0.3, lambda_s=1.0, lambda_c=1.0, dis_check_gradient=False, trigger_size=5, trigger_lr=0.1, trigger_outter_epochs=50, trigger_optim_interval=5, dm_adv_epochs=2, dm_adv_K=10, dm_adv_model_count=3, noise_loss_lambda=0.1, altermin_attack_mode='targeted', altermin_source_label=3, altermin_target_label=None, altermin_poisoned_cnt=100, altermin_boosting_factor=1.5, altermin_rho=0.0001, altermin_benign_epochs=None, altermin_malicious_epochs=1, model_replacement_scaling_factor=50, model_replacement_alpha=0.5, model_replacement_target_label=None, model_replacement_constrain_weight=0.1, num_target=10, exp_name='noniid(0.5)_pr(0.3)')
+2025-11-09 13:31:13,819 [MainThread  ] [INFO ]  (60000, 10)
+2025-11-09 13:31:13,970 [MainThread  ] [INFO ]  client:0, distribution: [914, 251, 139, 115, 86, 191, 42, 602, 716, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:1, distribution: [38, 5, 939, 5, 133, 379, 645, 94, 250, 456]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:2, distribution: [13, 4, 21, 60, 322, 119, 240, 410, 745, 1461]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:3, distribution: [91, 548, 107, 5, 168, 15, 467, 70, 96, 1098]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:4, distribution: [1325, 284, 5, 9, 7, 5, 904, 248, 47, 408]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:5, distribution: [166, 277, 27, 389, 61, 58, 994, 378, 1600, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:6, distribution: [7, 57, 1356, 30, 460, 633, 31, 694, 0, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:7, distribution: [49, 2, 216, 213, 537, 195, 17, 42, 543, 450]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:8, distribution: [1495, 456, 498, 1709, 0, 0, 0, 0, 0, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:9, distribution: [152, 131, 305, 23, 12, 22, 1666, 1102, 0, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:10, distribution: [103, 1156, 100, 48, 91, 1083, 233, 0, 192, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:11, distribution: [1, 1218, 92, 132, 348, 158, 53, 102, 50, 1135]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:12, distribution: [10, 611, 97, 866, 862, 44, 196, 26, 9, 354]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:13, distribution: [232, 389, 354, 3, 176, 938, 1, 266, 553, 4]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:14, distribution: [182, 137, 896, 298, 291, 10, 430, 792, 0, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:15, distribution: [106, 48, 352, 0, 32, 377, 0, 59, 209, 40]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:16, distribution: [18, 66, 455, 583, 39, 638, 34, 452, 365, 559]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:17, distribution: [359, 259, 21, 157, 2336, 0, 0, 0, 0, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:18, distribution: [602, 17, 19, 1026, 38, 1108, 10, 5, 188, 0]
+2025-11-09 13:31:13,971 [MainThread  ] [INFO ]  client:19, distribution: [137, 84, 1, 329, 1, 27, 37, 658, 437, 35]
+2025-11-09 13:31:14,465 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 0
+2025-11-09 13:31:14,466 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-09 13:31:14,466 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-09 13:31:14,466 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-09 13:31:14,466 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-09 13:31:14,478 [MainThread  ] [INFO ]  build client:0 mal:1 data_num:3056
+2025-11-09 13:31:14,483 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 1
+2025-11-09 13:31:14,483 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-09 13:31:14,483 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-09 13:31:14,483 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-09 13:31:14,483 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-09 13:31:14,493 [MainThread  ] [INFO ]  build client:1 mal:1 data_num:2944
+2025-11-09 13:31:14,498 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 2
+2025-11-09 13:31:14,498 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-09 13:31:14,499 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-09 13:31:14,499 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-09 13:31:14,499 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-09 13:31:14,510 [MainThread  ] [INFO ]  build client:2 mal:1 data_num:3395
+2025-11-09 13:31:14,515 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 3
+2025-11-09 13:31:14,515 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-09 13:31:14,515 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-09 13:31:14,515 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-09 13:31:14,515 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-09 13:31:14,524 [MainThread  ] [INFO ]  build client:3 mal:1 data_num:2665
+2025-11-09 13:31:14,532 [MainThread  ] [INFO ]  build client:4 mal:0 data_num:3242
+2025-11-09 13:31:14,543 [MainThread  ] [INFO ]  build client:5 mal:0 data_num:3950
+2025-11-09 13:31:14,551 [MainThread  ] [INFO ]  build client:6 mal:0 data_num:3268
+2025-11-09 13:31:14,556 [MainThread  ] [INFO ]  build client:7 mal:0 data_num:2264
+2025-11-09 13:31:14,566 [MainThread  ] [INFO ]  build client:8 mal:0 data_num:4158
+2025-11-09 13:31:14,574 [MainThread  ] [INFO ]  build client:9 mal:0 data_num:3413
+2025-11-09 13:31:14,581 [MainThread  ] [INFO ]  build client:10 mal:0 data_num:3006
+2025-11-09 13:31:14,589 [MainThread  ] [INFO ]  build client:11 mal:0 data_num:3289
+2025-11-09 13:31:14,596 [MainThread  ] [INFO ]  build client:12 mal:0 data_num:3075
+2025-11-09 13:31:14,603 [MainThread  ] [INFO ]  build client:13 mal:0 data_num:2916
+2025-11-09 13:31:14,611 [MainThread  ] [INFO ]  build client:14 mal:0 data_num:3036
+2025-11-09 13:31:14,614 [MainThread  ] [INFO ]  build client:15 mal:0 data_num:1223
+2025-11-09 13:31:14,622 [MainThread  ] [INFO ]  build client:16 mal:0 data_num:3209
+2025-11-09 13:31:14,629 [MainThread  ] [INFO ]  build client:17 mal:0 data_num:3132
+2025-11-09 13:31:14,637 [MainThread  ] [INFO ]  build client:18 mal:0 data_num:3013
+2025-11-09 13:31:14,642 [MainThread  ] [INFO ]  build client:19 mal:0 data_num:1746
+2025-11-09 13:31:16,422 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-09 13:31:18,190 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-09 13:31:19,978 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-09 13:31:21,749 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-09 13:31:21,750 [MainThread  ] [INFO ]  --------round 1 ------------
+2025-11-09 13:31:21,753 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:31:21,755 [MainThread  ] [INFO ]  [Round 1] Client 0 starting AlterMin training...
+2025-11-09 13:31:23,948 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9655
+2025-11-09 13:31:23,975 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.8563
+2025-11-09 13:31:23,993 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.7900
+2025-11-09 13:31:23,994 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:31:23,999 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:31:24,003 [MainThread  ] [INFO ]  [Round 1] Client 1 starting AlterMin training...
+2025-11-09 13:31:25,593 [MainThread  ] [INFO ]    Benign training completed, loss: 1.5254
+2025-11-09 13:31:25,598 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7194
+2025-11-09 13:31:25,607 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3490
+2025-11-09 13:31:25,608 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:31:25,613 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:31:25,618 [MainThread  ] [INFO ]  [Round 1] Client 2 starting AlterMin training...
+2025-11-09 13:31:27,404 [MainThread  ] [INFO ]    Benign training completed, loss: 1.3537
+2025-11-09 13:31:27,408 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.6519
+2025-11-09 13:31:27,417 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7617
+2025-11-09 13:31:27,417 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:31:27,421 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0007
+2025-11-09 13:31:27,424 [MainThread  ] [INFO ]  [Round 1] Client 3 starting AlterMin training...
+2025-11-09 13:31:28,726 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0377
+2025-11-09 13:31:28,730 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.9847
+2025-11-09 13:31:28,740 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4005
+2025-11-09 13:31:28,740 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:31:28,744 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:31:50,385 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:31:50,417 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:31:50,417 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:31:50,418 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:31:50,420 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,456 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,476 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:31:50,478 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,489 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,507 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:31:50,508 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,519 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,537 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:31:50,539 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,547 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,566 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:31:50,568 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,577 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,595 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:31:50,597 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,607 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,626 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:31:50,628 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,636 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,655 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:31:50,657 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,665 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,684 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:31:50,686 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,696 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,714 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:31:50,715 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,723 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,743 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:31:50,745 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,752 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,771 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:31:50,773 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,782 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,800 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:31:50,802 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,812 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,831 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:31:50,833 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,840 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,860 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:31:50,862 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,870 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,889 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:31:50,891 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,900 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,918 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:31:50,920 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,929 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,947 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:31:50,949 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,959 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:50,977 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:31:50,979 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:50,988 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:51,008 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:31:51,009 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:31:51,019 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:31:51,038 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:31:51,044 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:31:51,351 [MainThread  ] [INFO ]  MARS: Center distance: 0.0849, threshold: 0.03
+2025-11-09 13:31:51,351 [MainThread  ] [INFO ]  MARS: Center norms: [3.1424, 2.6331]
+2025-11-09 13:31:51,351 [MainThread  ] [INFO ]  MARS: Detected 2 anomalous clients in cluster 0
+2025-11-09 13:31:51,352 [MainThread  ] [INFO ]  MARS detection result: [ 0  0  0 -1  0  0  0  0 -1  0  0  0  0  0  0  0  0  0  0  0]
+2025-11-09 13:31:51,352 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.2500, FPR: 0.0625
+2025-11-09 13:31:51,352 [MainThread  ] [INFO ]  Client 3 marked as malicious, excluded
+2025-11-09 13:31:51,352 [MainThread  ] [INFO ]  Client 8 marked as malicious, excluded
+2025-11-09 13:31:51,352 [MainThread  ] [INFO ]  MARS: Selected 18/20 clients
+2025-11-09 13:31:51,352 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 3/4
+2025-11-09 13:31:51,425 [MainThread  ] [INFO ]  ---------Test 1 ------------
+2025-11-09 13:31:55,432 [MainThread  ] [INFO ]  Clean ACC:              0.1698
+2025-11-09 13:31:55,432 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-09 13:31:55,432 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-09 13:31:55,432 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:31:55,432 [MainThread  ] [INFO ]  --------round 2 ------------
+2025-11-09 13:31:55,434 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:31:55,435 [MainThread  ] [INFO ]  [Round 2] Client 0 starting AlterMin training...
+2025-11-09 13:31:56,945 [MainThread  ] [INFO ]    Benign training completed, loss: 1.4703
+2025-11-09 13:31:56,950 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7541
+2025-11-09 13:31:56,959 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6125
+2025-11-09 13:31:56,960 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:31:56,963 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.2846
+2025-11-09 13:31:56,966 [MainThread  ] [INFO ]  [Round 2] Client 1 starting AlterMin training...
+2025-11-09 13:31:58,412 [MainThread  ] [INFO ]    Benign training completed, loss: 1.5721
+2025-11-09 13:31:58,416 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9478
+2025-11-09 13:31:58,425 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7988
+2025-11-09 13:31:58,425 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:31:58,430 [MainThread  ] [INFO ]    After boosting - ASR: 0.9600, ASR Loss: 0.4622
+2025-11-09 13:31:58,432 [MainThread  ] [INFO ]  [Round 2] Client 2 starting AlterMin training...
+2025-11-09 13:32:00,130 [MainThread  ] [INFO ]    Benign training completed, loss: 1.8953
+2025-11-09 13:32:00,134 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7853
+2025-11-09 13:32:00,144 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5594
+2025-11-09 13:32:00,144 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:32:00,148 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 2.0931
+2025-11-09 13:32:00,150 [MainThread  ] [INFO ]  [Round 2] Client 3 starting AlterMin training...
+2025-11-09 13:32:01,451 [MainThread  ] [INFO ]    Benign training completed, loss: 1.3934
+2025-11-09 13:32:01,456 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7363
+2025-11-09 13:32:01,464 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6897
+2025-11-09 13:32:01,465 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:32:01,468 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 2.4068
+2025-11-09 13:32:22,427 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:32:22,462 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:32:22,462 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:32:22,462 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:32:22,464 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,474 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,494 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:32:22,496 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,505 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,524 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:32:22,527 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,536 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,554 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:32:22,557 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,566 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,584 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:32:22,586 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,593 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,612 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:32:22,614 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,623 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,641 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:32:22,643 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,653 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,671 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:32:22,673 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,682 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,700 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:32:22,702 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,709 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,728 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:32:22,730 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,741 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,759 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:32:22,761 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,771 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,788 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:32:22,790 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,797 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,816 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:32:22,817 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,825 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,842 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:32:22,844 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,852 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,871 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:32:22,873 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,884 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,901 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:32:22,903 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,911 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,930 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:32:22,932 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,938 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,956 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:32:22,958 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,967 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:22,986 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:32:22,988 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:22,997 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:23,016 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:32:23,018 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:23,026 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:23,045 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:32:23,051 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:32:23,060 [MainThread  ] [INFO ]  MARS: Center distance: 0.0027, threshold: 0.03
+2025-11-09 13:32:23,060 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:32:23,060 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:32:23,060 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:32:23,061 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:32:23,061 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:32:23,069 [MainThread  ] [INFO ]  ---------Test 2 ------------
+2025-11-09 13:32:26,976 [MainThread  ] [INFO ]  Clean ACC:              0.2766
+2025-11-09 13:32:26,976 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-09 13:32:26,976 [MainThread  ] [INFO ]  Backdoor ACC:           0.1960
+2025-11-09 13:32:26,976 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:32:26,976 [MainThread  ] [INFO ]  --------round 3 ------------
+2025-11-09 13:32:26,978 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:32:26,979 [MainThread  ] [INFO ]  [Round 3] Client 0 starting AlterMin training...
+2025-11-09 13:32:28,462 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2043
+2025-11-09 13:32:28,466 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.5599
+2025-11-09 13:32:28,475 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2152
+2025-11-09 13:32:28,476 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:32:28,480 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-09 13:32:28,483 [MainThread  ] [INFO ]  [Round 3] Client 1 starting AlterMin training...
+2025-11-09 13:32:29,938 [MainThread  ] [INFO ]    Benign training completed, loss: 1.4316
+2025-11-09 13:32:29,942 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0766
+2025-11-09 13:32:29,952 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6487
+2025-11-09 13:32:29,952 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:32:29,957 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:32:29,960 [MainThread  ] [INFO ]  [Round 3] Client 2 starting AlterMin training...
+2025-11-09 13:32:31,624 [MainThread  ] [INFO ]    Benign training completed, loss: 1.4788
+2025-11-09 13:32:31,629 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4390
+2025-11-09 13:32:31,638 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0734
+2025-11-09 13:32:31,638 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:32:31,643 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0368
+2025-11-09 13:32:31,646 [MainThread  ] [INFO ]  [Round 3] Client 3 starting AlterMin training...
+2025-11-09 13:32:32,929 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0299
+2025-11-09 13:32:32,932 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0330
+2025-11-09 13:32:32,942 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6509
+2025-11-09 13:32:32,942 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:32:32,946 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0004
+2025-11-09 13:32:54,161 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:32:54,193 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:32:54,194 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:32:54,194 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:32:54,196 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,206 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,226 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:32:54,228 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,237 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,255 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:32:54,257 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,266 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,284 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:32:54,286 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,296 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,315 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:32:54,317 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,326 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,345 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:32:54,347 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,355 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,374 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:32:54,376 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,384 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,403 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:32:54,405 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,414 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,433 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:32:54,434 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,443 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,461 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:32:54,463 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,470 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,488 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:32:54,490 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,499 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,518 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:32:54,520 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,528 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,547 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:32:54,548 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,555 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,574 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:32:54,576 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,585 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,604 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:32:54,607 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,615 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,635 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:32:54,637 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,648 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,669 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:32:54,671 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,681 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,704 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:32:54,705 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,714 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,737 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:32:54,739 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,749 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,769 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:32:54,771 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:32:54,783 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:32:54,804 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:32:54,810 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:32:54,818 [MainThread  ] [INFO ]  MARS: Center distance: 0.0074, threshold: 0.03
+2025-11-09 13:32:54,819 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:32:54,819 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:32:54,819 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:32:54,819 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:32:54,819 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:32:54,826 [MainThread  ] [INFO ]  ---------Test 3 ------------
+2025-11-09 13:32:58,772 [MainThread  ] [INFO ]  Clean ACC:              0.3768
+2025-11-09 13:32:58,772 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0010
+2025-11-09 13:32:58,772 [MainThread  ] [INFO ]  Backdoor ACC:           0.3089
+2025-11-09 13:32:58,772 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:32:58,772 [MainThread  ] [INFO ]  --------round 4 ------------
+2025-11-09 13:32:58,773 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:32:58,774 [MainThread  ] [INFO ]  [Round 4] Client 0 starting AlterMin training...
+2025-11-09 13:33:00,251 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0501
+2025-11-09 13:33:00,254 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9790
+2025-11-09 13:33:00,263 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0537
+2025-11-09 13:33:00,263 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:00,267 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:33:00,269 [MainThread  ] [INFO ]  [Round 4] Client 1 starting AlterMin training...
+2025-11-09 13:33:01,706 [MainThread  ] [INFO ]    Benign training completed, loss: 1.3689
+2025-11-09 13:33:01,711 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2945
+2025-11-09 13:33:01,720 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5741
+2025-11-09 13:33:01,720 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:01,725 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:33:01,727 [MainThread  ] [INFO ]  [Round 4] Client 2 starting AlterMin training...
+2025-11-09 13:33:03,389 [MainThread  ] [INFO ]    Benign training completed, loss: 1.5956
+2025-11-09 13:33:03,393 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8467
+2025-11-09 13:33:03,401 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7941
+2025-11-09 13:33:03,402 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:03,406 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 2.5123
+2025-11-09 13:33:03,409 [MainThread  ] [INFO ]  [Round 4] Client 3 starting AlterMin training...
+2025-11-09 13:33:04,701 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0409
+2025-11-09 13:33:04,705 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1944
+2025-11-09 13:33:04,713 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6421
+2025-11-09 13:33:04,714 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:04,717 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:33:26,120 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:33:26,151 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:33:26,152 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:33:26,152 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:33:26,154 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,166 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,185 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:33:26,187 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,196 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,214 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:33:26,216 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,225 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,243 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:33:26,245 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,251 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,271 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:33:26,274 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,280 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,299 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:33:26,301 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,308 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,325 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:33:26,327 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,335 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,353 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:33:26,354 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,362 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,380 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:33:26,382 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,389 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,408 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:33:26,410 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,419 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,437 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:33:26,439 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,447 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,465 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:33:26,466 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,474 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,492 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:33:26,494 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,503 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,521 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:33:26,523 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,530 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,548 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:33:26,550 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,558 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,576 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:33:26,578 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,588 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,606 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:33:26,607 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,617 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,634 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:33:26,636 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,645 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,663 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:33:26,665 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,673 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,692 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:33:26,694 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:26,704 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:26,723 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:33:26,729 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:33:26,737 [MainThread  ] [INFO ]  MARS: Center distance: 0.0062, threshold: 0.03
+2025-11-09 13:33:26,737 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:33:26,737 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:33:26,738 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:33:26,738 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:33:26,738 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:33:26,743 [MainThread  ] [INFO ]  ---------Test 4 ------------
+2025-11-09 13:33:30,690 [MainThread  ] [INFO ]  Clean ACC:              0.4743
+2025-11-09 13:33:30,690 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0110
+2025-11-09 13:33:30,690 [MainThread  ] [INFO ]  Backdoor ACC:           0.4159
+2025-11-09 13:33:30,690 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:33:30,690 [MainThread  ] [INFO ]  --------round 5 ------------
+2025-11-09 13:33:30,692 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:33:30,693 [MainThread  ] [INFO ]  [Round 5] Client 0 starting AlterMin training...
+2025-11-09 13:33:32,166 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0434
+2025-11-09 13:33:32,170 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0834
+2025-11-09 13:33:32,180 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4133
+2025-11-09 13:33:32,181 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:32,187 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:33:32,191 [MainThread  ] [INFO ]  [Round 5] Client 1 starting AlterMin training...
+2025-11-09 13:33:33,632 [MainThread  ] [INFO ]    Benign training completed, loss: 1.3136
+2025-11-09 13:33:33,636 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2446
+2025-11-09 13:33:33,645 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4525
+2025-11-09 13:33:33,645 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:33,648 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:33:33,651 [MainThread  ] [INFO ]  [Round 5] Client 2 starting AlterMin training...
+2025-11-09 13:33:35,327 [MainThread  ] [INFO ]    Benign training completed, loss: 1.4394
+2025-11-09 13:33:35,330 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8457
+2025-11-09 13:33:35,339 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0358
+2025-11-09 13:33:35,340 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:35,344 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0020
+2025-11-09 13:33:35,346 [MainThread  ] [INFO ]  [Round 5] Client 3 starting AlterMin training...
+2025-11-09 13:33:36,648 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0269
+2025-11-09 13:33:36,652 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.3694
+2025-11-09 13:33:36,661 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0125
+2025-11-09 13:33:36,661 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:33:36,665 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:33:57,979 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:33:58,012 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:33:58,012 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:33:58,012 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:33:58,014 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,023 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,040 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:33:58,043 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,051 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,067 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:33:58,069 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,077 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,094 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:33:58,096 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,104 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,121 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:33:58,123 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,131 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,148 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:33:58,150 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,158 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,174 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:33:58,176 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,184 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,201 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:33:58,203 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,210 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,227 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:33:58,229 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,237 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,253 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:33:58,255 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,264 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,281 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:33:58,282 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,292 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,308 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:33:58,310 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,318 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,334 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:33:58,336 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,342 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,359 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:33:58,361 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,368 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,385 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:33:58,387 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,397 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,413 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:33:58,415 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,424 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,440 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:33:58,442 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,450 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,467 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:33:58,469 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,475 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,494 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:33:58,496 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,502 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,519 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:33:58,521 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:33:58,527 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:33:58,544 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:33:58,550 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:33:58,558 [MainThread  ] [INFO ]  MARS: Center distance: 0.0069, threshold: 0.03
+2025-11-09 13:33:58,558 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:33:58,558 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:33:58,558 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:33:58,558 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:33:58,558 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:33:58,564 [MainThread  ] [INFO ]  ---------Test 5 ------------
+2025-11-09 13:34:02,543 [MainThread  ] [INFO ]  Clean ACC:              0.4748
+2025-11-09 13:34:02,543 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0360
+2025-11-09 13:34:02,543 [MainThread  ] [INFO ]  Backdoor ACC:           0.4188
+2025-11-09 13:34:02,543 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:34:02,543 [MainThread  ] [INFO ]  --------round 6 ------------
+2025-11-09 13:34:02,545 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:34:02,546 [MainThread  ] [INFO ]  [Round 6] Client 0 starting AlterMin training...
+2025-11-09 13:34:04,026 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9577
+2025-11-09 13:34:04,030 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3039
+2025-11-09 13:34:04,039 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2844
+2025-11-09 13:34:04,040 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:04,043 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:34:04,046 [MainThread  ] [INFO ]  [Round 6] Client 1 starting AlterMin training...
+2025-11-09 13:34:05,475 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2903
+2025-11-09 13:34:05,479 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2970
+2025-11-09 13:34:05,489 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3357
+2025-11-09 13:34:05,489 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:05,492 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0010
+2025-11-09 13:34:05,495 [MainThread  ] [INFO ]  [Round 6] Client 2 starting AlterMin training...
+2025-11-09 13:34:07,146 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2071
+2025-11-09 13:34:07,151 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.8176
+2025-11-09 13:34:07,160 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1988
+2025-11-09 13:34:07,160 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:07,164 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-09 13:34:07,166 [MainThread  ] [INFO ]  [Round 6] Client 3 starting AlterMin training...
+2025-11-09 13:34:08,458 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9120
+2025-11-09 13:34:08,462 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4704
+2025-11-09 13:34:08,471 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8764
+2025-11-09 13:34:08,471 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:08,475 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:34:29,763 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:34:29,794 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:34:29,794 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:34:29,794 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:34:29,796 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,806 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,823 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:34:29,825 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,832 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,850 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:34:29,852 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,858 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,875 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:34:29,877 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,883 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,900 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:34:29,902 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,913 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,932 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:34:29,934 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,943 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,959 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:34:29,961 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,968 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:29,986 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:34:29,988 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:29,995 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,015 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:34:30,017 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,025 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,043 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:34:30,045 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,053 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,071 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:34:30,073 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,081 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,099 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:34:30,101 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,110 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,126 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:34:30,128 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,136 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,153 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:34:30,155 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,162 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,179 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:34:30,181 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,187 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,204 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:34:30,206 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,214 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,231 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:34:30,233 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,242 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,259 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:34:30,260 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,269 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,286 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:34:30,288 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,295 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,312 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:34:30,314 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:34:30,320 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:34:30,337 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:34:30,343 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:34:30,351 [MainThread  ] [INFO ]  MARS: Center distance: 0.0060, threshold: 0.03
+2025-11-09 13:34:30,352 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:34:30,352 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:34:30,352 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:34:30,352 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:34:30,352 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:34:30,358 [MainThread  ] [INFO ]  ---------Test 6 ------------
+2025-11-09 13:34:34,365 [MainThread  ] [INFO ]  Clean ACC:              0.5277
+2025-11-09 13:34:34,365 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0040
+2025-11-09 13:34:34,365 [MainThread  ] [INFO ]  Backdoor ACC:           0.4763
+2025-11-09 13:34:34,365 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:34:34,365 [MainThread  ] [INFO ]  --------round 7 ------------
+2025-11-09 13:34:34,367 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:34:34,368 [MainThread  ] [INFO ]  [Round 7] Client 0 starting AlterMin training...
+2025-11-09 13:34:35,844 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9449
+2025-11-09 13:34:35,849 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3092
+2025-11-09 13:34:35,857 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6111
+2025-11-09 13:34:35,858 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:35,862 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:34:35,864 [MainThread  ] [INFO ]  [Round 7] Client 1 starting AlterMin training...
+2025-11-09 13:34:37,316 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1802
+2025-11-09 13:34:37,320 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5846
+2025-11-09 13:34:37,328 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9521
+2025-11-09 13:34:37,329 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:37,333 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:34:37,335 [MainThread  ] [INFO ]  [Round 7] Client 2 starting AlterMin training...
+2025-11-09 13:34:39,000 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8762
+2025-11-09 13:34:39,006 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7630
+2025-11-09 13:34:39,015 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0473
+2025-11-09 13:34:39,015 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:39,019 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:34:39,021 [MainThread  ] [INFO ]  [Round 7] Client 3 starting AlterMin training...
+2025-11-09 13:34:40,298 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9426
+2025-11-09 13:34:40,303 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4297
+2025-11-09 13:34:40,311 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7033
+2025-11-09 13:34:40,312 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:34:40,316 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:35:01,494 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:35:01,525 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:35:01,525 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:35:01,525 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:35:01,527 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,536 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,553 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:35:01,555 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,562 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,579 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:35:01,581 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,588 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,605 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:35:01,607 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,616 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,632 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:35:01,634 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,643 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,660 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:35:01,661 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,670 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,687 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:35:01,689 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,698 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,715 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:35:01,716 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,724 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,741 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:35:01,743 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,750 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,767 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:35:01,769 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,775 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,792 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:35:01,794 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,801 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,817 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:35:01,819 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,827 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,844 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:35:01,846 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,854 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,871 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:35:01,873 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,881 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,897 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:35:01,899 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,907 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,923 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:35:01,925 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,933 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,950 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:35:01,952 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,960 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:01,976 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:35:01,978 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:01,984 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:02,000 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:35:02,002 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:02,011 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:02,028 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:35:02,030 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:02,039 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:02,055 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:35:02,061 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:35:02,069 [MainThread  ] [INFO ]  MARS: Center distance: 0.0069, threshold: 0.03
+2025-11-09 13:35:02,069 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:35:02,069 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:35:02,069 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:35:02,070 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:35:02,070 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:35:02,075 [MainThread  ] [INFO ]  ---------Test 7 ------------
+2025-11-09 13:35:05,967 [MainThread  ] [INFO ]  Clean ACC:              0.5339
+2025-11-09 13:35:05,968 [MainThread  ] [INFO ]  Attack Success Ratio:   0.5630
+2025-11-09 13:35:05,968 [MainThread  ] [INFO ]  Backdoor ACC:           0.4767
+2025-11-09 13:35:05,968 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:35:05,968 [MainThread  ] [INFO ]  --------round 8 ------------
+2025-11-09 13:35:05,969 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:35:05,970 [MainThread  ] [INFO ]  [Round 8] Client 0 starting AlterMin training...
+2025-11-09 13:35:07,434 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8478
+2025-11-09 13:35:07,438 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5053
+2025-11-09 13:35:07,444 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9767
+2025-11-09 13:35:07,444 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:07,448 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:35:07,450 [MainThread  ] [INFO ]  [Round 8] Client 1 starting AlterMin training...
+2025-11-09 13:35:08,682 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1952
+2025-11-09 13:35:08,686 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 3.3096
+2025-11-09 13:35:08,692 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6533
+2025-11-09 13:35:08,693 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:08,696 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0003
+2025-11-09 13:35:08,698 [MainThread  ] [INFO ]  [Round 8] Client 2 starting AlterMin training...
+2025-11-09 13:35:10,283 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2692
+2025-11-09 13:35:10,287 [MainThread  ] [INFO ]    Current ASR: 0.0500, ASR Loss: 2.4903
+2025-11-09 13:35:10,296 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9541
+2025-11-09 13:35:10,297 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:10,301 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-09 13:35:10,303 [MainThread  ] [INFO ]  [Round 8] Client 3 starting AlterMin training...
+2025-11-09 13:35:11,593 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7874
+2025-11-09 13:35:11,597 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7530
+2025-11-09 13:35:11,605 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2401
+2025-11-09 13:35:11,606 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:11,612 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:35:32,758 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:35:32,789 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:35:32,789 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:35:32,789 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:35:32,791 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,802 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,823 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:35:32,826 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,836 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,855 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:35:32,857 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,868 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,887 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:35:32,889 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,898 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,917 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:35:32,919 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,928 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,944 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:35:32,946 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,954 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,971 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:35:32,973 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:32,979 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:32,998 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:35:33,000 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,008 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,026 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:35:33,028 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,034 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,052 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:35:33,054 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,062 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,079 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:35:33,081 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,091 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,108 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:35:33,109 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,119 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,136 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:35:33,138 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,148 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,165 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:35:33,167 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,177 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,194 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:35:33,196 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,206 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,223 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:35:33,225 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,235 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,252 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:35:33,254 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,264 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,280 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:35:33,282 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,291 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,308 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:35:33,310 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,318 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,336 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:35:33,338 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:35:33,346 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:35:33,362 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:35:33,368 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:35:33,376 [MainThread  ] [INFO ]  MARS: Center distance: 0.0111, threshold: 0.03
+2025-11-09 13:35:33,376 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:35:33,377 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:35:33,377 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:35:33,377 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:35:33,377 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:35:33,384 [MainThread  ] [INFO ]  ---------Test 8 ------------
+2025-11-09 13:35:37,345 [MainThread  ] [INFO ]  Clean ACC:              0.4855
+2025-11-09 13:35:37,345 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0520
+2025-11-09 13:35:37,345 [MainThread  ] [INFO ]  Backdoor ACC:           0.4252
+2025-11-09 13:35:37,345 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:35:37,345 [MainThread  ] [INFO ]  --------round 9 ------------
+2025-11-09 13:35:37,347 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:35:37,347 [MainThread  ] [INFO ]  [Round 9] Client 0 starting AlterMin training...
+2025-11-09 13:35:38,814 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7172
+2025-11-09 13:35:38,817 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5658
+2025-11-09 13:35:38,827 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9346
+2025-11-09 13:35:38,827 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:38,830 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:35:38,833 [MainThread  ] [INFO ]  [Round 9] Client 1 starting AlterMin training...
+2025-11-09 13:35:40,268 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0881
+2025-11-09 13:35:40,271 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.7449
+2025-11-09 13:35:40,280 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6823
+2025-11-09 13:35:40,281 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:40,284 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-09 13:35:40,287 [MainThread  ] [INFO ]  [Round 9] Client 2 starting AlterMin training...
+2025-11-09 13:35:41,946 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9873
+2025-11-09 13:35:41,949 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2399
+2025-11-09 13:35:41,958 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0019
+2025-11-09 13:35:41,958 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:41,962 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0014
+2025-11-09 13:35:41,964 [MainThread  ] [INFO ]  [Round 9] Client 3 starting AlterMin training...
+2025-11-09 13:35:43,240 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7611
+2025-11-09 13:35:43,245 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.0214
+2025-11-09 13:35:43,253 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.7497
+2025-11-09 13:35:43,254 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:35:43,257 [MainThread  ] [INFO ]    After boosting - ASR: 0.0100, ASR Loss: 2.3642
+2025-11-09 13:36:04,413 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:36:04,444 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:36:04,444 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:36:04,444 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:36:04,446 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,454 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,473 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:36:04,475 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,482 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,501 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:36:04,503 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,511 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,530 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:36:04,532 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,540 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,558 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:36:04,560 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,568 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,586 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:36:04,588 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,596 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,615 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:36:04,617 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,626 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,644 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:36:04,646 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,655 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,673 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:36:04,675 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,684 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,702 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:36:04,704 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,713 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,731 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:36:04,733 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,742 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,760 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:36:04,762 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,771 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,789 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:36:04,791 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,801 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,819 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:36:04,821 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,831 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,848 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:36:04,850 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,859 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,877 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:36:04,879 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,888 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,907 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:36:04,908 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,918 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,935 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:36:04,937 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,947 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,964 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:36:04,966 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:04,976 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:04,994 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:36:04,996 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:05,006 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:05,024 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:36:05,030 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:36:05,038 [MainThread  ] [INFO ]  MARS: Center distance: 0.0208, threshold: 0.03
+2025-11-09 13:36:05,038 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:36:05,038 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:36:05,038 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:36:05,038 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:36:05,038 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:36:05,044 [MainThread  ] [INFO ]  ---------Test 9 ------------
+2025-11-09 13:36:09,105 [MainThread  ] [INFO ]  Clean ACC:              0.6326
+2025-11-09 13:36:09,105 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0040
+2025-11-09 13:36:09,105 [MainThread  ] [INFO ]  Backdoor ACC:           0.5926
+2025-11-09 13:36:09,105 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:36:09,105 [MainThread  ] [INFO ]  --------round 10 ------------
+2025-11-09 13:36:09,106 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:36:09,107 [MainThread  ] [INFO ]  [Round 10] Client 0 starting AlterMin training...
+2025-11-09 13:36:10,591 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6698
+2025-11-09 13:36:10,596 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2542
+2025-11-09 13:36:10,605 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4822
+2025-11-09 13:36:10,605 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:10,609 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:36:10,611 [MainThread  ] [INFO ]  [Round 10] Client 1 starting AlterMin training...
+2025-11-09 13:36:12,059 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0270
+2025-11-09 13:36:12,062 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.8368
+2025-11-09 13:36:12,071 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6371
+2025-11-09 13:36:12,072 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:12,075 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:36:12,077 [MainThread  ] [INFO ]  [Round 10] Client 2 starting AlterMin training...
+2025-11-09 13:36:13,736 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7191
+2025-11-09 13:36:13,743 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 2.2022
+2025-11-09 13:36:13,750 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9061
+2025-11-09 13:36:13,751 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:13,754 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:36:13,756 [MainThread  ] [INFO ]  [Round 10] Client 3 starting AlterMin training...
+2025-11-09 13:36:15,052 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7032
+2025-11-09 13:36:15,055 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.6177
+2025-11-09 13:36:15,064 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9291
+2025-11-09 13:36:15,065 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:15,069 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:36:36,330 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:36:36,360 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:36:36,361 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:36:36,361 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:36:36,363 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,369 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,389 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:36:36,391 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,397 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,418 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:36:36,420 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,426 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,446 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:36:36,448 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,454 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,472 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:36:36,474 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,481 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,498 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:36:36,500 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,509 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,526 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:36:36,528 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,537 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,555 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:36:36,556 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,566 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,583 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:36:36,585 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,595 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,612 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:36:36,614 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,623 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,641 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:36:36,643 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,652 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,670 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:36:36,672 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,681 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,699 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:36:36,702 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,710 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,728 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:36:36,730 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,738 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,756 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:36:36,758 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,767 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,785 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:36:36,787 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,795 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,813 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:36:36,815 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,823 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,842 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:36:36,844 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,852 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,870 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:36:36,872 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,881 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,898 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:36:36,900 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:36:36,909 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:36:36,927 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:36:36,932 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:36:36,940 [MainThread  ] [INFO ]  MARS: Center distance: 0.0100, threshold: 0.03
+2025-11-09 13:36:36,941 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:36:36,941 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:36:36,941 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:36:36,941 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:36:36,941 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:36:36,949 [MainThread  ] [INFO ]  ---------Test 10 ------------
+2025-11-09 13:36:40,801 [MainThread  ] [INFO ]  Clean ACC:              0.5923
+2025-11-09 13:36:40,801 [MainThread  ] [INFO ]  Attack Success Ratio:   0.3830
+2025-11-09 13:36:40,801 [MainThread  ] [INFO ]  Backdoor ACC:           0.5472
+2025-11-09 13:36:40,801 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:36:40,802 [MainThread  ] [INFO ]  --------round 11 ------------
+2025-11-09 13:36:40,803 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:36:40,804 [MainThread  ] [INFO ]  [Round 11] Client 0 starting AlterMin training...
+2025-11-09 13:36:42,266 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6524
+2025-11-09 13:36:42,269 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5933
+2025-11-09 13:36:42,275 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8385
+2025-11-09 13:36:42,275 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:42,280 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:36:42,282 [MainThread  ] [INFO ]  [Round 11] Client 1 starting AlterMin training...
+2025-11-09 13:36:43,640 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0028
+2025-11-09 13:36:43,644 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3170
+2025-11-09 13:36:43,649 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2948
+2025-11-09 13:36:43,650 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:43,654 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:36:43,656 [MainThread  ] [INFO ]  [Round 11] Client 2 starting AlterMin training...
+2025-11-09 13:36:45,092 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9226
+2025-11-09 13:36:45,097 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.6341
+2025-11-09 13:36:45,104 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0681
+2025-11-09 13:36:45,105 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:45,108 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0012
+2025-11-09 13:36:45,111 [MainThread  ] [INFO ]  [Round 11] Client 3 starting AlterMin training...
+2025-11-09 13:36:46,282 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6880
+2025-11-09 13:36:46,286 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4499
+2025-11-09 13:36:46,294 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1007
+2025-11-09 13:36:46,294 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:36:46,298 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:07,324 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:37:07,357 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:37:07,357 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:37:07,357 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:37:07,359 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,368 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,387 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:37:07,389 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,398 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,418 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:37:07,420 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,430 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,448 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:37:07,450 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,459 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,477 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:37:07,480 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,489 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,508 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:37:07,511 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,520 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,539 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:37:07,542 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,550 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,569 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:37:07,570 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,579 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,598 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:37:07,599 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,608 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,626 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:37:07,628 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,636 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,655 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:37:07,657 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,665 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,684 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:37:07,686 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,694 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,712 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:37:07,714 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,722 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,740 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:37:07,742 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,751 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,769 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:37:07,770 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,779 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,796 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:37:07,798 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,806 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,824 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:37:07,826 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,834 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,853 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:37:07,855 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,863 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,881 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:37:07,883 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,891 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,909 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:37:07,911 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:07,919 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:07,937 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:37:07,943 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:37:07,951 [MainThread  ] [INFO ]  MARS: Center distance: 0.0339, threshold: 0.03
+2025-11-09 13:37:07,951 [MainThread  ] [INFO ]  MARS: Center norms: [2.6875, 2.8907]
+2025-11-09 13:37:07,951 [MainThread  ] [INFO ]  MARS: Detected 1 anomalous clients in cluster 1
+2025-11-09 13:37:07,952 [MainThread  ] [INFO ]  MARS detection result: [ 0  0 -1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0]
+2025-11-09 13:37:07,952 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.2500, FPR: 0.0000
+2025-11-09 13:37:07,952 [MainThread  ] [INFO ]  Client 2 marked as malicious, excluded
+2025-11-09 13:37:07,952 [MainThread  ] [INFO ]  MARS: Selected 19/20 clients
+2025-11-09 13:37:07,952 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 3/4
+2025-11-09 13:37:07,959 [MainThread  ] [INFO ]  ---------Test 11 ------------
+2025-11-09 13:37:11,903 [MainThread  ] [INFO ]  Clean ACC:              0.6503
+2025-11-09 13:37:11,904 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0100
+2025-11-09 13:37:11,904 [MainThread  ] [INFO ]  Backdoor ACC:           0.6089
+2025-11-09 13:37:11,904 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:37:11,904 [MainThread  ] [INFO ]  --------round 12 ------------
+2025-11-09 13:37:11,905 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:37:11,906 [MainThread  ] [INFO ]  [Round 12] Client 0 starting AlterMin training...
+2025-11-09 13:37:13,362 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6520
+2025-11-09 13:37:13,366 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4763
+2025-11-09 13:37:13,374 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4869
+2025-11-09 13:37:13,375 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:13,378 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:13,380 [MainThread  ] [INFO ]  [Round 12] Client 1 starting AlterMin training...
+2025-11-09 13:37:14,733 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9801
+2025-11-09 13:37:14,737 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4754
+2025-11-09 13:37:14,745 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7079
+2025-11-09 13:37:14,745 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:14,749 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:14,752 [MainThread  ] [INFO ]  [Round 12] Client 2 starting AlterMin training...
+2025-11-09 13:37:16,417 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6934
+2025-11-09 13:37:16,420 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2852
+2025-11-09 13:37:16,430 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5079
+2025-11-09 13:37:16,431 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:16,434 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:16,437 [MainThread  ] [INFO ]  [Round 12] Client 3 starting AlterMin training...
+2025-11-09 13:37:17,706 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6466
+2025-11-09 13:37:17,709 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 2.6511
+2025-11-09 13:37:17,718 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0529
+2025-11-09 13:37:17,718 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:17,724 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:38,833 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:37:38,863 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:37:38,864 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:37:38,864 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:37:38,866 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:38,874 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:38,898 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:37:38,900 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:38,912 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:38,933 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:37:38,935 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:38,945 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:38,968 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:37:38,970 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:38,982 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,004 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:37:39,006 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,016 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,038 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:37:39,040 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,052 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,074 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:37:39,075 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,083 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,103 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:37:39,105 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,112 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,129 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:37:39,131 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,140 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,157 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:37:39,159 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,168 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,186 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:37:39,188 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,198 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,215 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:37:39,217 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,226 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,245 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:37:39,247 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,255 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,274 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:37:39,276 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,285 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,303 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:37:39,305 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,314 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,332 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:37:39,334 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,343 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,361 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:37:39,363 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,373 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,391 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:37:39,393 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,403 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,421 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:37:39,422 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,432 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,450 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:37:39,452 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:37:39,461 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:37:39,478 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:37:39,484 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:37:39,492 [MainThread  ] [INFO ]  MARS: Center distance: 0.0128, threshold: 0.03
+2025-11-09 13:37:39,492 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:37:39,492 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:37:39,492 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:37:39,492 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:37:39,492 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:37:39,498 [MainThread  ] [INFO ]  ---------Test 12 ------------
+2025-11-09 13:37:43,422 [MainThread  ] [INFO ]  Clean ACC:              0.5592
+2025-11-09 13:37:43,422 [MainThread  ] [INFO ]  Attack Success Ratio:   0.8640
+2025-11-09 13:37:43,422 [MainThread  ] [INFO ]  Backdoor ACC:           0.5076
+2025-11-09 13:37:43,423 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:37:43,423 [MainThread  ] [INFO ]  --------round 13 ------------
+2025-11-09 13:37:43,424 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:37:43,425 [MainThread  ] [INFO ]  [Round 13] Client 0 starting AlterMin training...
+2025-11-09 13:37:44,901 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6599
+2025-11-09 13:37:44,905 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2944
+2025-11-09 13:37:44,916 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7159
+2025-11-09 13:37:44,916 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:44,920 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:44,923 [MainThread  ] [INFO ]  [Round 13] Client 1 starting AlterMin training...
+2025-11-09 13:37:46,369 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9660
+2025-11-09 13:37:46,376 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3171
+2025-11-09 13:37:46,386 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4268
+2025-11-09 13:37:46,387 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:46,393 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0004
+2025-11-09 13:37:46,397 [MainThread  ] [INFO ]  [Round 13] Client 2 starting AlterMin training...
+2025-11-09 13:37:48,056 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6947
+2025-11-09 13:37:48,059 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.8426
+2025-11-09 13:37:48,068 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2415
+2025-11-09 13:37:48,068 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:48,072 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:37:48,075 [MainThread  ] [INFO ]  [Round 13] Client 3 starting AlterMin training...
+2025-11-09 13:37:49,351 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7097
+2025-11-09 13:37:49,355 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0247
+2025-11-09 13:37:49,363 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2634
+2025-11-09 13:37:49,364 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:37:49,368 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:10,439 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:38:10,469 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:38:10,469 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:38:10,470 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:38:10,471 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,481 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,501 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:38:10,503 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,510 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,531 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:38:10,533 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,540 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,560 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:38:10,562 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,569 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,588 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:38:10,590 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,598 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,618 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:38:10,620 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,629 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,649 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:38:10,651 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,660 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,679 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:38:10,681 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,691 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,710 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:38:10,712 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,721 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,740 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:38:10,742 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,751 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,771 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:38:10,773 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,782 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,803 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:38:10,805 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,814 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,834 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:38:10,836 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,846 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,865 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:38:10,867 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,878 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,896 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:38:10,898 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,907 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,926 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:38:10,928 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,937 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,955 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:38:10,957 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,966 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:10,985 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:38:10,987 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:10,995 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:11,019 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:38:11,021 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:11,029 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:11,050 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:38:11,051 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:11,063 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:11,081 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:38:11,087 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:38:11,094 [MainThread  ] [INFO ]  MARS: Center distance: 0.0106, threshold: 0.03
+2025-11-09 13:38:11,094 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:38:11,094 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:38:11,094 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:38:11,095 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:38:11,095 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:38:11,100 [MainThread  ] [INFO ]  ---------Test 13 ------------
+2025-11-09 13:38:15,040 [MainThread  ] [INFO ]  Clean ACC:              0.6240
+2025-11-09 13:38:15,040 [MainThread  ] [INFO ]  Attack Success Ratio:   0.3210
+2025-11-09 13:38:15,040 [MainThread  ] [INFO ]  Backdoor ACC:           0.5793
+2025-11-09 13:38:15,040 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:38:15,040 [MainThread  ] [INFO ]  --------round 14 ------------
+2025-11-09 13:38:15,041 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:38:15,042 [MainThread  ] [INFO ]  [Round 14] Client 0 starting AlterMin training...
+2025-11-09 13:38:16,515 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6239
+2025-11-09 13:38:16,519 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.6339
+2025-11-09 13:38:16,529 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5549
+2025-11-09 13:38:16,529 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:16,534 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:16,536 [MainThread  ] [INFO ]  [Round 14] Client 1 starting AlterMin training...
+2025-11-09 13:38:17,980 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9560
+2025-11-09 13:38:17,985 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.2722
+2025-11-09 13:38:17,994 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2191
+2025-11-09 13:38:17,994 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:17,998 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:18,000 [MainThread  ] [INFO ]  [Round 14] Client 2 starting AlterMin training...
+2025-11-09 13:38:19,656 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6148
+2025-11-09 13:38:19,660 [MainThread  ] [INFO ]    Current ASR: 0.1000, ASR Loss: 2.0485
+2025-11-09 13:38:19,669 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6598
+2025-11-09 13:38:19,670 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:19,673 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:19,676 [MainThread  ] [INFO ]  [Round 14] Client 3 starting AlterMin training...
+2025-11-09 13:38:20,959 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6659
+2025-11-09 13:38:20,963 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3598
+2025-11-09 13:38:20,972 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7872
+2025-11-09 13:38:20,973 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:20,976 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:42,325 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:38:42,356 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:38:42,356 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:38:42,356 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:38:42,358 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,370 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,388 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:38:42,390 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,401 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,419 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:38:42,421 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,431 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,450 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:38:42,452 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,461 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,481 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:38:42,483 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,491 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,512 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:38:42,514 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,523 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,543 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:38:42,544 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,555 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,574 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:38:42,576 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,586 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,606 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:38:42,608 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,618 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,637 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:38:42,639 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,647 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,667 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:38:42,669 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,678 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,698 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:38:42,700 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,710 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,728 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:38:42,730 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,740 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,759 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:38:42,761 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,770 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,791 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:38:42,793 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,800 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,822 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:38:42,824 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,830 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,852 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:38:42,854 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,861 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,882 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:38:42,884 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,893 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,914 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:38:42,915 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,923 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,945 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:38:42,947 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:38:42,954 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:38:42,975 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:38:42,981 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:38:42,988 [MainThread  ] [INFO ]  MARS: Center distance: 0.0151, threshold: 0.03
+2025-11-09 13:38:42,988 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:38:42,989 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:38:42,989 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:38:42,989 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:38:42,989 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:38:42,995 [MainThread  ] [INFO ]  ---------Test 14 ------------
+2025-11-09 13:38:46,983 [MainThread  ] [INFO ]  Clean ACC:              0.5770
+2025-11-09 13:38:46,983 [MainThread  ] [INFO ]  Attack Success Ratio:   0.8050
+2025-11-09 13:38:46,983 [MainThread  ] [INFO ]  Backdoor ACC:           0.5287
+2025-11-09 13:38:46,983 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:38:46,983 [MainThread  ] [INFO ]  --------round 15 ------------
+2025-11-09 13:38:46,985 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:38:46,986 [MainThread  ] [INFO ]  [Round 15] Client 0 starting AlterMin training...
+2025-11-09 13:38:48,492 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6148
+2025-11-09 13:38:48,496 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4025
+2025-11-09 13:38:48,504 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3339
+2025-11-09 13:38:48,505 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:48,508 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:48,511 [MainThread  ] [INFO ]  [Round 15] Client 1 starting AlterMin training...
+2025-11-09 13:38:49,962 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8814
+2025-11-09 13:38:49,966 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.9948
+2025-11-09 13:38:49,975 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1747
+2025-11-09 13:38:49,975 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:49,979 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:49,981 [MainThread  ] [INFO ]  [Round 15] Client 2 starting AlterMin training...
+2025-11-09 13:38:51,657 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6512
+2025-11-09 13:38:51,661 [MainThread  ] [INFO ]    Current ASR: 0.2700, ASR Loss: 1.4584
+2025-11-09 13:38:51,670 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6866
+2025-11-09 13:38:51,670 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:51,674 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:38:51,676 [MainThread  ] [INFO ]  [Round 15] Client 3 starting AlterMin training...
+2025-11-09 13:38:52,961 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6356
+2025-11-09 13:38:52,964 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4864
+2025-11-09 13:38:52,973 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0417
+2025-11-09 13:38:52,974 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:38:52,977 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:14,346 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:39:14,377 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:39:14,377 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:39:14,377 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:39:14,379 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,388 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,407 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:39:14,409 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,419 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,438 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:39:14,439 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,448 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,468 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:39:14,470 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,479 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,499 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:39:14,501 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,509 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,529 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:39:14,531 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,540 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,559 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:39:14,561 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,571 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,590 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:39:14,592 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,603 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,622 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:39:14,624 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,634 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,654 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:39:14,656 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,664 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,685 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:39:14,687 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,696 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,715 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:39:14,717 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,726 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,746 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:39:14,748 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,758 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,778 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:39:14,779 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,790 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,810 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:39:14,812 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,820 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,840 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:39:14,842 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,852 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,871 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:39:14,874 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,883 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,902 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:39:14,904 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,913 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,935 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:39:14,937 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,948 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:14,968 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:39:14,970 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:14,980 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:15,000 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:39:15,008 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:39:15,016 [MainThread  ] [INFO ]  MARS: Center distance: 0.0184, threshold: 0.03
+2025-11-09 13:39:15,016 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:39:15,017 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:39:15,018 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:39:15,018 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:39:15,018 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:39:15,023 [MainThread  ] [INFO ]  ---------Test 15 ------------
+2025-11-09 13:39:18,920 [MainThread  ] [INFO ]  Clean ACC:              0.6296
+2025-11-09 13:39:18,920 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4400
+2025-11-09 13:39:18,920 [MainThread  ] [INFO ]  Backdoor ACC:           0.5872
+2025-11-09 13:39:18,920 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:39:18,920 [MainThread  ] [INFO ]  --------round 16 ------------
+2025-11-09 13:39:18,921 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:39:18,922 [MainThread  ] [INFO ]  [Round 16] Client 0 starting AlterMin training...
+2025-11-09 13:39:20,388 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6178
+2025-11-09 13:39:20,393 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2870
+2025-11-09 13:39:20,402 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4763
+2025-11-09 13:39:20,402 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:20,407 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:20,409 [MainThread  ] [INFO ]  [Round 16] Client 1 starting AlterMin training...
+2025-11-09 13:39:21,867 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8779
+2025-11-09 13:39:21,870 [MainThread  ] [INFO ]    Current ASR: 0.1500, ASR Loss: 2.5201
+2025-11-09 13:39:21,879 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1685
+2025-11-09 13:39:21,879 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:21,882 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:21,885 [MainThread  ] [INFO ]  [Round 16] Client 2 starting AlterMin training...
+2025-11-09 13:39:23,545 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6012
+2025-11-09 13:39:23,550 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 2.0133
+2025-11-09 13:39:23,559 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.5806
+2025-11-09 13:39:23,559 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:23,562 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:23,564 [MainThread  ] [INFO ]  [Round 16] Client 3 starting AlterMin training...
+2025-11-09 13:39:24,846 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6300
+2025-11-09 13:39:24,850 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8369
+2025-11-09 13:39:24,859 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9835
+2025-11-09 13:39:24,859 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:24,864 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:45,966 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:39:45,996 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:39:45,996 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:39:45,996 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:39:45,998 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,006 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,026 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:39:46,028 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,033 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,052 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:39:46,054 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,061 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,080 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:39:46,082 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,090 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,108 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:39:46,110 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,119 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,137 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:39:46,138 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,147 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,165 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:39:46,167 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,176 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,194 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:39:46,196 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,205 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,223 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:39:46,224 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,234 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,251 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:39:46,253 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,262 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,280 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:39:46,282 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,291 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,309 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:39:46,311 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,320 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,338 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:39:46,340 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,349 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,367 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:39:46,369 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,378 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,396 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:39:46,398 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,407 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,425 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:39:46,427 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,436 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,454 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:39:46,456 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,465 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,483 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:39:46,485 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,494 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,512 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:39:46,514 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,524 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,542 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:39:46,544 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:39:46,553 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:39:46,571 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:39:46,577 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:39:46,584 [MainThread  ] [INFO ]  MARS: Center distance: 0.0080, threshold: 0.03
+2025-11-09 13:39:46,585 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:39:46,585 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:39:46,585 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:39:46,585 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:39:46,585 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:39:46,590 [MainThread  ] [INFO ]  ---------Test 16 ------------
+2025-11-09 13:39:50,551 [MainThread  ] [INFO ]  Clean ACC:              0.6254
+2025-11-09 13:39:50,551 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7100
+2025-11-09 13:39:50,551 [MainThread  ] [INFO ]  Backdoor ACC:           0.5788
+2025-11-09 13:39:50,551 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:39:50,551 [MainThread  ] [INFO ]  --------round 17 ------------
+2025-11-09 13:39:50,552 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:39:50,553 [MainThread  ] [INFO ]  [Round 17] Client 0 starting AlterMin training...
+2025-11-09 13:39:52,009 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5935
+2025-11-09 13:39:52,013 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.7517
+2025-11-09 13:39:52,022 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0777
+2025-11-09 13:39:52,022 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:52,026 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:52,028 [MainThread  ] [INFO ]  [Round 17] Client 1 starting AlterMin training...
+2025-11-09 13:39:53,456 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8690
+2025-11-09 13:39:53,461 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.7007
+2025-11-09 13:39:53,469 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3664
+2025-11-09 13:39:53,470 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:53,473 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:53,475 [MainThread  ] [INFO ]  [Round 17] Client 2 starting AlterMin training...
+2025-11-09 13:39:55,134 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6053
+2025-11-09 13:39:55,138 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.5481
+2025-11-09 13:39:55,145 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2345
+2025-11-09 13:39:55,146 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:55,151 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:39:55,153 [MainThread  ] [INFO ]  [Round 17] Client 3 starting AlterMin training...
+2025-11-09 13:39:56,439 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6411
+2025-11-09 13:39:56,443 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.8421
+2025-11-09 13:39:56,451 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3065
+2025-11-09 13:39:56,452 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:39:56,456 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:17,763 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:40:17,793 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:40:17,793 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:40:17,793 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:40:17,795 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,803 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,823 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:40:17,825 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,832 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,851 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:40:17,853 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,860 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,878 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:40:17,879 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,886 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,905 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:40:17,907 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,914 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,933 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:40:17,935 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,943 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,962 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:40:17,964 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:17,972 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:17,991 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:40:17,992 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,001 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,021 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:40:18,022 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,030 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,049 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:40:18,050 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,059 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,077 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:40:18,079 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,087 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,105 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:40:18,107 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,115 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,133 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:40:18,135 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,144 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,161 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:40:18,163 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,172 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,190 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:40:18,192 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,200 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,218 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:40:18,220 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,228 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,246 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:40:18,248 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,256 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,274 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:40:18,276 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,285 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,303 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:40:18,305 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,313 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,331 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:40:18,333 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:18,342 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:18,360 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:40:18,366 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:40:18,374 [MainThread  ] [INFO ]  MARS: Center distance: 0.0082, threshold: 0.03
+2025-11-09 13:40:18,374 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:40:18,374 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:40:18,374 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:40:18,375 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:40:18,375 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:40:18,381 [MainThread  ] [INFO ]  ---------Test 17 ------------
+2025-11-09 13:40:22,324 [MainThread  ] [INFO ]  Clean ACC:              0.6498
+2025-11-09 13:40:22,324 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4250
+2025-11-09 13:40:22,324 [MainThread  ] [INFO ]  Backdoor ACC:           0.6090
+2025-11-09 13:40:22,324 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:40:22,324 [MainThread  ] [INFO ]  --------round 18 ------------
+2025-11-09 13:40:22,325 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:40:22,326 [MainThread  ] [INFO ]  [Round 18] Client 0 starting AlterMin training...
+2025-11-09 13:40:23,812 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6177
+2025-11-09 13:40:23,815 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2812
+2025-11-09 13:40:23,824 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7009
+2025-11-09 13:40:23,824 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:23,829 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-09 13:40:23,832 [MainThread  ] [INFO ]  [Round 18] Client 1 starting AlterMin training...
+2025-11-09 13:40:25,270 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8425
+2025-11-09 13:40:25,275 [MainThread  ] [INFO ]    Current ASR: 0.1100, ASR Loss: 2.9259
+2025-11-09 13:40:25,285 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1819
+2025-11-09 13:40:25,285 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:25,289 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:25,291 [MainThread  ] [INFO ]  [Round 18] Client 2 starting AlterMin training...
+2025-11-09 13:40:26,940 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6016
+2025-11-09 13:40:26,944 [MainThread  ] [INFO ]    Current ASR: 0.0500, ASR Loss: 2.7873
+2025-11-09 13:40:26,953 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9685
+2025-11-09 13:40:26,953 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:26,958 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:26,961 [MainThread  ] [INFO ]  [Round 18] Client 3 starting AlterMin training...
+2025-11-09 13:40:28,228 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6042
+2025-11-09 13:40:28,232 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9408
+2025-11-09 13:40:28,241 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3748
+2025-11-09 13:40:28,241 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:28,245 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:49,275 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:40:49,306 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:40:49,306 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:40:49,306 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:40:49,308 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,315 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,333 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:40:49,335 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,343 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,365 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:40:49,369 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,378 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,400 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:40:49,404 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,414 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,436 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:40:49,440 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,448 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,471 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:40:49,475 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,484 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,503 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:40:49,505 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,514 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,532 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:40:49,534 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,545 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,563 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:40:49,566 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,573 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,591 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:40:49,593 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,601 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,619 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:40:49,621 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,630 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,646 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:40:49,648 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,656 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,673 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:40:49,675 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,683 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,701 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:40:49,703 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,709 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,727 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:40:49,729 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,738 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,756 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:40:49,757 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,765 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,782 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:40:49,784 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,793 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,812 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:40:49,814 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,824 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,842 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:40:49,844 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,853 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,871 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:40:49,873 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:40:49,881 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:40:49,899 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:40:49,904 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:40:49,913 [MainThread  ] [INFO ]  MARS: Center distance: 0.0064, threshold: 0.03
+2025-11-09 13:40:49,913 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:40:49,913 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:40:49,913 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:40:49,913 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:40:49,913 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:40:49,919 [MainThread  ] [INFO ]  ---------Test 18 ------------
+2025-11-09 13:40:53,726 [MainThread  ] [INFO ]  Clean ACC:              0.6488
+2025-11-09 13:40:53,726 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4010
+2025-11-09 13:40:53,726 [MainThread  ] [INFO ]  Backdoor ACC:           0.6077
+2025-11-09 13:40:53,726 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:40:53,726 [MainThread  ] [INFO ]  --------round 19 ------------
+2025-11-09 13:40:53,728 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:40:53,729 [MainThread  ] [INFO ]  [Round 19] Client 0 starting AlterMin training...
+2025-11-09 13:40:55,183 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5716
+2025-11-09 13:40:55,187 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4455
+2025-11-09 13:40:55,196 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5672
+2025-11-09 13:40:55,196 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:55,200 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:55,202 [MainThread  ] [INFO ]  [Round 19] Client 1 starting AlterMin training...
+2025-11-09 13:40:56,629 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8305
+2025-11-09 13:40:56,632 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.7579
+2025-11-09 13:40:56,642 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4187
+2025-11-09 13:40:56,642 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:56,646 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:56,649 [MainThread  ] [INFO ]  [Round 19] Client 2 starting AlterMin training...
+2025-11-09 13:40:58,294 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5701
+2025-11-09 13:40:58,299 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.7151
+2025-11-09 13:40:58,307 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0736
+2025-11-09 13:40:58,307 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:58,313 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:40:58,315 [MainThread  ] [INFO ]  [Round 19] Client 3 starting AlterMin training...
+2025-11-09 13:40:59,580 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6225
+2025-11-09 13:40:59,584 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.5610
+2025-11-09 13:40:59,593 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3945
+2025-11-09 13:40:59,594 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:40:59,597 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:41:20,572 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 13:41:20,602 [MainThread  ] [INFO ]  ------------ MARS Defense ------------
+2025-11-09 13:41:20,602 [MainThread  ] [INFO ]  Total clients: 20
+2025-11-09 13:41:20,602 [MainThread  ] [INFO ]  Malicious clients: 4
+2025-11-09 13:41:20,604 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,615 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,635 [MainThread  ] [INFO ]  Client 0: CBE vector length = 6
+2025-11-09 13:41:20,637 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,648 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,668 [MainThread  ] [INFO ]  Client 1: CBE vector length = 6
+2025-11-09 13:41:20,670 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,679 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,699 [MainThread  ] [INFO ]  Client 2: CBE vector length = 6
+2025-11-09 13:41:20,701 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,710 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,730 [MainThread  ] [INFO ]  Client 3: CBE vector length = 6
+2025-11-09 13:41:20,732 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,742 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,761 [MainThread  ] [INFO ]  Client 4: CBE vector length = 6
+2025-11-09 13:41:20,763 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,772 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,792 [MainThread  ] [INFO ]  Client 5: CBE vector length = 6
+2025-11-09 13:41:20,793 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,802 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,822 [MainThread  ] [INFO ]  Client 6: CBE vector length = 6
+2025-11-09 13:41:20,824 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,832 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,852 [MainThread  ] [INFO ]  Client 7: CBE vector length = 6
+2025-11-09 13:41:20,853 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,861 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,882 [MainThread  ] [INFO ]  Client 8: CBE vector length = 6
+2025-11-09 13:41:20,884 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,895 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,914 [MainThread  ] [INFO ]  Client 9: CBE vector length = 6
+2025-11-09 13:41:20,916 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,925 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,945 [MainThread  ] [INFO ]  Client 10: CBE vector length = 6
+2025-11-09 13:41:20,947 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,954 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:20,976 [MainThread  ] [INFO ]  Client 11: CBE vector length = 6
+2025-11-09 13:41:20,978 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:20,984 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,007 [MainThread  ] [INFO ]  Client 12: CBE vector length = 6
+2025-11-09 13:41:21,010 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,016 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,037 [MainThread  ] [INFO ]  Client 13: CBE vector length = 6
+2025-11-09 13:41:21,039 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,047 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,066 [MainThread  ] [INFO ]  Client 14: CBE vector length = 6
+2025-11-09 13:41:21,068 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,078 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,097 [MainThread  ] [INFO ]  Client 15: CBE vector length = 6
+2025-11-09 13:41:21,099 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,109 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,128 [MainThread  ] [INFO ]  Client 16: CBE vector length = 6
+2025-11-09 13:41:21,130 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,139 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,158 [MainThread  ] [INFO ]  Client 17: CBE vector length = 6
+2025-11-09 13:41:21,160 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,167 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,186 [MainThread  ] [INFO ]  Client 18: CBE vector length = 6
+2025-11-09 13:41:21,188 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn1
+2025-11-09 13:41:21,195 [MainThread  ] [INFO ]  MARS CBE: Initialized running_var for BatchNorm bn2
+2025-11-09 13:41:21,214 [MainThread  ] [INFO ]  Client 19: CBE vector length = 6
+2025-11-09 13:41:21,220 [MainThread  ] [INFO ]  MARS: Wasserstein distance matrix computed, shape: (20, 20)
+2025-11-09 13:41:21,228 [MainThread  ] [INFO ]  MARS: Center distance: 0.0065, threshold: 0.03
+2025-11-09 13:41:21,228 [MainThread  ] [INFO ]  MARS: No anomalies detected (center distance below threshold)
+2025-11-09 13:41:21,228 [MainThread  ] [INFO ]  MARS detection result: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+2025-11-09 13:41:21,228 [MainThread  ] [INFO ]  MARS Detection - TPR: 0.0000, FPR: 0.0000
+2025-11-09 13:41:21,228 [MainThread  ] [INFO ]  MARS: Selected 20/20 clients
+2025-11-09 13:41:21,229 [MainThread  ] [INFO ]  MARS: Malicious clients in selection: 4/4
+2025-11-09 13:41:21,238 [MainThread  ] [INFO ]  ---------Test 19 ------------
+2025-11-09 13:41:25,160 [MainThread  ] [INFO ]  Clean ACC:              0.6522
+2025-11-09 13:41:25,161 [MainThread  ] [INFO ]  Attack Success Ratio:   0.6010
+2025-11-09 13:41:25,161 [MainThread  ] [INFO ]  Backdoor ACC:           0.6106
+2025-11-09 13:41:25,161 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 13:41:25,161 [MainThread  ] [INFO ]  --------round 20 ------------
+2025-11-09 13:41:25,162 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-09 13:41:25,163 [MainThread  ] [INFO ]  [Round 20] Client 0 starting AlterMin training...
+2025-11-09 13:41:26,631 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5861
+2025-11-09 13:41:26,635 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3241
+2025-11-09 13:41:26,644 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3695
+2025-11-09 13:41:26,644 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:41:26,647 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0004
+2025-11-09 13:41:26,650 [MainThread  ] [INFO ]  [Round 20] Client 1 starting AlterMin training...
+2025-11-09 13:41:28,079 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8312
+2025-11-09 13:41:28,084 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 2.5954
+2025-11-09 13:41:28,093 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9062
+2025-11-09 13:41:28,093 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:41:28,097 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:41:28,100 [MainThread  ] [INFO ]  [Round 20] Client 2 starting AlterMin training...
+2025-11-09 13:41:29,787 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5955
+2025-11-09 13:41:29,792 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.8485
+2025-11-09 13:41:29,800 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3099
+2025-11-09 13:41:29,801 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:41:29,805 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 13:41:29,807 [MainThread  ] [INFO ]  [Round 20] Client 3 starting AlterMin training...
+2025-11-09 13:41:31,117 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6847
+2025-11-09 13:41:31,121 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.5355
+2025-11-09 13:41:31,130 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8234
+2025-11-09 13:41:31,130 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-09 13:41:31,135 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000

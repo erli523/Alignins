@@ -1,0 +1,1671 @@
+2025-11-08 23:27:58,374 [MainThread  ] [INFO ]  Namespace(data='fmnist', num_agents=20, agent_frac=1.0, num_corrupt=4, rounds=50, local_ep=2, bs=64, client_lr=0.1, server_lr=1, target_class=7, poison_frac=0.3, pattern_type='plus', theta=8, theta_ld=10, snap=1, device='cuda:1', num_workers=0, dense_ratio=0.25, anneal_factor=0.0001, se_threshold=0.0001, non_iid=True, debug=False, beta=0.5, attack='altermin', aggr='foolsgold', lr_decay=0.99, momentum=0.0, mask_init='ERK', wd=0.0001, same_mask=1, cease_poison=100000, exp_name_extra='', super_power=False, clean=False, sparsity=0.3, lambda_s=1.0, lambda_c=1.0, dis_check_gradient=False, trigger_size=5, trigger_lr=0.1, trigger_outter_epochs=50, trigger_optim_interval=5, dm_adv_epochs=2, dm_adv_K=10, dm_adv_model_count=3, noise_loss_lambda=0.1, altermin_attack_mode='targeted', altermin_source_label=3, altermin_target_label=None, altermin_poisoned_cnt=100, altermin_boosting_factor=1.5, altermin_rho=0.0001, altermin_benign_epochs=None, altermin_malicious_epochs=1, model_replacement_scaling_factor=50, model_replacement_alpha=0.5, model_replacement_target_label=None, model_replacement_constrain_weight=0.02, num_target=10, exp_name='noniid(0.5)_pr(0.3)')
+2025-11-08 23:27:58,464 [MainThread  ] [INFO ]  (60000, 10)
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:0, distribution: [914, 251, 139, 115, 86, 191, 42, 602, 716, 0]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:1, distribution: [38, 5, 939, 5, 133, 379, 645, 94, 250, 456]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:2, distribution: [13, 4, 21, 60, 322, 119, 240, 410, 745, 1461]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:3, distribution: [91, 548, 107, 5, 168, 15, 467, 70, 96, 1098]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:4, distribution: [1325, 284, 5, 9, 7, 5, 904, 248, 47, 408]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:5, distribution: [166, 277, 27, 389, 61, 58, 994, 378, 1600, 0]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:6, distribution: [7, 57, 1356, 30, 460, 633, 31, 694, 0, 0]
+2025-11-08 23:27:58,609 [MainThread  ] [INFO ]  client:7, distribution: [49, 2, 216, 213, 537, 195, 17, 42, 543, 450]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:8, distribution: [1495, 456, 498, 1709, 0, 0, 0, 0, 0, 0]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:9, distribution: [152, 131, 305, 23, 12, 22, 1666, 1102, 0, 0]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:10, distribution: [103, 1156, 100, 48, 91, 1083, 233, 0, 192, 0]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:11, distribution: [1, 1218, 92, 132, 348, 158, 53, 102, 50, 1135]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:12, distribution: [10, 611, 97, 866, 862, 44, 196, 26, 9, 354]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:13, distribution: [232, 389, 354, 3, 176, 938, 1, 266, 553, 4]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:14, distribution: [182, 137, 896, 298, 291, 10, 430, 792, 0, 0]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:15, distribution: [106, 48, 352, 0, 32, 377, 0, 59, 209, 40]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:16, distribution: [18, 66, 455, 583, 39, 638, 34, 452, 365, 559]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:17, distribution: [359, 259, 21, 157, 2336, 0, 0, 0, 0, 0]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:18, distribution: [602, 17, 19, 1026, 38, 1108, 10, 5, 188, 0]
+2025-11-08 23:27:58,610 [MainThread  ] [INFO ]  client:19, distribution: [137, 84, 1, 329, 1, 27, 37, 658, 437, 35]
+2025-11-08 23:27:59,110 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 0
+2025-11-08 23:27:59,110 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 23:27:59,111 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 23:27:59,111 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 23:27:59,111 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 23:27:59,126 [MainThread  ] [INFO ]  build client:0 mal:1 data_num:3056
+2025-11-08 23:27:59,132 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 1
+2025-11-08 23:27:59,132 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 23:27:59,132 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 23:27:59,132 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 23:27:59,132 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 23:27:59,146 [MainThread  ] [INFO ]  build client:1 mal:1 data_num:2944
+2025-11-08 23:27:59,151 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 2
+2025-11-08 23:27:59,151 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 23:27:59,151 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 23:27:59,151 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 23:27:59,152 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 23:27:59,167 [MainThread  ] [INFO ]  build client:2 mal:1 data_num:3395
+2025-11-08 23:27:59,172 [MainThread  ] [INFO ]  AlterMinAttacker initialized for client 3
+2025-11-08 23:27:59,172 [MainThread  ] [INFO ]    Attack mode: targeted
+2025-11-08 23:27:59,172 [MainThread  ] [INFO ]    Source label: 3 -> Target label: 7
+2025-11-08 23:27:59,172 [MainThread  ] [INFO ]    Boosting factor: 1.5, Rho: 0.0001
+2025-11-08 23:27:59,172 [MainThread  ] [INFO ]    Benign epochs: 2, Malicious epochs: 1
+2025-11-08 23:27:59,184 [MainThread  ] [INFO ]  build client:3 mal:1 data_num:2665
+2025-11-08 23:27:59,196 [MainThread  ] [INFO ]  build client:4 mal:0 data_num:3242
+2025-11-08 23:27:59,209 [MainThread  ] [INFO ]  build client:5 mal:0 data_num:3950
+2025-11-08 23:27:59,220 [MainThread  ] [INFO ]  build client:6 mal:0 data_num:3268
+2025-11-08 23:27:59,228 [MainThread  ] [INFO ]  build client:7 mal:0 data_num:2264
+2025-11-08 23:27:59,243 [MainThread  ] [INFO ]  build client:8 mal:0 data_num:4158
+2025-11-08 23:27:59,254 [MainThread  ] [INFO ]  build client:9 mal:0 data_num:3413
+2025-11-08 23:27:59,265 [MainThread  ] [INFO ]  build client:10 mal:0 data_num:3006
+2025-11-08 23:27:59,276 [MainThread  ] [INFO ]  build client:11 mal:0 data_num:3289
+2025-11-08 23:27:59,287 [MainThread  ] [INFO ]  build client:12 mal:0 data_num:3075
+2025-11-08 23:27:59,297 [MainThread  ] [INFO ]  build client:13 mal:0 data_num:2916
+2025-11-08 23:27:59,307 [MainThread  ] [INFO ]  build client:14 mal:0 data_num:3036
+2025-11-08 23:27:59,311 [MainThread  ] [INFO ]  build client:15 mal:0 data_num:1223
+2025-11-08 23:27:59,322 [MainThread  ] [INFO ]  build client:16 mal:0 data_num:3209
+2025-11-08 23:27:59,333 [MainThread  ] [INFO ]  build client:17 mal:0 data_num:3132
+2025-11-08 23:27:59,344 [MainThread  ] [INFO ]  build client:18 mal:0 data_num:3013
+2025-11-08 23:27:59,350 [MainThread  ] [INFO ]  build client:19 mal:0 data_num:1746
+2025-11-08 23:28:01,526 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 23:28:03,730 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 23:28:05,973 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 23:28:08,238 [MainThread  ] [INFO ]    Initialized poisoned loader with 100 samples
+2025-11-08 23:28:08,239 [MainThread  ] [INFO ]  --------round 1 ------------
+2025-11-08 23:28:08,241 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:28:08,243 [MainThread  ] [INFO ]  [Round 1] Client 0 starting AlterMin training...
+2025-11-08 23:28:10,847 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9655
+2025-11-08 23:28:10,879 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 5.8563
+2025-11-08 23:28:10,897 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.7900
+2025-11-08 23:28:10,898 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:10,908 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:28:10,911 [MainThread  ] [INFO ]  [Round 1] Client 1 starting AlterMin training...
+2025-11-08 23:28:12,838 [MainThread  ] [INFO ]    Benign training completed, loss: 1.5254
+2025-11-08 23:28:12,846 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7194
+2025-11-08 23:28:12,857 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3490
+2025-11-08 23:28:12,857 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:12,865 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:28:12,867 [MainThread  ] [INFO ]  [Round 1] Client 2 starting AlterMin training...
+2025-11-08 23:28:15,104 [MainThread  ] [INFO ]    Benign training completed, loss: 1.3537
+2025-11-08 23:28:15,109 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.6519
+2025-11-08 23:28:15,118 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7617
+2025-11-08 23:28:15,119 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:15,123 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0007
+2025-11-08 23:28:15,127 [MainThread  ] [INFO ]  [Round 1] Client 3 starting AlterMin training...
+2025-11-08 23:28:16,911 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0377
+2025-11-08 23:28:16,920 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 4.9847
+2025-11-08 23:28:16,934 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4005
+2025-11-08 23:28:16,935 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:16,945 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:28:39,569 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:28:39,958 [MainThread  ] [INFO ]  ---------Test 1 ------------
+2025-11-08 23:28:44,768 [MainThread  ] [INFO ]  Clean ACC:              0.1078
+2025-11-08 23:28:44,768 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 23:28:44,768 [MainThread  ] [INFO ]  Backdoor ACC:           0.1111
+2025-11-08 23:28:44,768 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:28:44,768 [MainThread  ] [INFO ]  --------round 2 ------------
+2025-11-08 23:28:44,770 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:28:44,771 [MainThread  ] [INFO ]  [Round 2] Client 0 starting AlterMin training...
+2025-11-08 23:28:46,497 [MainThread  ] [INFO ]    Benign training completed, loss: 1.5448
+2025-11-08 23:28:46,501 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.5887
+2025-11-08 23:28:46,510 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5252
+2025-11-08 23:28:46,511 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:46,515 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 2.1047
+2025-11-08 23:28:46,517 [MainThread  ] [INFO ]  [Round 2] Client 1 starting AlterMin training...
+2025-11-08 23:28:48,134 [MainThread  ] [INFO ]    Benign training completed, loss: 1.6105
+2025-11-08 23:28:48,144 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9440
+2025-11-08 23:28:48,171 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7940
+2025-11-08 23:28:48,173 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:48,186 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0006
+2025-11-08 23:28:48,193 [MainThread  ] [INFO ]  [Round 2] Client 2 starting AlterMin training...
+2025-11-08 23:28:50,099 [MainThread  ] [INFO ]    Benign training completed, loss: 1.8697
+2025-11-08 23:28:50,102 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.4500
+2025-11-08 23:28:50,111 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4009
+2025-11-08 23:28:50,112 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:50,115 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 2.1616
+2025-11-08 23:28:50,117 [MainThread  ] [INFO ]  [Round 2] Client 3 starting AlterMin training...
+2025-11-08 23:28:51,599 [MainThread  ] [INFO ]    Benign training completed, loss: 1.6002
+2025-11-08 23:28:51,602 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7075
+2025-11-08 23:28:51,611 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4856
+2025-11-08 23:28:51,612 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:28:51,615 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 2.4499
+2025-11-08 23:29:17,400 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:29:17,668 [MainThread  ] [INFO ]  ---------Test 2 ------------
+2025-11-08 23:29:22,368 [MainThread  ] [INFO ]  Clean ACC:              0.2396
+2025-11-08 23:29:22,368 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0000
+2025-11-08 23:29:22,368 [MainThread  ] [INFO ]  Backdoor ACC:           0.1549
+2025-11-08 23:29:22,368 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:29:22,368 [MainThread  ] [INFO ]  --------round 3 ------------
+2025-11-08 23:29:22,370 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:29:22,372 [MainThread  ] [INFO ]  [Round 3] Client 0 starting AlterMin training...
+2025-11-08 23:29:24,078 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2027
+2025-11-08 23:29:24,083 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7168
+2025-11-08 23:29:24,093 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4654
+2025-11-08 23:29:24,094 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:29:24,103 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0032
+2025-11-08 23:29:24,106 [MainThread  ] [INFO ]  [Round 3] Client 1 starting AlterMin training...
+2025-11-08 23:29:25,920 [MainThread  ] [INFO ]    Benign training completed, loss: 1.4931
+2025-11-08 23:29:25,925 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0871
+2025-11-08 23:29:25,938 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8482
+2025-11-08 23:29:25,939 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:29:25,949 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0008
+2025-11-08 23:29:25,954 [MainThread  ] [INFO ]  [Round 3] Client 2 starting AlterMin training...
+2025-11-08 23:29:27,997 [MainThread  ] [INFO ]    Benign training completed, loss: 1.7430
+2025-11-08 23:29:28,001 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.5273
+2025-11-08 23:29:28,009 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4561
+2025-11-08 23:29:28,010 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:29:28,013 [MainThread  ] [INFO ]    After boosting - ASR: 0.9900, ASR Loss: 0.2728
+2025-11-08 23:29:28,016 [MainThread  ] [INFO ]  [Round 3] Client 3 starting AlterMin training...
+2025-11-08 23:29:29,502 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2521
+2025-11-08 23:29:29,510 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.6924
+2025-11-08 23:29:29,519 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5766
+2025-11-08 23:29:29,520 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:29:29,524 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0188
+2025-11-08 23:29:54,038 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:29:54,307 [MainThread  ] [INFO ]  ---------Test 3 ------------
+2025-11-08 23:29:59,426 [MainThread  ] [INFO ]  Clean ACC:              0.3127
+2025-11-08 23:29:59,427 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0010
+2025-11-08 23:29:59,427 [MainThread  ] [INFO ]  Backdoor ACC:           0.2340
+2025-11-08 23:29:59,427 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:29:59,427 [MainThread  ] [INFO ]  --------round 4 ------------
+2025-11-08 23:29:59,429 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:29:59,430 [MainThread  ] [INFO ]  [Round 4] Client 0 starting AlterMin training...
+2025-11-08 23:30:01,190 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1918
+2025-11-08 23:30:01,205 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8156
+2025-11-08 23:30:01,220 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8311
+2025-11-08 23:30:01,220 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:01,234 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:30:01,236 [MainThread  ] [INFO ]  [Round 4] Client 1 starting AlterMin training...
+2025-11-08 23:30:02,996 [MainThread  ] [INFO ]    Benign training completed, loss: 1.3768
+2025-11-08 23:30:03,006 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9376
+2025-11-08 23:30:03,018 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0025
+2025-11-08 23:30:03,019 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:03,030 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:30:03,032 [MainThread  ] [INFO ]  [Round 4] Client 2 starting AlterMin training...
+2025-11-08 23:30:04,959 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1425
+2025-11-08 23:30:04,966 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.6641
+2025-11-08 23:30:04,976 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5235
+2025-11-08 23:30:04,977 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:04,983 [MainThread  ] [INFO ]    After boosting - ASR: 0.0000, ASR Loss: 0.7350
+2025-11-08 23:30:04,985 [MainThread  ] [INFO ]  [Round 4] Client 3 starting AlterMin training...
+2025-11-08 23:30:06,724 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9428
+2025-11-08 23:30:06,729 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4176
+2025-11-08 23:30:06,739 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7792
+2025-11-08 23:30:06,740 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:06,750 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0006
+2025-11-08 23:30:31,058 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:30:31,328 [MainThread  ] [INFO ]  ---------Test 4 ------------
+2025-11-08 23:30:36,821 [MainThread  ] [INFO ]  Clean ACC:              0.3549
+2025-11-08 23:30:36,821 [MainThread  ] [INFO ]  Attack Success Ratio:   0.2300
+2025-11-08 23:30:36,821 [MainThread  ] [INFO ]  Backdoor ACC:           0.2829
+2025-11-08 23:30:36,821 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:30:36,821 [MainThread  ] [INFO ]  --------round 5 ------------
+2025-11-08 23:30:36,823 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:30:36,824 [MainThread  ] [INFO ]  [Round 5] Client 0 starting AlterMin training...
+2025-11-08 23:30:38,798 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0273
+2025-11-08 23:30:38,809 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9928
+2025-11-08 23:30:38,821 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6993
+2025-11-08 23:30:38,821 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:38,835 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0006
+2025-11-08 23:30:38,837 [MainThread  ] [INFO ]  [Round 5] Client 1 starting AlterMin training...
+2025-11-08 23:30:40,672 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2816
+2025-11-08 23:30:40,676 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.5810
+2025-11-08 23:30:40,683 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8531
+2025-11-08 23:30:40,684 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:40,689 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:30:40,693 [MainThread  ] [INFO ]  [Round 5] Client 2 starting AlterMin training...
+2025-11-08 23:30:42,681 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1109
+2025-11-08 23:30:42,685 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.5379
+2025-11-08 23:30:42,693 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0025
+2025-11-08 23:30:42,694 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:42,697 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:30:42,700 [MainThread  ] [INFO ]  [Round 5] Client 3 starting AlterMin training...
+2025-11-08 23:30:44,272 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8348
+2025-11-08 23:30:44,276 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2074
+2025-11-08 23:30:44,287 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4368
+2025-11-08 23:30:44,287 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:30:44,291 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:31:10,006 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:31:10,268 [MainThread  ] [INFO ]  ---------Test 5 ------------
+2025-11-08 23:31:14,995 [MainThread  ] [INFO ]  Clean ACC:              0.3807
+2025-11-08 23:31:14,995 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9480
+2025-11-08 23:31:14,995 [MainThread  ] [INFO ]  Backdoor ACC:           0.3107
+2025-11-08 23:31:14,995 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:31:14,995 [MainThread  ] [INFO ]  --------round 6 ------------
+2025-11-08 23:31:14,997 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:31:14,998 [MainThread  ] [INFO ]  [Round 6] Client 0 starting AlterMin training...
+2025-11-08 23:31:16,788 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9248
+2025-11-08 23:31:16,800 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9024
+2025-11-08 23:31:16,810 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2454
+2025-11-08 23:31:16,811 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:16,814 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0021
+2025-11-08 23:31:16,817 [MainThread  ] [INFO ]  [Round 6] Client 1 starting AlterMin training...
+2025-11-08 23:31:18,728 [MainThread  ] [INFO ]    Benign training completed, loss: 1.2848
+2025-11-08 23:31:18,739 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.4678
+2025-11-08 23:31:18,750 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8057
+2025-11-08 23:31:18,751 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:18,756 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0004
+2025-11-08 23:31:18,759 [MainThread  ] [INFO ]  [Round 6] Client 2 starting AlterMin training...
+2025-11-08 23:31:20,950 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9975
+2025-11-08 23:31:20,954 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.6939
+2025-11-08 23:31:20,963 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3656
+2025-11-08 23:31:20,963 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:20,967 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0342
+2025-11-08 23:31:20,970 [MainThread  ] [INFO ]  [Round 6] Client 3 starting AlterMin training...
+2025-11-08 23:31:22,538 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8144
+2025-11-08 23:31:22,544 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2900
+2025-11-08 23:31:22,557 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5248
+2025-11-08 23:31:22,558 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:22,566 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:31:47,992 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:31:48,280 [MainThread  ] [INFO ]  ---------Test 6 ------------
+2025-11-08 23:31:53,461 [MainThread  ] [INFO ]  Clean ACC:              0.5245
+2025-11-08 23:31:53,462 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0210
+2025-11-08 23:31:53,462 [MainThread  ] [INFO ]  Backdoor ACC:           0.4710
+2025-11-08 23:31:53,462 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:31:53,462 [MainThread  ] [INFO ]  --------round 7 ------------
+2025-11-08 23:31:53,463 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:31:53,464 [MainThread  ] [INFO ]  [Round 7] Client 0 starting AlterMin training...
+2025-11-08 23:31:55,095 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8641
+2025-11-08 23:31:55,107 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5396
+2025-11-08 23:31:55,117 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3251
+2025-11-08 23:31:55,118 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:55,124 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:31:55,129 [MainThread  ] [INFO ]  [Round 7] Client 1 starting AlterMin training...
+2025-11-08 23:31:56,839 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1467
+2025-11-08 23:31:56,843 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9655
+2025-11-08 23:31:56,850 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1678
+2025-11-08 23:31:56,851 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:56,855 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:31:56,858 [MainThread  ] [INFO ]  [Round 7] Client 2 starting AlterMin training...
+2025-11-08 23:31:58,960 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8188
+2025-11-08 23:31:58,964 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7650
+2025-11-08 23:31:58,972 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9744
+2025-11-08 23:31:58,973 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:31:58,979 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:31:58,983 [MainThread  ] [INFO ]  [Round 7] Client 3 starting AlterMin training...
+2025-11-08 23:32:00,517 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9144
+2025-11-08 23:32:00,530 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8457
+2025-11-08 23:32:00,541 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3487
+2025-11-08 23:32:00,542 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:32:00,548 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:32:26,067 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:32:26,363 [MainThread  ] [INFO ]  ---------Test 7 ------------
+2025-11-08 23:32:31,838 [MainThread  ] [INFO ]  Clean ACC:              0.4440
+2025-11-08 23:32:31,838 [MainThread  ] [INFO ]  Attack Success Ratio:   0.8840
+2025-11-08 23:32:31,838 [MainThread  ] [INFO ]  Backdoor ACC:           0.3822
+2025-11-08 23:32:31,838 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:32:31,838 [MainThread  ] [INFO ]  --------round 8 ------------
+2025-11-08 23:32:31,840 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:32:31,841 [MainThread  ] [INFO ]  [Round 8] Client 0 starting AlterMin training...
+2025-11-08 23:32:33,662 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8544
+2025-11-08 23:32:33,675 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3077
+2025-11-08 23:32:33,687 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0680
+2025-11-08 23:32:33,688 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:32:33,695 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0013
+2025-11-08 23:32:33,697 [MainThread  ] [INFO ]  [Round 8] Client 1 starting AlterMin training...
+2025-11-08 23:32:35,619 [MainThread  ] [INFO ]    Benign training completed, loss: 1.1251
+2025-11-08 23:32:35,631 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3975
+2025-11-08 23:32:35,644 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6420
+2025-11-08 23:32:35,645 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:32:35,650 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:32:35,652 [MainThread  ] [INFO ]  [Round 8] Client 2 starting AlterMin training...
+2025-11-08 23:32:37,749 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8573
+2025-11-08 23:32:37,767 [MainThread  ] [INFO ]    Current ASR: 0.1100, ASR Loss: 1.5678
+2025-11-08 23:32:37,791 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.5334
+2025-11-08 23:32:37,792 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:32:37,807 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:32:37,812 [MainThread  ] [INFO ]  [Round 8] Client 3 starting AlterMin training...
+2025-11-08 23:32:39,540 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7534
+2025-11-08 23:32:39,550 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2658
+2025-11-08 23:32:39,557 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9615
+2025-11-08 23:32:39,557 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:32:39,562 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0213
+2025-11-08 23:33:04,648 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:33:04,925 [MainThread  ] [INFO ]  ---------Test 8 ------------
+2025-11-08 23:33:09,823 [MainThread  ] [INFO ]  Clean ACC:              0.5115
+2025-11-08 23:33:09,823 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4710
+2025-11-08 23:33:09,823 [MainThread  ] [INFO ]  Backdoor ACC:           0.4570
+2025-11-08 23:33:09,823 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:33:09,823 [MainThread  ] [INFO ]  --------round 9 ------------
+2025-11-08 23:33:09,825 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:33:09,826 [MainThread  ] [INFO ]  [Round 9] Client 0 starting AlterMin training...
+2025-11-08 23:33:11,631 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8040
+2025-11-08 23:33:11,639 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1122
+2025-11-08 23:33:11,649 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9701
+2025-11-08 23:33:11,650 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:11,655 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0005
+2025-11-08 23:33:11,658 [MainThread  ] [INFO ]  [Round 9] Client 1 starting AlterMin training...
+2025-11-08 23:33:13,334 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0999
+2025-11-08 23:33:13,354 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.6378
+2025-11-08 23:33:13,370 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9245
+2025-11-08 23:33:13,371 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:13,382 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:33:13,385 [MainThread  ] [INFO ]  [Round 9] Client 2 starting AlterMin training...
+2025-11-08 23:33:15,333 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8804
+2025-11-08 23:33:15,351 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 1.9650
+2025-11-08 23:33:15,369 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9792
+2025-11-08 23:33:15,369 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:15,383 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0058
+2025-11-08 23:33:15,386 [MainThread  ] [INFO ]  [Round 9] Client 3 starting AlterMin training...
+2025-11-08 23:33:16,997 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7191
+2025-11-08 23:33:17,005 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1222
+2025-11-08 23:33:17,026 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7665
+2025-11-08 23:33:17,027 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:17,036 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:33:43,612 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:33:43,894 [MainThread  ] [INFO ]  ---------Test 9 ------------
+2025-11-08 23:33:49,771 [MainThread  ] [INFO ]  Clean ACC:              0.4896
+2025-11-08 23:33:49,771 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7420
+2025-11-08 23:33:49,771 [MainThread  ] [INFO ]  Backdoor ACC:           0.4308
+2025-11-08 23:33:49,771 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:33:49,771 [MainThread  ] [INFO ]  --------round 10 ------------
+2025-11-08 23:33:49,773 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:33:49,775 [MainThread  ] [INFO ]  [Round 10] Client 0 starting AlterMin training...
+2025-11-08 23:33:51,580 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7870
+2025-11-08 23:33:51,586 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1166
+2025-11-08 23:33:51,605 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7774
+2025-11-08 23:33:51,606 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:51,632 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:33:51,634 [MainThread  ] [INFO ]  [Round 10] Client 1 starting AlterMin training...
+2025-11-08 23:33:53,401 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0226
+2025-11-08 23:33:53,411 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1065
+2025-11-08 23:33:53,426 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9976
+2025-11-08 23:33:53,427 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:53,432 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:33:53,434 [MainThread  ] [INFO ]  [Round 10] Client 2 starting AlterMin training...
+2025-11-08 23:33:55,355 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0537
+2025-11-08 23:33:55,380 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.3787
+2025-11-08 23:33:55,397 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8881
+2025-11-08 23:33:55,398 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:55,410 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:33:55,413 [MainThread  ] [INFO ]  [Round 10] Client 3 starting AlterMin training...
+2025-11-08 23:33:56,964 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7924
+2025-11-08 23:33:56,975 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8074
+2025-11-08 23:33:56,991 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3566
+2025-11-08 23:33:56,992 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:33:56,998 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0005
+2025-11-08 23:34:22,673 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:34:22,954 [MainThread  ] [INFO ]  ---------Test 10 ------------
+2025-11-08 23:34:28,491 [MainThread  ] [INFO ]  Clean ACC:              0.5753
+2025-11-08 23:34:28,492 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7270
+2025-11-08 23:34:28,492 [MainThread  ] [INFO ]  Backdoor ACC:           0.5241
+2025-11-08 23:34:28,492 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:34:28,492 [MainThread  ] [INFO ]  --------round 11 ------------
+2025-11-08 23:34:28,495 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:34:28,496 [MainThread  ] [INFO ]  [Round 11] Client 0 starting AlterMin training...
+2025-11-08 23:34:30,436 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7792
+2025-11-08 23:34:30,463 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5396
+2025-11-08 23:34:30,482 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9862
+2025-11-08 23:34:30,483 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:34:30,494 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:34:30,498 [MainThread  ] [INFO ]  [Round 11] Client 1 starting AlterMin training...
+2025-11-08 23:34:32,438 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0427
+2025-11-08 23:34:32,455 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2190
+2025-11-08 23:34:32,466 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0252
+2025-11-08 23:34:32,467 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:34:32,478 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:34:32,480 [MainThread  ] [INFO ]  [Round 11] Client 2 starting AlterMin training...
+2025-11-08 23:34:34,602 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6944
+2025-11-08 23:34:34,614 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 2.5820
+2025-11-08 23:34:34,627 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0775
+2025-11-08 23:34:34,628 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:34:34,641 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:34:34,643 [MainThread  ] [INFO ]  [Round 11] Client 3 starting AlterMin training...
+2025-11-08 23:34:36,121 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6764
+2025-11-08 23:34:36,127 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1946
+2025-11-08 23:34:36,139 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4170
+2025-11-08 23:34:36,140 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:34:36,146 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:00,794 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:35:01,081 [MainThread  ] [INFO ]  ---------Test 11 ------------
+2025-11-08 23:35:05,769 [MainThread  ] [INFO ]  Clean ACC:              0.5431
+2025-11-08 23:35:05,769 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7180
+2025-11-08 23:35:05,769 [MainThread  ] [INFO ]  Backdoor ACC:           0.4883
+2025-11-08 23:35:05,770 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:35:05,770 [MainThread  ] [INFO ]  --------round 12 ------------
+2025-11-08 23:35:05,771 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:35:05,773 [MainThread  ] [INFO ]  [Round 12] Client 0 starting AlterMin training...
+2025-11-08 23:35:07,546 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7818
+2025-11-08 23:35:07,552 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.6921
+2025-11-08 23:35:07,560 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4616
+2025-11-08 23:35:07,561 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:07,568 [MainThread  ] [INFO ]    After boosting - ASR: 0.8500, ASR Loss: 0.3518
+2025-11-08 23:35:07,574 [MainThread  ] [INFO ]  [Round 12] Client 1 starting AlterMin training...
+2025-11-08 23:35:09,501 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0310
+2025-11-08 23:35:09,505 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2553
+2025-11-08 23:35:09,512 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8666
+2025-11-08 23:35:09,513 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:09,528 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:09,533 [MainThread  ] [INFO ]  [Round 12] Client 2 starting AlterMin training...
+2025-11-08 23:35:11,484 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7749
+2025-11-08 23:35:11,490 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9992
+2025-11-08 23:35:11,501 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6589
+2025-11-08 23:35:11,502 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:11,506 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:11,509 [MainThread  ] [INFO ]  [Round 12] Client 3 starting AlterMin training...
+2025-11-08 23:35:13,112 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6548
+2025-11-08 23:35:13,117 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0329
+2025-11-08 23:35:13,129 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6547
+2025-11-08 23:35:13,129 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:13,134 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:40,598 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:35:40,874 [MainThread  ] [INFO ]  ---------Test 12 ------------
+2025-11-08 23:35:45,886 [MainThread  ] [INFO ]  Clean ACC:              0.5626
+2025-11-08 23:35:45,887 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0510
+2025-11-08 23:35:45,887 [MainThread  ] [INFO ]  Backdoor ACC:           0.5140
+2025-11-08 23:35:45,887 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:35:45,887 [MainThread  ] [INFO ]  --------round 13 ------------
+2025-11-08 23:35:45,889 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:35:45,890 [MainThread  ] [INFO ]  [Round 13] Client 0 starting AlterMin training...
+2025-11-08 23:35:47,596 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7725
+2025-11-08 23:35:47,615 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2298
+2025-11-08 23:35:47,626 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3648
+2025-11-08 23:35:47,627 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:47,632 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:47,635 [MainThread  ] [INFO ]  [Round 13] Client 1 starting AlterMin training...
+2025-11-08 23:35:49,486 [MainThread  ] [INFO ]    Benign training completed, loss: 1.0053
+2025-11-08 23:35:49,502 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3405
+2025-11-08 23:35:49,518 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0306
+2025-11-08 23:35:49,518 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:49,523 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:49,526 [MainThread  ] [INFO ]  [Round 13] Client 2 starting AlterMin training...
+2025-11-08 23:35:51,673 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7702
+2025-11-08 23:35:51,692 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7605
+2025-11-08 23:35:51,711 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2207
+2025-11-08 23:35:51,711 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:51,727 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:35:51,729 [MainThread  ] [INFO ]  [Round 13] Client 3 starting AlterMin training...
+2025-11-08 23:35:53,329 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7203
+2025-11-08 23:35:53,334 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8335
+2025-11-08 23:35:53,343 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2071
+2025-11-08 23:35:53,343 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:35:53,346 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:36:19,226 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:36:19,541 [MainThread  ] [INFO ]  ---------Test 13 ------------
+2025-11-08 23:36:24,397 [MainThread  ] [INFO ]  Clean ACC:              0.5815
+2025-11-08 23:36:24,397 [MainThread  ] [INFO ]  Attack Success Ratio:   0.1920
+2025-11-08 23:36:24,397 [MainThread  ] [INFO ]  Backdoor ACC:           0.5318
+2025-11-08 23:36:24,397 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:36:24,397 [MainThread  ] [INFO ]  --------round 14 ------------
+2025-11-08 23:36:24,399 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:36:24,400 [MainThread  ] [INFO ]  [Round 14] Client 0 starting AlterMin training...
+2025-11-08 23:36:26,314 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7540
+2025-11-08 23:36:26,331 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2229
+2025-11-08 23:36:26,347 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9005
+2025-11-08 23:36:26,348 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:36:26,358 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:36:26,361 [MainThread  ] [INFO ]  [Round 14] Client 1 starting AlterMin training...
+2025-11-08 23:36:28,118 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9959
+2025-11-08 23:36:28,129 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4940
+2025-11-08 23:36:28,143 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6119
+2025-11-08 23:36:28,144 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:36:28,147 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:36:28,150 [MainThread  ] [INFO ]  [Round 14] Client 2 starting AlterMin training...
+2025-11-08 23:36:30,169 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6394
+2025-11-08 23:36:30,177 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1146
+2025-11-08 23:36:30,192 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4271
+2025-11-08 23:36:30,193 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:36:30,210 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:36:30,212 [MainThread  ] [INFO ]  [Round 14] Client 3 starting AlterMin training...
+2025-11-08 23:36:31,777 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6883
+2025-11-08 23:36:31,795 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2286
+2025-11-08 23:36:31,805 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2182
+2025-11-08 23:36:31,805 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:36:31,815 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:36:56,906 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:36:57,192 [MainThread  ] [INFO ]  ---------Test 14 ------------
+2025-11-08 23:37:02,685 [MainThread  ] [INFO ]  Clean ACC:              0.5109
+2025-11-08 23:37:02,686 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9180
+2025-11-08 23:37:02,686 [MainThread  ] [INFO ]  Backdoor ACC:           0.4520
+2025-11-08 23:37:02,686 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:37:02,686 [MainThread  ] [INFO ]  --------round 15 ------------
+2025-11-08 23:37:02,688 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:37:02,689 [MainThread  ] [INFO ]  [Round 15] Client 0 starting AlterMin training...
+2025-11-08 23:37:04,565 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7459
+2025-11-08 23:37:04,580 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2758
+2025-11-08 23:37:04,591 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3191
+2025-11-08 23:37:04,592 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:04,600 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0305
+2025-11-08 23:37:04,602 [MainThread  ] [INFO ]  [Round 15] Client 1 starting AlterMin training...
+2025-11-08 23:37:06,497 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9705
+2025-11-08 23:37:06,511 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4512
+2025-11-08 23:37:06,520 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8962
+2025-11-08 23:37:06,521 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:06,531 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:37:06,533 [MainThread  ] [INFO ]  [Round 15] Client 2 starting AlterMin training...
+2025-11-08 23:37:08,624 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6623
+2025-11-08 23:37:08,629 [MainThread  ] [INFO ]    Current ASR: 0.1300, ASR Loss: 1.9570
+2025-11-08 23:37:08,635 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9055
+2025-11-08 23:37:08,636 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:08,639 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:37:08,642 [MainThread  ] [INFO ]  [Round 15] Client 3 starting AlterMin training...
+2025-11-08 23:37:10,253 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6441
+2025-11-08 23:37:10,258 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1669
+2025-11-08 23:37:10,272 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5658
+2025-11-08 23:37:10,272 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:10,283 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:37:36,045 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:37:36,353 [MainThread  ] [INFO ]  ---------Test 15 ------------
+2025-11-08 23:37:41,767 [MainThread  ] [INFO ]  Clean ACC:              0.5855
+2025-11-08 23:37:41,768 [MainThread  ] [INFO ]  Attack Success Ratio:   0.3070
+2025-11-08 23:37:41,768 [MainThread  ] [INFO ]  Backdoor ACC:           0.5338
+2025-11-08 23:37:41,768 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:37:41,768 [MainThread  ] [INFO ]  --------round 16 ------------
+2025-11-08 23:37:41,770 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:37:41,771 [MainThread  ] [INFO ]  [Round 16] Client 0 starting AlterMin training...
+2025-11-08 23:37:43,973 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7522
+2025-11-08 23:37:43,978 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0411
+2025-11-08 23:37:43,995 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6319
+2025-11-08 23:37:43,996 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:44,002 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:37:44,006 [MainThread  ] [INFO ]  [Round 16] Client 1 starting AlterMin training...
+2025-11-08 23:37:46,053 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9179
+2025-11-08 23:37:46,063 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4942
+2025-11-08 23:37:46,082 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8530
+2025-11-08 23:37:46,083 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:46,098 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:37:46,102 [MainThread  ] [INFO ]  [Round 16] Client 2 starting AlterMin training...
+2025-11-08 23:37:48,275 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6249
+2025-11-08 23:37:48,281 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.8392
+2025-11-08 23:37:48,288 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1992
+2025-11-08 23:37:48,288 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:48,292 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:37:48,295 [MainThread  ] [INFO ]  [Round 16] Client 3 starting AlterMin training...
+2025-11-08 23:37:49,986 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6319
+2025-11-08 23:37:49,990 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2359
+2025-11-08 23:37:49,998 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9791
+2025-11-08 23:37:49,999 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:37:50,012 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:38:14,597 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:38:14,926 [MainThread  ] [INFO ]  ---------Test 16 ------------
+2025-11-08 23:38:19,904 [MainThread  ] [INFO ]  Clean ACC:              0.6286
+2025-11-08 23:38:19,904 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4270
+2025-11-08 23:38:19,904 [MainThread  ] [INFO ]  Backdoor ACC:           0.5854
+2025-11-08 23:38:19,904 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:38:19,904 [MainThread  ] [INFO ]  --------round 17 ------------
+2025-11-08 23:38:19,906 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:38:19,908 [MainThread  ] [INFO ]  [Round 17] Client 0 starting AlterMin training...
+2025-11-08 23:38:21,897 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7227
+2025-11-08 23:38:21,905 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1949
+2025-11-08 23:38:21,914 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8855
+2025-11-08 23:38:21,915 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:38:21,918 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:38:21,921 [MainThread  ] [INFO ]  [Round 17] Client 1 starting AlterMin training...
+2025-11-08 23:38:23,585 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9169
+2025-11-08 23:38:23,594 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4544
+2025-11-08 23:38:23,603 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0711
+2025-11-08 23:38:23,604 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:38:23,610 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:38:23,613 [MainThread  ] [INFO ]  [Round 17] Client 2 starting AlterMin training...
+2025-11-08 23:38:25,768 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6334
+2025-11-08 23:38:25,773 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.2132
+2025-11-08 23:38:25,782 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9531
+2025-11-08 23:38:25,782 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:38:25,786 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:38:25,789 [MainThread  ] [INFO ]  [Round 17] Client 3 starting AlterMin training...
+2025-11-08 23:38:27,273 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6399
+2025-11-08 23:38:27,292 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4429
+2025-11-08 23:38:27,304 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8167
+2025-11-08 23:38:27,305 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:38:27,315 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:38:53,228 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:38:53,520 [MainThread  ] [INFO ]  ---------Test 17 ------------
+2025-11-08 23:38:59,647 [MainThread  ] [INFO ]  Clean ACC:              0.5760
+2025-11-08 23:38:59,647 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7310
+2025-11-08 23:38:59,647 [MainThread  ] [INFO ]  Backdoor ACC:           0.5237
+2025-11-08 23:38:59,647 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:38:59,647 [MainThread  ] [INFO ]  --------round 18 ------------
+2025-11-08 23:38:59,649 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:38:59,651 [MainThread  ] [INFO ]  [Round 18] Client 0 starting AlterMin training...
+2025-11-08 23:39:01,669 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7355
+2025-11-08 23:39:01,687 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2123
+2025-11-08 23:39:01,700 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1406
+2025-11-08 23:39:01,701 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:01,717 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.1136
+2025-11-08 23:39:01,722 [MainThread  ] [INFO ]  [Round 18] Client 1 starting AlterMin training...
+2025-11-08 23:39:03,783 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8975
+2025-11-08 23:39:03,793 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3312
+2025-11-08 23:39:03,802 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5048
+2025-11-08 23:39:03,803 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:03,825 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:39:03,828 [MainThread  ] [INFO ]  [Round 18] Client 2 starting AlterMin training...
+2025-11-08 23:39:05,890 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6416
+2025-11-08 23:39:05,908 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.4265
+2025-11-08 23:39:05,920 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7957
+2025-11-08 23:39:05,921 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:05,926 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:39:05,929 [MainThread  ] [INFO ]  [Round 18] Client 3 starting AlterMin training...
+2025-11-08 23:39:07,608 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6356
+2025-11-08 23:39:07,627 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4658
+2025-11-08 23:39:07,637 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1486
+2025-11-08 23:39:07,638 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:07,658 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0014
+2025-11-08 23:39:33,066 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:39:33,360 [MainThread  ] [INFO ]  ---------Test 18 ------------
+2025-11-08 23:39:39,559 [MainThread  ] [INFO ]  Clean ACC:              0.6655
+2025-11-08 23:39:39,560 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4830
+2025-11-08 23:39:39,560 [MainThread  ] [INFO ]  Backdoor ACC:           0.6230
+2025-11-08 23:39:39,560 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:39:39,560 [MainThread  ] [INFO ]  --------round 19 ------------
+2025-11-08 23:39:39,562 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:39:39,563 [MainThread  ] [INFO ]  [Round 19] Client 0 starting AlterMin training...
+2025-11-08 23:39:41,527 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6736
+2025-11-08 23:39:41,542 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3254
+2025-11-08 23:39:41,556 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2011
+2025-11-08 23:39:41,557 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:41,571 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.1149
+2025-11-08 23:39:41,573 [MainThread  ] [INFO ]  [Round 19] Client 1 starting AlterMin training...
+2025-11-08 23:39:43,427 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8756
+2025-11-08 23:39:43,441 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0989
+2025-11-08 23:39:43,457 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8245
+2025-11-08 23:39:43,458 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:43,473 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:39:43,476 [MainThread  ] [INFO ]  [Round 19] Client 2 starting AlterMin training...
+2025-11-08 23:39:45,368 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6652
+2025-11-08 23:39:45,376 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5065
+2025-11-08 23:39:45,391 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9179
+2025-11-08 23:39:45,392 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:45,401 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:39:45,403 [MainThread  ] [INFO ]  [Round 19] Client 3 starting AlterMin training...
+2025-11-08 23:39:47,125 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6449
+2025-11-08 23:39:47,139 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3331
+2025-11-08 23:39:47,148 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0997
+2025-11-08 23:39:47,149 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:39:47,165 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.1484
+2025-11-08 23:40:13,301 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:40:13,580 [MainThread  ] [INFO ]  ---------Test 19 ------------
+2025-11-08 23:40:18,519 [MainThread  ] [INFO ]  Clean ACC:              0.5843
+2025-11-08 23:40:18,519 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0680
+2025-11-08 23:40:18,519 [MainThread  ] [INFO ]  Backdoor ACC:           0.5337
+2025-11-08 23:40:18,519 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:40:18,519 [MainThread  ] [INFO ]  --------round 20 ------------
+2025-11-08 23:40:18,521 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:40:18,522 [MainThread  ] [INFO ]  [Round 20] Client 0 starting AlterMin training...
+2025-11-08 23:40:20,347 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7081
+2025-11-08 23:40:20,352 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5741
+2025-11-08 23:40:20,359 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3325
+2025-11-08 23:40:20,360 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:40:20,363 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0009
+2025-11-08 23:40:20,366 [MainThread  ] [INFO ]  [Round 20] Client 1 starting AlterMin training...
+2025-11-08 23:40:22,171 [MainThread  ] [INFO ]    Benign training completed, loss: 0.9102
+2025-11-08 23:40:22,191 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0917
+2025-11-08 23:40:22,202 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3255
+2025-11-08 23:40:22,204 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:40:22,211 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:40:22,215 [MainThread  ] [INFO ]  [Round 20] Client 2 starting AlterMin training...
+2025-11-08 23:40:24,376 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6056
+2025-11-08 23:40:24,385 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.4441
+2025-11-08 23:40:24,393 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8433
+2025-11-08 23:40:24,394 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:40:24,397 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:40:24,399 [MainThread  ] [INFO ]  [Round 20] Client 3 starting AlterMin training...
+2025-11-08 23:40:26,161 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6445
+2025-11-08 23:40:26,165 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0321
+2025-11-08 23:40:26,177 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5896
+2025-11-08 23:40:26,178 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:40:26,184 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:40:51,456 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:40:51,747 [MainThread  ] [INFO ]  ---------Test 20 ------------
+2025-11-08 23:40:56,709 [MainThread  ] [INFO ]  Clean ACC:              0.6151
+2025-11-08 23:40:56,709 [MainThread  ] [INFO ]  Attack Success Ratio:   0.3900
+2025-11-08 23:40:56,709 [MainThread  ] [INFO ]  Backdoor ACC:           0.5684
+2025-11-08 23:40:56,709 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:40:56,709 [MainThread  ] [INFO ]  --------round 21 ------------
+2025-11-08 23:40:56,711 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:40:56,712 [MainThread  ] [INFO ]  [Round 21] Client 0 starting AlterMin training...
+2025-11-08 23:40:58,472 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6918
+2025-11-08 23:40:58,477 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4007
+2025-11-08 23:40:58,485 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2993
+2025-11-08 23:40:58,486 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:40:58,491 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:40:58,496 [MainThread  ] [INFO ]  [Round 21] Client 1 starting AlterMin training...
+2025-11-08 23:41:00,239 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8872
+2025-11-08 23:41:00,244 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 3.4944
+2025-11-08 23:41:00,255 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7809
+2025-11-08 23:41:00,256 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:00,261 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0067
+2025-11-08 23:41:00,264 [MainThread  ] [INFO ]  [Round 21] Client 2 starting AlterMin training...
+2025-11-08 23:41:02,439 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6276
+2025-11-08 23:41:02,454 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.4592
+2025-11-08 23:41:02,464 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8178
+2025-11-08 23:41:02,465 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:02,472 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:41:02,476 [MainThread  ] [INFO ]  [Round 21] Client 3 starting AlterMin training...
+2025-11-08 23:41:04,123 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6213
+2025-11-08 23:41:04,127 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0727
+2025-11-08 23:41:04,135 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3752
+2025-11-08 23:41:04,136 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:04,140 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:41:28,940 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:41:29,219 [MainThread  ] [INFO ]  ---------Test 21 ------------
+2025-11-08 23:41:34,530 [MainThread  ] [INFO ]  Clean ACC:              0.6161
+2025-11-08 23:41:34,530 [MainThread  ] [INFO ]  Attack Success Ratio:   0.1500
+2025-11-08 23:41:34,530 [MainThread  ] [INFO ]  Backdoor ACC:           0.5712
+2025-11-08 23:41:34,530 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:41:34,530 [MainThread  ] [INFO ]  --------round 22 ------------
+2025-11-08 23:41:34,532 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:41:34,533 [MainThread  ] [INFO ]  [Round 22] Client 0 starting AlterMin training...
+2025-11-08 23:41:36,434 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6867
+2025-11-08 23:41:36,448 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.7044
+2025-11-08 23:41:36,456 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.5337
+2025-11-08 23:41:36,457 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:36,468 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-08 23:41:36,470 [MainThread  ] [INFO ]  [Round 22] Client 1 starting AlterMin training...
+2025-11-08 23:41:38,207 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8592
+2025-11-08 23:41:38,221 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0948
+2025-11-08 23:41:38,236 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4529
+2025-11-08 23:41:38,237 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:38,246 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:41:38,248 [MainThread  ] [INFO ]  [Round 22] Client 2 starting AlterMin training...
+2025-11-08 23:41:40,453 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5845
+2025-11-08 23:41:40,474 [MainThread  ] [INFO ]    Current ASR: 0.0500, ASR Loss: 2.4618
+2025-11-08 23:41:40,483 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5647
+2025-11-08 23:41:40,484 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:40,497 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:41:40,502 [MainThread  ] [INFO ]  [Round 22] Client 3 starting AlterMin training...
+2025-11-08 23:41:42,110 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6166
+2025-11-08 23:41:42,115 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1662
+2025-11-08 23:41:42,128 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.8365
+2025-11-08 23:41:42,129 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:41:42,139 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:42:07,464 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:42:07,767 [MainThread  ] [INFO ]  ---------Test 22 ------------
+2025-11-08 23:42:12,592 [MainThread  ] [INFO ]  Clean ACC:              0.5918
+2025-11-08 23:42:12,592 [MainThread  ] [INFO ]  Attack Success Ratio:   0.2750
+2025-11-08 23:42:12,592 [MainThread  ] [INFO ]  Backdoor ACC:           0.5412
+2025-11-08 23:42:12,592 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:42:12,592 [MainThread  ] [INFO ]  --------round 23 ------------
+2025-11-08 23:42:12,594 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:42:12,595 [MainThread  ] [INFO ]  [Round 23] Client 0 starting AlterMin training...
+2025-11-08 23:42:14,648 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6542
+2025-11-08 23:42:14,658 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4138
+2025-11-08 23:42:14,673 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2875
+2025-11-08 23:42:14,674 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:14,688 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-08 23:42:14,690 [MainThread  ] [INFO ]  [Round 23] Client 1 starting AlterMin training...
+2025-11-08 23:42:16,518 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8314
+2025-11-08 23:42:16,521 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.9785
+2025-11-08 23:42:16,531 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9292
+2025-11-08 23:42:16,531 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:16,535 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-08 23:42:16,537 [MainThread  ] [INFO ]  [Round 23] Client 2 starting AlterMin training...
+2025-11-08 23:42:18,517 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5677
+2025-11-08 23:42:18,526 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.6768
+2025-11-08 23:42:18,538 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8837
+2025-11-08 23:42:18,539 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:18,552 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:42:18,555 [MainThread  ] [INFO ]  [Round 23] Client 3 starting AlterMin training...
+2025-11-08 23:42:20,190 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6257
+2025-11-08 23:42:20,194 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1358
+2025-11-08 23:42:20,205 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4138
+2025-11-08 23:42:20,205 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:20,213 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:42:45,987 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:42:46,289 [MainThread  ] [INFO ]  ---------Test 23 ------------
+2025-11-08 23:42:51,418 [MainThread  ] [INFO ]  Clean ACC:              0.6571
+2025-11-08 23:42:51,418 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0250
+2025-11-08 23:42:51,419 [MainThread  ] [INFO ]  Backdoor ACC:           0.6117
+2025-11-08 23:42:51,419 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:42:51,419 [MainThread  ] [INFO ]  --------round 24 ------------
+2025-11-08 23:42:51,420 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:42:51,422 [MainThread  ] [INFO ]  [Round 24] Client 0 starting AlterMin training...
+2025-11-08 23:42:53,404 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6309
+2025-11-08 23:42:53,421 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.6140
+2025-11-08 23:42:53,435 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3346
+2025-11-08 23:42:53,436 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:53,449 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:42:53,454 [MainThread  ] [INFO ]  [Round 24] Client 1 starting AlterMin training...
+2025-11-08 23:42:55,306 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8183
+2025-11-08 23:42:55,313 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5539
+2025-11-08 23:42:55,320 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4556
+2025-11-08 23:42:55,321 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:55,324 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:42:55,327 [MainThread  ] [INFO ]  [Round 24] Client 2 starting AlterMin training...
+2025-11-08 23:42:57,327 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5416
+2025-11-08 23:42:57,339 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 2.0130
+2025-11-08 23:42:57,348 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.4233
+2025-11-08 23:42:57,349 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:57,355 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:42:57,360 [MainThread  ] [INFO ]  [Round 24] Client 3 starting AlterMin training...
+2025-11-08 23:42:59,058 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6119
+2025-11-08 23:42:59,064 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4556
+2025-11-08 23:42:59,075 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.3806
+2025-11-08 23:42:59,075 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:42:59,080 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0010
+2025-11-08 23:43:25,231 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:43:25,511 [MainThread  ] [INFO ]  ---------Test 24 ------------
+2025-11-08 23:43:30,988 [MainThread  ] [INFO ]  Clean ACC:              0.6868
+2025-11-08 23:43:30,989 [MainThread  ] [INFO ]  Attack Success Ratio:   0.3450
+2025-11-08 23:43:30,989 [MainThread  ] [INFO ]  Backdoor ACC:           0.6462
+2025-11-08 23:43:30,989 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:43:30,989 [MainThread  ] [INFO ]  --------round 25 ------------
+2025-11-08 23:43:30,991 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:43:30,992 [MainThread  ] [INFO ]  [Round 25] Client 0 starting AlterMin training...
+2025-11-08 23:43:32,891 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6297
+2025-11-08 23:43:32,895 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.6144
+2025-11-08 23:43:32,904 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0040
+2025-11-08 23:43:32,905 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:43:32,908 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:43:32,911 [MainThread  ] [INFO ]  [Round 25] Client 1 starting AlterMin training...
+2025-11-08 23:43:34,802 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8376
+2025-11-08 23:43:34,811 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 3.2915
+2025-11-08 23:43:34,825 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7464
+2025-11-08 23:43:34,826 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:43:34,839 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:43:34,844 [MainThread  ] [INFO ]  [Round 25] Client 2 starting AlterMin training...
+2025-11-08 23:43:36,903 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5654
+2025-11-08 23:43:36,919 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.4152
+2025-11-08 23:43:36,934 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2789
+2025-11-08 23:43:36,935 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:43:36,943 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:43:36,948 [MainThread  ] [INFO ]  [Round 25] Client 3 starting AlterMin training...
+2025-11-08 23:43:38,770 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5967
+2025-11-08 23:43:38,778 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9726
+2025-11-08 23:43:38,786 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9839
+2025-11-08 23:43:38,786 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:43:38,792 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:04,203 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:44:04,534 [MainThread  ] [INFO ]  ---------Test 25 ------------
+2025-11-08 23:44:09,522 [MainThread  ] [INFO ]  Clean ACC:              0.5963
+2025-11-08 23:44:09,523 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7200
+2025-11-08 23:44:09,523 [MainThread  ] [INFO ]  Backdoor ACC:           0.5459
+2025-11-08 23:44:09,523 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:44:09,523 [MainThread  ] [INFO ]  --------round 26 ------------
+2025-11-08 23:44:09,525 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:44:09,526 [MainThread  ] [INFO ]  [Round 26] Client 0 starting AlterMin training...
+2025-11-08 23:44:11,287 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6208
+2025-11-08 23:44:11,305 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4543
+2025-11-08 23:44:11,321 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2378
+2025-11-08 23:44:11,321 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:11,334 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:11,337 [MainThread  ] [INFO ]  [Round 26] Client 1 starting AlterMin training...
+2025-11-08 23:44:13,142 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8390
+2025-11-08 23:44:13,146 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.1719
+2025-11-08 23:44:13,153 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1469
+2025-11-08 23:44:13,154 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:13,159 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:13,162 [MainThread  ] [INFO ]  [Round 26] Client 2 starting AlterMin training...
+2025-11-08 23:44:15,540 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5282
+2025-11-08 23:44:15,546 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 2.5363
+2025-11-08 23:44:15,555 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8031
+2025-11-08 23:44:15,556 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:15,564 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:15,567 [MainThread  ] [INFO ]  [Round 26] Client 3 starting AlterMin training...
+2025-11-08 23:44:17,208 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6060
+2025-11-08 23:44:17,220 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9216
+2025-11-08 23:44:17,233 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1895
+2025-11-08 23:44:17,234 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:17,245 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:41,933 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:44:42,211 [MainThread  ] [INFO ]  ---------Test 26 ------------
+2025-11-08 23:44:47,027 [MainThread  ] [INFO ]  Clean ACC:              0.7060
+2025-11-08 23:44:47,028 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4300
+2025-11-08 23:44:47,028 [MainThread  ] [INFO ]  Backdoor ACC:           0.6653
+2025-11-08 23:44:47,028 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:44:47,028 [MainThread  ] [INFO ]  --------round 27 ------------
+2025-11-08 23:44:47,030 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:44:47,031 [MainThread  ] [INFO ]  [Round 27] Client 0 starting AlterMin training...
+2025-11-08 23:44:48,812 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6326
+2025-11-08 23:44:48,816 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3364
+2025-11-08 23:44:48,824 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.0101
+2025-11-08 23:44:48,825 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:48,830 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:48,835 [MainThread  ] [INFO ]  [Round 27] Client 1 starting AlterMin training...
+2025-11-08 23:44:50,691 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8262
+2025-11-08 23:44:50,695 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.3733
+2025-11-08 23:44:50,703 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5711
+2025-11-08 23:44:50,704 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:50,708 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0005
+2025-11-08 23:44:50,710 [MainThread  ] [INFO ]  [Round 27] Client 2 starting AlterMin training...
+2025-11-08 23:44:52,727 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5394
+2025-11-08 23:44:52,738 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.5791
+2025-11-08 23:44:52,747 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8397
+2025-11-08 23:44:52,748 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:52,752 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:44:52,754 [MainThread  ] [INFO ]  [Round 27] Client 3 starting AlterMin training...
+2025-11-08 23:44:54,321 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5810
+2025-11-08 23:44:54,326 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2306
+2025-11-08 23:44:54,333 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3010
+2025-11-08 23:44:54,334 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:44:54,338 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:45:20,547 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:45:20,855 [MainThread  ] [INFO ]  ---------Test 27 ------------
+2025-11-08 23:45:26,056 [MainThread  ] [INFO ]  Clean ACC:              0.7073
+2025-11-08 23:45:26,057 [MainThread  ] [INFO ]  Attack Success Ratio:   0.1840
+2025-11-08 23:45:26,057 [MainThread  ] [INFO ]  Backdoor ACC:           0.6683
+2025-11-08 23:45:26,057 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:45:26,057 [MainThread  ] [INFO ]  --------round 28 ------------
+2025-11-08 23:45:26,059 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:45:26,060 [MainThread  ] [INFO ]  [Round 28] Client 0 starting AlterMin training...
+2025-11-08 23:45:27,990 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6127
+2025-11-08 23:45:28,005 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5312
+2025-11-08 23:45:28,016 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.2248
+2025-11-08 23:45:28,017 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:45:28,026 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-08 23:45:28,029 [MainThread  ] [INFO ]  [Round 28] Client 1 starting AlterMin training...
+2025-11-08 23:45:29,826 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8265
+2025-11-08 23:45:29,833 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.4630
+2025-11-08 23:45:29,847 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5262
+2025-11-08 23:45:29,847 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:45:29,854 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:45:29,856 [MainThread  ] [INFO ]  [Round 28] Client 2 starting AlterMin training...
+2025-11-08 23:45:31,879 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5314
+2025-11-08 23:45:31,886 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.4099
+2025-11-08 23:45:31,898 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8151
+2025-11-08 23:45:31,899 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:45:31,911 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:45:31,913 [MainThread  ] [INFO ]  [Round 28] Client 3 starting AlterMin training...
+2025-11-08 23:45:33,488 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5531
+2025-11-08 23:45:33,509 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.9639
+2025-11-08 23:45:33,525 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2287
+2025-11-08 23:45:33,526 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:45:33,538 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:45:58,617 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:45:58,922 [MainThread  ] [INFO ]  ---------Test 28 ------------
+2025-11-08 23:46:03,672 [MainThread  ] [INFO ]  Clean ACC:              0.7308
+2025-11-08 23:46:03,673 [MainThread  ] [INFO ]  Attack Success Ratio:   0.6430
+2025-11-08 23:46:03,673 [MainThread  ] [INFO ]  Backdoor ACC:           0.6911
+2025-11-08 23:46:03,673 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:46:03,673 [MainThread  ] [INFO ]  --------round 29 ------------
+2025-11-08 23:46:03,675 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:46:03,676 [MainThread  ] [INFO ]  [Round 29] Client 0 starting AlterMin training...
+2025-11-08 23:46:05,479 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6012
+2025-11-08 23:46:05,484 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1055
+2025-11-08 23:46:05,491 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5149
+2025-11-08 23:46:05,492 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:05,496 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:05,498 [MainThread  ] [INFO ]  [Round 29] Client 1 starting AlterMin training...
+2025-11-08 23:46:07,135 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8040
+2025-11-08 23:46:07,145 [MainThread  ] [INFO ]    Current ASR: 0.0800, ASR Loss: 2.4733
+2025-11-08 23:46:07,163 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2375
+2025-11-08 23:46:07,163 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:07,168 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:07,170 [MainThread  ] [INFO ]  [Round 29] Client 2 starting AlterMin training...
+2025-11-08 23:46:09,243 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5201
+2025-11-08 23:46:09,247 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 2.7652
+2025-11-08 23:46:09,259 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0818
+2025-11-08 23:46:09,259 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:09,268 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:09,270 [MainThread  ] [INFO ]  [Round 29] Client 3 starting AlterMin training...
+2025-11-08 23:46:10,726 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5720
+2025-11-08 23:46:10,735 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2099
+2025-11-08 23:46:10,752 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4250
+2025-11-08 23:46:10,753 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:10,767 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:36,787 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:46:37,115 [MainThread  ] [INFO ]  ---------Test 29 ------------
+2025-11-08 23:46:41,938 [MainThread  ] [INFO ]  Clean ACC:              0.6332
+2025-11-08 23:46:41,938 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4830
+2025-11-08 23:46:41,938 [MainThread  ] [INFO ]  Backdoor ACC:           0.5842
+2025-11-08 23:46:41,938 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:46:41,939 [MainThread  ] [INFO ]  --------round 30 ------------
+2025-11-08 23:46:41,940 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:46:41,942 [MainThread  ] [INFO ]  [Round 30] Client 0 starting AlterMin training...
+2025-11-08 23:46:43,714 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5869
+2025-11-08 23:46:43,718 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5052
+2025-11-08 23:46:43,727 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7330
+2025-11-08 23:46:43,728 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:43,732 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:43,735 [MainThread  ] [INFO ]  [Round 30] Client 1 starting AlterMin training...
+2025-11-08 23:46:45,664 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7842
+2025-11-08 23:46:45,674 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 2.9998
+2025-11-08 23:46:45,684 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2334
+2025-11-08 23:46:45,685 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:45,691 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:45,694 [MainThread  ] [INFO ]  [Round 30] Client 2 starting AlterMin training...
+2025-11-08 23:46:47,717 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5299
+2025-11-08 23:46:47,726 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.1433
+2025-11-08 23:46:47,739 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.2826
+2025-11-08 23:46:47,739 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:47,753 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:46:47,757 [MainThread  ] [INFO ]  [Round 30] Client 3 starting AlterMin training...
+2025-11-08 23:46:49,359 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5483
+2025-11-08 23:46:49,370 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 2.6538
+2025-11-08 23:46:49,381 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.4257
+2025-11-08 23:46:49,382 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:46:49,387 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:47:15,187 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:47:15,523 [MainThread  ] [INFO ]  ---------Test 30 ------------
+2025-11-08 23:47:20,580 [MainThread  ] [INFO ]  Clean ACC:              0.6284
+2025-11-08 23:47:20,581 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7190
+2025-11-08 23:47:20,581 [MainThread  ] [INFO ]  Backdoor ACC:           0.5777
+2025-11-08 23:47:20,581 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:47:20,581 [MainThread  ] [INFO ]  --------round 31 ------------
+2025-11-08 23:47:20,583 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:47:20,584 [MainThread  ] [INFO ]  [Round 31] Client 0 starting AlterMin training...
+2025-11-08 23:47:22,395 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5842
+2025-11-08 23:47:22,413 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1277
+2025-11-08 23:47:22,429 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4101
+2025-11-08 23:47:22,430 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:47:22,437 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:47:22,439 [MainThread  ] [INFO ]  [Round 31] Client 1 starting AlterMin training...
+2025-11-08 23:47:24,096 [MainThread  ] [INFO ]    Benign training completed, loss: 0.8024
+2025-11-08 23:47:24,100 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 2.7003
+2025-11-08 23:47:24,107 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9727
+2025-11-08 23:47:24,108 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:47:24,111 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:47:24,114 [MainThread  ] [INFO ]  [Round 31] Client 2 starting AlterMin training...
+2025-11-08 23:47:26,120 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6027
+2025-11-08 23:47:26,128 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.3646
+2025-11-08 23:47:26,136 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7462
+2025-11-08 23:47:26,137 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:47:26,140 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:47:26,143 [MainThread  ] [INFO ]  [Round 31] Client 3 starting AlterMin training...
+2025-11-08 23:47:27,679 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6227
+2025-11-08 23:47:27,694 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8852
+2025-11-08 23:47:27,708 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2433
+2025-11-08 23:47:27,709 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:47:27,714 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0009
+2025-11-08 23:47:52,855 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:47:53,159 [MainThread  ] [INFO ]  ---------Test 31 ------------
+2025-11-08 23:47:58,660 [MainThread  ] [INFO ]  Clean ACC:              0.7571
+2025-11-08 23:47:58,661 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4980
+2025-11-08 23:47:58,661 [MainThread  ] [INFO ]  Backdoor ACC:           0.7243
+2025-11-08 23:47:58,661 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:47:58,661 [MainThread  ] [INFO ]  --------round 32 ------------
+2025-11-08 23:47:58,663 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:47:58,664 [MainThread  ] [INFO ]  [Round 32] Client 0 starting AlterMin training...
+2025-11-08 23:48:00,494 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5788
+2025-11-08 23:48:00,499 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1480
+2025-11-08 23:48:00,516 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3121
+2025-11-08 23:48:00,517 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:00,534 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:48:00,536 [MainThread  ] [INFO ]  [Round 32] Client 1 starting AlterMin training...
+2025-11-08 23:48:02,311 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7865
+2025-11-08 23:48:02,328 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.8556
+2025-11-08 23:48:02,339 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1952
+2025-11-08 23:48:02,339 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:02,350 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:48:02,352 [MainThread  ] [INFO ]  [Round 32] Client 2 starting AlterMin training...
+2025-11-08 23:48:04,541 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5152
+2025-11-08 23:48:04,559 [MainThread  ] [INFO ]    Current ASR: 0.1900, ASR Loss: 1.7559
+2025-11-08 23:48:04,569 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.2518
+2025-11-08 23:48:04,569 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:04,573 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:48:04,576 [MainThread  ] [INFO ]  [Round 32] Client 3 starting AlterMin training...
+2025-11-08 23:48:06,239 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5660
+2025-11-08 23:48:06,250 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.8666
+2025-11-08 23:48:06,263 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1868
+2025-11-08 23:48:06,264 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:06,278 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:48:32,221 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:48:32,509 [MainThread  ] [INFO ]  ---------Test 32 ------------
+2025-11-08 23:48:37,445 [MainThread  ] [INFO ]  Clean ACC:              0.7601
+2025-11-08 23:48:37,445 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4860
+2025-11-08 23:48:37,445 [MainThread  ] [INFO ]  Backdoor ACC:           0.7279
+2025-11-08 23:48:37,445 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:48:37,445 [MainThread  ] [INFO ]  --------round 33 ------------
+2025-11-08 23:48:37,447 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:48:37,448 [MainThread  ] [INFO ]  [Round 33] Client 0 starting AlterMin training...
+2025-11-08 23:48:39,251 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5693
+2025-11-08 23:48:39,256 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5079
+2025-11-08 23:48:39,266 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4496
+2025-11-08 23:48:39,267 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:39,275 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:48:39,279 [MainThread  ] [INFO ]  [Round 33] Client 1 starting AlterMin training...
+2025-11-08 23:48:40,942 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7739
+2025-11-08 23:48:40,953 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 2.7611
+2025-11-08 23:48:40,965 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8174
+2025-11-08 23:48:40,966 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:40,971 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:48:40,974 [MainThread  ] [INFO ]  [Round 33] Client 2 starting AlterMin training...
+2025-11-08 23:48:42,861 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4876
+2025-11-08 23:48:42,868 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 2.0933
+2025-11-08 23:48:42,876 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7652
+2025-11-08 23:48:42,876 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:42,880 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:48:42,882 [MainThread  ] [INFO ]  [Round 33] Client 3 starting AlterMin training...
+2025-11-08 23:48:44,641 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5294
+2025-11-08 23:48:44,652 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.9742
+2025-11-08 23:48:44,667 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8482
+2025-11-08 23:48:44,668 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:48:44,689 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:11,142 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:49:11,428 [MainThread  ] [INFO ]  ---------Test 33 ------------
+2025-11-08 23:49:16,365 [MainThread  ] [INFO ]  Clean ACC:              0.7729
+2025-11-08 23:49:16,366 [MainThread  ] [INFO ]  Attack Success Ratio:   0.4050
+2025-11-08 23:49:16,366 [MainThread  ] [INFO ]  Backdoor ACC:           0.7417
+2025-11-08 23:49:16,366 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:49:16,366 [MainThread  ] [INFO ]  --------round 34 ------------
+2025-11-08 23:49:16,368 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:49:16,369 [MainThread  ] [INFO ]  [Round 34] Client 0 starting AlterMin training...
+2025-11-08 23:49:18,318 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5500
+2025-11-08 23:49:18,331 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3427
+2025-11-08 23:49:18,342 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3572
+2025-11-08 23:49:18,342 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:49:18,354 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:18,357 [MainThread  ] [INFO ]  [Round 34] Client 1 starting AlterMin training...
+2025-11-08 23:49:20,247 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7484
+2025-11-08 23:49:20,264 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 2.4371
+2025-11-08 23:49:20,278 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1088
+2025-11-08 23:49:20,279 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:49:20,287 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:20,289 [MainThread  ] [INFO ]  [Round 34] Client 2 starting AlterMin training...
+2025-11-08 23:49:22,309 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4996
+2025-11-08 23:49:22,315 [MainThread  ] [INFO ]    Current ASR: 0.1100, ASR Loss: 2.1144
+2025-11-08 23:49:22,325 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.2491
+2025-11-08 23:49:22,327 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:49:22,337 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:22,340 [MainThread  ] [INFO ]  [Round 34] Client 3 starting AlterMin training...
+2025-11-08 23:49:24,008 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5590
+2025-11-08 23:49:24,014 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7988
+2025-11-08 23:49:24,022 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8579
+2025-11-08 23:49:24,023 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:49:24,031 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:49,352 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:49:49,661 [MainThread  ] [INFO ]  ---------Test 34 ------------
+2025-11-08 23:49:54,829 [MainThread  ] [INFO ]  Clean ACC:              0.7625
+2025-11-08 23:49:54,830 [MainThread  ] [INFO ]  Attack Success Ratio:   0.6570
+2025-11-08 23:49:54,830 [MainThread  ] [INFO ]  Backdoor ACC:           0.7287
+2025-11-08 23:49:54,830 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:49:54,830 [MainThread  ] [INFO ]  --------round 35 ------------
+2025-11-08 23:49:54,832 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:49:54,833 [MainThread  ] [INFO ]  [Round 35] Client 0 starting AlterMin training...
+2025-11-08 23:49:56,842 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5579
+2025-11-08 23:49:56,856 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1269
+2025-11-08 23:49:56,867 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3971
+2025-11-08 23:49:56,868 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:49:56,878 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:56,881 [MainThread  ] [INFO ]  [Round 35] Client 1 starting AlterMin training...
+2025-11-08 23:49:58,692 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7176
+2025-11-08 23:49:58,702 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 2.7028
+2025-11-08 23:49:58,714 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2374
+2025-11-08 23:49:58,715 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:49:58,729 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:49:58,732 [MainThread  ] [INFO ]  [Round 35] Client 2 starting AlterMin training...
+2025-11-08 23:50:01,004 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4858
+2025-11-08 23:50:01,010 [MainThread  ] [INFO ]    Current ASR: 0.0900, ASR Loss: 2.0440
+2025-11-08 23:50:01,020 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.5075
+2025-11-08 23:50:01,021 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:50:01,026 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:50:01,030 [MainThread  ] [INFO ]  [Round 35] Client 3 starting AlterMin training...
+2025-11-08 23:50:02,786 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5331
+2025-11-08 23:50:02,795 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.7441
+2025-11-08 23:50:02,808 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7952
+2025-11-08 23:50:02,809 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:50:02,821 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:50:28,488 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:50:28,767 [MainThread  ] [INFO ]  ---------Test 35 ------------
+2025-11-08 23:50:34,203 [MainThread  ] [INFO ]  Clean ACC:              0.7736
+2025-11-08 23:50:34,203 [MainThread  ] [INFO ]  Attack Success Ratio:   0.5600
+2025-11-08 23:50:34,203 [MainThread  ] [INFO ]  Backdoor ACC:           0.7418
+2025-11-08 23:50:34,203 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:50:34,203 [MainThread  ] [INFO ]  --------round 36 ------------
+2025-11-08 23:50:34,205 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:50:34,207 [MainThread  ] [INFO ]  [Round 36] Client 0 starting AlterMin training...
+2025-11-08 23:50:36,174 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5534
+2025-11-08 23:50:36,185 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2623
+2025-11-08 23:50:36,193 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2623
+2025-11-08 23:50:36,194 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:50:36,197 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:50:36,200 [MainThread  ] [INFO ]  [Round 36] Client 1 starting AlterMin training...
+2025-11-08 23:50:38,047 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7388
+2025-11-08 23:50:38,052 [MainThread  ] [INFO ]    Current ASR: 0.0400, ASR Loss: 2.6513
+2025-11-08 23:50:38,061 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2630
+2025-11-08 23:50:38,062 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:50:38,065 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:50:38,068 [MainThread  ] [INFO ]  [Round 36] Client 2 starting AlterMin training...
+2025-11-08 23:50:40,179 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4854
+2025-11-08 23:50:40,183 [MainThread  ] [INFO ]    Current ASR: 0.1000, ASR Loss: 1.9504
+2025-11-08 23:50:40,192 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.2424
+2025-11-08 23:50:40,193 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:50:40,197 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:50:40,200 [MainThread  ] [INFO ]  [Round 36] Client 3 starting AlterMin training...
+2025-11-08 23:50:41,782 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5450
+2025-11-08 23:50:41,786 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8310
+2025-11-08 23:50:41,794 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8982
+2025-11-08 23:50:41,795 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:50:41,800 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:08,382 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:51:08,667 [MainThread  ] [INFO ]  ---------Test 36 ------------
+2025-11-08 23:51:13,626 [MainThread  ] [INFO ]  Clean ACC:              0.7670
+2025-11-08 23:51:13,626 [MainThread  ] [INFO ]  Attack Success Ratio:   0.6090
+2025-11-08 23:51:13,626 [MainThread  ] [INFO ]  Backdoor ACC:           0.7328
+2025-11-08 23:51:13,627 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:51:13,627 [MainThread  ] [INFO ]  --------round 37 ------------
+2025-11-08 23:51:13,628 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:51:13,629 [MainThread  ] [INFO ]  [Round 37] Client 0 starting AlterMin training...
+2025-11-08 23:51:15,529 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5566
+2025-11-08 23:51:15,539 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3587
+2025-11-08 23:51:15,549 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.6240
+2025-11-08 23:51:15,550 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:15,556 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:15,560 [MainThread  ] [INFO ]  [Round 37] Client 1 starting AlterMin training...
+2025-11-08 23:51:17,497 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7454
+2025-11-08 23:51:17,514 [MainThread  ] [INFO ]    Current ASR: 0.1200, ASR Loss: 2.7419
+2025-11-08 23:51:17,523 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9894
+2025-11-08 23:51:17,524 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:17,529 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:17,532 [MainThread  ] [INFO ]  [Round 37] Client 2 starting AlterMin training...
+2025-11-08 23:51:19,814 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5117
+2025-11-08 23:51:19,818 [MainThread  ] [INFO ]    Current ASR: 0.1200, ASR Loss: 2.0627
+2025-11-08 23:51:19,826 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.4648
+2025-11-08 23:51:19,827 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:19,833 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:19,837 [MainThread  ] [INFO ]  [Round 37] Client 3 starting AlterMin training...
+2025-11-08 23:51:21,537 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5293
+2025-11-08 23:51:21,559 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.7896
+2025-11-08 23:51:21,574 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4702
+2025-11-08 23:51:21,575 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:21,587 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:47,547 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:51:47,833 [MainThread  ] [INFO ]  ---------Test 37 ------------
+2025-11-08 23:51:53,321 [MainThread  ] [INFO ]  Clean ACC:              0.7875
+2025-11-08 23:51:53,321 [MainThread  ] [INFO ]  Attack Success Ratio:   0.6010
+2025-11-08 23:51:53,321 [MainThread  ] [INFO ]  Backdoor ACC:           0.7582
+2025-11-08 23:51:53,322 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:51:53,322 [MainThread  ] [INFO ]  --------round 38 ------------
+2025-11-08 23:51:53,323 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:51:53,325 [MainThread  ] [INFO ]  [Round 38] Client 0 starting AlterMin training...
+2025-11-08 23:51:55,147 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5307
+2025-11-08 23:51:55,158 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5796
+2025-11-08 23:51:55,171 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2270
+2025-11-08 23:51:55,172 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:55,179 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:55,183 [MainThread  ] [INFO ]  [Round 38] Client 1 starting AlterMin training...
+2025-11-08 23:51:57,088 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7061
+2025-11-08 23:51:57,096 [MainThread  ] [INFO ]    Current ASR: 0.2300, ASR Loss: 2.3492
+2025-11-08 23:51:57,108 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7205
+2025-11-08 23:51:57,109 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:57,123 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:57,125 [MainThread  ] [INFO ]  [Round 38] Client 2 starting AlterMin training...
+2025-11-08 23:51:59,378 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4652
+2025-11-08 23:51:59,385 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.4535
+2025-11-08 23:51:59,396 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7061
+2025-11-08 23:51:59,397 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:51:59,402 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:51:59,406 [MainThread  ] [INFO ]  [Round 38] Client 3 starting AlterMin training...
+2025-11-08 23:52:01,196 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5107
+2025-11-08 23:52:01,204 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 2.8386
+2025-11-08 23:52:01,217 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9364
+2025-11-08 23:52:01,218 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:52:01,222 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:52:26,302 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:52:26,585 [MainThread  ] [INFO ]  ---------Test 38 ------------
+2025-11-08 23:52:31,791 [MainThread  ] [INFO ]  Clean ACC:              0.8115
+2025-11-08 23:52:31,791 [MainThread  ] [INFO ]  Attack Success Ratio:   0.5800
+2025-11-08 23:52:31,791 [MainThread  ] [INFO ]  Backdoor ACC:           0.7844
+2025-11-08 23:52:31,791 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:52:31,791 [MainThread  ] [INFO ]  --------round 39 ------------
+2025-11-08 23:52:31,793 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:52:31,794 [MainThread  ] [INFO ]  [Round 39] Client 0 starting AlterMin training...
+2025-11-08 23:52:33,701 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5231
+2025-11-08 23:52:33,705 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2024
+2025-11-08 23:52:33,711 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4569
+2025-11-08 23:52:33,712 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:52:33,717 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:52:33,721 [MainThread  ] [INFO ]  [Round 39] Client 1 starting AlterMin training...
+2025-11-08 23:52:35,512 [MainThread  ] [INFO ]    Benign training completed, loss: 0.7149
+2025-11-08 23:52:35,517 [MainThread  ] [INFO ]    Current ASR: 0.3100, ASR Loss: 2.2934
+2025-11-08 23:52:35,529 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7623
+2025-11-08 23:52:35,530 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:52:35,539 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:52:35,543 [MainThread  ] [INFO ]  [Round 39] Client 2 starting AlterMin training...
+2025-11-08 23:52:37,542 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4599
+2025-11-08 23:52:37,547 [MainThread  ] [INFO ]    Current ASR: 0.1300, ASR Loss: 1.6857
+2025-11-08 23:52:37,555 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.3172
+2025-11-08 23:52:37,555 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:52:37,563 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:52:37,565 [MainThread  ] [INFO ]  [Round 39] Client 3 starting AlterMin training...
+2025-11-08 23:52:39,046 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5044
+2025-11-08 23:52:39,051 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.1017
+2025-11-08 23:52:39,062 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2617
+2025-11-08 23:52:39,063 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:52:39,072 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:04,586 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:53:04,877 [MainThread  ] [INFO ]  ---------Test 39 ------------
+2025-11-08 23:53:09,899 [MainThread  ] [INFO ]  Clean ACC:              0.8049
+2025-11-08 23:53:09,899 [MainThread  ] [INFO ]  Attack Success Ratio:   0.6900
+2025-11-08 23:53:09,899 [MainThread  ] [INFO ]  Backdoor ACC:           0.7742
+2025-11-08 23:53:09,899 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:53:09,899 [MainThread  ] [INFO ]  --------round 40 ------------
+2025-11-08 23:53:09,901 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:53:09,902 [MainThread  ] [INFO ]  [Round 40] Client 0 starting AlterMin training...
+2025-11-08 23:53:11,690 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5216
+2025-11-08 23:53:11,694 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2970
+2025-11-08 23:53:11,708 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5856
+2025-11-08 23:53:11,709 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:11,728 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0005
+2025-11-08 23:53:11,730 [MainThread  ] [INFO ]  [Round 40] Client 1 starting AlterMin training...
+2025-11-08 23:53:13,482 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6764
+2025-11-08 23:53:13,498 [MainThread  ] [INFO ]    Current ASR: 0.1900, ASR Loss: 2.4445
+2025-11-08 23:53:13,513 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0298
+2025-11-08 23:53:13,514 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:13,531 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:13,534 [MainThread  ] [INFO ]  [Round 40] Client 2 starting AlterMin training...
+2025-11-08 23:53:15,543 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4339
+2025-11-08 23:53:15,547 [MainThread  ] [INFO ]    Current ASR: 0.1200, ASR Loss: 2.1909
+2025-11-08 23:53:15,557 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.4886
+2025-11-08 23:53:15,558 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:15,566 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:15,569 [MainThread  ] [INFO ]  [Round 40] Client 3 starting AlterMin training...
+2025-11-08 23:53:17,214 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4840
+2025-11-08 23:53:17,225 [MainThread  ] [INFO ]    Current ASR: 0.0200, ASR Loss: 2.9010
+2025-11-08 23:53:17,235 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0760
+2025-11-08 23:53:17,235 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:17,251 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:43,566 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:53:43,918 [MainThread  ] [INFO ]  ---------Test 40 ------------
+2025-11-08 23:53:49,406 [MainThread  ] [INFO ]  Clean ACC:              0.8225
+2025-11-08 23:53:49,406 [MainThread  ] [INFO ]  Attack Success Ratio:   0.2940
+2025-11-08 23:53:49,406 [MainThread  ] [INFO ]  Backdoor ACC:           0.8003
+2025-11-08 23:53:49,406 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:53:49,406 [MainThread  ] [INFO ]  --------round 41 ------------
+2025-11-08 23:53:49,408 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:53:49,410 [MainThread  ] [INFO ]  [Round 41] Client 0 starting AlterMin training...
+2025-11-08 23:53:51,515 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5129
+2025-11-08 23:53:51,519 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.4495
+2025-11-08 23:53:51,528 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.7758
+2025-11-08 23:53:51,529 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:51,532 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:51,535 [MainThread  ] [INFO ]  [Round 41] Client 1 starting AlterMin training...
+2025-11-08 23:53:53,313 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6920
+2025-11-08 23:53:53,326 [MainThread  ] [INFO ]    Current ASR: 0.2400, ASR Loss: 2.5829
+2025-11-08 23:53:53,354 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8520
+2025-11-08 23:53:53,354 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:53,363 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:53,365 [MainThread  ] [INFO ]  [Round 41] Client 2 starting AlterMin training...
+2025-11-08 23:53:55,479 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4439
+2025-11-08 23:53:55,484 [MainThread  ] [INFO ]    Current ASR: 0.0700, ASR Loss: 2.5286
+2025-11-08 23:53:55,492 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.5449
+2025-11-08 23:53:55,493 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:55,496 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:53:55,499 [MainThread  ] [INFO ]  [Round 41] Client 3 starting AlterMin training...
+2025-11-08 23:53:57,067 [MainThread  ] [INFO ]    Benign training completed, loss: 0.5045
+2025-11-08 23:53:57,082 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 2.6886
+2025-11-08 23:53:57,096 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8660
+2025-11-08 23:53:57,096 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:53:57,101 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:54:21,943 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:54:22,237 [MainThread  ] [INFO ]  ---------Test 41 ------------
+2025-11-08 23:54:28,285 [MainThread  ] [INFO ]  Clean ACC:              0.8374
+2025-11-08 23:54:28,286 [MainThread  ] [INFO ]  Attack Success Ratio:   0.0510
+2025-11-08 23:54:28,286 [MainThread  ] [INFO ]  Backdoor ACC:           0.8171
+2025-11-08 23:54:28,286 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:54:28,286 [MainThread  ] [INFO ]  --------round 42 ------------
+2025-11-08 23:54:28,287 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:54:28,289 [MainThread  ] [INFO ]  [Round 42] Client 0 starting AlterMin training...
+2025-11-08 23:54:30,267 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4801
+2025-11-08 23:54:30,286 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.6360
+2025-11-08 23:54:30,299 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3598
+2025-11-08 23:54:30,300 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:54:30,319 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:54:30,323 [MainThread  ] [INFO ]  [Round 42] Client 1 starting AlterMin training...
+2025-11-08 23:54:32,331 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6778
+2025-11-08 23:54:32,336 [MainThread  ] [INFO ]    Current ASR: 0.4000, ASR Loss: 2.1404
+2025-11-08 23:54:32,356 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6184
+2025-11-08 23:54:32,357 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:54:32,379 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:54:32,381 [MainThread  ] [INFO ]  [Round 42] Client 2 starting AlterMin training...
+2025-11-08 23:54:34,559 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4444
+2025-11-08 23:54:34,579 [MainThread  ] [INFO ]    Current ASR: 0.1000, ASR Loss: 2.4129
+2025-11-08 23:54:34,589 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6805
+2025-11-08 23:54:34,589 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:54:34,611 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:54:34,613 [MainThread  ] [INFO ]  [Round 42] Client 3 starting AlterMin training...
+2025-11-08 23:54:36,270 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4785
+2025-11-08 23:54:36,276 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 3.2286
+2025-11-08 23:54:36,289 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.9456
+2025-11-08 23:54:36,290 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:54:36,298 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:01,261 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:55:01,544 [MainThread  ] [INFO ]  ---------Test 42 ------------
+2025-11-08 23:55:06,303 [MainThread  ] [INFO ]  Clean ACC:              0.7640
+2025-11-08 23:55:06,304 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7780
+2025-11-08 23:55:06,304 [MainThread  ] [INFO ]  Backdoor ACC:           0.7304
+2025-11-08 23:55:06,304 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:55:06,304 [MainThread  ] [INFO ]  --------round 43 ------------
+2025-11-08 23:55:06,305 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:55:06,307 [MainThread  ] [INFO ]  [Round 43] Client 0 starting AlterMin training...
+2025-11-08 23:55:08,078 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4821
+2025-11-08 23:55:08,083 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5168
+2025-11-08 23:55:08,091 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3072
+2025-11-08 23:55:08,092 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:08,098 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:08,102 [MainThread  ] [INFO ]  [Round 43] Client 1 starting AlterMin training...
+2025-11-08 23:55:10,021 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6647
+2025-11-08 23:55:10,028 [MainThread  ] [INFO ]    Current ASR: 0.0800, ASR Loss: 2.8243
+2025-11-08 23:55:10,037 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6280
+2025-11-08 23:55:10,038 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:10,049 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:10,051 [MainThread  ] [INFO ]  [Round 43] Client 2 starting AlterMin training...
+2025-11-08 23:55:12,161 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4452
+2025-11-08 23:55:12,169 [MainThread  ] [INFO ]    Current ASR: 0.1500, ASR Loss: 2.1546
+2025-11-08 23:55:12,182 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.2498
+2025-11-08 23:55:12,183 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:12,190 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:12,193 [MainThread  ] [INFO ]  [Round 43] Client 3 starting AlterMin training...
+2025-11-08 23:55:13,912 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4761
+2025-11-08 23:55:13,917 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.0423
+2025-11-08 23:55:13,927 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1464
+2025-11-08 23:55:13,928 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:13,933 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:39,643 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:55:40,013 [MainThread  ] [INFO ]  ---------Test 43 ------------
+2025-11-08 23:55:44,798 [MainThread  ] [INFO ]  Clean ACC:              0.7995
+2025-11-08 23:55:44,798 [MainThread  ] [INFO ]  Attack Success Ratio:   0.8340
+2025-11-08 23:55:44,798 [MainThread  ] [INFO ]  Backdoor ACC:           0.7710
+2025-11-08 23:55:44,798 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:55:44,798 [MainThread  ] [INFO ]  --------round 44 ------------
+2025-11-08 23:55:44,799 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:55:44,801 [MainThread  ] [INFO ]  [Round 44] Client 0 starting AlterMin training...
+2025-11-08 23:55:46,650 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4847
+2025-11-08 23:55:46,665 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.5001
+2025-11-08 23:55:46,679 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.4242
+2025-11-08 23:55:46,680 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:46,684 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:46,686 [MainThread  ] [INFO ]  [Round 44] Client 1 starting AlterMin training...
+2025-11-08 23:55:48,516 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6770
+2025-11-08 23:55:48,521 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 2.8471
+2025-11-08 23:55:48,530 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7083
+2025-11-08 23:55:48,531 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:48,537 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:48,541 [MainThread  ] [INFO ]  [Round 44] Client 2 starting AlterMin training...
+2025-11-08 23:55:50,511 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4233
+2025-11-08 23:55:50,518 [MainThread  ] [INFO ]    Current ASR: 0.3700, ASR Loss: 1.3888
+2025-11-08 23:55:50,528 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.5942
+2025-11-08 23:55:50,528 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:50,536 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:55:50,539 [MainThread  ] [INFO ]  [Round 44] Client 3 starting AlterMin training...
+2025-11-08 23:55:52,058 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4789
+2025-11-08 23:55:52,064 [MainThread  ] [INFO ]    Current ASR: 0.0800, ASR Loss: 2.6704
+2025-11-08 23:55:52,076 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.5315
+2025-11-08 23:55:52,077 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:55:52,084 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:56:18,139 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:56:18,446 [MainThread  ] [INFO ]  ---------Test 44 ------------
+2025-11-08 23:56:23,214 [MainThread  ] [INFO ]  Clean ACC:              0.8132
+2025-11-08 23:56:23,214 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7150
+2025-11-08 23:56:23,214 [MainThread  ] [INFO ]  Backdoor ACC:           0.7869
+2025-11-08 23:56:23,214 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:56:23,215 [MainThread  ] [INFO ]  --------round 45 ------------
+2025-11-08 23:56:23,217 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:56:23,218 [MainThread  ] [INFO ]  [Round 45] Client 0 starting AlterMin training...
+2025-11-08 23:56:25,006 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4699
+2025-11-08 23:56:25,022 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.9171
+2025-11-08 23:56:25,037 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.1467
+2025-11-08 23:56:25,038 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:56:25,058 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0002
+2025-11-08 23:56:25,060 [MainThread  ] [INFO ]  [Round 45] Client 1 starting AlterMin training...
+2025-11-08 23:56:26,814 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6580
+2025-11-08 23:56:26,829 [MainThread  ] [INFO ]    Current ASR: 0.2200, ASR Loss: 2.4831
+2025-11-08 23:56:26,843 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.3045
+2025-11-08 23:56:26,844 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:56:26,861 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:56:26,863 [MainThread  ] [INFO ]  [Round 45] Client 2 starting AlterMin training...
+2025-11-08 23:56:28,819 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4270
+2025-11-08 23:56:28,833 [MainThread  ] [INFO ]    Current ASR: 0.1600, ASR Loss: 1.8899
+2025-11-08 23:56:28,849 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.4089
+2025-11-08 23:56:28,850 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:56:28,864 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:56:28,867 [MainThread  ] [INFO ]  [Round 45] Client 3 starting AlterMin training...
+2025-11-08 23:56:30,601 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4803
+2025-11-08 23:56:30,614 [MainThread  ] [INFO ]    Current ASR: 0.1200, ASR Loss: 2.2694
+2025-11-08 23:56:30,632 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0979
+2025-11-08 23:56:30,633 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:56:30,646 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:56:56,712 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:56:57,012 [MainThread  ] [INFO ]  ---------Test 45 ------------
+2025-11-08 23:57:02,344 [MainThread  ] [INFO ]  Clean ACC:              0.8069
+2025-11-08 23:57:02,345 [MainThread  ] [INFO ]  Attack Success Ratio:   0.7190
+2025-11-08 23:57:02,345 [MainThread  ] [INFO ]  Backdoor ACC:           0.7816
+2025-11-08 23:57:02,345 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:57:02,345 [MainThread  ] [INFO ]  --------round 46 ------------
+2025-11-08 23:57:02,346 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:57:02,348 [MainThread  ] [INFO ]  [Round 46] Client 0 starting AlterMin training...
+2025-11-08 23:57:04,453 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4689
+2025-11-08 23:57:04,462 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.3362
+2025-11-08 23:57:04,475 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2201
+2025-11-08 23:57:04,475 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:04,486 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:57:04,488 [MainThread  ] [INFO ]  [Round 46] Client 1 starting AlterMin training...
+2025-11-08 23:57:06,370 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6459
+2025-11-08 23:57:06,376 [MainThread  ] [INFO ]    Current ASR: 0.1500, ASR Loss: 2.4418
+2025-11-08 23:57:06,390 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9367
+2025-11-08 23:57:06,391 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:06,407 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:57:06,411 [MainThread  ] [INFO ]  [Round 46] Client 2 starting AlterMin training...
+2025-11-08 23:57:08,396 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4343
+2025-11-08 23:57:08,400 [MainThread  ] [INFO ]    Current ASR: 0.0500, ASR Loss: 2.6291
+2025-11-08 23:57:08,410 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6433
+2025-11-08 23:57:08,410 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:08,415 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:57:08,417 [MainThread  ] [INFO ]  [Round 46] Client 3 starting AlterMin training...
+2025-11-08 23:57:10,122 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4812
+2025-11-08 23:57:10,130 [MainThread  ] [INFO ]    Current ASR: 0.1000, ASR Loss: 2.3190
+2025-11-08 23:57:10,141 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0230
+2025-11-08 23:57:10,141 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:10,145 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:57:35,690 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:57:35,973 [MainThread  ] [INFO ]  ---------Test 46 ------------
+2025-11-08 23:57:41,418 [MainThread  ] [INFO ]  Clean ACC:              0.7945
+2025-11-08 23:57:41,418 [MainThread  ] [INFO ]  Attack Success Ratio:   0.8650
+2025-11-08 23:57:41,418 [MainThread  ] [INFO ]  Backdoor ACC:           0.7650
+2025-11-08 23:57:41,418 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:57:41,418 [MainThread  ] [INFO ]  --------round 47 ------------
+2025-11-08 23:57:41,420 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:57:41,421 [MainThread  ] [INFO ]  [Round 47] Client 0 starting AlterMin training...
+2025-11-08 23:57:43,062 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4738
+2025-11-08 23:57:43,073 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.9088
+2025-11-08 23:57:43,085 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9166
+2025-11-08 23:57:43,086 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:43,089 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:57:43,092 [MainThread  ] [INFO ]  [Round 47] Client 1 starting AlterMin training...
+2025-11-08 23:57:44,986 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6626
+2025-11-08 23:57:44,998 [MainThread  ] [INFO ]    Current ASR: 0.4800, ASR Loss: 1.7770
+2025-11-08 23:57:45,014 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7885
+2025-11-08 23:57:45,015 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:45,021 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:57:45,024 [MainThread  ] [INFO ]  [Round 47] Client 2 starting AlterMin training...
+2025-11-08 23:57:47,104 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4195
+2025-11-08 23:57:47,109 [MainThread  ] [INFO ]    Current ASR: 0.2200, ASR Loss: 1.6728
+2025-11-08 23:57:47,118 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.3517
+2025-11-08 23:57:47,119 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:47,122 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:57:47,125 [MainThread  ] [INFO ]  [Round 47] Client 3 starting AlterMin training...
+2025-11-08 23:57:48,794 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4659
+2025-11-08 23:57:48,798 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.6832
+2025-11-08 23:57:48,805 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9434
+2025-11-08 23:57:48,806 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:57:48,811 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:58:13,956 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:58:14,220 [MainThread  ] [INFO ]  ---------Test 47 ------------
+2025-11-08 23:58:18,967 [MainThread  ] [INFO ]  Clean ACC:              0.7965
+2025-11-08 23:58:18,967 [MainThread  ] [INFO ]  Attack Success Ratio:   0.8630
+2025-11-08 23:58:18,968 [MainThread  ] [INFO ]  Backdoor ACC:           0.7693
+2025-11-08 23:58:18,968 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:58:18,968 [MainThread  ] [INFO ]  --------round 48 ------------
+2025-11-08 23:58:18,969 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:58:18,970 [MainThread  ] [INFO ]  [Round 48] Client 0 starting AlterMin training...
+2025-11-08 23:58:20,909 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4523
+2025-11-08 23:58:20,921 [MainThread  ] [INFO ]    Current ASR: 0.0000, ASR Loss: 3.2209
+2025-11-08 23:58:20,930 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0890
+2025-11-08 23:58:20,930 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:58:20,945 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:58:20,947 [MainThread  ] [INFO ]  [Round 48] Client 1 starting AlterMin training...
+2025-11-08 23:58:22,873 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6811
+2025-11-08 23:58:22,881 [MainThread  ] [INFO ]    Current ASR: 0.4500, ASR Loss: 1.8265
+2025-11-08 23:58:22,896 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8018
+2025-11-08 23:58:22,897 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:58:22,912 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:58:22,915 [MainThread  ] [INFO ]  [Round 48] Client 2 starting AlterMin training...
+2025-11-08 23:58:25,060 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4215
+2025-11-08 23:58:25,079 [MainThread  ] [INFO ]    Current ASR: 0.1300, ASR Loss: 1.8886
+2025-11-08 23:58:25,096 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.7473
+2025-11-08 23:58:25,097 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:58:25,118 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:58:25,122 [MainThread  ] [INFO ]  [Round 48] Client 3 starting AlterMin training...
+2025-11-08 23:58:26,782 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4779
+2025-11-08 23:58:26,787 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 2.4950
+2025-11-08 23:58:26,795 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.0432
+2025-11-08 23:58:26,796 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:58:26,799 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:58:52,319 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:58:52,595 [MainThread  ] [INFO ]  ---------Test 48 ------------
+2025-11-08 23:58:58,899 [MainThread  ] [INFO ]  Clean ACC:              0.8390
+2025-11-08 23:58:58,899 [MainThread  ] [INFO ]  Attack Success Ratio:   0.5010
+2025-11-08 23:58:58,899 [MainThread  ] [INFO ]  Backdoor ACC:           0.8179
+2025-11-08 23:58:58,899 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:58:58,899 [MainThread  ] [INFO ]  --------round 49 ------------
+2025-11-08 23:58:58,901 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:58:58,902 [MainThread  ] [INFO ]  [Round 49] Client 0 starting AlterMin training...
+2025-11-08 23:59:00,894 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4574
+2025-11-08 23:59:00,913 [MainThread  ] [INFO ]    Current ASR: 0.0100, ASR Loss: 2.7975
+2025-11-08 23:59:00,931 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8585
+2025-11-08 23:59:00,932 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:00,942 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:59:00,945 [MainThread  ] [INFO ]  [Round 49] Client 1 starting AlterMin training...
+2025-11-08 23:59:02,774 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6633
+2025-11-08 23:59:02,783 [MainThread  ] [INFO ]    Current ASR: 0.5100, ASR Loss: 1.6421
+2025-11-08 23:59:02,801 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.6669
+2025-11-08 23:59:02,801 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:02,815 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:59:02,817 [MainThread  ] [INFO ]  [Round 49] Client 2 starting AlterMin training...
+2025-11-08 23:59:04,788 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4219
+2025-11-08 23:59:04,801 [MainThread  ] [INFO ]    Current ASR: 0.2100, ASR Loss: 1.7786
+2025-11-08 23:59:04,818 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.2766
+2025-11-08 23:59:04,819 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:04,839 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:59:04,843 [MainThread  ] [INFO ]  [Round 49] Client 3 starting AlterMin training...
+2025-11-08 23:59:06,445 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4592
+2025-11-08 23:59:06,458 [MainThread  ] [INFO ]    Current ASR: 0.1600, ASR Loss: 2.1111
+2025-11-08 23:59:06,475 [MainThread  ] [INFO ]    Malicious training completed, loss: 2.2474
+2025-11-08 23:59:06,476 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:06,483 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:59:32,511 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-08 23:59:32,800 [MainThread  ] [INFO ]  ---------Test 49 ------------
+2025-11-08 23:59:38,992 [MainThread  ] [INFO ]  Clean ACC:              0.8445
+2025-11-08 23:59:38,993 [MainThread  ] [INFO ]  Attack Success Ratio:   0.5110
+2025-11-08 23:59:38,994 [MainThread  ] [INFO ]  Backdoor ACC:           0.8242
+2025-11-08 23:59:38,994 [MainThread  ] [INFO ]  ------------------------------
+2025-11-08 23:59:38,994 [MainThread  ] [INFO ]  --------round 50 ------------
+2025-11-08 23:59:38,997 [MainThread  ] [INFO ]  Selected 20 clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+2025-11-08 23:59:38,999 [MainThread  ] [INFO ]  [Round 50] Client 0 starting AlterMin training...
+2025-11-08 23:59:40,708 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4532
+2025-11-08 23:59:40,725 [MainThread  ] [INFO ]    Current ASR: 0.0300, ASR Loss: 3.0307
+2025-11-08 23:59:40,740 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.9283
+2025-11-08 23:59:40,742 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:40,750 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0001
+2025-11-08 23:59:40,755 [MainThread  ] [INFO ]  [Round 50] Client 1 starting AlterMin training...
+2025-11-08 23:59:42,630 [MainThread  ] [INFO ]    Benign training completed, loss: 0.6550
+2025-11-08 23:59:42,639 [MainThread  ] [INFO ]    Current ASR: 0.3300, ASR Loss: 2.0700
+2025-11-08 23:59:42,646 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.8183
+2025-11-08 23:59:42,646 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:42,650 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:59:42,653 [MainThread  ] [INFO ]  [Round 50] Client 2 starting AlterMin training...
+2025-11-08 23:59:44,632 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4278
+2025-11-08 23:59:44,641 [MainThread  ] [INFO ]    Current ASR: 0.1700, ASR Loss: 1.8576
+2025-11-08 23:59:44,648 [MainThread  ] [INFO ]    Malicious training completed, loss: 1.5363
+2025-11-08 23:59:44,649 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:44,659 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-08 23:59:44,661 [MainThread  ] [INFO ]  [Round 50] Client 3 starting AlterMin training...
+2025-11-08 23:59:46,141 [MainThread  ] [INFO ]    Benign training completed, loss: 0.4651
+2025-11-08 23:59:46,149 [MainThread  ] [INFO ]    Current ASR: 0.0600, ASR Loss: 2.4674
+2025-11-08 23:59:46,158 [MainThread  ] [INFO ]    Malicious training completed, loss: 3.1798
+2025-11-08 23:59:46,159 [MainThread  ] [INFO ]    Applied boosting with factor 1.5
+2025-11-08 23:59:46,165 [MainThread  ] [INFO ]    After boosting - ASR: 1.0000, ASR Loss: 0.0000
+2025-11-09 00:00:11,802 [MainThread  ] [INFO ]  Aggregating updates from 20 clients...
+2025-11-09 00:00:12,082 [MainThread  ] [INFO ]  ---------Test 50 ------------
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Clean ACC:              0.7760
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Attack Success Ratio:   0.9080
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Backdoor ACC:           0.7440
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  ------------------------------
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Best results:
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Clean ACC:              0.8445
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Attack Success Ratio:   0.5110
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Backdoor ACC:           0.8242
+2025-11-09 00:00:17,068 [MainThread  ] [INFO ]  Training has finished!
