@@ -124,29 +124,38 @@ class RAMPB:
 
     @torch.no_grad()
     def build_reference(self, updates):
-        """修改点 1：参数更新 L2 中间区间选参考候选，坐标 median 或 mean。"""
+        """先取已知良性客户端，再在其内部按 L2 筛选并构造参考。"""
         ids = list(updates)
         matrix = torch.stack([updates[c].detach() for c in ids])
         if matrix.shape[1] != self.dimension or not bool(torch.isfinite(matrix).all()):
             raise ValueError("Invalid update dimension or non-finite values")
         norms = matrix.norm(dim=1)
-        lower = torch.quantile(norms, self.args.l2_lower / 100)
-        upper = torch.quantile(norms, self.args.l2_upper / 100)
-        candidate = torch.where((norms >= lower) & (norms <= upper))[0]
-        fallback = candidate.numel() < min(self.args.min_reference, len(ids))
+        benign_rows = [i for i, cid in enumerate(ids) if cid >= self.args.num_corrupt]
+        if not benign_rows:
+            raise ValueError("Cannot construct oracle benign reference: no benign participant")
+        benign = torch.tensor(benign_rows, dtype=torch.long, device=matrix.device)
+        benign_norms = norms[benign]
+        lower = torch.quantile(benign_norms, self.args.l2_lower / 100)
+        upper = torch.quantile(benign_norms, self.args.l2_upper / 100)
+        candidate = benign[(benign_norms >= lower) & (benign_norms <= upper)]
+        fallback = candidate.numel() < min(self.args.min_reference, len(benign_rows))
         if fallback:
-            candidate = torch.arange(len(ids), device=matrix.device)
+            candidate = benign  # 只能回退到良性池，绝不能回退到全部客户端。
         values = matrix[candidate]
         ref = values.median(dim=0).values if self.args.reference == "median" else values.mean(dim=0)
+        reference_ids = [ids[i] for i in candidate.cpu().tolist()]
+        assert all(cid >= self.args.num_corrupt for cid in reference_ids)
         info = dict(
-            reference_clients=[ids[i] for i in candidate.cpu().tolist()],
+            reference_scope="oracle_benign_l2",
+            reference_pool_clients=[ids[i] for i in benign_rows],
+            reference_clients=reference_ids,
+            reference_strategy=self.args.reference,
             fallback=fallback,
-            l2_low=float(lower),
-            l2_high=float(upper),
-            reference_abs_below_epsilon_fraction=float(
-                (ref.abs() < self.args.epsilon).float().mean()
-            ),
+            l2_low=float(lower), l2_high=float(upper),
+            reference_abs_below_epsilon_fraction=float((ref.abs() < self.args.epsilon).float().mean()),
         )
+        logging.info("Reference scope=oracle_benign_l2 | benign_pool=%s | L2=[%.6g, %.6g] | reference=%s | method=%s | fallback=%s",
+                     info["reference_pool_clients"], float(lower), float(upper), reference_ids, self.args.reference, fallback)
         return ref, norms, info
 
     @torch.no_grad()
@@ -546,6 +555,7 @@ def train(args):
         settings=vars(args).copy(),
         observed_rounds=0,
         seed=args.seed,
+        reference_scope="oracle_benign_l2",
         implementation="self-contained src/ramp_b.py",
         formula="abs(delta)/(abs(reference)+epsilon)",
         oracle="known malicious IDs; paired normal updates",

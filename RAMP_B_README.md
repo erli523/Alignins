@@ -66,3 +66,9 @@ python src/ramp_b.py --device cuda:1 --rounds 100 --local_ep 2 \
 `tables/layers.csv` 为恶意客户端每层修复数量。
 
 默认只在最后一轮保存完整配对更新快照，减少磁盘占用；中间轮次全部保留统计。结束后自动生成训练曲线和独立 B 报告，不依赖 A/C/D。
+
+## 参考构造更新（2026-11-12）
+
+先取已知良性客户端，在良性池内部计算 L2 的 25%—75% 分位区间，再对候选逐坐标取 median（默认）。候选不足只回退全部良性；没有良性参与时明确报错。仍保留 --reference mean 供显式对照。日志、run.json 与快照均标记 reference_scope=oracle_benign_l2。这是使用真实身份的 Oracle 参考。
+
+已经运行中的进程仍使用其启动时的旧代码；重新运行请使用新的 --name，旧结果保留。

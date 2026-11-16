@@ -19,6 +19,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 if __name__ == "__main__":
+    # Native data, logs and source backups use paths relative to src.
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print("程序开始运行...")
     torch.backends.cudnn.enabled = True
     torch.backends.cudnn.benchmark = False
