@@ -1,6 +1,6 @@
 """Four queues, two GPUs, lean attack-evaluation reports. Run launch/report/status."""
 import argparse
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 import csv
 import fcntl
 import hashlib
@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import threading
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,6 +17,12 @@ DEFAULT = ROOT/'research_results/RAMP_attack_eval/cifar10_cifar100_AB_20261116'
 ATTACKS = ['DBA','neurotoxin','pgd','model_replacement','altermin','dynamic_trigger']
 CONFIGS = {'A':dict(topk_ratio=.05,penalty_strength=5), 'B':dict(topk_ratio=.04,penalty_strength=7)}
 QUEUES = [('cifar10','A',0,0),('cifar10','B',1,0),('cifar100','A',0,1),('cifar100','B',1,1)]
+LOG_LOCK=threading.Lock()
+
+
+def event(message):
+    with LOG_LOCK:
+        print(message,flush=True)
 
 
 def atomic_json(path,value):
@@ -116,6 +123,13 @@ def report(batch):
                 'milestones.csv stores exact-round metrics AND preceding 10-round means at 100/150/200.',
                 '', '## Run / inspect', '```bash',f'python research/ramp_attack_batch.py status --batch {batch}',
                 f'python research/ramp_attack_batch.py report --batch {batch}','```']
+        if manifest.get('validation'):
+            v=manifest['validation']
+            lines+=['','## Server validation',f'{v["smoke_passed"]} two-round smoke runs passed; DBA trigger composition and milestone arithmetic checked.',
+                    f'Two-process benchmark: {v["two_process_seconds"]:.2f}s; four-process benchmark: {v["four_process_seconds"]:.2f}s for the same four short jobs.',
+                    f'Configured concurrency: {v["queues"]}. Dynamic-trigger jobs take an exclusive GPU lock to avoid competing with another experiment on that GPU.']
+            if v.get('default_dynamic_smoke_passed'):
+                lines.append(f'Additional native-default dynamic-trigger checks passed on {v["default_dynamic_smoke_passed"]} datasets, including adversarial-model refreshes during all 50 outer iterations.')
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
@@ -167,11 +181,11 @@ def run_queue(batch,queue,manifest):
                 path.parent.mkdir(parents=True,exist_ok=True)
                 cmd=[sys.executable,'-u',str(ROOT/'src/ramp_attack_eval.py'),'--data',data,'--attack',job['attack'],
                      '--config',config,'--device',f'cuda:{gpu}','--output',str(path)]
-                print(f'START queue{queue} cuda:{gpu} {data} {job["attack"]} {config}',flush=True)
-                env=os.environ.copy();env.update(OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+                event(f'START queue{queue} cuda:{gpu} {data} {job["attack"]} {config}')
+                env=os.environ.copy();env.update(OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',TZ='Asia/Shanghai')
                 # The child owns the sole training.log, so no duplicate console log is retained.
                 code=subprocess.call(cmd,cwd=ROOT,env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-                print(f'FINISH queue{queue} {data} {job["attack"]} {config} exit={code}',flush=True)
+                event(f'FINISH queue{queue} {data} {job["attack"]} {config} exit={code}')
             report(batch)
             if code:raise RuntimeError(f'Run failed; inspect {path}/training.log')
 
@@ -201,10 +215,14 @@ def main():
             for q in qs:
                 try:run_queue(batch,q,manifest)
                 except Exception as e:
-                    failures.append(str(e));print('QUEUE FAILED:',str(e),flush=True)
+                    failures.append(str(e));event('QUEUE FAILED: '+str(e))
         groups=[[1],[2],[3],[4]] if args.queues==4 else [[1,3],[2,4]]
         with ThreadPoolExecutor(max_workers=len(groups)) as pool:
-            list(pool.map(group,groups))
+            pending={pool.submit(group,g) for g in groups}
+            while pending:
+                done,pending=wait(pending,timeout=60,return_when=FIRST_COMPLETED)
+                for future in done:future.result()
+                report(batch)
         print('Batch finished. Failures:',failures,flush=True);report(batch)
         if failures:sys.exit(1)
 
