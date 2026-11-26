@@ -1,0 +1,59 @@
+{
+  "checked_on": "2026-11-17",
+  "methods": {
+    "fedavg": {"status": "control", "implementation": "Sample-count weighted control, not a defense"},
+    "rlr": {
+      "status": "adapted",
+      "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/17118",
+      "preprint": "https://arxiv.org/abs/2007.03767",
+      "repository": "https://github.com/TinfoilHat0/Defending-Against-Backdoors-with-Robust-Learning-Rate",
+      "commit": "20b8f845264c5c2f78bdb61e4e8d0729de211fe2",
+      "reference_files": ["src/aggregation.py"],
+      "implementation": "Unweighted coordinate sign votes; sample-weighted updates; signed server LR"
+    },
+    "flame": {
+      "status": "paper_reimplementation",
+      "paper": "https://www.usenix.org/system/files/sec22-nguyen.pdf",
+      "reference_sections": ["Algorithm 1", "Section 4.3", "Appendix B and E"],
+      "third_party_repository": "https://github.com/zhmzm/FLAME",
+      "implementation": "Paper-based implementation, NOT author code; local-model cosine HDBSCAN, all-client median update norm, uniform clipped mean, Gaussian noise"
+    },
+    "lockdown": {
+      "status": "native_protocol_adapter",
+      "paper": "https://neurips.cc/virtual/2023/poster/71476",
+      "repository": "https://github.com/git-disl/Lockdown",
+      "commit": "147ec87642a4f61dea87a2e1685947efaa7fdc44",
+      "reference_files": ["src/agent_sparse.py", "src/federated.py", "src/aggregation.py"],
+      "implementation": "Reuse project sparse Agent; pruning/regrowth, weighted aggregation and pre-local-training-mask consensus evaluation; BadNet/DBA only"
+    },
+    "crfl": {
+      "status": "empirical_adaptation_not_certification",
+      "paper": "https://proceedings.mlr.press/v139/xie21a.html",
+      "repository": "https://github.com/AI-secure/CRFL",
+      "commit": "aaad6072282f9c36b9a5506014593149dd9cd040",
+      "reference_files": ["main.py", "utils/helper.py", "smooth_mnist.py", "certify_mnist.py"],
+      "implementation": "Paper Algorithm 1 global-parameter clipping/noise, final-round no noise; Monte Carlo vote smoothing. CIFAR clip/noise must be explicit; no certified radius"
+    },
+    "prodigal": {
+      "status": "author_code_algorithm_adapter",
+      "paper": "https://doi.org/10.1016/j.knosys.2025.114903",
+      "repository": "https://github.com/Lslland/Prodigal",
+      "commit": "6eab315a61453f95703219e9a5857c04d170e3f5",
+      "reference_files": ["fl_api/standalone/Isolation/isolation_model_trainer.py", "fl_api/standalone/Isolation/isolation_aggregation.py", "fl_api/standalone/Isolation/isolation_api.py"],
+      "implementation": "Per-layer final minibatch gradient Top-K; strict votes > theta; uniform full local model mean on common support; retained local outliers redistributed to their own clients"
+    },
+    "apr_fl": {
+      "status": "blocked_missing_full_method",
+      "paper": "https://doi.org/10.1109/TCE.2025.3612464",
+      "author_record": "https://napier-repository.worktribe.com/output/4911171/apr-fl-defending-against-hidden-backdoor-attacks-with-adaptive-parameter-replacement",
+      "reason": "Only metadata/abstract verified. Need full APR selection rule, clean-data protocol, multi-task loss, optimizer schedule and authoritative implementation. No placeholder defense is run."
+    },
+    "fedtof": {
+      "status": "blocked_missing_full_method",
+      "paper": "https://doi.org/10.1016/j.knosys.2026.116476",
+      "publisher": "https://www.sciencedirect.com/science/article/pii/S0950705126012025",
+      "issue_date": "2026-09-27",
+      "reason": "Publisher abstract verified; no complete algorithm/author code obtained. Need ATSD/FOF equations, history window, tail-rank/threshold rules and forgetting schedule. No generic SVD substitute is run."
+    }
+  }
+}
